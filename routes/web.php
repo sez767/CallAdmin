@@ -13,48 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-Route::get('lang/{lang}', [\App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace'=>'App\Http\Controllers\Admin'], function () {
-	Route::get('/', 'AdminController@index')->name('adminboard');
-	Route::get('/roles/data', 'RoleController@rolesData');
-	Route::resource('/roles', 'RoleController', ['except' => ['show']]);
-	Route::post('/categories/changeStatus', 'CategoryController@changeStatus');
-	Route::get('/categories/data', 'CategoryController@categoriesData');
-	Route::resource('/categories', 'CategoryController', ['except' => ['show']]);
-	Route::get('/icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
-	Route::get('/maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
-	Route::get('/notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
-	Route::get('/rtl', ['as' => 'pages.rtl', 'uses' => 'PageController@rtl']);
-	Route::get('/tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
-	Route::get('/typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
-	Route::get('/upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
-	Route::resource('/user', 'UserController', ['except' => ['show']]);
-	Route::resource('/products', 'ProductController', ['except' => ['update', 'show'], 'names' => ['index' => 'admin_product_index']]);
-	Route::get('/product/data/{id}', 'ProductController@productData');
-	Route::post('/products/{id}/update',  'ProductController@productUpdate');
-	Route::get('/product/data', 'ProductController@productsData');
-	Route::post('/products/{id}/deleteImg', 'ProductController@deleteImg');
-	Route::get('/profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('/profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('/profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/products', 'App\Http\Controllers\ProductController', [
-		'only' => ['index', 'show'],
-		'names' => ['show' => 'public_product_show']
-]);
-Route::get('/productslist', [\App\Http\Controllers\ProductController::class, 'list'])->name('products.list');;
-Route::get('/search/products', [\App\Http\Controllers\ProductController::class, 'search'])->name('products.search');
-Route::get('/poster/products/{imageId}', [\App\Http\Controllers\ProductController::class, 'getProductImage'])->name('products.poster');
-Route::post('/order/products', [\App\Http\Controllers\ProductController::class, 'addOrder'])->name('add_order');
 
+/*
+ * Clients management
+ * */
+Route::prefix('/clients')->group(function () {
+    Route::get('/', [\App\Http\Controllers\ClientsController::class, 'index']);
+    Route::get('/{client}', [\App\Http\Controllers\ClientsController::class, 'show']);
+    Route::post('/store', [\App\Http\Controllers\ClientsController::class, 'store']);
+    Route::patch('/{client}', [\App\Http\Controllers\ClientsController::class, 'update']);
+    Route::post('/destroy', [\App\Http\Controllers\ClientsController::class, 'destroyMass']);
+    Route::delete('/{client}/destroy', [\App\Http\Controllers\ClientsController::class, 'destroy']);
+});
 
+/*
+ * Current user
+ * */
+Route::prefix('/user')->group(function () {
+    Route::get('/', [\App\Http\Controllers\CurrentUserController::class, 'show']);
+    Route::patch('/', [\App\Http\Controllers\CurrentUserController::class, 'update']);
+    Route::patch('/password', [\App\Http\Controllers\CurrentUserController::class, 'updatePassword']);
+});
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*
+ * File upload (e.g. avatar)
+ * */
+Route::post('/files/store', [\App\Http\Controllers\FilesController::class, 'store']);

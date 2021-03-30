@@ -1,4 +1,5 @@
-const mix = require('laravel-mix');
+const mix = require('laravel-mix')
+const path = require('path')
 
 /*
  |--------------------------------------------------------------------------
@@ -11,6 +12,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+mix
+  .alias({
+    '@': path.join(__dirname, 'resources/js')
+  })
+  .js('resources/js/app.js', 'public/js').vue()
+  .sass('resources/sass/app.scss', 'public/css')
+  .styles([
+    'node_modules/@mdi/font/css/materialdesignicons.css'
+  ], 'public/css/vendor.css')
+  .copyDirectory('node_modules/@mdi/font/fonts', 'public/fonts')
+  .copyDirectory('resources/images', 'public/images')
+  .version()
