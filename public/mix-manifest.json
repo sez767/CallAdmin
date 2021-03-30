@@ -1,0 +1,14 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/admin.js": "/js/admin.js",
+    "/js/roles.js": "/js/roles.js",
+    "/js/categories.js": "/js/categories.js",
+    "/js/products.js": "/js/products.js",
+    "/js/productsCr.js": "/js/productsCr.js",
+    "/css/app.css": "/css/app.css",
+    "/css/vgt.css": "/css/vgt.css",
+    "/css/roles.css": "/css/roles.css",
+    "/css/multiselect.css": "/css/multiselect.css",
+    "/css/gallery.css": "/css/gallery.css",
+    "/css/form.css": "/css/form.css"
+}

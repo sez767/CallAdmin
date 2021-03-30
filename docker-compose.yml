@@ -1,0 +1,64 @@
+version: '3.7'
+x-template-app: &app_base
+  env_file:
+    - .env
+  build:
+    context: .
+    dockerfile: docker/app.dockerfile
+  working_dir: /var/www
+  volumes:
+    - ./:/var/www
+    - ./docker/php.ini:/usr/local/etc/php/php.ini
+  depends_on:
+    - database
+    - redis
+services:
+  app:
+    <<: *app_base
+    restart: always
+    container_name: calladmin_app
+    entrypoint: /entrypoint.sh
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/web.dockerfile
+    working_dir: /var/www
+    container_name: calladmin_web
+    ports:
+      - 8090:90
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - app
+  database:
+    restart: always
+    tty: true
+    container_name: calladmin_database
+    image: mariadb:10.3
+    env_file: .env
+    volumes:
+      - ./docker/mysqldata:/var/lib/mysql
+    ports:
+      - 42334:3306
+  redis:
+    image: 'redis:latest'
+    restart: always
+    container_name: calladmin_redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    volumes:
+      - ./docker/redis_data:/bitnami/redis
+  npm:
+    image: node:12.18
+    container_name: calladmin_npm
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
+    entrypoint: ['npm', '--no-bin-links']
+  worker:
+    <<: *app_base
+    restart: always
+    container_name: calladmin_worker
+    entrypoint: ./docker/worker-entrypoint.sh

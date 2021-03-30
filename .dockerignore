@@ -1,0 +1,4 @@
+docker/mysqldata
+docker/redisdata
+storage/app
+public/storage
