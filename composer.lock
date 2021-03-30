@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7f468ecc26c3b35f4e8a7c15e0856ee",
+    "content-hash": "04c3a939d3957f7b302f72d7c34f94bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7502,6 +7502,69 @@
                 }
             ],
             "time": "2020-07-12T23:59:07+00:00"
+        },
+        {
+            "name": "vikdiesel/admin-one-laravel-dashboard",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vikdiesel/admin-one-laravel-dashboard.git",
+                "reference": "24388617793f77ec02f440aec19220cf28ddbbda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vikdiesel/admin-one-laravel-dashboard/zipball/24388617793f77ec02f440aec19220cf28ddbbda",
+                "reference": "24388617793f77ec02f440aec19220cf28ddbbda",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0",
+                "laravel/ui": "^3.2",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AdminOneLaravelDashboard\\Package\\PackageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AdminOneLaravelDashboard\\Package\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JustBoil.me",
+                    "email": "viktor@justboil.me",
+                    "homepage": "https://justboil.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Admin One - Laravel Dashboard Preset (SPA)",
+            "homepage": "https://github.com/vikdiesel/admin-one-laravel-dashboard",
+            "keywords": [
+                "SPA",
+                "bulma",
+                "dashboard",
+                "laravel",
+                "preset",
+                "template",
+                "vue",
+                "vue-js",
+                "vuex"
+            ],
+            "support": {
+                "issues": "https://github.com/vikdiesel/admin-one-laravel-dashboard/issues",
+                "source": "https://github.com/vikdiesel/admin-one-laravel-dashboard/tree/v1.5.1"
+            },
+            "time": "2021-02-17T09:03:25+00:00"
         }
     ],
     "aliases": [],
@@ -7513,5 +7576,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

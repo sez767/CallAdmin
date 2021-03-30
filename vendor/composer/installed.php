@@ -1271,6 +1271,15 @@
       ),
       'reference' => 'b43b05cf43c1b6d849478965062b6ef73e223bb5',
     ),
+    'vikdiesel/admin-one-laravel-dashboard' => 
+    array (
+      'pretty_version' => '1.5.1',
+      'version' => '1.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '24388617793f77ec02f440aec19220cf28ddbbda',
+    ),
     'vlucas/phpdotenv' => 
     array (
       'pretty_version' => 'v5.3.0',

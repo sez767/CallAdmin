@@ -6,6 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminOneLaravelDashboard\\Package\\AdminOnePreset' => $vendorDir . '/vikdiesel/admin-one-laravel-dashboard/src/AdminOnePreset.php',
+    'AdminOneLaravelDashboard\\Package\\JbCommand' => $vendorDir . '/vikdiesel/admin-one-laravel-dashboard/src/JbCommand.php',
+    'AdminOneLaravelDashboard\\Package\\PackageServiceProvider' => $vendorDir . '/vikdiesel/admin-one-laravel-dashboard/src/PackageServiceProvider.php',
+    'AdminOneLaravelDashboard\\Package\\Preset' => $vendorDir . '/vikdiesel/admin-one-laravel-dashboard/src/Preset.php',
     'App\\Console\\Commands\\ProvideUserWithRole' => $baseDir . '/app/Console/Commands/ProvideUserWithRole.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',

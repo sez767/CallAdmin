@@ -182,6 +182,7 @@ class ComposerStaticInitfe8cce5a7bc7281cfc9c7ccc55e5d800
         array (
             'Asm89\\Stack\\' => 12,
             'App\\' => 4,
+            'AdminOneLaravelDashboard\\Package\\' => 33,
         ),
     );
 
@@ -521,6 +522,10 @@ class ComposerStaticInitfe8cce5a7bc7281cfc9c7ccc55e5d800
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'AdminOneLaravelDashboard\\Package\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vikdiesel/admin-one-laravel-dashboard/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -534,6 +539,10 @@ class ComposerStaticInitfe8cce5a7bc7281cfc9c7ccc55e5d800
     );
 
     public static $classMap = array (
+        'AdminOneLaravelDashboard\\Package\\AdminOnePreset' => __DIR__ . '/..' . '/vikdiesel/admin-one-laravel-dashboard/src/AdminOnePreset.php',
+        'AdminOneLaravelDashboard\\Package\\JbCommand' => __DIR__ . '/..' . '/vikdiesel/admin-one-laravel-dashboard/src/JbCommand.php',
+        'AdminOneLaravelDashboard\\Package\\PackageServiceProvider' => __DIR__ . '/..' . '/vikdiesel/admin-one-laravel-dashboard/src/PackageServiceProvider.php',
+        'AdminOneLaravelDashboard\\Package\\Preset' => __DIR__ . '/..' . '/vikdiesel/admin-one-laravel-dashboard/src/Preset.php',
         'App\\Console\\Commands\\ProvideUserWithRole' => __DIR__ . '/../..' . '/app/Console/Commands/ProvideUserWithRole.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',

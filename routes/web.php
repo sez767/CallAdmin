@@ -54,3 +54,7 @@ Route::get('/poster/products/{imageId}', [\App\Http\Controllers\ProductControlle
 Route::post('/order/products', [\App\Http\Controllers\ProductController::class, 'addOrder'])->name('add_order');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
