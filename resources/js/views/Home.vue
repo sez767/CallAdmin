@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title-bar :title-stack="titleStack"/>
+    <!-- <title-bar :title-stack="titleStack"/> -->
     <hero-bar :has-right-visible="false">
       Call_Admin
     </hero-bar>
@@ -70,7 +70,7 @@ export default {
     this.fillChartData()
 
     this.$buefy.snackbar.open({
-      message: 'Welcome back',
+      message: 'С возвращением :)',
       queue: false
     })
   },

@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Staff extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -35,3 +35,4 @@ class User extends Authenticatable
      * @var array
      */
 
+}

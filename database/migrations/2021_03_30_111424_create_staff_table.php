@@ -19,7 +19,7 @@ class CreateStaffTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('location', 100)->nullable();
-            $table->integer('site_id');
+            $table->integer('site_id')->nullable();
             $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
