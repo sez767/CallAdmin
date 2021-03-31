@@ -18,10 +18,10 @@ class CreateOrdersTable extends Migration
             $table->integer('staff_id');
             $table->tinyInteger('status');
             $table->string('source');
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('comment');
+            $table->string('name')->nullable();;
+            $table->string('phone')->nullable();;
+            $table->string('email')->nullable();;
+            $table->string('comment')->nullable();;
             $table->timestamps();
         });
     }

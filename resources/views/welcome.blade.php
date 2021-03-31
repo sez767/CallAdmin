@@ -5,14 +5,9 @@
         @component('components.card')
             @slot('title')
                 <span class="icon"><i class="mdi mdi-laravel"></i></span>
-                <span>Laravel Demo</span>
+                <span>Call_Admin</span>
             @endslot
-
             <div class="content">
-                <p>
-                    Hi, this is Laravel Demo of <a href="https://justboil.me/bulma-admin-template/one">JustBoil Admin One</a> Bulma & Vue.js admin dashboard template.
-                    Please, <a href="{{ route('login') }}">login</a> or <a href="{{ route('register') }}">register</a>&hellip;
-                </p>
                 <p>
                     &mdash; <b>Login:</b> user@example.com<br>
                     &mdash; <b>Password:</b> secret

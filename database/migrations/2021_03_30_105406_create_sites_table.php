@@ -18,9 +18,9 @@ class CreateSitesTable extends Migration
             $table->string('url', 255);
             $table->boolean('is_active');
             $table->boolean('is_chat');
-            $table->tinyInteger('answer_sec');
-            $table->string('widget_color', 10);
-            $table->tinyInteger('widget_size');
+            $table->tinyInteger('answer_sec')->nullable();
+            $table->string('widget_color', 10)->nullable();
+            $table->tinyInteger('widget_size')->nullable();
             $table->string('location', 100)->nullable();
             $table->string('logo', 100)->nullable();
             $table->timestamps();

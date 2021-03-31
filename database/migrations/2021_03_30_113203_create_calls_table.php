@@ -17,8 +17,8 @@ class CreateCallsTable extends Migration
             $table->id();
             $table->tinyInteger('source');
             $table->integer('staff_id');
-            $table->string('record_url');
-            $table->string('comment');
+            $table->string('record_url')->nullable();;
+            $table->string('comment')->nullable();;
             $table->timestamps();
         });
     }
