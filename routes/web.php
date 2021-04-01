@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+Route::redirect('/home', '/');
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -32,7 +29,17 @@ Route::prefix('/clients')->group(function () {
     Route::post('/destroy', [\App\Http\Controllers\ClientsController::class, 'destroyMass']);
     Route::delete('/{client}/destroy', [\App\Http\Controllers\ClientsController::class, 'destroy']);
 });
-
+/*
+ * Sites management
+ * */
+Route::prefix('/sites')->group(function () {
+    Route::get('/', [\App\Http\Controllers\SitesController::class, 'index']);
+    Route::get('/{sites}', [\App\Http\Controllers\SitesController::class, 'show']);
+    Route::post('/store', [\App\Http\Controllers\SitesController::class, 'store']);
+    Route::patch('/{sites}', [\App\Http\Controllers\SitesController::class, 'update']);
+    Route::post('/destroy', [\App\Http\Controllers\SitesController::class, 'destroyMass']);
+    Route::delete('/{sites}/destroy', [\App\Http\Controllers\SitesController::class, 'destroy']);
+});
 /*
  * Current user
  * */

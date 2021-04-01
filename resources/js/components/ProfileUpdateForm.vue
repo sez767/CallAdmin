@@ -2,7 +2,7 @@
   <card-component title="Edit Profile" icon="account-circle">
     <form @submit.prevent="submit">
       <b-field horizontal label="Avatar">
-        <file-picker @file-stored="fileStored"/>
+        <file-picker @file-updated="fileStored"/>
       </b-field>
       <hr>
       <b-field horizontal label="Name" :message="formNameMessage" :type="formNameType">
@@ -73,6 +73,7 @@ export default {
     fileStored(file) {
       this.isFileUploaded = true
       this.form.file_id = file.id
+      console.log('object');
 
       if (this.form.name && this.form.email) {
         this.submit()

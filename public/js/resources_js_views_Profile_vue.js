@@ -63,17 +63,17 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.isUploadSuccess) {
-        return 'File uploaded. Submit to store';
+        return 'Файл загружен. Нажмите "Сохранить".';
       }
 
       if (this.uploadPercent) {
-        return "Uploading ".concat(this.uploadPercent, "%");
+        return "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430 ".concat(this.uploadPercent, "%");
       }
 
       return this.message;
     },
     uploadButtonText: function uploadButtonText() {
-      return this.fileName ? null : 'Pick a file';
+      return this.fileName ? null : 'Выберите файл';
     },
     uploadButtonIcon: function uploadButtonIcon() {
       return this.fileName ? 'cloud-sync' : 'cloud-upload';
@@ -358,6 +358,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fileStored: function fileStored(file) {
       this.isFileUploaded = true;
       this.form.file_id = file.id;
+      console.log('object');
 
       if (this.form.name && this.form.email) {
         this.submit();
@@ -1315,7 +1316,7 @@ var render = function() {
           _c(
             "b-field",
             { attrs: { horizontal: "", label: "Avatar" } },
-            [_c("file-picker", { on: { "file-stored": _vm.fileStored } })],
+            [_c("file-picker", { on: { "file-updated": _vm.fileStored } })],
             1
           ),
           _vm._v(" "),

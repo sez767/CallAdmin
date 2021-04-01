@@ -3,7 +3,7 @@
     <nav-bar/>
     <aside-menu :menu="menu"/>
     <router-view/>
-    <footer-bar/>
+    <!-- <footer-bar/> -->
   </div>
 </template>
 
@@ -28,11 +28,18 @@ export default {
           {
             to: '/',
             icon: 'desktop-mac',
-            label: 'Dashboard'
-          }
-        ],
-        'Resource',
-        [
+            label: 'Главная'
+          },
+          {
+            to: '/sites/index',
+            label: 'Сайты',
+            icon: 'credit-card',
+          },
+          {
+            to: '/staff/index',
+            label: 'Персонал',
+            icon: 'credit-card',
+          },
           {
             to: '/clients/index',
             label: 'Clients',
@@ -73,19 +80,6 @@ export default {
             ]
           }
         ],
-        'About',
-        [
-          {
-            href: 'https://admin-one-laravel.justboil.me',
-            label: 'Premium Demo',
-            icon: 'credit-card'
-          },
-          {
-            href: 'https://justboil.me/bulma-admin-template/one',
-            label: 'About',
-            icon: 'help-circle'
-          }
-        ]
       ]
     }
   },

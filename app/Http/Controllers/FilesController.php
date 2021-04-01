@@ -28,14 +28,11 @@ class FilesController extends Controller
     public function store( FileUploadRequest $request ) {
         $uploadedFile = $request->file('file');
 
-        if (!$uploadedFile->isValid()) {
-            abort( 422 );
-        }
-
-        $storePath = $uploadedFile->store('public/media');
-
+        // if (!$uploadedFile->isValid()) {
+        //     abort( 422 );
+        // }
+        $storePath = $uploadedFile->store('public');
         $file = new File;
-
         $file->name = $uploadedFile->getClientOriginalName();
         $file->file = $storePath;
         $file->mime = $uploadedFile->getMimeType();

@@ -14,15 +14,18 @@ class CreateSitesTable extends Migration
     public function up()
     {
         Schema::create('sites', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->string('name', 255);
             $table->string('url', 255);
-            $table->boolean('is_active');
-            $table->boolean('is_chat');
+            $table->boolean('is_active')->default(0);
+            $table->boolean('is_chat')->default(0);
+            $table->boolean('is_answer')->default(0);
             $table->tinyInteger('answer_sec')->nullable();
+            $table->string('answer_text')->nullable();
             $table->string('widget_color', 10)->nullable();
             $table->tinyInteger('widget_size')->nullable();
             $table->string('location', 100)->nullable();
-            $table->string('logo', 100)->nullable();
+            $table->integer('file_id')->nullable();
             $table->timestamps();
         });
     }

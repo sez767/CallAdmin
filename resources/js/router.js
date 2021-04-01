@@ -13,6 +13,38 @@ export default new Router({
       component: Home
     },
     {
+      path: '/sites/index',
+      name: 'sites.index',
+      component: () => import('./views/Sites/SitesIndex.vue'),
+    },
+    {
+      path: '/sites/new',
+      name: 'sites.new',
+      component: () => import('./views/Sites/SitesForm.vue'),
+    },
+    {
+      path: '/sites/:id',
+      name: 'sites.edit',
+      component: () => import('./views/Sites/SitesForm.vue'),
+      props: true
+    },
+    {
+      path: '/staff/index',
+      name: 'staff.index',
+      component: () => import('./views/Staff/StaffIndex.vue'),
+    },
+    {
+      path: '/staff/new',
+      name: 'staff.new',
+      component: () => import('./views/Staff/StaffForm.vue'),
+    },
+    {
+      path: '/staff/:id',
+      name: 'staff.edit',
+      component: () => import('./views/Staff/StaffForm.vue'),
+      props: true
+    },
+    {
       path: '/tables',
       name: 'tables',
       component: () => import('./views/Tables.vue')

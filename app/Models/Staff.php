@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Processors\AvatarProcessor;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -17,7 +18,11 @@ class Staff extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'site_id',
+        'location',
     ];
 
     /**
@@ -34,5 +39,14 @@ class Staff extends Authenticatable
      *
      * @var array
      */
+    public function file() {
+        return $this->belongsTo(File::class);
+    }
+    public function sites() {
+        return $this->belongsToMany(Site::class);
+    }
+    public function getAvatarAttribute() {
+        return AvatarProcessor::get($this);
+    }
 
 }

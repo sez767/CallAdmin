@@ -1873,8 +1873,16 @@ __webpack_require__.r(__webpack_exports__);
       return ['General', [{
         to: '/',
         icon: 'desktop-mac',
-        label: 'Dashboard'
-      }], 'Resource', [{
+        label: 'Главная'
+      }, {
+        to: '/sites/index',
+        label: 'Сайты',
+        icon: 'credit-card'
+      }, {
+        to: '/staff/index',
+        label: 'Персонал',
+        icon: 'credit-card'
+      }, {
         to: '/clients/index',
         label: 'Clients',
         icon: 'account-multiple',
@@ -1902,14 +1910,6 @@ __webpack_require__.r(__webpack_exports__);
           href: '#void',
           label: 'Sub-item Two'
         }]
-      }], 'About', [{
-        href: 'https://admin-one-laravel.justboil.me',
-        label: 'Premium Demo',
-        icon: 'credit-card'
-      }, {
-        href: 'https://justboil.me/bulma-admin-template/one',
-        label: 'About',
-        icon: 'help-circle'
       }]];
     }
   },
@@ -2740,9 +2740,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/NavBarMenu */ "./resources/js/components/NavBarMenu.vue");
-/* harmony import */ var _components_UserAvatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/UserAvatar */ "./resources/js/components/UserAvatar.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/NavBarMenu */ "./resources/js/components/NavBarMenu.vue");
+/* harmony import */ var _components_UserAvatar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/UserAvatar */ "./resources/js/components/UserAvatar.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2818,8 +2818,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'NavBar',
   components: {
-    UserAvatar: _components_UserAvatar__WEBPACK_IMPORTED_MODULE_2__.default,
-    NavBarMenu: _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_1__.default
+    UserAvatar: _components_UserAvatar__WEBPACK_IMPORTED_MODULE_1__.default,
+    NavBarMenu: _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_0__.default
   },
   data: function data() {
     return {
@@ -2833,7 +2833,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     menuToggleMobileIcon: function menuToggleMobileIcon() {
       return this.isAsideMobileExpanded ? 'backburger' : 'forwardburger';
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['isNavBarVisible', 'isAsideMobileExpanded', 'userName'])),
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(['isNavBarVisible', 'isAsideMobileExpanded', 'userName'])),
   mounted: function mounted() {
     var _this = this;
 
@@ -3440,20 +3440,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/Home.vue */ "./resources/js/views/Home.vue");
+/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/Home.vue */ "./resources/js/views/Home.vue");
 /* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
+vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
   base: process.env.BASE_URL,
   routes: [{
     path: '/',
     name: 'home',
-    component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_1__.default
+  }, {
+    path: '/sites/index',
+    name: 'sites.index',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Sites_SitesIndex_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Sites/SitesIndex.vue */ "./resources/js/views/Sites/SitesIndex.vue"));
+    }
+  }, {
+    path: '/sites/new',
+    name: 'sites.new',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Sites_SitesForm_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Sites/SitesForm.vue */ "./resources/js/views/Sites/SitesForm.vue"));
+    }
+  }, {
+    path: '/sites/:id',
+    name: 'sites.edit',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Sites_SitesForm_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Sites/SitesForm.vue */ "./resources/js/views/Sites/SitesForm.vue"));
+    },
+    props: true
+  }, {
+    path: '/staff/index',
+    name: 'staff.index',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Staff_StaffIndex_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Staff/StaffIndex.vue */ "./resources/js/views/Staff/StaffIndex.vue"));
+    }
+  }, {
+    path: '/staff/new',
+    name: 'staff.new',
+    component: function component() {
+      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/Staff/StaffForm.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+    }
+  }, {
+    path: '/staff/:id',
+    name: 'staff.edit',
+    component: function component() {
+      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/Staff/StaffForm.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+    },
+    props: true
   }, {
     path: '/tables',
     name: 'tables',
@@ -66437,9 +66475,7 @@ var render = function() {
       _vm._v(" "),
       _c("aside-menu", { attrs: { menu: _vm.menu } }),
       _vm._v(" "),
-      _c("router-view"),
-      _vm._v(" "),
-      _c("footer-bar")
+      _c("router-view")
     ],
     1
   )
@@ -66483,8 +66519,8 @@ var render = function() {
     [
       _c("aside-tools", { attrs: { "is-main-menu": true } }, [
         _c("span", { attrs: { slot: "label" }, slot: "label" }, [
-          _c("b", [_vm._v("Admin")]),
-          _vm._v(" One\n    ")
+          _c("b", [_vm._v("Call")]),
+          _vm._v("Admin\n    ")
         ])
       ]),
       _vm._v(" "),
@@ -67652,7 +67688,8 @@ var render = function() {
     "div",
     [
       _c("hero-bar", { attrs: { "has-right-visible": false } }, [
-        _vm._v("\n    Call_Admin\n  ")
+        _c("b", [_vm._v("Call")]),
+        _vm._v("Admin\n  ")
       ]),
       _vm._v(" "),
       _c(
@@ -67729,15 +67766,10 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c(
-            "card-component",
-            {
-              staticClass: "has-table has-mobile-sort-spaced",
-              attrs: { title: "Clients" }
-            },
-            [_c("clients-table-sample", { attrs: { "data-url": "/clients" } })],
-            1
-          )
+          _c("card-component", {
+            staticClass: "has-table has-mobile-sort-spaced",
+            attrs: { title: "Clients" }
+          })
         ],
         1
       )
@@ -84385,7 +84417,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_Tables_vue":1,"resources_js_views_Forms_vue":1,"resources_js_views_Profile_vue":1,"resources_js_views_Clients_ClientsIndex_vue":1,"resources_js_views_Clients_ClientsForm_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_Sites_SitesIndex_vue":1,"resources_js_views_Sites_SitesForm_vue":1,"resources_js_views_Staff_StaffIndex_vue":1,"resources_js_views_Tables_vue":1,"resources_js_views_Forms_vue":1,"resources_js_views_Profile_vue":1,"resources_js_views_Clients_ClientsIndex_vue":1,"resources_js_views_Clients_ClientsForm_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

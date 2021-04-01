@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'JustBoil Admin One') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     {{-- Scripts --}}
     @stack('head-scripts')

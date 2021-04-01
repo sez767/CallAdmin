@@ -45,6 +45,7 @@ class CurrentUserController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function update( ProfileUpdateRequest $request ) {
+        
         $user = $request->user();
 
         $user->fill($request->only(['name','email']));

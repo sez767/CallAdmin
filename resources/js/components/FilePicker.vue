@@ -50,17 +50,17 @@ export default {
       }
 
       if (this.isUploadSuccess) {
-        return 'File uploaded. Submit to store'
+        return 'Файл загружен. Нажмите "Сохранить".'
       }
 
       if (this.uploadPercent) {
-        return `Uploading ${this.uploadPercent}%`
+        return `Загрузка ${this.uploadPercent}%`
       }
 
       return this.message
     },
     uploadButtonText() {
-      return (this.fileName) ? null : 'Pick a file'
+      return (this.fileName) ? null : 'Выберите файл'
     },
     uploadButtonIcon() {
       return (this.fileName) ? 'cloud-sync' : 'cloud-upload'

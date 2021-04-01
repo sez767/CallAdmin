@@ -44,20 +44,22 @@
                         <span class="check is-black"></span>
                         <span class="control-label">{{ __('Remember Me') }}</span>
                     </label>
+                    <hr>
+                    @if (Route::has('password.request'))
+                        <a class="" href="{{ route('password.request') }}">
+                            {{ __('Forgot Password?') }}
+                        </a>
+                    @endif
+                    
                 </div>
 
-                <hr>
+                
 
                 <div class="field is-form-action-buttons">
                     <button type="submit" class="button is-black">
                         {{ __('Login') }}
                     </button>
-
-                    @if (Route::has('password.request'))
-                        <a class="button is-black is-outlined" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
+                    <a href="{{ route('register') }}" class="button is-black is-outlined">Register</a>
                 </div>
             </form>
         @endcomponent

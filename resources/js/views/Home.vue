@@ -2,7 +2,7 @@
   <div>
     <!-- <title-bar :title-stack="titleStack"/> -->
     <hero-bar :has-right-visible="false">
-      Call_Admin
+      <b>Call</b>Admin
     </hero-bar>
     <section class="section is-main-section">
       <tiles>
@@ -23,7 +23,7 @@
       </card-component>
 
       <card-component title="Clients" class="has-table has-mobile-sort-spaced">
-        <clients-table-sample data-url="/clients"/>
+        <!-- <clients-table-sample data-url="/clients"/> -->
       </card-component>
     </section>
   </div>
