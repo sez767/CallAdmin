@@ -215,13 +215,13 @@ __webpack_require__.r(__webpack_exports__);
       return this.errors.password_current ? 'is-danger' : null;
     },
     formPasswordCurrentMessage: function formPasswordCurrentMessage() {
-      return this.errors.password_current ? this.errors.password_current[0] : 'Required. Your current password';
+      return this.errors.password_current ? this.errors.password_current[0] : 'Старый пароль';
     },
     formPasswordType: function formPasswordType() {
       return this.errors.password ? 'is-danger' : null;
     },
     formPasswordMessage: function formPasswordMessage() {
-      return this.errors.password ? this.errors.password[0] : 'Required. New password';
+      return this.errors.password ? this.errors.password[0] : 'Новый пароль';
     }
   },
   methods: {
@@ -280,9 +280,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/each */ "./node_modules/lodash/each.js");
 /* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_each__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _components_FilePicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/FilePicker */ "./resources/js/components/FilePicker.vue");
-/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _components_FilePicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/FilePicker */ "./resources/js/components/FilePicker.vue");
+/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -321,8 +321,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ProfileUpdateForm',
   components: {
-    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__.default,
-    FilePicker: _components_FilePicker__WEBPACK_IMPORTED_MODULE_1__.default
+    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_3__.default,
+    FilePicker: _components_FilePicker__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
@@ -341,15 +341,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.errors.name ? 'is-danger' : null;
     },
     formNameMessage: function formNameMessage() {
-      return this.errors.name ? this.errors.name[0] : 'Required. Your name';
+      return this.errors.name ? this.errors.name[0] : 'Изменить имя';
     },
     formEmailType: function formEmailType() {
       return this.errors.email ? 'is-danger' : null;
     },
     formEmailMessage: function formEmailMessage() {
-      return this.errors.email ? this.errors.email[0] : 'Required. Your e-mail';
+      return this.errors.email ? this.errors.email[0] : 'Изменить e-mail';
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapState)(['userName', 'userEmail'])),
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapState)(['userName', 'userEmail'])),
   mounted: function mounted() {
     this.form.name = this.userName;
     this.form.email = this.userEmail;
@@ -379,7 +379,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.$store.commit('user', r.data.data);
 
         _this.$buefy.snackbar.open({
-          message: 'Profile updated',
+          message: 'Профиль обновлен',
           duration: 1000,
           queue: false
         });
@@ -1150,7 +1150,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "card-component",
-    { attrs: { title: "Change Password", icon: "lock" } },
+    { attrs: { title: "Изменить пароль", icon: "lock" } },
     [
       _c(
         "form",
@@ -1168,7 +1168,7 @@ var render = function() {
             {
               attrs: {
                 horizontal: "",
-                label: "Current password",
+                label: "Текущий пароль",
                 message: _vm.formPasswordCurrentMessage,
                 type: _vm.formPasswordCurrentType
               }
@@ -1200,7 +1200,7 @@ var render = function() {
             {
               attrs: {
                 horizontal: "",
-                label: "New password",
+                label: "Новый пароль",
                 message: _vm.formPasswordMessage,
                 type: _vm.formPasswordType
               }
@@ -1230,8 +1230,8 @@ var render = function() {
             {
               attrs: {
                 horizontal: "",
-                label: "New password (confirm)",
-                message: "Required. New password one more time"
+                label: "Повторите новый пароль",
+                message: "Введите новый пароль еще раз"
               }
             },
             [
@@ -1265,7 +1265,7 @@ var render = function() {
                   class: { "is-loading": _vm.isLoading },
                   attrs: { type: "submit" }
                 },
-                [_vm._v("\n          Submit\n        ")]
+                [_vm._v("\n          Сохранить пароль\n        ")]
               )
             ])
           ])
@@ -1300,7 +1300,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "card-component",
-    { attrs: { title: "Edit Profile", icon: "account-circle" } },
+    { attrs: { title: "Редактировать профиль", icon: "account-circle" } },
     [
       _c(
         "form",
@@ -1315,7 +1315,7 @@ var render = function() {
         [
           _c(
             "b-field",
-            { attrs: { horizontal: "", label: "Avatar" } },
+            { attrs: { horizontal: "", label: "Аватар" } },
             [_c("file-picker", { on: { "file-updated": _vm.fileStored } })],
             1
           ),
@@ -1327,7 +1327,7 @@ var render = function() {
             {
               attrs: {
                 horizontal: "",
-                label: "Name",
+                label: "Имя",
                 message: _vm.formNameMessage,
                 type: _vm.formNameType
               }
@@ -1383,7 +1383,7 @@ var render = function() {
                   class: { "is-loading": _vm.isLoading },
                   attrs: { type: "submit" }
                 },
-                [_vm._v("\n          Submit\n        ")]
+                [_vm._v("\n          Сохранить\n        ")]
               )
             ])
           ])
@@ -1476,7 +1476,7 @@ var render = function() {
       _c(
         "hero-bar",
         [
-          _vm._v("\n    Profile\n    "),
+          _vm._v("\n    Профиль\n    "),
           _c(
             "router-link",
             {
@@ -1484,7 +1484,7 @@ var render = function() {
               attrs: { slot: "right", to: "/" },
               slot: "right"
             },
-            [_vm._v("\n      Dashboard\n    ")]
+            [_vm._v("\n      На главную\n    ")]
           )
         ],
         1
@@ -1503,7 +1503,7 @@ var render = function() {
                 "card-component",
                 {
                   staticClass: "tile is-child",
-                  attrs: { title: "Profile", icon: "account" }
+                  attrs: { title: "Профиль", icon: "account" }
                 },
                 [
                   _c("user-avatar", {
@@ -1514,7 +1514,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "b-field",
-                    { attrs: { label: "Name" } },
+                    { attrs: { label: "Имя" } },
                     [
                       _c("b-input", {
                         attrs: {

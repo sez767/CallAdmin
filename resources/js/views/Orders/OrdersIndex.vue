@@ -1,17 +1,30 @@
 <template>
   <div>
-    <title-bar :title-stack="['CallAdmin', 'Персонал']"/>
+    <title-bar :title-stack="['CallAdmin', 'Заявки']"/>
     <hero-bar>
-      Персонал
-      <b-button label="Пригласить" size="is-medium" slot="right"
-        @click="modalHandler = true"
-         />
+      Заявки
+      <router-link slot="right" to="/" class="button">
+        На главную
+      </router-link>
     </hero-bar>
     <section class="section is-main-section">
       <card-component class="has-table has-mobile-sort-spaced" icon="account-multiple">
+        <card-toolbar>
+          <button slot="right" type="button" class="button is-danger is-small has-checked-rows-number" @click="trashModal(null)" :disabled="!checkedRows.length">
+            <b-icon icon="trash-can" custom-size="default"/>
+            <span>Удалить выбраные</span>
+            <span v-show="!!checkedRows.length">({{ checkedRows.length }})</span>
+          </button>
+        </card-toolbar>
+        <modal-box
+          :is-active="isModalActive"
+          :trash-object-name="trashSubject"
+          @confirm="trashConfirm"
+          @cancel="trashCancel"
+        />
         <b-table
           :checked-rows.sync="checkedRows"
-          :checkable="false"
+          :checkable="true"
           :loading="isLoading"
           :paginated="paginated"
           :per-page="perPage"
@@ -19,29 +32,30 @@
           :hoverable="true"
           default-sort="name"
           :data="clients">
-            <b-table-column label="ID" field="name" sortable v-slot="props">
-              {{ props.row.id }}
-            </b-table-column>
-            <b-table-column label="Аватар" class="has-no-head-mobile is-image-cell" v-slot="props">
+
+            <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
               <div v-if="props.row.avatar" class="image">
                 <img :src="props.row.avatar" class="is-rounded">
               </div>
             </b-table-column>
-            <b-table-column label="Имя" field="name" sortable v-slot="props">
+            <b-table-column label="Name" field="name" sortable v-slot="props">
               {{ props.row.name }}
             </b-table-column>
-            <b-table-column label="Email" field="email" sortable v-slot="props">
-              {{ props.row.email }}
+            <b-table-column label="Дата" field="date" sortable v-slot="props">
+              {{ props.row.date }}
             </b-table-column>
-            <b-table-column label="Сайты" field="city" sortable v-slot="props">
-              <div v-for="site in props.row.sites" v-bind:key="site.id">
-                {{ site.url }}
-              </div>
+            <b-table-column label="Статус" field="status" sortable v-slot="props">
+              {{ props.row.status }}
             </b-table-column>
-            
+            <b-table-column label="Сайт" field="site" sortable v-slot="props">
+              {{ props.row.site }}
+            </b-table-column>
+            <b-table-column label="Оператор" field="staff" sortable v-slot="props">
+              {{ props.row.staff }}
+            </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'staff.edit', params: {id: props.row.id}}" class="button is-small is-primary">
+                <router-link :to="{name:'clients.edit', params: {id: props.row.id}}" class="button is-small is-primary">
                   <b-icon icon="account-edit" size="is-small"/>
                 </router-link>
                 <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
@@ -49,46 +63,7 @@
                 </button>
               </div>
             </b-table-column>
-        <b-modal v-model="modalHandler">
-                <div class="modal-card" style="width: auto;">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Пригласить</p>
-                        <button
-                            type="button"
-                            class="delete"
-                            @click="modalHandler = !modalHandler"/>
-                    </header>
-                    <section class="modal-card-body">
-                        <b-field label="Выберите сайт">
-                          <b-select placeholder="Выберите ваш сайт" v-model="modal.site" expanded>
-                              <option
-                                v-for="option in sites"
-                                :value="option.id"
-                                :key="option.id"
-                                >
-                                {{ option.url }}
-                              </option>
-                          </b-select>
-                        </b-field>
-                        <b-field label="Email">
-                            <b-input
-                                type="email"
-                                icon="email"
-                                placeholder="Почта"
-                                v-model="modal.email"
-                                required>
-                            </b-input>
-                        </b-field>
-                   </section>
-                    <footer class="modal-card-foot">
-                        <b-button
-                            label="Отправить"
-                            type="is-primary"
-                            @click.prevent="submitModal"
-                             />
-                    </footer>
-                </div>
-        </b-modal>
+
           <section class="section" slot="empty">
             <div class="content has-text-grey has-text-centered">
               <template v-if="isLoading">
@@ -126,18 +101,12 @@ export default {
   data () {
     return {
       isModalActive: false,
-      modalHandler: false,
       trashObject: null,
       clients: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
-      checkedRows: [],
-      modal: {
-        site: null,
-        email: null,
-      },
-      sites: [],
+      checkedRows: []
     }
   },
   computed: {
@@ -155,13 +124,12 @@ export default {
   },
   created () {
     this.getData()
-    this.getSites()
   },
   methods: {
     getData () {
       this.isLoading = true
       axios
-        .get('/staff')
+        .get('/clients')
         .then(r => {
           this.isLoading = false
           if (r.data && r.data.data) {
@@ -180,44 +148,6 @@ export default {
           })
         })
     },
-    getSites () {
-      axios
-        .get('/sites')
-        .then(r => {
-          this.sites = r.data.data
-        })
-        .catch( err => {
-          this.$buefy.toast.open({
-            message: `Error: ${err.message}`,
-            type: 'is-danger',
-            queue: false
-          })
-        })
-    },
-    submitModal () {
-      let method = 'post'
-      let url = '/staff/invite'
-      axios({
-        method,
-        url,
-        data: this.modal
-      }).then(r => {
-          this.modalHandler = false;
-          this.$buefy.snackbar.open({
-            message: 'Отправлено',
-            queue: false
-          })
-
-      }).catch(e => {
-        this.isLoading = false
-
-        this.$buefy.toast.open({
-          message: `Error: ${e.message}`,
-          type: 'is-danger',
-          queue: false
-        })
-      })
-    },
     trashModal (trashObject = null) {
       if (trashObject || this.checkedRows.length) {
         this.trashObject = trashObject
@@ -233,10 +163,10 @@ export default {
 
       if (this.trashObject) {
         method = 'delete'
-        url = `/staff/${this.trashObject.id}/destroy`
+        url = `/clients/${this.trashObject.id}/destroy`
       } else if (this.checkedRows.length) {
         method = 'post'
-        url = '/staff/destroy'
+        url = '/clients/destroy'
         data = {
           ids: map(this.checkedRows, row => row.id)
         }
@@ -253,7 +183,7 @@ export default {
         this.checkedRows = []
 
         this.$buefy.snackbar.open({
-          message: `Удален`,
+          message: `Deleted`,
           queue: false
         })
       }).catch( err => {

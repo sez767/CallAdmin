@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Sites_SitesIndex_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Visits_VisitsIndex_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardToolbar.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************************!*\
@@ -89,10 +89,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesIndex.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesIndex.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Visits/VisitsIndex.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Visits/VisitsIndex.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -100,20 +100,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
-/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
-/* harmony import */ var _components_ModalBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/ModalBox */ "./resources/js/components/ModalBox.vue");
-/* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/TitleBar */ "./resources/js/components/TitleBar.vue");
-/* harmony import */ var _components_HeroBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/HeroBar */ "./resources/js/components/HeroBar.vue");
-/* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
+/* harmony import */ var _components_ModalBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/ModalBox */ "./resources/js/components/ModalBox.vue");
+/* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/TitleBar */ "./resources/js/components/TitleBar.vue");
+/* harmony import */ var _components_HeroBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/HeroBar */ "./resources/js/components/HeroBar.vue");
+/* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
 //
 //
 //
@@ -203,8 +196,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-
 
 
 
@@ -212,26 +203,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "SitesIndex",
+  name: "ClientIndex",
   components: {
-    CardToolbar: _components_CardToolbar__WEBPACK_IMPORTED_MODULE_6__.default,
-    HeroBar: _components_HeroBar__WEBPACK_IMPORTED_MODULE_5__.default,
-    TitleBar: _components_TitleBar__WEBPACK_IMPORTED_MODULE_4__.default,
-    ModalBox: _components_ModalBox__WEBPACK_IMPORTED_MODULE_3__.default,
-    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__.default
+    CardToolbar: _components_CardToolbar__WEBPACK_IMPORTED_MODULE_5__.default,
+    HeroBar: _components_HeroBar__WEBPACK_IMPORTED_MODULE_4__.default,
+    TitleBar: _components_TitleBar__WEBPACK_IMPORTED_MODULE_3__.default,
+    ModalBox: _components_ModalBox__WEBPACK_IMPORTED_MODULE_2__.default,
+    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__.default
   },
   data: function data() {
     return {
       isModalActive: false,
       trashObject: null,
-      sites: [],
+      clients: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
       checkedRows: []
     };
   },
-  computed: _objectSpread({
+  computed: {
     trashSubject: function trashSubject() {
       if (this.trashObject) {
         return this.trashObject.name;
@@ -243,7 +234,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return null;
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['userId'])),
+  },
   created: function created() {
     this.getData();
   },
@@ -252,7 +243,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       this.isLoading = true;
-      axios.get('/sites').then(function (r) {
+      axios.get('/clients').then(function (r) {
         _this.isLoading = false;
 
         if (r.data && r.data.data) {
@@ -260,7 +251,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             _this.paginated = true;
           }
 
-          _this.sites = r.data.data;
+          _this.clients = r.data.data;
         }
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -290,12 +281,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (this.trashObject) {
         method = 'delete';
-        url = "/sites/".concat(this.trashObject.id, "/destroy");
+        url = "/clients/".concat(this.trashObject.id, "/destroy");
       } else if (this.checkedRows.length) {
         method = 'post';
-        url = '/sites/destroy';
+        url = '/clients/destroy';
         data = {
-          ids: lodash_map__WEBPACK_IMPORTED_MODULE_1___default()(this.checkedRows, function (row) {
+          ids: lodash_map__WEBPACK_IMPORTED_MODULE_0___default()(this.checkedRows, function (row) {
             return row.id;
           })
         };
@@ -312,7 +303,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.checkedRows = [];
 
         _this2.$buefy.snackbar.open({
-          message: "\u0423\u0434\u0430\u043B\u0435\u043D",
+          message: "Deleted",
           queue: false
         });
       })["catch"](function (err) {
@@ -504,10 +495,10 @@ component.options.__file = "resources/js/components/TitleBar.vue"
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesIndex.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/views/Sites/SitesIndex.vue ***!
-  \*************************************************/
+/***/ "./resources/js/views/Visits/VisitsIndex.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/views/Visits/VisitsIndex.vue ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -515,8 +506,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _SitesIndex_vue_vue_type_template_id_587f0ac8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SitesIndex.vue?vue&type=template&id=587f0ac8& */ "./resources/js/views/Sites/SitesIndex.vue?vue&type=template&id=587f0ac8&");
-/* harmony import */ var _SitesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SitesIndex.vue?vue&type=script&lang=js& */ "./resources/js/views/Sites/SitesIndex.vue?vue&type=script&lang=js&");
+/* harmony import */ var _VisitsIndex_vue_vue_type_template_id_1304d83c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VisitsIndex.vue?vue&type=template&id=1304d83c& */ "./resources/js/views/Visits/VisitsIndex.vue?vue&type=template&id=1304d83c&");
+/* harmony import */ var _VisitsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VisitsIndex.vue?vue&type=script&lang=js& */ "./resources/js/views/Visits/VisitsIndex.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -526,9 +517,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _SitesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _SitesIndex_vue_vue_type_template_id_587f0ac8___WEBPACK_IMPORTED_MODULE_0__.render,
-  _SitesIndex_vue_vue_type_template_id_587f0ac8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _VisitsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _VisitsIndex_vue_vue_type_template_id_1304d83c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _VisitsIndex_vue_vue_type_template_id_1304d83c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -538,7 +529,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Sites/SitesIndex.vue"
+component.options.__file = "resources/js/views/Visits/VisitsIndex.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -575,10 +566,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesIndex.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/views/Sites/SitesIndex.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/views/Visits/VisitsIndex.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/views/Visits/VisitsIndex.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -586,8 +577,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesIndex.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesIndex.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VisitsIndex.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Visits/VisitsIndex.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -625,19 +616,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesIndex.vue?vue&type=template&id=587f0ac8&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/views/Sites/SitesIndex.vue?vue&type=template&id=587f0ac8& ***!
-  \********************************************************************************/
+/***/ "./resources/js/views/Visits/VisitsIndex.vue?vue&type=template&id=1304d83c&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/views/Visits/VisitsIndex.vue?vue&type=template&id=1304d83c& ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesIndex_vue_vue_type_template_id_587f0ac8___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesIndex_vue_vue_type_template_id_587f0ac8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitsIndex_vue_vue_type_template_id_1304d83c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitsIndex_vue_vue_type_template_id_1304d83c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesIndex_vue_vue_type_template_id_587f0ac8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesIndex.vue?vue&type=template&id=587f0ac8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesIndex.vue?vue&type=template&id=587f0ac8&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VisitsIndex_vue_vue_type_template_id_1304d83c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VisitsIndex.vue?vue&type=template&id=1304d83c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Visits/VisitsIndex.vue?vue&type=template&id=1304d83c&");
 
 
 /***/ }),
@@ -729,10 +720,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesIndex.vue?vue&type=template&id=587f0ac8&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesIndex.vue?vue&type=template&id=587f0ac8& ***!
-  \***********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Visits/VisitsIndex.vue?vue&type=template&id=1304d83c&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Visits/VisitsIndex.vue?vue&type=template&id=1304d83c& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -748,20 +739,20 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("title-bar", { attrs: { "title-stack": ["CallAdmin", "Сайты"] } }),
+      _c("title-bar", { attrs: { "title-stack": ["CallAdmin", "Посещения"] } }),
       _vm._v(" "),
       _c(
         "hero-bar",
         [
-          _vm._v("\n    Сайты\n    "),
+          _vm._v("\n    Посещения\n    "),
           _c(
             "router-link",
             {
               staticClass: "button",
-              attrs: { slot: "right", to: "/sites/new", size: "is-medium" },
+              attrs: { slot: "right", to: "/" },
               slot: "right"
             },
-            [_vm._v("\n      Новый сайт\n    ")]
+            [_vm._v("\n      На главную\n    ")]
           )
         ],
         1
@@ -778,6 +769,50 @@ var render = function() {
               attrs: { icon: "account-multiple" }
             },
             [
+              _c("card-toolbar", [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "button is-danger is-small has-checked-rows-number",
+                    attrs: {
+                      slot: "right",
+                      type: "button",
+                      disabled: !_vm.checkedRows.length
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.trashModal(null)
+                      }
+                    },
+                    slot: "right"
+                  },
+                  [
+                    _c("b-icon", {
+                      attrs: { icon: "trash-can", "custom-size": "default" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Удалить выбраные")]),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: !!_vm.checkedRows.length,
+                            expression: "!!checkedRows.length"
+                          }
+                        ]
+                      },
+                      [_vm._v("(" + _vm._s(_vm.checkedRows.length) + ")")]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
               _c("modal-box", {
                 attrs: {
                   "is-active": _vm.isModalActive,
@@ -791,14 +826,14 @@ var render = function() {
                 {
                   attrs: {
                     "checked-rows": _vm.checkedRows,
-                    checkable: false,
+                    checkable: true,
                     loading: _vm.isLoading,
                     paginated: _vm.paginated,
                     "per-page": _vm.perPage,
                     striped: true,
                     hoverable: true,
                     "default-sort": "name",
-                    data: _vm.sites
+                    data: _vm.clients
                   },
                   on: {
                     "update:checkedRows": function($event) {
@@ -832,7 +867,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Название", field: "name", sortable: "" },
+                    attrs: { label: "Name", field: "name", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -850,7 +885,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "URL", field: "company", sortable: "" },
+                    attrs: { label: "Дата", field: "date", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -858,7 +893,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.url) +
+                                _vm._s(props.row.date) +
                                 "\n          "
                             )
                           ]
@@ -868,68 +903,53 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: {
-                      label: "Активный",
-                      field: "is_active",
-                      sortable: ""
-                    },
+                    attrs: { label: "Статус", field: "status", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: props.row.is_active,
-                                  expression: "props.row.is_active"
-                                }
-                              ],
-                              attrs: {
-                                type: "checkbox",
-                                id: "checkbox",
-                                "true-value": "1",
-                                "false-value": "0",
-                                disabled: ""
-                              },
-                              domProps: {
-                                checked: Array.isArray(props.row.is_active)
-                                  ? _vm._i(props.row.is_active, null) > -1
-                                  : _vm._q(props.row.is_active, "1")
-                              },
-                              on: {
-                                change: function($event) {
-                                  var $$a = props.row.is_active,
-                                    $$el = $event.target,
-                                    $$c = $$el.checked ? "1" : "0"
-                                  if (Array.isArray($$a)) {
-                                    var $$v = null,
-                                      $$i = _vm._i($$a, $$v)
-                                    if ($$el.checked) {
-                                      $$i < 0 &&
-                                        _vm.$set(
-                                          props.row,
-                                          "is_active",
-                                          $$a.concat([$$v])
-                                        )
-                                    } else {
-                                      $$i > -1 &&
-                                        _vm.$set(
-                                          props.row,
-                                          "is_active",
-                                          $$a
-                                            .slice(0, $$i)
-                                            .concat($$a.slice($$i + 1))
-                                        )
-                                    }
-                                  } else {
-                                    _vm.$set(props.row, "is_active", $$c)
-                                  }
-                                }
-                              }
-                            })
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.status) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Сайт", field: "site", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.site) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Оператор", field: "staff", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.staff) +
+                                "\n          "
+                            )
                           ]
                         }
                       }
@@ -954,7 +974,7 @@ var render = function() {
                                     staticClass: "button is-small is-primary",
                                     attrs: {
                                       to: {
-                                        name: "sites.edit",
+                                        name: "clients.edit",
                                         params: { id: props.row.id }
                                       }
                                     }
@@ -970,60 +990,28 @@ var render = function() {
                                   1
                                 ),
                                 _vm._v(" "),
-                                props.row.id == _vm.userId
-                                  ? _c("div", [
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "button is-small is-danger",
-                                          attrs: { type: "button" },
-                                          on: {
-                                            click: function($event) {
-                                              $event.preventDefault()
-                                              return _vm.trashModal(props.row)
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("b-icon", {
-                                            attrs: {
-                                              icon: "trash-can",
-                                              size: "is-small"
-                                            }
-                                          })
-                                        ],
-                                        1
-                                      )
-                                    ])
-                                  : _c("div", [
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "button is-small is-danger",
-                                          attrs: {
-                                            disabled: "",
-                                            type: "button"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              $event.preventDefault()
-                                              return _vm.trashModal(props.row)
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("b-icon", {
-                                            attrs: {
-                                              icon: "trash-can",
-                                              size: "is-small"
-                                            }
-                                          })
-                                        ],
-                                        1
-                                      )
-                                    ])
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "button is-small is-danger",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.trashModal(props.row)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("b-icon", {
+                                      attrs: {
+                                        icon: "trash-can",
+                                        size: "is-small"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
                               ],
                               1
                             )

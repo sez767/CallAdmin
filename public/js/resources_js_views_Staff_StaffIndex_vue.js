@@ -221,10 +221,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -819,7 +815,7 @@ var render = function() {
       _c(
         "hero-bar",
         [
-          _vm._v("\n    Персонал\n\n    "),
+          _vm._v("\n    Персонал\n    "),
           _c("b-button", {
             attrs: { slot: "right", label: "Пригласить", size: "is-medium" },
             on: {

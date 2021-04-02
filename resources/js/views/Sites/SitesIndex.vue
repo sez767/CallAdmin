@@ -3,20 +3,12 @@
     <title-bar :title-stack="['CallAdmin', 'Сайты']"/>
     <hero-bar>
       Сайты
-      <router-link to="/sites/new" class="button" slot="right">
+      <router-link to="/sites/new" class="button" size="is-medium" slot="right">
         Новый сайт
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
       <card-component class="has-table has-mobile-sort-spaced" icon="account-multiple">
-        <card-toolbar>
-          <button slot="right" type="button" class="button is-danger is-small has-checked-rows-number" @click="trashModal(null)" :disabled="!checkedRows.length">
-            <b-icon icon="trash-can" custom-size="default"/>
-            <span>Удалить выбраные</span>
-            <span v-show="!!checkedRows.length">({{ checkedRows.length }})</span>
-          </button>
-        </card-toolbar>
-
         <modal-box
           :is-active="isModalActive"
           :trash-object-name="trashSubject"
@@ -26,7 +18,7 @@
 
         <b-table
           :checked-rows.sync="checkedRows"
-          :checkable="true"
+          :checkable="false"
           :loading="isLoading"
           :paginated="paginated"
           :per-page="perPage"

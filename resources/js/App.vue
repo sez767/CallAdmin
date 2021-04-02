@@ -23,7 +23,7 @@ export default {
   computed: {
     menu () {
       return [
-        'General',
+        'Меню',
         [
           {
             to: '/',
@@ -38,17 +38,38 @@ export default {
           {
             to: '/staff/index',
             label: 'Персонал',
-            icon: 'credit-card',
+            icon: 'account-multiple',
           },
+          {
+            to: '/orders/index',
+            label: 'Заявки',
+            icon: 'table',
+          },
+          {
+            to: '/calls/index',
+            label: 'Звонки',
+            icon: 'table',
+          },
+          {
+            to: '/visits/index',
+            label: 'Посещения',
+            icon: 'table',
+          },
+          {
+            to: '/profile',
+            label: 'Мой профиль',
+            icon: 'account-circle'
+          },
+          
+        ],
+        'Examples',
+        [ 
           {
             to: '/clients/index',
             label: 'Clients',
             icon: 'account-multiple',
-            updateMark: true
+            // updateMark: true
           },
-        ],
-        'Examples',
-        [
           {
             to: '/tables',
             label: 'Tables',
@@ -59,11 +80,7 @@ export default {
             label: 'Forms',
             icon: 'square-edit-outline'
           },
-          {
-            to: '/profile',
-            label: 'Profile',
-            icon: 'account-circle'
-          },
+          
           {
             label: 'Submenus',
             subLabel: 'Submenus Example',

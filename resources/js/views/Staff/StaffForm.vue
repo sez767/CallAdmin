@@ -3,72 +3,12 @@
     <title-bar :title-stack="titleStack"/>
     <hero-bar>
       {{ heroTitle }}
-      <router-link slot="right" to="/clients/index" class="button">
-        Clients
+      <router-link slot="right" to="/staff/index" class="button">
+        Назад
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
-      <tiles>
-        <card-component :title="formCardTitle" icon="account-edit" class="tile is-child">
-          <form @submit.prevent="submit">
-            <template v-if="id">
-              <b-field label="ID" horizontal>
-                <b-input :value="id" custom-class="is-static" readonly />
-              </b-field>
-              <hr>
-            </template>
-            <b-field label="Avatar" horizontal>
-              <file-picker @file-id-updated="fileIdUpdated" :current-file="form.avatar_filename"/>
-            </b-field>
-            <hr>
-            <b-field label="Name" message="Client name" horizontal>
-              <b-input placeholder="e.g. John Doe" v-model="form.name" required />
-            </b-field>
-            <b-field label="Company" message="Client's company name" horizontal>
-              <b-input placeholder="e.g. Berton & Steinway" v-model="form.company" required />
-            </b-field>
-            <b-field label="City" message="Client's city" horizontal>
-              <b-input placeholder="e.g. Geoffreyton" v-model="form.city" required />
-            </b-field>
-            <b-field label="Created" horizontal>
-              <b-datepicker
-                @input="input"
-                v-model="form.created_date"
-                placeholder="Click to select..."
-                icon="calendar-today">
-              </b-datepicker>
-            </b-field>
-            <hr>
-            <b-field label="Progress" horizontal>
-              <b-slider v-model="form.progress"/>
-            </b-field>
-            <hr>
-            <b-field horizontal>
-              <b-button type="is-primary" :loading="isLoading" native-type="submit">Submit</b-button>
-            </b-field>
-          </form>
-        </card-component>
-        <card-component v-if="isProfileExists" title="Client Profile" icon="account" class="tile is-child">
-          <user-avatar :avatar="item.avatar" :is-current-user="false" class="image has-max-width is-aligned-center"/>
-          <hr>
-          <b-field label="Name">
-            <b-input :value="item.name" custom-class="is-static" readonly/>
-          </b-field>
-          <b-field label="Company">
-            <b-input :value="item.company" custom-class="is-static" readonly/>
-          </b-field>
-          <b-field label="City">
-            <b-input :value="item.city" custom-class="is-static" readonly/>
-          </b-field>
-          <b-field label="Created">
-            <b-input :value="item.created" custom-class="is-static" readonly/>
-          </b-field>
-          <hr>
-          <b-field label="Progress">
-            <progress class="progress is-small is-primary" :value="item.progress" max="100">{{ item.progress }}</progress>
-          </b-field>
-        </card-component>
-      </tiles>
+      
     </section>
   </div>
 </template>

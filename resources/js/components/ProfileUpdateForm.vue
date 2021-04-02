@@ -1,11 +1,11 @@
 <template>
-  <card-component title="Edit Profile" icon="account-circle">
+  <card-component title="Редактировать профиль" icon="account-circle">
     <form @submit.prevent="submit">
-      <b-field horizontal label="Avatar">
+      <b-field horizontal label="Аватар">
         <file-picker @file-updated="fileStored"/>
       </b-field>
       <hr>
-      <b-field horizontal label="Name" :message="formNameMessage" :type="formNameType">
+      <b-field horizontal label="Имя" :message="formNameMessage" :type="formNameType">
         <b-input v-model="form.name" name="name" required/>
       </b-field>
       <b-field horizontal label="E-mail" :message="formEmailMessage" :type="formEmailType">
@@ -15,7 +15,7 @@
       <b-field horizontal>
         <div class="control">
           <button type="submit" class="button is-primary" :class="{'is-loading':isLoading}">
-            Submit
+            Сохранить
           </button>
         </div>
       </b-field>
@@ -52,13 +52,13 @@ export default {
       return this.errors.name?'is-danger':null
     },
     formNameMessage() {
-      return this.errors.name?this.errors.name[0]:'Required. Your name'
+      return this.errors.name?this.errors.name[0]:'Изменить имя'
     },
     formEmailType() {
       return this.errors.email?'is-danger':null
     },
     formEmailMessage() {
-      return this.errors.email?this.errors.email[0]:'Required. Your e-mail'
+      return this.errors.email?this.errors.email[0]:'Изменить e-mail'
     },
     ...mapState([
       'userName',
@@ -92,7 +92,7 @@ export default {
           this.isLoading = false
           this.$store.commit('user', r.data.data)
           this.$buefy.snackbar.open({
-            message: 'Profile updated',
+            message: 'Профиль обновлен',
             duration: 1000,
             queue: false
           })

@@ -45,6 +45,21 @@ export default new Router({
       props: true
     },
     {
+      path: '/orders/index',
+      name: 'orders.index',
+      component: () => import('./views/Orders/OrdersIndex.vue')
+    },
+    {
+      path: '/calls/index',
+      name: 'calls.index',
+      component: () => import('./views/Calls/CallsIndex.vue')
+    },
+    {
+      path: '/visits/index',
+      name: 'visits.index',
+      component: () => import('./views/Visits/VisitsIndex.vue')
+    },
+    {
       path: '/tables',
       name: 'tables',
       component: () => import('./views/Tables.vue')

@@ -1,21 +1,21 @@
 <template>
-  <card-component title="Change Password" icon="lock">
+  <card-component title="Изменить пароль" icon="lock">
     <form @submit.prevent="submit">
-      <b-field horizontal label="Current password" :message="formPasswordCurrentMessage" :type="formPasswordCurrentType">
+      <b-field horizontal label="Текущий пароль" :message="formPasswordCurrentMessage" :type="formPasswordCurrentType">
         <b-input name="password_current" type="password" v-model="form.password_current" required autcomplete="current-password"/>
       </b-field>
       <hr>
-      <b-field horizontal label="New password" :message="formPasswordMessage" :type="formPasswordType">
+      <b-field horizontal label="Новый пароль" :message="formPasswordMessage" :type="formPasswordType">
         <b-input name="password" type="password" v-model="form.password" required autocomplete="new-password"/>
       </b-field>
-      <b-field horizontal label="New password (confirm)" message="Required. New password one more time">
+      <b-field horizontal label="Повторите новый пароль" message="Введите новый пароль еще раз">
         <b-input name="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password"/>
       </b-field>
       <hr>
       <b-field horizontal>
         <div class="control">
           <button type="submit" class="button is-primary" :class="{'is-loading':isLoading}">
-            Submit
+            Сохранить пароль
           </button>
         </div>
       </b-field>
@@ -48,13 +48,13 @@ export default {
       return this.errors.password_current?'is-danger':null
     },
     formPasswordCurrentMessage () {
-      return this.errors.password_current ? this.errors.password_current[0] : 'Required. Your current password'
+      return this.errors.password_current ? this.errors.password_current[0] : 'Старый пароль'
     },
     formPasswordType () {
       return this.errors.password ? 'is-danger' : null
     },
     formPasswordMessage () {
-      return this.errors.password?this.errors.password[0] : 'Required. New password'
+      return this.errors.password?this.errors.password[0] : 'Новый пароль'
     },
   },
   methods: {
