@@ -6,9 +6,9 @@
     </hero-bar>
     <section class="section is-main-section">
       <tiles>
-        <card-widget class="tile is-child" type="is-primary" icon="account-multiple" :number="512" label="Clients"/>
-        <card-widget class="tile is-child" type="is-info" icon="cart-outline" :number="7770" prefix="$" label="Sales"/>
-        <card-widget class="tile is-child" type="is-success" icon="chart-timeline-variant" :number="256" suffix="%" label="Performance"/>
+        <card-widget class="tile is-child" type="is-primary" icon="account-multiple" :number="112" label="Звонков"/>
+        <card-widget class="tile is-child" type="is-info" icon="cart-outline" :number="270" label="Заявок"/>
+        <card-widget class="tile is-child" type="is-success" icon="chart-timeline-variant" :number="856" label="Посещений"/>
       </tiles>
 
       <card-component title="Performance" @header-icon-click="fillChartData" icon="finance" header-icon="reload">
@@ -21,10 +21,7 @@
           </line-chart>
         </div>
       </card-component>
-
-      <card-component title="Clients" class="has-table has-mobile-sort-spaced">
-        <!-- <clients-table-sample data-url="/clients"/> -->
-      </card-component>
+<!-- таблицы -->
     </section>
   </div>
 </template>
@@ -61,8 +58,8 @@ export default {
   computed: {
     titleStack () {
       return [
-        'Admin',
-        'Dashboard'
+        'CallAdmin',
+        'Главная'
       ]
     }
   },

@@ -26,11 +26,12 @@ class FilesController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function store( FileUploadRequest $request ) {
+        dd($request->all());
         $uploadedFile = $request->file('file');
 
-        // if (!$uploadedFile->isValid()) {
-        //     abort( 422 );
-        // }
+        if (!$uploadedFile->isValid()) {
+            abort( 422 );
+        }
         $storePath = $uploadedFile->store('public');
         $file = new File;
         $file->name = $uploadedFile->getClientOriginalName();

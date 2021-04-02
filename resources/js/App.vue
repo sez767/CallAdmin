@@ -23,7 +23,7 @@ export default {
   computed: {
     menu () {
       return [
-        'Меню',
+        'General',
         [
           {
             to: '/',

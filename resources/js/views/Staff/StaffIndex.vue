@@ -101,7 +101,7 @@
                 <p>
                   <b-icon icon="emoticon-sad" size="is-large"/>
                 </p>
-                <p>Ничего нет&hellip;</p>
+                <p>Ничего нет, добавьте новый сайт&hellip;</p>
               </template>
             </div>
           </section>

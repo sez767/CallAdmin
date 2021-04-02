@@ -125,7 +125,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.errors = err.response.data.errors;
         } else {
           _this.errors = {
-            _all: ['Upload error']
+            _all: ['Ошибка']
           };
         }
 

@@ -52,7 +52,7 @@
                 <router-link :to="{name:'sites.edit', params: {id: props.row.id}}" class="button is-small is-primary">
                   <b-icon icon="account-edit" size="is-small"/>
                 </router-link>
-                <div v-if="props.row.id == userId">
+                <div v-if="props.row.owner == userId">
                   <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
                     <b-icon icon="trash-can" size="is-small"/>
                   </button>  

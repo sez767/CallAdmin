@@ -1870,7 +1870,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     menu: function menu() {
-      return ['Меню', [{
+      return ['General', [{
         to: '/',
         icon: 'desktop-mac',
         label: 'Главная'
@@ -3083,9 +3083,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 // @ is an alias to /src
  // import TitleBar from '@/components/TitleBar'
 
@@ -3116,7 +3113,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     titleStack: function titleStack() {
-      return ['Admin', 'Dashboard'];
+      return ['CallAdmin', 'Главная'];
     }
   },
   mounted: function mounted() {
@@ -3589,6 +3586,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vuex__WEBPACK_IMPORTED_MODULE_1__.d
     userName: null,
     userEmail: null,
     userAvatar: null,
+    userId: null,
 
     /* NavBar */
     isNavBarVisible: true,
@@ -67675,7 +67673,7 @@ var render = function() {
     [
       _c("hero-bar", { attrs: { "has-right-visible": false } }, [
         _c("b", [_vm._v("Call")]),
-        _vm._v("Admin\n  ")
+        _vm._v("Admin\n    ")
       ]),
       _vm._v(" "),
       _c(
@@ -67690,8 +67688,8 @@ var render = function() {
                 attrs: {
                   type: "is-primary",
                   icon: "account-multiple",
-                  number: 512,
-                  label: "Clients"
+                  number: 112,
+                  label: "Звонков"
                 }
               }),
               _vm._v(" "),
@@ -67700,9 +67698,8 @@ var render = function() {
                 attrs: {
                   type: "is-info",
                   icon: "cart-outline",
-                  number: 7770,
-                  prefix: "$",
-                  label: "Sales"
+                  number: 270,
+                  label: "Заявок"
                 }
               }),
               _vm._v(" "),
@@ -67711,9 +67708,8 @@ var render = function() {
                 attrs: {
                   type: "is-success",
                   icon: "chart-timeline-variant",
-                  number: 256,
-                  suffix: "%",
-                  label: "Performance"
+                  number: 856,
+                  label: "Посещений"
                 }
               })
             ],
@@ -67750,12 +67746,7 @@ var render = function() {
                   )
                 : _vm._e()
             ]
-          ),
-          _vm._v(" "),
-          _c("card-component", {
-            staticClass: "has-table has-mobile-sort-spaced",
-            attrs: { title: "Clients" }
-          })
+          )
         ],
         1
       )

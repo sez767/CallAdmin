@@ -96,7 +96,7 @@ export default {
         })
         .then(r => {
           this.isUploadSuccess = true
-
+          
           // Display success data & then drop it after a little while
           // setTimeout(() => {
           //   this.file = null
@@ -115,7 +115,7 @@ export default {
             this.errors = err.response.data.errors
           } else {
             this.errors = {
-              _all: ['Upload error']
+              _all: ['Ошибка']
             }
           }
           each(this.errors, err => {

@@ -9,6 +9,7 @@ export default new Vuex.Store({
     userName: null,
     userEmail: null,
     userAvatar: null,
+    userId: null,
 
     /* NavBar */
     isNavBarVisible: true,
