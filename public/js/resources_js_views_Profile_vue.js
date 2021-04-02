@@ -548,7 +548,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({
     titleStack: function titleStack() {
-      return ['Admin', 'Profile'];
+      return ['CallAdmin', 'Профиль'];
     }
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapState)(['userName', 'userEmail']))
 });

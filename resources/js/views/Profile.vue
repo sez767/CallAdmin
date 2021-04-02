@@ -42,8 +42,8 @@ export default {
   computed: {
     titleStack () {
       return [
-        'Admin',
-        'Profile'
+        'CallAdmin',
+        'Профиль'
       ]
     },
     ...mapState([

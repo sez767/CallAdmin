@@ -55,13 +55,14 @@ class SitesController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function store( Request $request ) {
+        $staff=\Auth::user();
         $site = new Site;
         $site->fill($request->all());
         if (filled($request->file_id)) {
             $site->file_id = $request->file_id;
         }
+        $site->owner = $staff->id;
         $site->save();
-        $staff=\Auth::user();
         $site->staff()->attach($staff);
         $site->load('file');
         $site->append('avatar');
@@ -83,7 +84,6 @@ class SitesController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id ) {
-        // dd($request->all());
         $site = Site::findOrFail($id);
         $site->fill($request->all());
         if (filled($request->file_id)) {
@@ -110,6 +110,7 @@ class SitesController extends Controller
         if($site->file){
             $site->file->delete();
         };
+        $site->staff()->dettach();
         $site->delete();
 
         return response()->json([
@@ -130,7 +131,7 @@ class SitesController extends Controller
             'ids' => 'required|array'
         ]);
 
-        Client::destroy($request->ids);
+        Staff::destroy($request->ids);
 
         return response()->json([
             'status' => true

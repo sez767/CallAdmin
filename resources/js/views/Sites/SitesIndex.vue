@@ -8,7 +8,7 @@
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
-      <card-component class="has-table has-mobile-sort-spaced" title="Сайты" icon="account-multiple">
+      <card-component class="has-table has-mobile-sort-spaced" icon="account-multiple">
         <card-toolbar>
           <button slot="right" type="button" class="button is-danger is-small has-checked-rows-number" @click="trashModal(null)" :disabled="!checkedRows.length">
             <b-icon icon="trash-can" custom-size="default"/>
@@ -60,9 +60,16 @@
                 <router-link :to="{name:'sites.edit', params: {id: props.row.id}}" class="button is-small is-primary">
                   <b-icon icon="account-edit" size="is-small"/>
                 </router-link>
-                <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
-                  <b-icon icon="trash-can" size="is-small"/>
-                </button>
+                <div v-if="props.row.id == userId">
+                  <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
+                    <b-icon icon="trash-can" size="is-small"/>
+                  </button>  
+                </div>
+                <div v-else>
+                  <button disabled class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
+                    <b-icon icon="trash-can" size="is-small"/>
+                  </button>  
+                </div>
               </div>
             </b-table-column>
 
@@ -90,6 +97,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import map from 'lodash/map'
 import CardComponent from '@/components/CardComponent'
 import ModalBox from '@/components/ModalBox'
@@ -122,7 +130,10 @@ export default {
       }
 
       return null
-    }
+    },
+    ...mapState([
+      'userId',
+    ])
   },
   created () {
     this.getData()

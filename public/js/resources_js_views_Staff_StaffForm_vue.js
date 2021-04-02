@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Sites_SitesForm_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Staff_StaffForm_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePicker.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
@@ -248,9 +248,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Staff/StaffForm.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Staff/StaffForm.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -343,28 +343,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -374,7 +352,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'SitesForm',
+  name: 'ClientForm',
   components: {
     UserAvatar: _components_UserAvatar__WEBPACK_IMPORTED_MODULE_6__.default,
     FilePicker: _components_FilePicker__WEBPACK_IMPORTED_MODULE_5__.default,
@@ -404,23 +382,23 @@ __webpack_require__.r(__webpack_exports__);
       if (this.isProfileExists) {
         lastCrumb = this.form.name;
       } else {
-        lastCrumb = 'Новый сайт';
+        lastCrumb = 'New client';
       }
 
-      return ['CallAdmin', 'Сайты', lastCrumb];
+      return ['Admin', 'Clients', lastCrumb];
     },
     heroTitle: function heroTitle() {
       if (this.isProfileExists) {
         return this.form.name;
       } else {
-        return 'Новый сайт';
+        return 'Create Client';
       }
     },
     formCardTitle: function formCardTitle() {
       if (this.isProfileExists) {
-        return 'Редактировать сайт';
+        return 'Edit Client';
       } else {
-        return 'Новый сайт';
+        return 'New Client';
       }
     },
     isProfileExists: function isProfileExists() {
@@ -435,25 +413,24 @@ __webpack_require__.r(__webpack_exports__);
       return {
         id: null,
         name: null,
-        url: null,
+        company: null,
+        city: null,
+        created_date: new Date(),
+        created_mm_dd_yyyy: null,
+        progress: 0,
         avatar: null,
         avatar_filename: null,
-        file_id: 0,
-        is_active: 0,
-        is_chat: 0,
-        is_answer: 0,
-        answer_sec: null,
-        answer_text: ''
+        file_id: null
       };
     },
     getData: function getData() {
       var _this = this;
 
       if (this.id) {
-        axios.get("/sites/".concat(this.id)).then(function (r) {
+        axios.get("/clients/".concat(this.id)).then(function (r) {
           _this.form = r.data.data;
           _this.item = lodash_clone__WEBPACK_IMPORTED_MODULE_0___default()(r.data.data);
-          _this.showAnswer = r.data.data.is_chat;
+          _this.form.created_date = new Date(r.data.data.created_mm_dd_yyyy);
         })["catch"](function (e) {
           _this.item = null;
 
@@ -476,11 +453,11 @@ __webpack_require__.r(__webpack_exports__);
 
       this.isLoading = true;
       var method = 'post';
-      var url = '/sites/store';
+      var url = '/clients/store';
 
       if (this.id) {
         method = 'patch';
-        url = "/sites/".concat(this.id);
+        url = "/clients/".concat(this.id);
       }
 
       axios({
@@ -490,18 +467,23 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (r) {
         _this2.isLoading = false;
 
-        _this2.$router.go(-1);
-
         if (!_this2.id && r.data.data.id) {
+          _this2.$router.push({
+            name: 'clients.edit',
+            params: {
+              id: r.data.data.id
+            }
+          });
+
           _this2.$buefy.snackbar.open({
-            message: 'Создан',
+            message: 'Created',
             queue: false
           });
         } else {
           _this2.item = r.data.data;
 
           _this2.$buefy.snackbar.open({
-            message: 'Сохранен',
+            message: 'Updated',
             queue: false
           });
         }
@@ -1960,9 +1942,9 @@ component.options.__file = "resources/js/components/TitleBar.vue"
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesForm.vue":
+/***/ "./resources/js/views/Staff/StaffForm.vue":
 /*!************************************************!*\
-  !*** ./resources/js/views/Sites/SitesForm.vue ***!
+  !*** ./resources/js/views/Staff/StaffForm.vue ***!
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1971,8 +1953,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SitesForm.vue?vue&type=template&id=00e95d84& */ "./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&");
-/* harmony import */ var _SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SitesForm.vue?vue&type=script&lang=js& */ "./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _StaffForm_vue_vue_type_template_id_7b1aabe6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StaffForm.vue?vue&type=template&id=7b1aabe6& */ "./resources/js/views/Staff/StaffForm.vue?vue&type=template&id=7b1aabe6&");
+/* harmony import */ var _StaffForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StaffForm.vue?vue&type=script&lang=js& */ "./resources/js/views/Staff/StaffForm.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1982,9 +1964,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.render,
-  _SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _StaffForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _StaffForm_vue_vue_type_template_id_7b1aabe6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _StaffForm_vue_vue_type_template_id_7b1aabe6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -1994,7 +1976,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Sites/SitesForm.vue"
+component.options.__file = "resources/js/views/Staff/StaffForm.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -2047,9 +2029,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/views/Staff/StaffForm.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
-  !*** ./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/views/Staff/StaffForm.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2058,8 +2040,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StaffForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StaffForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Staff/StaffForm.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StaffForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -2114,19 +2096,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&":
+/***/ "./resources/js/views/Staff/StaffForm.vue?vue&type=template&id=7b1aabe6&":
 /*!*******************************************************************************!*\
-  !*** ./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84& ***!
+  !*** ./resources/js/views/Staff/StaffForm.vue?vue&type=template&id=7b1aabe6& ***!
   \*******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StaffForm_vue_vue_type_template_id_7b1aabe6___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StaffForm_vue_vue_type_template_id_7b1aabe6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesForm.vue?vue&type=template&id=00e95d84& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StaffForm_vue_vue_type_template_id_7b1aabe6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StaffForm.vue?vue&type=template&id=7b1aabe6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Staff/StaffForm.vue?vue&type=template&id=7b1aabe6&");
 
 
 /***/ }),
@@ -2327,9 +2309,9 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Staff/StaffForm.vue?vue&type=template&id=7b1aabe6&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Staff/StaffForm.vue?vue&type=template&id=7b1aabe6& ***!
   \**********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2356,10 +2338,10 @@ var render = function() {
             "router-link",
             {
               staticClass: "button",
-              attrs: { slot: "right", to: "/sites/index" },
+              attrs: { slot: "right", to: "/clients/index" },
               slot: "right"
             },
-            [_vm._v("\n      Назад\n    ")]
+            [_vm._v("\n      Clients\n    ")]
           )
         ],
         1
@@ -2405,26 +2387,15 @@ var render = function() {
                                 })
                               ],
                               1
-                            )
+                            ),
+                            _vm._v(" "),
+                            _c("hr")
                           ]
                         : _vm._e(),
                       _vm._v(" "),
-                      _vm.isProfileExists
-                        ? _c("user-avatar", {
-                            staticClass:
-                              "image has-max-width is-aligned-center",
-                            attrs: {
-                              avatar: _vm.item.avatar,
-                              "is-current-user": false
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("hr"),
-                      _vm._v(" "),
                       _c(
                         "b-field",
-                        { attrs: { label: "Лого", horizontal: "" } },
+                        { attrs: { label: "Avatar", horizontal: "" } },
                         [
                           _c("file-picker", {
                             attrs: { "current-file": _vm.form.avatar_filename },
@@ -2440,15 +2411,15 @@ var render = function() {
                         "b-field",
                         {
                           attrs: {
-                            label: "Название",
-                            message: "",
+                            label: "Name",
+                            message: "Client name",
                             horizontal: ""
                           }
                         },
                         [
                           _c("b-input", {
                             attrs: {
-                              placeholder: "Название сайта",
+                              placeholder: "e.g. John Doe",
                               required: ""
                             },
                             model: {
@@ -2467,20 +2438,91 @@ var render = function() {
                         "b-field",
                         {
                           attrs: {
-                            label: "Url сайта",
-                            message: "",
+                            label: "Company",
+                            message: "Client's company name",
                             horizontal: ""
                           }
                         },
                         [
                           _c("b-input", {
-                            attrs: { placeholder: "Url сайта", required: "" },
+                            attrs: {
+                              placeholder: "e.g. Berton & Steinway",
+                              required: ""
+                            },
                             model: {
-                              value: _vm.form.url,
+                              value: _vm.form.company,
                               callback: function($$v) {
-                                _vm.$set(_vm.form, "url", $$v)
+                                _vm.$set(_vm.form, "company", $$v)
                               },
-                              expression: "form.url"
+                              expression: "form.company"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        {
+                          attrs: {
+                            label: "City",
+                            message: "Client's city",
+                            horizontal: ""
+                          }
+                        },
+                        [
+                          _c("b-input", {
+                            attrs: {
+                              placeholder: "e.g. Geoffreyton",
+                              required: ""
+                            },
+                            model: {
+                              value: _vm.form.city,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "city", $$v)
+                              },
+                              expression: "form.city"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        { attrs: { label: "Created", horizontal: "" } },
+                        [
+                          _c("b-datepicker", {
+                            attrs: {
+                              placeholder: "Click to select...",
+                              icon: "calendar-today"
+                            },
+                            on: { input: _vm.input },
+                            model: {
+                              value: _vm.form.created_date,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "created_date", $$v)
+                              },
+                              expression: "form.created_date"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        { attrs: { label: "Progress", horizontal: "" } },
+                        [
+                          _c("b-slider", {
+                            model: {
+                              value: _vm.form.progress,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "progress", $$v)
+                              },
+                              expression: "form.progress"
                             }
                           })
                         ],
@@ -2502,7 +2544,7 @@ var render = function() {
                                 "native-type": "submit"
                               }
                             },
-                            [_vm._v("Сохранить")]
+                            [_vm._v("Submit")]
                           )
                         ],
                         1
@@ -2518,21 +2560,73 @@ var render = function() {
                     "card-component",
                     {
                       staticClass: "tile is-child",
-                      attrs: { title: "Настроить сайт", icon: "account" }
+                      attrs: { title: "Client Profile", icon: "account" }
                     },
                     [
+                      _c("user-avatar", {
+                        staticClass: "image has-max-width is-aligned-center",
+                        attrs: {
+                          avatar: _vm.item.avatar,
+                          "is-current-user": false
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
                       _c(
                         "b-field",
-                        { attrs: { label: "Включить", horizontal: "" } },
+                        { attrs: { label: "Name" } },
                         [
-                          _c("b-switch", {
-                            attrs: { "true-value": "1", "false-value": "0" },
-                            model: {
-                              value: _vm.form.is_active,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "is_active", $$v)
-                              },
-                              expression: "form.is_active"
+                          _c("b-input", {
+                            attrs: {
+                              value: _vm.item.name,
+                              "custom-class": "is-static",
+                              readonly: ""
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        { attrs: { label: "Company" } },
+                        [
+                          _c("b-input", {
+                            attrs: {
+                              value: _vm.item.company,
+                              "custom-class": "is-static",
+                              readonly: ""
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        { attrs: { label: "City" } },
+                        [
+                          _c("b-input", {
+                            attrs: {
+                              value: _vm.item.city,
+                              "custom-class": "is-static",
+                              readonly: ""
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        { attrs: { label: "Created" } },
+                        [
+                          _c("b-input", {
+                            attrs: {
+                              value: _vm.item.created,
+                              "custom-class": "is-static",
+                              readonly: ""
                             }
                           })
                         ],
@@ -2541,163 +2635,17 @@ var render = function() {
                       _vm._v(" "),
                       _c("hr"),
                       _vm._v(" "),
-                      _vm.form.is_active == 1
-                        ? _c(
-                            "b-field",
-                            { attrs: { label: "Онлайн чат" } },
-                            [
-                              _c("b-switch", {
-                                attrs: {
-                                  "true-value": "1",
-                                  "false-value": "0"
-                                },
-                                model: {
-                                  value: _vm.form.is_chat,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "is_chat", $$v)
-                                  },
-                                  expression: "form.is_chat"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        : _c(
-                            "b-field",
-                            { attrs: { label: "Онлайн чат" } },
-                            [
-                              _c("b-switch", {
-                                attrs: {
-                                  disabled: "",
-                                  "true-value": "1",
-                                  "false-value": "0"
-                                },
-                                model: {
-                                  value: _vm.form.is_chat,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "is_chat", $$v)
-                                  },
-                                  expression: "form.is_chat"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                      _vm._v(" "),
-                      _vm.form.is_chat == 1 && _vm.form.is_active == 1
-                        ? _c(
-                            "div",
-                            [
-                              _vm.form.is_chat == 1
-                                ? _c(
-                                    "b-field",
-                                    { attrs: { label: "Автоприветствие" } },
-                                    [
-                                      _c("b-switch", {
-                                        attrs: {
-                                          "true-value": "1",
-                                          "false-value": "0"
-                                        },
-                                        model: {
-                                          value: _vm.form.is_answer,
-                                          callback: function($$v) {
-                                            _vm.$set(_vm.form, "is_answer", $$v)
-                                          },
-                                          expression: "form.is_answer"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                : _c(
-                                    "b-field",
-                                    { attrs: { label: "Автоприветствие" } },
-                                    [
-                                      _c("b-switch", {
-                                        attrs: {
-                                          disabled: "",
-                                          "true-value": "1",
-                                          "false-value": "0"
-                                        },
-                                        model: {
-                                          value: _vm.form.is_answer,
-                                          callback: function($$v) {
-                                            _vm.$set(_vm.form, "is_answer", $$v)
-                                          },
-                                          expression: "form.is_answer"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                              _vm._v(" "),
-                              _vm.form.is_answer == 1
-                                ? _c(
-                                    "div",
-                                    [
-                                      _c(
-                                        "b-field",
-                                        {
-                                          attrs: {
-                                            label: "Время автоприветствия"
-                                          }
-                                        },
-                                        [
-                                          _c("b-numberinput", {
-                                            attrs: {
-                                              placeholder: "15",
-                                              min: 15
-                                            },
-                                            model: {
-                                              value: _vm.form.answer_sec,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.form,
-                                                  "answer_sec",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "form.answer_sec"
-                                            }
-                                          })
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "b-field",
-                                        {
-                                          attrs: {
-                                            label: "Текст автоприветствия",
-                                            message: ""
-                                          }
-                                        },
-                                        [
-                                          _c("b-input", {
-                                            attrs: { placeholder: "Текст" },
-                                            model: {
-                                              value: _vm.form.answer_text,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.form,
-                                                  "answer_text",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "form.answer_text"
-                                            }
-                                          })
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                : _vm._e()
-                            ],
-                            1
-                          )
-                        : _vm._e()
+                      _c("b-field", { attrs: { label: "Progress" } }, [
+                        _c(
+                          "progress",
+                          {
+                            staticClass: "progress is-small is-primary",
+                            attrs: { max: "100" },
+                            domProps: { value: _vm.item.progress }
+                          },
+                          [_vm._v(_vm._s(_vm.item.progress))]
+                        )
+                      ])
                     ],
                     1
                   )

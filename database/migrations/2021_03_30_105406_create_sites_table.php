@@ -26,6 +26,7 @@ class CreateSitesTable extends Migration
             $table->tinyInteger('widget_size')->nullable();
             $table->string('location', 100)->nullable();
             $table->integer('file_id')->nullable();
+            $table->integer('owner')->nullable();
             $table->timestamps();
         });
     }

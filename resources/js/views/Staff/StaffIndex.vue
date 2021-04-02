@@ -3,30 +3,19 @@
     <title-bar :title-stack="['CallAdmin', 'Персонал']"/>
     <hero-bar>
       Персонал
-      <router-link to="/clients/new" class="button" slot="right">
-        Пригласить
-      </router-link>
+
+      <b-button
+        label="Пригласить"
+        size="is-medium"
+        slot="right"
+        @click="modalHandler = true"
+         />
     </hero-bar>
     <section class="section is-main-section">
-      <card-component class="has-table has-mobile-sort-spaced" title="Персонал" icon="account-multiple">
-        <card-toolbar>
-          <button slot="right" type="button" class="button is-danger is-small has-checked-rows-number" @click="trashModal(null)" :disabled="!checkedRows.length">
-            <b-icon icon="trash-can" custom-size="default"/>
-            <span>Удалить выбраные</span>
-            <span v-show="!!checkedRows.length">({{ checkedRows.length }})</span>
-          </button>
-        </card-toolbar>
-
-        <modal-box
-          :is-active="isModalActive"
-          :trash-object-name="trashSubject"
-          @confirm="trashConfirm"
-          @cancel="trashCancel"
-        />
-
+      <card-component class="has-table has-mobile-sort-spaced" icon="account-multiple">
         <b-table
           :checked-rows.sync="checkedRows"
-          :checkable="true"
+          :checkable="false"
           :loading="isLoading"
           :paginated="paginated"
           :per-page="perPage"
@@ -34,30 +23,29 @@
           :hoverable="true"
           default-sort="name"
           :data="clients">
-
-            <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
+            <b-table-column label="ID" field="name" sortable v-slot="props">
+              {{ props.row.id }}
+            </b-table-column>
+            <b-table-column label="Аватар" class="has-no-head-mobile is-image-cell" v-slot="props">
               <div v-if="props.row.avatar" class="image">
                 <img :src="props.row.avatar" class="is-rounded">
               </div>
             </b-table-column>
-            <b-table-column label="Name" field="name" sortable v-slot="props">
+            <b-table-column label="Имя" field="name" sortable v-slot="props">
               {{ props.row.name }}
             </b-table-column>
-            <b-table-column label="Company" field="company" sortable v-slot="props">
-              {{ props.row.company }}
+            <b-table-column label="Email" field="email" sortable v-slot="props">
+              {{ props.row.email }}
             </b-table-column>
-            <b-table-column label="City" field="city" sortable v-slot="props">
-              {{ props.row.city }}
+            <b-table-column label="Сайты" field="city" sortable v-slot="props">
+              <div v-for="site in props.row.sites" v-bind:key="site.id">
+                {{ site.url }}
+              </div>
             </b-table-column>
-            <b-table-column class="is-progress-col" label="Progress" field="progress" sortable v-slot="props">
-              <progress class="progress is-small is-primary" :value="props.row.progress" max="100">{{ props.row.progress }}</progress>
-            </b-table-column>
-            <b-table-column label="Created" v-slot="props">
-              <small class="has-text-grey is-abbr-like" :title="props.row.created">{{ props.row.created }}</small>
-            </b-table-column>
+            
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'clients.edit', params: {id: props.row.id}}" class="button is-small is-primary">
+                <router-link :to="{name:'staff.edit', params: {id: props.row.id}}" class="button is-small is-primary">
                   <b-icon icon="account-edit" size="is-small"/>
                 </router-link>
                 <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
@@ -65,20 +53,59 @@
                 </button>
               </div>
             </b-table-column>
-
+        <b-modal v-model="modalHandler">
+                <div class="modal-card" style="width: auto;">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Пригласить</p>
+                        <button
+                            type="button"
+                            class="delete"
+                            @click="modalHandler = !modalHandler"/>
+                    </header>
+                    <section class="modal-card-body">
+                        <b-field label="Выберите сайт">
+                          <b-select placeholder="Выберите ваш сайт" v-model="modal.site" expanded>
+                              <option
+                                v-for="option in sites"
+                                :value="option.id"
+                                :key="option.id"
+                                >
+                                {{ option.url }}
+                              </option>
+                          </b-select>
+                        </b-field>
+                        <b-field label="Email">
+                            <b-input
+                                type="email"
+                                icon="email"
+                                placeholder="Почта"
+                                v-model="modal.email"
+                                required>
+                            </b-input>
+                        </b-field>
+                   </section>
+                    <footer class="modal-card-foot">
+                        <b-button
+                            label="Отправить"
+                            type="is-primary"
+                            @click.prevent="submitModal"
+                             />
+                    </footer>
+                </div>
+        </b-modal>
           <section class="section" slot="empty">
             <div class="content has-text-grey has-text-centered">
               <template v-if="isLoading">
                 <p>
                   <b-icon icon="dots-horizontal" size="is-large"/>
                 </p>
-                <p>Fetching data...</p>
+                <p>Загружаем...</p>
               </template>
               <template v-else>
                 <p>
                   <b-icon icon="emoticon-sad" size="is-large"/>
                 </p>
-                <p>Nothing's here&hellip;</p>
+                <p>Ничего нет&hellip;</p>
               </template>
             </div>
           </section>
@@ -103,12 +130,18 @@ export default {
   data () {
     return {
       isModalActive: false,
+      modalHandler: false,
       trashObject: null,
       clients: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
-      checkedRows: []
+      checkedRows: [],
+      modal: {
+        site: null,
+        email: null,
+      },
+      sites: [],
     }
   },
   computed: {
@@ -126,12 +159,13 @@ export default {
   },
   created () {
     this.getData()
+    this.getSites()
   },
   methods: {
     getData () {
       this.isLoading = true
       axios
-        .get('/clients')
+        .get('/staff')
         .then(r => {
           this.isLoading = false
           if (r.data && r.data.data) {
@@ -150,6 +184,44 @@ export default {
           })
         })
     },
+    getSites () {
+      axios
+        .get('/sites')
+        .then(r => {
+          this.sites = r.data.data
+        })
+        .catch( err => {
+          this.$buefy.toast.open({
+            message: `Error: ${err.message}`,
+            type: 'is-danger',
+            queue: false
+          })
+        })
+    },
+    submitModal () {
+      let method = 'post'
+      let url = '/staff/invite'
+      axios({
+        method,
+        url,
+        data: this.modal
+      }).then(r => {
+          this.modalHandler = false;
+          this.$buefy.snackbar.open({
+            message: 'Отправлено',
+            queue: false
+          })
+
+      }).catch(e => {
+        this.isLoading = false
+
+        this.$buefy.toast.open({
+          message: `Error: ${e.message}`,
+          type: 'is-danger',
+          queue: false
+        })
+      })
+    },
     trashModal (trashObject = null) {
       if (trashObject || this.checkedRows.length) {
         this.trashObject = trashObject
@@ -165,10 +237,10 @@ export default {
 
       if (this.trashObject) {
         method = 'delete'
-        url = `/clients/${this.trashObject.id}/destroy`
+        url = `/staff/${this.trashObject.id}/destroy`
       } else if (this.checkedRows.length) {
         method = 'post'
-        url = '/clients/destroy'
+        url = '/staff/destroy'
         data = {
           ids: map(this.checkedRows, row => row.id)
         }
@@ -185,7 +257,7 @@ export default {
         this.checkedRows = []
 
         this.$buefy.snackbar.open({
-          message: `Deleted`,
+          message: `Удален`,
           queue: false
         })
       }).catch( err => {

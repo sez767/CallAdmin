@@ -41,6 +41,18 @@ Route::prefix('/sites')->group(function () {
     Route::delete('/{sites}/destroy', [\App\Http\Controllers\SitesController::class, 'destroy']);
 });
 /*
+ * Staff management
+ * */
+Route::prefix('/staff')->group(function () {
+    Route::get('/', [\App\Http\Controllers\StaffController::class, 'index']);
+    Route::get('/{staff}', [\App\Http\Controllers\StaffController::class, 'show']);
+    Route::post('/store', [\App\Http\Controllers\StaffController::class, 'store']);
+    Route::patch('/{staff}', [\App\Http\Controllers\StaffController::class, 'update']);
+    Route::post('/destroy', [\App\Http\Controllers\StaffController::class, 'destroyMass']);
+    Route::delete('/{staff}/destroy', [\App\Http\Controllers\StaffController::class, 'destroy']);
+    Route::post('/invite', [\App\Http\Controllers\StaffController::class, 'invite']);
+});
+/*
  * Current user
  * */
 Route::prefix('/user')->group(function () {
@@ -53,3 +65,9 @@ Route::prefix('/user')->group(function () {
  * File upload (e.g. avatar)
  * */
 Route::post('/files/store', [\App\Http\Controllers\FilesController::class, 'store']);
+/*
+* Email invitation 0f new staff
+*
+**/
+Route::get('/registration/{token}', [\App\Http\Controllers\StaffController::class, 'mailregistration'])->name('mailregistration');
+// Route::POST('/registration', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('accept');

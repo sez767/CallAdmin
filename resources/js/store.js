@@ -37,6 +37,9 @@ export default new Vuex.Store({
       if (payload.avatar) {
         state.userAvatar = payload.avatar
       }
+      if (payload.id) {
+        state.userId = payload.id
+      }
     },
 
     /* Aside Mobile */

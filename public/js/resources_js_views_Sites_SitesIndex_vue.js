@@ -100,6 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
 /* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/CardComponent */ "./resources/js/components/CardComponent.vue");
@@ -107,6 +108,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/TitleBar */ "./resources/js/components/TitleBar.vue");
 /* harmony import */ var _components_HeroBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/HeroBar */ "./resources/js/components/HeroBar.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -198,6 +205,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -224,7 +239,7 @@ __webpack_require__.r(__webpack_exports__);
       checkedRows: []
     };
   },
-  computed: {
+  computed: _objectSpread({
     trashSubject: function trashSubject() {
       if (this.trashObject) {
         return this.trashObject.name;
@@ -236,7 +251,7 @@ __webpack_require__.r(__webpack_exports__);
 
       return null;
     }
-  },
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapState)(['userId'])),
   created: function created() {
     this.getData();
   },
@@ -768,7 +783,7 @@ var render = function() {
             "card-component",
             {
               staticClass: "has-table has-mobile-sort-spaced",
-              attrs: { title: "Сайты", icon: "account-multiple" }
+              attrs: { icon: "account-multiple" }
             },
             [
               _c("card-toolbar", [
@@ -1007,28 +1022,60 @@ var render = function() {
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "button is-small is-danger",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.trashModal(props.row)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "trash-can",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
+                                props.row.id == _vm.userId
+                                  ? _c("div", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "button is-small is-danger",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.trashModal(props.row)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("b-icon", {
+                                            attrs: {
+                                              icon: "trash-can",
+                                              size: "is-small"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ])
+                                  : _c("div", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "button is-small is-danger",
+                                          attrs: {
+                                            disabled: "",
+                                            type: "button"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.trashModal(props.row)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("b-icon", {
+                                            attrs: {
+                                              icon: "trash-can",
+                                              size: "is-small"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ])
                               ],
                               1
                             )

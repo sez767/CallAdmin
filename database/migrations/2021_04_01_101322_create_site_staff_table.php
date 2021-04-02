@@ -16,8 +16,8 @@ class CreateSiteStaffTable extends Migration
         if (!Schema::hasTable('site_staff')) {
             Schema::create('site_staff', function (Blueprint $table) {
                 $table->id();
-                $table->integer('site_id');
-                $table->integer('staff_id');
+                $table->unsignedBigInteger('site_id');
+                $table->unsignedBigInteger('staff_id');
                 $table->foreign('site_id')->references('id')->on('sites');
                 $table->foreign('staff_id')->references('id')->on('staff');
             });

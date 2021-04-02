@@ -198,6 +198,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -216,12 +243,18 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isModalActive: false,
+      modalHandler: false,
       trashObject: null,
       clients: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
-      checkedRows: []
+      checkedRows: [],
+      modal: {
+        site: null,
+        email: null
+      },
+      sites: []
     };
   },
   computed: {
@@ -239,13 +272,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getData();
+    this.getSites();
   },
   methods: {
     getData: function getData() {
       var _this = this;
 
       this.isLoading = true;
-      axios.get('/clients').then(function (r) {
+      axios.get('/staff').then(function (r) {
         _this.isLoading = false;
 
         if (r.data && r.data.data) {
@@ -265,6 +299,45 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    getSites: function getSites() {
+      var _this2 = this;
+
+      axios.get('/sites').then(function (r) {
+        _this2.sites = r.data.data;
+      })["catch"](function (err) {
+        _this2.$buefy.toast.open({
+          message: "Error: ".concat(err.message),
+          type: 'is-danger',
+          queue: false
+        });
+      });
+    },
+    submitModal: function submitModal() {
+      var _this3 = this;
+
+      var method = 'post';
+      var url = '/staff/invite';
+      axios({
+        method: method,
+        url: url,
+        data: this.modal
+      }).then(function (r) {
+        _this3.modalHandler = false;
+
+        _this3.$buefy.snackbar.open({
+          message: 'Отправлено',
+          queue: false
+        });
+      })["catch"](function (e) {
+        _this3.isLoading = false;
+
+        _this3.$buefy.toast.open({
+          message: "Error: ".concat(e.message),
+          type: 'is-danger',
+          queue: false
+        });
+      });
+    },
     trashModal: function trashModal() {
       var trashObject = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
@@ -274,7 +347,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     trashConfirm: function trashConfirm() {
-      var _this2 = this;
+      var _this4 = this;
 
       var url;
       var method;
@@ -283,10 +356,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.trashObject) {
         method = 'delete';
-        url = "/clients/".concat(this.trashObject.id, "/destroy");
+        url = "/staff/".concat(this.trashObject.id, "/destroy");
       } else if (this.checkedRows.length) {
         method = 'post';
-        url = '/clients/destroy';
+        url = '/staff/destroy';
         data = {
           ids: lodash_map__WEBPACK_IMPORTED_MODULE_0___default()(this.checkedRows, function (row) {
             return row.id;
@@ -299,17 +372,17 @@ __webpack_require__.r(__webpack_exports__);
         url: url,
         data: data
       }).then(function (r) {
-        _this2.getData();
+        _this4.getData();
 
-        _this2.trashObject = null;
-        _this2.checkedRows = [];
+        _this4.trashObject = null;
+        _this4.checkedRows = [];
 
-        _this2.$buefy.snackbar.open({
-          message: "Deleted",
+        _this4.$buefy.snackbar.open({
+          message: "\u0423\u0434\u0430\u043B\u0435\u043D",
           queue: false
         });
       })["catch"](function (err) {
-        _this2.$buefy.toast.open({
+        _this4.$buefy.toast.open({
           message: "Error: ".concat(err.message),
           type: 'is-danger',
           queue: false
@@ -746,16 +819,16 @@ var render = function() {
       _c(
         "hero-bar",
         [
-          _vm._v("\n    Персонал\n    "),
-          _c(
-            "router-link",
-            {
-              staticClass: "button",
-              attrs: { slot: "right", to: "/clients/new" },
-              slot: "right"
+          _vm._v("\n    Персонал\n\n    "),
+          _c("b-button", {
+            attrs: { slot: "right", label: "Пригласить", size: "is-medium" },
+            on: {
+              click: function($event) {
+                _vm.modalHandler = true
+              }
             },
-            [_vm._v("\n      Пригласить\n    ")]
-          )
+            slot: "right"
+          })
         ],
         1
       ),
@@ -768,67 +841,15 @@ var render = function() {
             "card-component",
             {
               staticClass: "has-table has-mobile-sort-spaced",
-              attrs: { title: "Персонал", icon: "account-multiple" }
+              attrs: { icon: "account-multiple" }
             },
             [
-              _c("card-toolbar", [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "button is-danger is-small has-checked-rows-number",
-                    attrs: {
-                      slot: "right",
-                      type: "button",
-                      disabled: !_vm.checkedRows.length
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.trashModal(null)
-                      }
-                    },
-                    slot: "right"
-                  },
-                  [
-                    _c("b-icon", {
-                      attrs: { icon: "trash-can", "custom-size": "default" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Удалить выбраные")]),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: !!_vm.checkedRows.length,
-                            expression: "!!checkedRows.length"
-                          }
-                        ]
-                      },
-                      [_vm._v("(" + _vm._s(_vm.checkedRows.length) + ")")]
-                    )
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("modal-box", {
-                attrs: {
-                  "is-active": _vm.isModalActive,
-                  "trash-object-name": _vm.trashSubject
-                },
-                on: { confirm: _vm.trashConfirm, cancel: _vm.trashCancel }
-              }),
-              _vm._v(" "),
               _c(
                 "b-table",
                 {
                   attrs: {
                     "checked-rows": _vm.checkedRows,
-                    checkable: true,
+                    checkable: false,
                     loading: _vm.isLoading,
                     paginated: _vm.paginated,
                     "per-page": _vm.perPage,
@@ -848,7 +869,26 @@ var render = function() {
                 },
                 [
                   _c("b-table-column", {
+                    attrs: { label: "ID", field: "name", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.id) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
                     staticClass: "has-no-head-mobile is-image-cell",
+                    attrs: { label: "Аватар" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -869,7 +909,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Name", field: "name", sortable: "" },
+                    attrs: { label: "Имя", field: "name", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -887,7 +927,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Company", field: "company", sortable: "" },
+                    attrs: { label: "Email", field: "email", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -895,7 +935,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.company) +
+                                _vm._s(props.row.email) +
                                 "\n          "
                             )
                           ]
@@ -905,66 +945,20 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "City", field: "city", sortable: "" },
+                    attrs: { label: "Сайты", field: "city", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
                         fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.city) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    staticClass: "is-progress-col",
-                    attrs: {
-                      label: "Progress",
-                      field: "progress",
-                      sortable: ""
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _c(
-                              "progress",
-                              {
-                                staticClass: "progress is-small is-primary",
-                                attrs: { max: "100" },
-                                domProps: { value: props.row.progress }
-                              },
-                              [_vm._v(_vm._s(props.row.progress))]
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Created" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _c(
-                              "small",
-                              {
-                                staticClass: "has-text-grey is-abbr-like",
-                                attrs: { title: props.row.created }
-                              },
-                              [_vm._v(_vm._s(props.row.created))]
-                            )
-                          ]
+                          return _vm._l(props.row.sites, function(site) {
+                            return _c("div", { key: site.id }, [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(site.url) +
+                                  "\n            "
+                              )
+                            ])
+                          })
                         }
                       }
                     ])
@@ -988,7 +982,7 @@ var render = function() {
                                     staticClass: "button is-small is-primary",
                                     attrs: {
                                       to: {
-                                        name: "clients.edit",
+                                        name: "staff.edit",
                                         params: { id: props.row.id }
                                       }
                                     }
@@ -1036,6 +1030,136 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c(
+                    "b-modal",
+                    {
+                      model: {
+                        value: _vm.modalHandler,
+                        callback: function($$v) {
+                          _vm.modalHandler = $$v
+                        },
+                        expression: "modalHandler"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-card",
+                          staticStyle: { width: "auto" }
+                        },
+                        [
+                          _c("header", { staticClass: "modal-card-head" }, [
+                            _c("p", { staticClass: "modal-card-title" }, [
+                              _vm._v("Пригласить")
+                            ]),
+                            _vm._v(" "),
+                            _c("button", {
+                              staticClass: "delete",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  _vm.modalHandler = !_vm.modalHandler
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "section",
+                            { staticClass: "modal-card-body" },
+                            [
+                              _c(
+                                "b-field",
+                                { attrs: { label: "Выберите сайт" } },
+                                [
+                                  _c(
+                                    "b-select",
+                                    {
+                                      attrs: {
+                                        placeholder: "Выберите ваш сайт",
+                                        expanded: ""
+                                      },
+                                      model: {
+                                        value: _vm.modal.site,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.modal, "site", $$v)
+                                        },
+                                        expression: "modal.site"
+                                      }
+                                    },
+                                    _vm._l(_vm.sites, function(option) {
+                                      return _c(
+                                        "option",
+                                        {
+                                          key: option.id,
+                                          domProps: { value: option.id }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                              " +
+                                              _vm._s(option.url) +
+                                              "\n                            "
+                                          )
+                                        ]
+                                      )
+                                    }),
+                                    0
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-field",
+                                { attrs: { label: "Email" } },
+                                [
+                                  _c("b-input", {
+                                    attrs: {
+                                      type: "email",
+                                      icon: "email",
+                                      placeholder: "Почта",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.modal.email,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.modal, "email", $$v)
+                                      },
+                                      expression: "modal.email"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "footer",
+                            { staticClass: "modal-card-foot" },
+                            [
+                              _c("b-button", {
+                                attrs: {
+                                  label: "Отправить",
+                                  type: "is-primary"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.submitModal($event)
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
                     "section",
                     {
                       staticClass: "section",
@@ -1064,7 +1188,7 @@ var render = function() {
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c("p", [_vm._v("Fetching data...")])
+                                _c("p", [_vm._v("Загружаем...")])
                               ]
                             : [
                                 _c(
@@ -1080,7 +1204,7 @@ var render = function() {
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c("p", [_vm._v("Nothing's here…")])
+                                _c("p", [_vm._v("Ничего нет…")])
                               ]
                         ],
                         2

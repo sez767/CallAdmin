@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\Staff;
+use App\Models\Site;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,11 +64,22 @@ class RegisterController extends Controller
      * @return \App\Models\Staff
      */
     protected function create(array $data)
-    {
-        return Staff::create([
+    {   
+        $staff = Staff::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+
         ]);
+        
+        if (array_key_exists('token', $data)) {
+            $invite = Invite::where('token', $data['token'])->first();
+            $invite->delete();
+        }
+        if (array_key_exists('site', $data)) {
+            $site = Site::findOrFail($data['site']);
+            $staff->sites()->attach($site);  
+        }
+        return $staff;
     }
 }
