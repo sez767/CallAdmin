@@ -3,7 +3,7 @@
     <title-bar :title-stack="['CallAdmin', 'Персонал']"/>
     <hero-bar>
       Персонал
-      <b-button label="Пригласить" size="is-medium" slot="right"
+      <b-button label="Пригласить" style="font-size: 16px;" size="is-medium" slot="right"
         @click="modalHandler = true"
          />
     </hero-bar>
@@ -19,7 +19,7 @@
           :hoverable="true"
           default-sort="name"
           :data="clients">
-            <b-table-column label="ID" field="name" sortable v-slot="props">
+            <b-table-column label="ID" field="id" sortable v-slot="props">
               {{ props.row.id }}
             </b-table-column>
             <b-table-column label="Аватар" class="has-no-head-mobile is-image-cell" v-slot="props">
@@ -41,10 +41,10 @@
             
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'staff.edit', params: {id: props.row.id}}" class="button is-small is-primary">
+                <router-link disabled :to="{name:'staff.edit', params: {id: props.row.id}}" class="button is-small is-primary">
                   <b-icon icon="account-edit" size="is-small"/>
                 </router-link>
-                <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
+                <button disabled class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
                   <b-icon icon="trash-can" size="is-small"/>
                 </button>
               </div>

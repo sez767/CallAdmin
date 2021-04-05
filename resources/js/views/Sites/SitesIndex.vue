@@ -26,7 +26,9 @@
           :hoverable="true"
           default-sort="name"
           :data="sites">
-
+            <b-table-column label="ID" field="id" sortable v-slot="props">
+              {{ props.row.id }}
+            </b-table-column>
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
               <div v-if="props.row.avatar" class="image">
                 <img :src="props.row.avatar" class="is-rounded">

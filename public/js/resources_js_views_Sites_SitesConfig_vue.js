@@ -2741,6 +2741,7 @@ var render = function() {
                             "b-slider",
                             {
                               staticClass: "inputWidth",
+                              staticStyle: { "padding-left": "20px" },
                               attrs: {
                                 lazy: "",
                                 size: "is-medium",

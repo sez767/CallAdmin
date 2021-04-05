@@ -110,7 +110,7 @@ class SitesController extends Controller
         if($site->file){
             $site->file->delete();
         };
-        $site->staff()->dettach();
+        $site->staff()->detach();
         $site->delete();
 
         return response()->json([

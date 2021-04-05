@@ -3114,10 +3114,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.fillChartData();
-    this.$buefy.snackbar.open({
-      message: 'С возвращением :)',
-      queue: false
-    });
   },
   methods: {
     randomChartData: function randomChartData(n) {

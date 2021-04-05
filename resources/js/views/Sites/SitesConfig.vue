@@ -88,8 +88,8 @@
        
       <b-tab-item label="Настройка виджета">
         <card-component title="" icon="calendar-text" class="tile is-child">
-            <b-field label="Размер виджета">
-            <b-slider v-model="form.widget_size" lazy class="inputWidth" size="is-medium" :min="1" :max="3" aria-label="wSize" :tooltip="false">
+            <b-field label="Размер виджета" >
+            <b-slider style="padding-left: 20px;" v-model="form.widget_size" lazy class="inputWidth" size="is-medium" :min="1" :max="3" aria-label="wSize" :tooltip="false">
                 <b-slider-tick :value="1">Маленький</b-slider-tick>
                 <b-slider-tick :value="2">Средний</b-slider-tick>
                 <b-slider-tick :value="3">Большой</b-slider-tick>

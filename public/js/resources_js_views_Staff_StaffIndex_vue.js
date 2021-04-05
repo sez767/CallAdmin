@@ -834,6 +834,7 @@ var render = function() {
         [
           _vm._v("\n    Персонал\n    "),
           _c("b-button", {
+            staticStyle: { "font-size": "16px" },
             attrs: { slot: "right", label: "Пригласить", size: "is-medium" },
             on: {
               click: function($event) {
@@ -882,7 +883,7 @@ var render = function() {
                 },
                 [
                   _c("b-table-column", {
-                    attrs: { label: "ID", field: "name", sortable: "" },
+                    attrs: { label: "ID", field: "id", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -994,6 +995,7 @@ var render = function() {
                                   {
                                     staticClass: "button is-small is-primary",
                                     attrs: {
+                                      disabled: "",
                                       to: {
                                         name: "staff.edit",
                                         params: { id: props.row.id }
@@ -1015,7 +1017,7 @@ var render = function() {
                                   "button",
                                   {
                                     staticClass: "button is-small is-danger",
-                                    attrs: { type: "button" },
+                                    attrs: { disabled: "", type: "button" },
                                     on: {
                                       click: function($event) {
                                         $event.preventDefault()
