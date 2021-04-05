@@ -8,9 +8,11 @@
       </router-link>
     </hero-bar>
     <section class="section is-main-section">
-      <tiles>
-        <card-component title="Настроить сайт" icon="account" class="tile is-child">
-          <b-field label="Включить" horizontal>
+      
+        <b-tabs v-model="activeTab">
+        <b-tab-item label="Настроить сайт">
+        <card-component title="Настроить сайт" icon="focus-field-horizontal" class="tile is-child">
+          <b-field label="Включить">
               <b-switch 
                 v-model="form.is_active"
                 true-value="1"
@@ -55,16 +57,22 @@
 
               <div v-if="form.is_answer==1">
                 <b-field label="Время автоприветствия">
-                  <b-numberinput v-model="form.answer_sec" placeholder="15" :min="15"></b-numberinput>
+                  <b-numberinput style="width:50%" v-model="form.answer_sec" placeholder="15" :min="15"></b-numberinput>
                 </b-field>
                 <b-field label="Текст автоприветствия" message="">
-                  <b-input placeholder="Текст" v-model="form.answer_text"/>
+                  <b-input style="width:50%" placeholder="Текст" v-model="form.answer_text"/>
                 </b-field>
               </div>
               
         </div>
+        <hr>
+        <b-field>
+          <b-button type="is-primary" :loading="isLoading" @click.prevent="submit">Сохранить</b-button>
+        </b-field>
         </card-component>
-        <card-component title="Код для установки на сайт" icon="account" class="tile is-child">
+        </b-tab-item>
+        <b-tab-item label="Код для установки на сайт">
+        <card-component title="Код для установки на сайт" icon="calendar-text" class="tile is-child">
           <b-field label="Разместите код на всех страницах вашего сайта перед тегом /head или отправьте его веб-мастеру">
             <b-input 
               ref="widgetText"
@@ -76,10 +84,28 @@
         </b-field> 
         <b-button type="is-success" :loading="isLoading" @click.prevent="copyClipboard">Копировать</b-button>
         </card-component> 
-      </tiles>
-      <b-field>
+        </b-tab-item>
+       
+      <b-tab-item label="Настройка виджета">
+        <card-component title="Настройка виджета" icon="calendar-text" class="tile is-child">
+            <b-field label="Размер виджета">
+            <b-slider v-model="form.widget_size" lazy style="width:50%" size="is-medium" :min="1" :max="3" aria-label="wSize" :tooltip="false">
+                <b-slider-tick :value="1">Маленький</b-slider-tick>
+                <b-slider-tick :value="2">Средний</b-slider-tick>
+                <b-slider-tick :value="3">Большой</b-slider-tick>
+            </b-slider>
+        </b-field>
+        <hr>
+        <b-field label="Цвет виджета">
+
+        </b-field>
+        <hr>
+        <b-field>
           <b-button type="is-primary" :loading="isLoading" @click.prevent="submit">Сохранить</b-button>
         </b-field>
+        </card-component>
+      </b-tab-item>
+     </b-tabs>  
     </section>
   </div>
 </template>
@@ -105,6 +131,7 @@ export default {
   data () {
     return {
       isLoading: false,
+      activeTab: 0,
       item: null,
       form: this.getClearFormObject(),
       createdReadable: null,
@@ -149,6 +176,7 @@ export default {
         is_answer: 0,
         answer_sec: null,
         answer_text: '',
+        widget_size: '',
       }
     },
     getData () {

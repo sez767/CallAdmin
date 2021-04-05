@@ -29,6 +29,7 @@ class StaffController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function index() {
+        //TODO 
         // $staff = \Auth::user()->sites()->first()->staff()->get();
         $ids = \Auth::user()->sites()->get();
             foreach($ids as $id){
@@ -47,80 +48,7 @@ class StaffController extends Controller
         ]);
     }
 
-    /**
-     * Get single resource
-     *
-     * @param Client $client
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    // public function show( Client $client ) {
-    //     $client->append('avatar');
-    //     $client->append('avatar_filename');
-    //     $client->append('created_mm_dd_yyyy');
-
-    //     return response()->json([
-    //         'data' => $client
-    //     ]);
-    // }
-
-    /**
-     * Update single resource
-     *
-     * @param ClientStoreRequest $request
-     * @param Client $client
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    // public function update( ClientStoreRequest $request, Client $client ) {
-    //     $client->fill($request->all());
-    //     $client->save();
-
-    //     $client->append('avatar');
-
-    //     return response()->json([
-    //         'status' => true,
-    //         'data' => $client
-    //     ]);
-    // }
-
-    /**
-     * Store new resource
-     *
-     * @param ClientStoreRequest $request
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    // public function store( ClientStoreRequest $request ) {
-    //     $client = new Client;
-    //     $client->fill($request->all());
-    //     $client->save();
-
-    //     return response()->json([
-    //         'status' => true,
-    //         'created' => true,
-    //         'data' => [
-    //             'id' => $client->id
-    //         ]
-    //     ]);
-    // }
-
-    /**
-     * Destroy single resource
-     *
-     * @param Client $client
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
-     */
-    // public function destroy( Client $client ) {
-    //     $client->delete();
-
-    //     return response()->json([
-    //         'status' => true
-    //     ]);
-    // }
-
+    
     /**
      * Ivite new user
      *

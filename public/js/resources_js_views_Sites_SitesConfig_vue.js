@@ -354,6 +354,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -381,6 +407,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isLoading: false,
+      activeTab: 0,
       item: null,
       form: this.getClearFormObject(),
       createdReadable: null,
@@ -420,7 +447,8 @@ __webpack_require__.r(__webpack_exports__);
         is_chat: 0,
         is_answer: 0,
         answer_sec: null,
-        answer_text: ''
+        answer_text: '',
+        widget_size: ''
       };
     },
     getData: function getData() {
@@ -2342,252 +2370,388 @@ var render = function() {
         { staticClass: "section is-main-section" },
         [
           _c(
-            "tiles",
+            "b-tabs",
+            {
+              model: {
+                value: _vm.activeTab,
+                callback: function($$v) {
+                  _vm.activeTab = $$v
+                },
+                expression: "activeTab"
+              }
+            },
             [
               _c(
-                "card-component",
-                {
-                  staticClass: "tile is-child",
-                  attrs: { title: "Настроить сайт", icon: "account" }
-                },
+                "b-tab-item",
+                { attrs: { label: "Настроить сайт" } },
                 [
                   _c(
-                    "b-field",
-                    { attrs: { label: "Включить", horizontal: "" } },
+                    "card-component",
+                    {
+                      staticClass: "tile is-child",
+                      attrs: {
+                        title: "Настроить сайт",
+                        icon: "focus-field-horizontal"
+                      }
+                    },
                     [
-                      _c("b-switch", {
-                        attrs: { "true-value": "1", "false-value": "0" },
-                        model: {
-                          value: _vm.form.is_active,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "is_active", $$v)
-                          },
-                          expression: "form.is_active"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("hr"),
-                  _vm._v(" "),
-                  _vm.form.is_active == 1
-                    ? _c(
+                      _c(
                         "b-field",
-                        { attrs: { label: "Онлайн чат" } },
+                        { attrs: { label: "Включить" } },
                         [
                           _c("b-switch", {
                             attrs: { "true-value": "1", "false-value": "0" },
                             model: {
-                              value: _vm.form.is_chat,
+                              value: _vm.form.is_active,
                               callback: function($$v) {
-                                _vm.$set(_vm.form, "is_chat", $$v)
+                                _vm.$set(_vm.form, "is_active", $$v)
                               },
-                              expression: "form.is_chat"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    : _c(
-                        "b-field",
-                        { attrs: { label: "Онлайн чат" } },
-                        [
-                          _c("b-switch", {
-                            attrs: {
-                              disabled: "",
-                              "true-value": "1",
-                              "false-value": "0"
-                            },
-                            model: {
-                              value: _vm.form.is_chat,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "is_chat", $$v)
-                              },
-                              expression: "form.is_chat"
+                              expression: "form.is_active"
                             }
                           })
                         ],
                         1
                       ),
-                  _vm._v(" "),
-                  _vm.form.is_chat == 1 && _vm.form.is_active == 1
-                    ? _c(
-                        "div",
-                        [
-                          _vm.form.is_chat == 1
-                            ? _c(
-                                "b-field",
-                                { attrs: { label: "Автоприветствие" } },
-                                [
-                                  _c("b-switch", {
-                                    attrs: {
-                                      "true-value": "1",
-                                      "false-value": "0"
-                                    },
-                                    model: {
-                                      value: _vm.form.is_answer,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.form, "is_answer", $$v)
-                                      },
-                                      expression: "form.is_answer"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            : _c(
-                                "b-field",
-                                { attrs: { label: "Автоприветствие" } },
-                                [
-                                  _c("b-switch", {
-                                    attrs: {
-                                      disabled: "",
-                                      "true-value": "1",
-                                      "false-value": "0"
-                                    },
-                                    model: {
-                                      value: _vm.form.is_answer,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.form, "is_answer", $$v)
-                                      },
-                                      expression: "form.is_answer"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                          _vm._v(" "),
-                          _vm.form.is_answer == 1
-                            ? _c(
-                                "div",
-                                [
-                                  _c(
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _vm.form.is_active == 1
+                        ? _c(
+                            "b-field",
+                            { attrs: { label: "Онлайн чат" } },
+                            [
+                              _c("b-switch", {
+                                attrs: {
+                                  "true-value": "1",
+                                  "false-value": "0"
+                                },
+                                model: {
+                                  value: _vm.form.is_chat,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "is_chat", $$v)
+                                  },
+                                  expression: "form.is_chat"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "b-field",
+                            { attrs: { label: "Онлайн чат" } },
+                            [
+                              _c("b-switch", {
+                                attrs: {
+                                  disabled: "",
+                                  "true-value": "1",
+                                  "false-value": "0"
+                                },
+                                model: {
+                                  value: _vm.form.is_chat,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.form, "is_chat", $$v)
+                                  },
+                                  expression: "form.is_chat"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                      _vm._v(" "),
+                      _vm.form.is_chat == 1 && _vm.form.is_active == 1
+                        ? _c(
+                            "div",
+                            [
+                              _vm.form.is_chat == 1
+                                ? _c(
                                     "b-field",
-                                    {
-                                      attrs: { label: "Время автоприветствия" }
-                                    },
+                                    { attrs: { label: "Автоприветствие" } },
                                     [
-                                      _c("b-numberinput", {
-                                        attrs: { placeholder: "15", min: 15 },
+                                      _c("b-switch", {
+                                        attrs: {
+                                          "true-value": "1",
+                                          "false-value": "0"
+                                        },
                                         model: {
-                                          value: _vm.form.answer_sec,
+                                          value: _vm.form.is_answer,
                                           callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.form,
-                                              "answer_sec",
-                                              $$v
-                                            )
+                                            _vm.$set(_vm.form, "is_answer", $$v)
                                           },
-                                          expression: "form.answer_sec"
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "b-field",
-                                    {
-                                      attrs: {
-                                        label: "Текст автоприветствия",
-                                        message: ""
-                                      }
-                                    },
-                                    [
-                                      _c("b-input", {
-                                        attrs: { placeholder: "Текст" },
-                                        model: {
-                                          value: _vm.form.answer_text,
-                                          callback: function($$v) {
-                                            _vm.$set(
-                                              _vm.form,
-                                              "answer_text",
-                                              $$v
-                                            )
-                                          },
-                                          expression: "form.answer_text"
+                                          expression: "form.is_answer"
                                         }
                                       })
                                     ],
                                     1
                                   )
-                                ],
-                                1
-                              )
-                            : _vm._e()
+                                : _c(
+                                    "b-field",
+                                    { attrs: { label: "Автоприветствие" } },
+                                    [
+                                      _c("b-switch", {
+                                        attrs: {
+                                          disabled: "",
+                                          "true-value": "1",
+                                          "false-value": "0"
+                                        },
+                                        model: {
+                                          value: _vm.form.is_answer,
+                                          callback: function($$v) {
+                                            _vm.$set(_vm.form, "is_answer", $$v)
+                                          },
+                                          expression: "form.is_answer"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                              _vm._v(" "),
+                              _vm.form.is_answer == 1
+                                ? _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "b-field",
+                                        {
+                                          attrs: {
+                                            label: "Время автоприветствия"
+                                          }
+                                        },
+                                        [
+                                          _c("b-numberinput", {
+                                            staticStyle: { width: "50%" },
+                                            attrs: {
+                                              placeholder: "15",
+                                              min: 15
+                                            },
+                                            model: {
+                                              value: _vm.form.answer_sec,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "answer_sec",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "form.answer_sec"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-field",
+                                        {
+                                          attrs: {
+                                            label: "Текст автоприветствия",
+                                            message: ""
+                                          }
+                                        },
+                                        [
+                                          _c("b-input", {
+                                            staticStyle: { width: "50%" },
+                                            attrs: { placeholder: "Текст" },
+                                            model: {
+                                              value: _vm.form.answer_text,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "answer_text",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "form.answer_text"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        [
+                          _c(
+                            "b-button",
+                            {
+                              attrs: {
+                                type: "is-primary",
+                                loading: _vm.isLoading
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.submit($event)
+                                }
+                              }
+                            },
+                            [_vm._v("Сохранить")]
+                          )
                         ],
                         1
                       )
-                    : _vm._e()
+                    ],
+                    1
+                  )
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "card-component",
-                {
-                  staticClass: "tile is-child",
-                  attrs: { title: "Код для установки на сайт", icon: "account" }
-                },
+                "b-tab-item",
+                { attrs: { label: "Код для установки на сайт" } },
                 [
                   _c(
-                    "b-field",
+                    "card-component",
                     {
+                      staticClass: "tile is-child",
                       attrs: {
-                        label:
-                          "Разместите код на всех страницах вашего сайта перед тегом /head или отправьте его веб-мастеру"
+                        title: "Код для установки на сайт",
+                        icon: "calendar-text"
                       }
                     },
                     [
-                      _c("b-input", {
-                        ref: "widgetText",
-                        attrs: {
-                          maxlength: "200",
-                          type: "textarea",
-                          readonly: "",
-                          value: _vm.widgetCode
-                        }
-                      })
+                      _c(
+                        "b-field",
+                        {
+                          attrs: {
+                            label:
+                              "Разместите код на всех страницах вашего сайта перед тегом /head или отправьте его веб-мастеру"
+                          }
+                        },
+                        [
+                          _c("b-input", {
+                            ref: "widgetText",
+                            attrs: {
+                              maxlength: "200",
+                              type: "textarea",
+                              readonly: "",
+                              value: _vm.widgetCode
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { type: "is-success", loading: _vm.isLoading },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.copyClipboard($event)
+                            }
+                          }
+                        },
+                        [_vm._v("Копировать")]
+                      )
                     ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-button",
-                    {
-                      attrs: { type: "is-success", loading: _vm.isLoading },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.copyClipboard($event)
-                        }
-                      }
-                    },
-                    [_vm._v("Копировать")]
                   )
                 ],
                 1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-field",
-            [
+              ),
+              _vm._v(" "),
               _c(
-                "b-button",
-                {
-                  attrs: { type: "is-primary", loading: _vm.isLoading },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.submit($event)
-                    }
-                  }
-                },
-                [_vm._v("Сохранить")]
+                "b-tab-item",
+                { attrs: { label: "Настройка виджета" } },
+                [
+                  _c(
+                    "card-component",
+                    {
+                      staticClass: "tile is-child",
+                      attrs: {
+                        title: "Настройка виджета",
+                        icon: "calendar-text"
+                      }
+                    },
+                    [
+                      _c(
+                        "b-field",
+                        { attrs: { label: "Размер виджета" } },
+                        [
+                          _c(
+                            "b-slider",
+                            {
+                              staticStyle: { width: "50%" },
+                              attrs: {
+                                lazy: "",
+                                size: "is-medium",
+                                min: 1,
+                                max: 3,
+                                "aria-label": "wSize",
+                                tooltip: false
+                              },
+                              model: {
+                                value: _vm.form.widget_size,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.form, "widget_size", $$v)
+                                },
+                                expression: "form.widget_size"
+                              }
+                            },
+                            [
+                              _c("b-slider-tick", { attrs: { value: 1 } }, [
+                                _vm._v("Маленький")
+                              ]),
+                              _vm._v(" "),
+                              _c("b-slider-tick", { attrs: { value: 2 } }, [
+                                _vm._v("Средний")
+                              ]),
+                              _vm._v(" "),
+                              _c("b-slider-tick", { attrs: { value: 3 } }, [
+                                _vm._v("Большой")
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c("b-field", { attrs: { label: "Цвет виджета" } }),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        [
+                          _c(
+                            "b-button",
+                            {
+                              attrs: {
+                                type: "is-primary",
+                                loading: _vm.isLoading
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.submit($event)
+                                }
+                              }
+                            },
+                            [_vm._v("Сохранить")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
               )
             ],
             1

@@ -84,7 +84,7 @@
                         <b-button
                             label="Отправить"
                             type="is-primary"
-                            @click.prevent="submitModal"
+                            @click="submitModal"
                              />
                     </footer>
                 </div>
@@ -133,11 +133,13 @@ export default {
       paginated: false,
       perPage: 10,
       checkedRows: [],
+      isReadyToSend: false,
       modal: {
         site: null,
         email: null,
       },
       sites: [],
+      reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
     }
   },
   computed: {
@@ -195,28 +197,42 @@ export default {
         })
     },
     submitModal () {
-      let method = 'post'
-      let url = '/staff/invite'
-      axios({
-        method,
-        url,
-        data: this.modal
-      }).then(r => {
-          this.modalHandler = false;
-          this.$buefy.snackbar.open({
-            message: 'Отправлено',
+      this.checkIsReadyToSend();
+      if (this.isReadyToSend) {
+        let method = 'post'
+        let url = '/staff/invite'
+        axios({
+          method,
+          url,
+          data: this.modal
+        }).then(r => {
+            this.modalHandler = false;
+            this.$buefy.snackbar.open({
+              message: 'Отправлено',
+              queue: false
+            })
+
+        }).catch(e => {
+          this.isLoading = false
+          this.$buefy.toast.open({
+            message: `Error: ${e.message}`,
+            type: 'is-danger',
             queue: false
           })
-
-      }).catch(e => {
-        this.isLoading = false
-
-        this.$buefy.toast.open({
-          message: `Error: ${e.message}`,
-          type: 'is-danger',
-          queue: false
         })
-      })
+      }else{
+        this.$buefy.toast.open({
+            message: 'Заполните оба поля и проверте правильность email',
+            type: 'is-danger',
+            queue: false
+          })
+      }
+    },
+    checkIsReadyToSend(){
+      if(this.modal.site && this.modal.email && this.reg.test(this.modal.email)){
+          this.isReadyToSend = true
+      }
+        
     },
     trashModal (trashObject = null) {
       if (trashObject || this.checkedRows.length) {

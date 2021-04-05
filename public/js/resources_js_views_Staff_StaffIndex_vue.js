@@ -246,11 +246,13 @@ __webpack_require__.r(__webpack_exports__);
       paginated: false,
       perPage: 10,
       checkedRows: [],
+      isReadyToSend: false,
       modal: {
         site: null,
         email: null
       },
-      sites: []
+      sites: [],
+      reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
     };
   },
   computed: {
@@ -311,28 +313,43 @@ __webpack_require__.r(__webpack_exports__);
     submitModal: function submitModal() {
       var _this3 = this;
 
-      var method = 'post';
-      var url = '/staff/invite';
-      axios({
-        method: method,
-        url: url,
-        data: this.modal
-      }).then(function (r) {
-        _this3.modalHandler = false;
+      this.checkIsReadyToSend();
 
-        _this3.$buefy.snackbar.open({
-          message: 'Отправлено',
-          queue: false
+      if (this.isReadyToSend) {
+        var method = 'post';
+        var url = '/staff/invite';
+        axios({
+          method: method,
+          url: url,
+          data: this.modal
+        }).then(function (r) {
+          _this3.modalHandler = false;
+
+          _this3.$buefy.snackbar.open({
+            message: 'Отправлено',
+            queue: false
+          });
+        })["catch"](function (e) {
+          _this3.isLoading = false;
+
+          _this3.$buefy.toast.open({
+            message: "Error: ".concat(e.message),
+            type: 'is-danger',
+            queue: false
+          });
         });
-      })["catch"](function (e) {
-        _this3.isLoading = false;
-
-        _this3.$buefy.toast.open({
-          message: "Error: ".concat(e.message),
+      } else {
+        this.$buefy.toast.open({
+          message: 'Заполните оба поля и проверте правильность email',
           type: 'is-danger',
           queue: false
         });
-      });
+      }
+    },
+    checkIsReadyToSend: function checkIsReadyToSend() {
+      if (this.modal.site && this.modal.email && this.reg.test(this.modal.email)) {
+        this.isReadyToSend = true;
+      }
     },
     trashModal: function trashModal() {
       var trashObject = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
@@ -1140,12 +1157,7 @@ var render = function() {
                                   label: "Отправить",
                                   type: "is-primary"
                                 },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.submitModal($event)
-                                  }
-                                }
+                                on: { click: _vm.submitModal }
                               })
                             ],
                             1
