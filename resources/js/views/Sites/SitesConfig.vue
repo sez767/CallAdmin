@@ -57,10 +57,10 @@
 
               <div v-if="form.is_answer==1">
                 <b-field label="Время автоприветствия">
-                  <b-numberinput style="width:50%" v-model="form.answer_sec" placeholder="15" :min="15"></b-numberinput>
+                  <b-numberinput class="inputWidth" v-model="form.answer_sec" placeholder="15" :min="15"></b-numberinput>
                 </b-field>
                 <b-field label="Текст автоприветствия" message="">
-                  <b-input style="width:50%" placeholder="Текст" v-model="form.answer_text"/>
+                  <b-input class="inputWidth" placeholder="Текст" v-model="form.answer_text"/>
                 </b-field>
               </div>
               
@@ -89,7 +89,7 @@
       <b-tab-item label="Настройка виджета">
         <card-component title="Настройка виджета" icon="calendar-text" class="tile is-child">
             <b-field label="Размер виджета">
-            <b-slider v-model="form.widget_size" lazy style="width:50%" size="is-medium" :min="1" :max="3" aria-label="wSize" :tooltip="false">
+            <b-slider v-model="form.widget_size" lazy class="inputWidth" size="is-medium" :min="1" :max="3" aria-label="wSize" :tooltip="false">
                 <b-slider-tick :value="1">Маленький</b-slider-tick>
                 <b-slider-tick :value="2">Средний</b-slider-tick>
                 <b-slider-tick :value="3">Большой</b-slider-tick>
@@ -97,7 +97,7 @@
         </b-field>
         <hr>
         <b-field label="Цвет виджета">
-
+          <v-input-colorpicker  v-model="form.widget_color" />  
         </b-field>
         <hr>
         <b-field>
@@ -119,10 +119,20 @@ import CardComponent from '@/components/CardComponent'
 import FilePicker from '@/components/FilePicker'
 import UserAvatar from '@/components/UserAvatar'
 import Notification from '@/components/Notification'
+import InputColorPicker from "vue-native-color-picker";
 
 export default {
   name: 'SitesForm',
-  components: { UserAvatar, FilePicker, CardComponent, Tiles, HeroBar, TitleBar, Notification },
+  components: { 
+    UserAvatar,
+    FilePicker, 
+    CardComponent, 
+    Tiles, 
+    HeroBar, 
+    TitleBar,
+    Notification,
+    "v-input-colorpicker": InputColorPicker,
+  },
   props: {
     id: {
       default: null
@@ -176,7 +186,8 @@ export default {
         is_answer: 0,
         answer_sec: null,
         answer_text: '',
-        widget_size: '',
+        widget_size: 0,
+        widget_color: '',
       }
     },
     getData () {
@@ -214,7 +225,6 @@ export default {
       //this.createdReadable = moment(v).format('MMM D, Y').toString()
     },
     submit () {
-      console.log('object');
       this.isLoading = true
       let method = 'patch'
       let url = `/sites/${this.id}`
@@ -256,3 +266,14 @@ export default {
   }
 }
 </script>
+
+<style>
+  .inputWidth{
+    max-width: 50%
+  }
+@media screen and (max-width: 700px) {
+  .inputWidth{
+    max-width: 100%
+  }
+}
+</style>
