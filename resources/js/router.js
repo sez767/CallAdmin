@@ -29,6 +29,12 @@ export default new Router({
       props: true
     },
     {
+      path: '/sites/config/:id',
+      name: 'sites.config',
+      component: () => import('./views/Sites/SitesConfig.vue'),
+      props: true
+    },
+    {
       path: '/staff/index',
       name: 'staff.index',
       component: () => import('./views/Staff/StaffIndex.vue'),

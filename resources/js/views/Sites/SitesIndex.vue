@@ -39,25 +39,28 @@
               {{ props.row.url}}
             </b-table-column>
             <b-table-column label="Активный" field="is_active" sortable v-slot="props">
-                  <input type="checkbox" 
-                        id="checkbox"
-                        true-value="1"
-                        false-value="0"
-                        v-model="props.row.is_active"
-                        disabled
-                        >
+                <b-icon class="ml-5" v-if="props.row.is_active" type="is-success" icon="circle-slice-8"></b-icon>
+                <b-icon class="ml-5" v-else type="is-danger" icon="circle-outline"></b-icon>    
+                
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'sites.edit', params: {id: props.row.id}}" class="button is-small is-primary">
-                  <b-icon icon="account-edit" size="is-small"/>
+                <router-link :to="{name:'sites.config', params: {id: props.row.id}}" class="button is-small is-success">
+                  <b-icon icon="settings" size="is-small"/>
                 </router-link>
+
                 <div v-if="props.row.owner == userId">
+                  <router-link :to="{name:'sites.edit', params: {id: props.row.id}}" class="button is-small is-primary">
+                  <b-icon icon="pencil-outline" size="is-small"/>
+                </router-link>
                   <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
                     <b-icon icon="trash-can" size="is-small"/>
                   </button>  
                 </div>
                 <div v-else>
+                  <router-link disabled to="" class="button is-small is-primary">
+                    <b-icon icon="pencil-outline" size="is-small"/>
+                  </router-link>
                   <button disabled class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
                     <b-icon icon="trash-can" size="is-small"/>
                   </button>  

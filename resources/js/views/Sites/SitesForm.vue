@@ -34,62 +34,6 @@
             </b-field>
           </form>
         </card-component>
-        <card-component v-if="isProfileExists" title="Настроить сайт" icon="account" class="tile is-child">
-          <b-field label="Включить" horizontal>
-              <b-switch 
-                v-model="form.is_active"
-                true-value="1"
-                false-value="0"
-                >
-              </b-switch>
-          </b-field>
-          <hr>
-          <b-field v-if="form.is_active==1" label="Онлайн чат">
-              <b-switch 
-                v-model="form.is_chat"
-                true-value="1"
-                false-value="0"
-              >
-              </b-switch>
-          </b-field>
-           <b-field v-else label="Онлайн чат">
-              <b-switch 
-                disabled
-                v-model="form.is_chat"
-                true-value="1"
-                false-value="0"
-              ></b-switch>
-          </b-field>
-          <div v-if="form.is_chat==1 && form.is_active==1">
-              <b-field v-if="form.is_chat==1" label="Автоприветствие">
-                <b-switch 
-                  v-model="form.is_answer"
-                  true-value="1"
-                  false-value="0"
-                ></b-switch>
-              </b-field>
-              
-              <b-field v-else label="Автоприветствие">
-                <b-switch
-                  disabled
-                  v-model="form.is_answer"
-                  true-value="1"
-                  false-value="0"
-                ></b-switch>
-              </b-field> 
-
-              <div v-if="form.is_answer==1">
-                <b-field label="Время автоприветствия">
-                  <b-numberinput v-model="form.answer_sec" placeholder="15" :min="15"></b-numberinput>
-                </b-field>
-                <b-field label="Текст автоприветствия" message="">
-                  <b-input placeholder="Текст" v-model="form.answer_text"/>
-                </b-field>
-              </div>
-              
-        </div>
-
-        </card-component>
       </tiles>
     </section>
   </div>
@@ -167,11 +111,6 @@ export default {
         avatar: null,
         avatar_filename: null,
         file_id: 0,
-        is_active: 0,
-        is_chat: 0,
-        is_answer: 0,
-        answer_sec: null,
-        answer_text: '',
       }
     },
     getData () {

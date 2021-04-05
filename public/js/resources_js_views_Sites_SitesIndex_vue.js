@@ -204,6 +204,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -878,58 +881,21 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: props.row.is_active,
-                                  expression: "props.row.is_active"
-                                }
-                              ],
-                              attrs: {
-                                type: "checkbox",
-                                id: "checkbox",
-                                "true-value": "1",
-                                "false-value": "0",
-                                disabled: ""
-                              },
-                              domProps: {
-                                checked: Array.isArray(props.row.is_active)
-                                  ? _vm._i(props.row.is_active, null) > -1
-                                  : _vm._q(props.row.is_active, "1")
-                              },
-                              on: {
-                                change: function($event) {
-                                  var $$a = props.row.is_active,
-                                    $$el = $event.target,
-                                    $$c = $$el.checked ? "1" : "0"
-                                  if (Array.isArray($$a)) {
-                                    var $$v = null,
-                                      $$i = _vm._i($$a, $$v)
-                                    if ($$el.checked) {
-                                      $$i < 0 &&
-                                        _vm.$set(
-                                          props.row,
-                                          "is_active",
-                                          $$a.concat([$$v])
-                                        )
-                                    } else {
-                                      $$i > -1 &&
-                                        _vm.$set(
-                                          props.row,
-                                          "is_active",
-                                          $$a
-                                            .slice(0, $$i)
-                                            .concat($$a.slice($$i + 1))
-                                        )
-                                    }
-                                  } else {
-                                    _vm.$set(props.row, "is_active", $$c)
+                            props.row.is_active
+                              ? _c("b-icon", {
+                                  staticClass: "ml-5",
+                                  attrs: {
+                                    type: "is-success",
+                                    icon: "circle-slice-8"
                                   }
-                                }
-                              }
-                            })
+                                })
+                              : _c("b-icon", {
+                                  staticClass: "ml-5",
+                                  attrs: {
+                                    type: "is-danger",
+                                    icon: "circle-outline"
+                                  }
+                                })
                           ]
                         }
                       }
@@ -951,10 +917,10 @@ var render = function() {
                                 _c(
                                   "router-link",
                                   {
-                                    staticClass: "button is-small is-primary",
+                                    staticClass: "button is-small is-success",
                                     attrs: {
                                       to: {
-                                        name: "sites.edit",
+                                        name: "sites.config",
                                         params: { id: props.row.id }
                                       }
                                     }
@@ -962,7 +928,7 @@ var render = function() {
                                   [
                                     _c("b-icon", {
                                       attrs: {
-                                        icon: "account-edit",
+                                        icon: "settings",
                                         size: "is-small"
                                       }
                                     })
@@ -971,59 +937,108 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 props.row.owner == _vm.userId
-                                  ? _c("div", [
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "button is-small is-danger",
-                                          attrs: { type: "button" },
-                                          on: {
-                                            click: function($event) {
-                                              $event.preventDefault()
-                                              return _vm.trashModal(props.row)
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("b-icon", {
+                                  ? _c(
+                                      "div",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "button is-small is-primary",
                                             attrs: {
-                                              icon: "trash-can",
-                                              size: "is-small"
+                                              to: {
+                                                name: "sites.edit",
+                                                params: { id: props.row.id }
+                                              }
                                             }
-                                          })
-                                        ],
-                                        1
-                                      )
-                                    ])
-                                  : _c("div", [
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "button is-small is-danger",
-                                          attrs: {
-                                            disabled: "",
-                                            type: "button"
                                           },
-                                          on: {
-                                            click: function($event) {
-                                              $event.preventDefault()
-                                              return _vm.trashModal(props.row)
+                                          [
+                                            _c("b-icon", {
+                                              attrs: {
+                                                icon: "pencil-outline",
+                                                size: "is-small"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "button is-small is-danger",
+                                            attrs: { type: "button" },
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.trashModal(props.row)
+                                              }
                                             }
-                                          }
-                                        },
-                                        [
-                                          _c("b-icon", {
+                                          },
+                                          [
+                                            _c("b-icon", {
+                                              attrs: {
+                                                icon: "trash-can",
+                                                size: "is-small"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  : _c(
+                                      "div",
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            staticClass:
+                                              "button is-small is-primary",
+                                            attrs: { disabled: "", to: "" }
+                                          },
+                                          [
+                                            _c("b-icon", {
+                                              attrs: {
+                                                icon: "pencil-outline",
+                                                size: "is-small"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "button is-small is-danger",
                                             attrs: {
-                                              icon: "trash-can",
-                                              size: "is-small"
+                                              disabled: "",
+                                              type: "button"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.trashModal(props.row)
+                                              }
                                             }
-                                          })
-                                        ],
-                                        1
-                                      )
-                                    ])
+                                          },
+                                          [
+                                            _c("b-icon", {
+                                              attrs: {
+                                                icon: "trash-can",
+                                                size: "is-small"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
                               ],
                               1
                             )

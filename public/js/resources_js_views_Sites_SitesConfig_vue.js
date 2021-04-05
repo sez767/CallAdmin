@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Sites_SitesForm_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_views_Sites_SitesConfig_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FilePicker.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
@@ -248,10 +248,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesConfig.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesConfig.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -268,6 +268,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_FilePicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/FilePicker */ "./resources/js/components/FilePicker.vue");
 /* harmony import */ var _components_UserAvatar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/UserAvatar */ "./resources/js/components/UserAvatar.vue");
 /* harmony import */ var _components_Notification__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/Notification */ "./resources/js/components/Notification.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -338,7 +383,8 @@ __webpack_require__.r(__webpack_exports__);
       isLoading: false,
       item: null,
       form: this.getClearFormObject(),
-      createdReadable: null
+      createdReadable: null,
+      widgetCode: '<!-- CallAdmin Widget --><script id="CA" type="module" async src="https:///widget.js?client=333"><\/script><!-- /CallAdmin Widget -->'
     };
   },
   computed: {
@@ -354,18 +400,10 @@ __webpack_require__.r(__webpack_exports__);
       return ['CallAdmin', 'Сайты', lastCrumb];
     },
     heroTitle: function heroTitle() {
-      if (this.isProfileExists) {
-        return this.form.name;
-      } else {
-        return 'Новый сайт';
-      }
+      return this.form.name;
     },
     formCardTitle: function formCardTitle() {
-      if (this.isProfileExists) {
-        return 'Редактировать сайт';
-      } else {
-        return 'Новый сайт';
-      }
+      return 'Настроить сайт';
     },
     isProfileExists: function isProfileExists() {
       return !!this.item;
@@ -378,11 +416,11 @@ __webpack_require__.r(__webpack_exports__);
     getClearFormObject: function getClearFormObject() {
       return {
         id: null,
-        name: null,
-        url: null,
-        avatar: null,
-        avatar_filename: null,
-        file_id: 0
+        is_active: 0,
+        is_chat: 0,
+        is_answer: 0,
+        answer_sec: null,
+        answer_text: ''
       };
     },
     getData: function getData() {
@@ -404,6 +442,13 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
+    copyClipboard: function copyClipboard() {
+      navigator.clipboard.writeText(this.widgetCode);
+      this.$buefy.snackbar.open({
+        message: 'Скопировано',
+        queue: false
+      });
+    },
     fileIdUpdated: function fileIdUpdated(fileId) {
       this.form.file_id = fileId;
       this.form.avatar_filename = null;
@@ -413,15 +458,10 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this2 = this;
 
+      console.log('object');
       this.isLoading = true;
-      var method = 'post';
-      var url = '/sites/store';
-
-      if (this.id) {
-        method = 'patch';
-        url = "/sites/".concat(this.id);
-      }
-
+      var method = 'patch';
+      var url = "/sites/".concat(this.id);
       axios({
         method: method,
         url: url,
@@ -431,19 +471,12 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.$router.go(-1);
 
-        if (!_this2.id && r.data.data.id) {
-          _this2.$buefy.snackbar.open({
-            message: 'Создан',
-            queue: false
-          });
-        } else {
-          _this2.item = r.data.data;
+        _this2.item = r.data.data;
 
-          _this2.$buefy.snackbar.open({
-            message: 'Сохранен',
-            queue: false
-          });
-        }
+        _this2.$buefy.snackbar.open({
+          message: 'Сохранено',
+          queue: false
+        });
       })["catch"](function (e) {
         _this2.isLoading = false;
 
@@ -1899,10 +1932,10 @@ component.options.__file = "resources/js/components/TitleBar.vue"
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesForm.vue":
-/*!************************************************!*\
-  !*** ./resources/js/views/Sites/SitesForm.vue ***!
-  \************************************************/
+/***/ "./resources/js/views/Sites/SitesConfig.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/views/Sites/SitesConfig.vue ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1910,8 +1943,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SitesForm.vue?vue&type=template&id=00e95d84& */ "./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&");
-/* harmony import */ var _SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SitesForm.vue?vue&type=script&lang=js& */ "./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SitesConfig_vue_vue_type_template_id_81ec2f88___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SitesConfig.vue?vue&type=template&id=81ec2f88& */ "./resources/js/views/Sites/SitesConfig.vue?vue&type=template&id=81ec2f88&");
+/* harmony import */ var _SitesConfig_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SitesConfig.vue?vue&type=script&lang=js& */ "./resources/js/views/Sites/SitesConfig.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1921,9 +1954,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.render,
-  _SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _SitesConfig_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _SitesConfig_vue_vue_type_template_id_81ec2f88___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SitesConfig_vue_vue_type_template_id_81ec2f88___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -1933,7 +1966,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Sites/SitesForm.vue"
+component.options.__file = "resources/js/views/Sites/SitesConfig.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -1986,10 +2019,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
+/***/ "./resources/js/views/Sites/SitesConfig.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/Sites/SitesConfig.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1997,8 +2030,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesConfig_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesConfig.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesConfig.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesConfig_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -2053,19 +2086,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/views/Sites/SitesConfig.vue?vue&type=template&id=81ec2f88&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/views/Sites/SitesConfig.vue?vue&type=template&id=81ec2f88& ***!
+  \*********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesConfig_vue_vue_type_template_id_81ec2f88___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesConfig_vue_vue_type_template_id_81ec2f88___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesForm_vue_vue_type_template_id_00e95d84___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesForm.vue?vue&type=template&id=00e95d84& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SitesConfig_vue_vue_type_template_id_81ec2f88___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SitesConfig.vue?vue&type=template&id=81ec2f88& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesConfig.vue?vue&type=template&id=81ec2f88&");
 
 
 /***/ }),
@@ -2266,10 +2299,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesForm.vue?vue&type=template&id=00e95d84& ***!
-  \**********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesConfig.vue?vue&type=template&id=81ec2f88&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Sites/SitesConfig.vue?vue&type=template&id=81ec2f88& ***!
+  \************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2315,141 +2348,246 @@ var render = function() {
                 "card-component",
                 {
                   staticClass: "tile is-child",
-                  attrs: { title: _vm.formCardTitle, icon: "account-edit" }
+                  attrs: { title: "Настроить сайт", icon: "account" }
                 },
                 [
                   _c(
-                    "form",
-                    {
-                      on: {
-                        submit: function($event) {
-                          $event.preventDefault()
-                          return _vm.submit($event)
-                        }
-                      }
-                    },
+                    "b-field",
+                    { attrs: { label: "Включить", horizontal: "" } },
                     [
-                      _vm.id
-                        ? [
-                            _c(
-                              "b-field",
-                              { attrs: { label: "ID", horizontal: "" } },
-                              [
-                                _c("b-input", {
-                                  attrs: {
-                                    value: _vm.id,
-                                    "custom-class": "is-static",
-                                    readonly: ""
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.isProfileExists
-                        ? _c("user-avatar", {
-                            staticClass:
-                              "image has-max-width is-aligned-center",
-                            attrs: {
-                              avatar: _vm.item.avatar,
-                              "is-current-user": false
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("hr"),
-                      _vm._v(" "),
-                      _c(
+                      _c("b-switch", {
+                        attrs: { "true-value": "1", "false-value": "0" },
+                        model: {
+                          value: _vm.form.is_active,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "is_active", $$v)
+                          },
+                          expression: "form.is_active"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _vm.form.is_active == 1
+                    ? _c(
                         "b-field",
-                        { attrs: { label: "Лого", horizontal: "" } },
+                        { attrs: { label: "Онлайн чат" } },
                         [
-                          _c("file-picker", {
-                            attrs: { "current-file": _vm.form.avatar_filename },
-                            on: { "file-id-updated": _vm.fileIdUpdated }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("hr"),
-                      _vm._v(" "),
-                      _c(
-                        "b-field",
-                        {
-                          attrs: {
-                            label: "Название",
-                            message: "",
-                            horizontal: ""
-                          }
-                        },
-                        [
-                          _c("b-input", {
-                            attrs: {
-                              placeholder: "Название сайта",
-                              required: ""
-                            },
+                          _c("b-switch", {
+                            attrs: { "true-value": "1", "false-value": "0" },
                             model: {
-                              value: _vm.form.name,
+                              value: _vm.form.is_chat,
                               callback: function($$v) {
-                                _vm.$set(_vm.form, "name", $$v)
+                                _vm.$set(_vm.form, "is_chat", $$v)
                               },
-                              expression: "form.name"
+                              expression: "form.is_chat"
                             }
                           })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-field",
-                        {
-                          attrs: {
-                            label: "Url сайта",
-                            message: "",
-                            horizontal: ""
-                          }
-                        },
-                        [
-                          _c("b-input", {
-                            attrs: { placeholder: "Url сайта", required: "" },
-                            model: {
-                              value: _vm.form.url,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "url", $$v)
-                              },
-                              expression: "form.url"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("hr"),
-                      _vm._v(" "),
-                      _c(
-                        "b-field",
-                        { attrs: { horizontal: "" } },
-                        [
-                          _c(
-                            "b-button",
-                            {
-                              attrs: {
-                                type: "is-primary",
-                                loading: _vm.isLoading,
-                                "native-type": "submit"
-                              }
-                            },
-                            [_vm._v("Сохранить")]
-                          )
                         ],
                         1
                       )
+                    : _c(
+                        "b-field",
+                        { attrs: { label: "Онлайн чат" } },
+                        [
+                          _c("b-switch", {
+                            attrs: {
+                              disabled: "",
+                              "true-value": "1",
+                              "false-value": "0"
+                            },
+                            model: {
+                              value: _vm.form.is_chat,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "is_chat", $$v)
+                              },
+                              expression: "form.is_chat"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                  _vm._v(" "),
+                  _vm.form.is_chat == 1 && _vm.form.is_active == 1
+                    ? _c(
+                        "div",
+                        [
+                          _vm.form.is_chat == 1
+                            ? _c(
+                                "b-field",
+                                { attrs: { label: "Автоприветствие" } },
+                                [
+                                  _c("b-switch", {
+                                    attrs: {
+                                      "true-value": "1",
+                                      "false-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.form.is_answer,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "is_answer", $$v)
+                                      },
+                                      expression: "form.is_answer"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            : _c(
+                                "b-field",
+                                { attrs: { label: "Автоприветствие" } },
+                                [
+                                  _c("b-switch", {
+                                    attrs: {
+                                      disabled: "",
+                                      "true-value": "1",
+                                      "false-value": "0"
+                                    },
+                                    model: {
+                                      value: _vm.form.is_answer,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.form, "is_answer", $$v)
+                                      },
+                                      expression: "form.is_answer"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                          _vm._v(" "),
+                          _vm.form.is_answer == 1
+                            ? _c(
+                                "div",
+                                [
+                                  _c(
+                                    "b-field",
+                                    {
+                                      attrs: { label: "Время автоприветствия" }
+                                    },
+                                    [
+                                      _c("b-numberinput", {
+                                        attrs: { placeholder: "15", min: 15 },
+                                        model: {
+                                          value: _vm.form.answer_sec,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "answer_sec",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.answer_sec"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-field",
+                                    {
+                                      attrs: {
+                                        label: "Текст автоприветствия",
+                                        message: ""
+                                      }
+                                    },
+                                    [
+                                      _c("b-input", {
+                                        attrs: { placeholder: "Текст" },
+                                        model: {
+                                          value: _vm.form.answer_text,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "answer_text",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.answer_text"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "card-component",
+                {
+                  staticClass: "tile is-child",
+                  attrs: { title: "Код для установки на сайт", icon: "account" }
+                },
+                [
+                  _c(
+                    "b-field",
+                    {
+                      attrs: {
+                        label:
+                          "Разместите код на всех страницах вашего сайта перед тегом /head или отправьте его веб-мастеру"
+                      }
+                    },
+                    [
+                      _c("b-input", {
+                        ref: "widgetText",
+                        attrs: {
+                          maxlength: "200",
+                          type: "textarea",
+                          readonly: "",
+                          value: _vm.widgetCode
+                        }
+                      })
                     ],
-                    2
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-button",
+                    {
+                      attrs: { type: "is-success", loading: _vm.isLoading },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.copyClipboard($event)
+                        }
+                      }
+                    },
+                    [_vm._v("Копировать")]
                   )
-                ]
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-field",
+            [
+              _c(
+                "b-button",
+                {
+                  attrs: { type: "is-primary", loading: _vm.isLoading },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.submit($event)
+                    }
+                  }
+                },
+                [_vm._v("Сохранить")]
               )
             ],
             1

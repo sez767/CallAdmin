@@ -29,7 +29,6 @@
 <script>
 // @ is an alias to /src
 import * as chartConfig from '@/components/Charts/chart.config'
-// import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
 import Tiles from '@/components/Tiles'
 import CardWidget from '@/components/CardWidget'
@@ -45,7 +44,6 @@ export default {
     CardWidget,
     Tiles,
     HeroBar,
-    // TitleBar
   },
   data () {
     return {
