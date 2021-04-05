@@ -20231,6 +20231,7 @@ section.hero.is-hero-bar .hero-body .button.is-hero-button:hover {
 }
 
 .card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 6px;
   border: 1px solid rgba(24, 28, 33, 0.06);
 }

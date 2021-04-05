@@ -2,7 +2,9 @@
   <div id="app">
     <nav-bar/>
     <aside-menu :menu="menu"/>
-    <router-view/>
+    <transition name="page" mode="out-in">
+      <router-view/>
+    </transition>
     <!-- <footer-bar/> -->
   </div>
 </template>
@@ -115,3 +117,12 @@ export default {
   }
 }
 </script>
+<style>
+.page-enter-active, .page-leave-active {
+  transition: opacity 1s, transform 1s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+  transform: translateX(-30%);
+}
+</style>

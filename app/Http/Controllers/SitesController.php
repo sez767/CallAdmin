@@ -131,7 +131,7 @@ class SitesController extends Controller
             'ids' => 'required|array'
         ]);
 
-        Staff::destroy($request->ids);
+        Site::destroy($request->ids);
 
         return response()->json([
             'status' => true

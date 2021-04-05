@@ -197,7 +197,6 @@ export default {
           .then(r => {
             this.form = r.data.data
             this.item = clone(r.data.data)
-            this.showAnswer = r.data.data.is_chat
           })
           .catch(e => {
             this.item = null
@@ -216,13 +215,6 @@ export default {
             message: 'Скопировано',
             queue: false
           })
-    },
-    fileIdUpdated (fileId) {
-      this.form.file_id = fileId
-      this.form.avatar_filename = null
-    },
-    input (v) {
-      //this.createdReadable = moment(v).format('MMM D, Y').toString()
     },
     submit () {
       this.isLoading = true
