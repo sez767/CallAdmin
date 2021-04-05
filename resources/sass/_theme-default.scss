@@ -9,7 +9,7 @@ $default-padding: $size-base * 1.5;
 $family-sans-serif: "Nunito", sans-serif;
 
 /* Base color */
-$base-color: #2e323a;
+$base-color: #009688;
 $base-color-light: rgba(24, 28, 33, .06);
 
 /* General overrides */
@@ -31,11 +31,11 @@ $navbar-avatar-size: 1.75rem;
 /* Aside: Bulma override */
 $menu-item-radius: 0;
 $menu-list-link-padding: $size-base * .5 0;
-$menu-label-color: lighten($base-color, 25%);
-$menu-item-color: lighten($base-color, 30%);
-$menu-item-hover-color: $white;
+$menu-label-color: #cefffa;
+$menu-item-color: #cefffa;
+$menu-item-hover-color: lighten($base-color, 25%);
 $menu-item-hover-background-color: darken($base-color, 3.5%);
-$menu-item-active-color: $white;
+$menu-item-active-color: lighten($base-color, 25%);
 $menu-item-active-background-color: darken($base-color, 2.5%);
 
 /* Aside: specifics */
@@ -43,7 +43,7 @@ $aside-width: $size-base * 14;
 $aside-mobile-width: $size-base * 15;
 $aside-icon-width: $size-base * 3;
 $aside-submenu-font-size: $size-base * .95;
-$aside-box-shadow: none;
+$aside-box-shadow: 0 10px 20px rgba(0,0,0,.19),0 6px 6px rgba(0,0,0,.23);
 $aside-background-color: $base-color;
 $aside-tools-background-color: darken($aside-background-color, 10%);
 $aside-tools-color: $white;

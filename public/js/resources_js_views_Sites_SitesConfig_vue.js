@@ -2817,10 +2817,7 @@ var render = function() {
                     "card-component",
                     {
                       staticClass: "tile is-child",
-                      attrs: {
-                        title: "Настроить сайт",
-                        icon: "focus-field-horizontal"
-                      }
+                      attrs: { title: "", icon: "focus-field-horizontal" }
                     },
                     [
                       _c(
@@ -3042,10 +3039,7 @@ var render = function() {
                     "card-component",
                     {
                       staticClass: "tile is-child",
-                      attrs: {
-                        title: "Код для установки на сайт",
-                        icon: "calendar-text"
-                      }
+                      attrs: { title: "", icon: "calendar-text" }
                     },
                     [
                       _c(
@@ -3098,10 +3092,7 @@ var render = function() {
                     "card-component",
                     {
                       staticClass: "tile is-child",
-                      attrs: {
-                        title: "Настройка виджета",
-                        icon: "calendar-text"
-                      }
+                      attrs: { title: "", icon: "calendar-text" }
                     },
                     [
                       _c(

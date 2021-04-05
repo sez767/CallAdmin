@@ -12,14 +12,14 @@
         @component('components.card')
             @slot('title')
                 <span class="icon"><i class="mdi mdi-lock-open"></i></span>
-                <span>{{ __('Reset Password') }}</span>
+                <span>{{ __('Сбросить пароль') }}</span>
             @endslot
 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
 
                 <div class="field">
-                    <label class="label" for="email">{{ __('E-Mail Address') }}</label>
+                    <label class="label" for="email">{{ __('Ваш E-Mail адрес') }}</label>
                     <div class="control">
                         <input id="email" type="email" class="input @error('email') is-danger @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     </div>
@@ -34,11 +34,11 @@
 
                 <div class="field is-form-action-buttons">
                     <button type="submit" class="button is-black">
-                        {{ __('Send Password Reset Link') }}
+                        {{ __('Сменить пароль пароль') }}
                     </button>
 
                     <a class="button is-black is-outlined" href="{{ route('login') }}">
-                        {{ __('Back') }}
+                        {{ __('Назад') }}
                     </a>
                 </div>
 

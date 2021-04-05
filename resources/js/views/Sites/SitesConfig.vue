@@ -11,7 +11,7 @@
       
         <b-tabs v-model="activeTab">
         <b-tab-item label="Настроить сайт">
-        <card-component title="Настроить сайт" icon="focus-field-horizontal" class="tile is-child">
+        <card-component title="" icon="focus-field-horizontal" class="tile is-child">
           <b-field label="Включить">
               <b-switch 
                 v-model="form.is_active"
@@ -72,7 +72,7 @@
         </card-component>
         </b-tab-item>
         <b-tab-item label="Код для установки на сайт">
-        <card-component title="Код для установки на сайт" icon="calendar-text" class="tile is-child">
+        <card-component title="" icon="calendar-text" class="tile is-child">
           <b-field label="Разместите код на всех страницах вашего сайта перед тегом /head или отправьте его веб-мастеру">
             <b-input 
               ref="widgetText"
@@ -87,7 +87,7 @@
         </b-tab-item>
        
       <b-tab-item label="Настройка виджета">
-        <card-component title="Настройка виджета" icon="calendar-text" class="tile is-child">
+        <card-component title="" icon="calendar-text" class="tile is-child">
             <b-field label="Размер виджета">
             <b-slider v-model="form.widget_size" lazy class="inputWidth" size="is-medium" :min="1" :max="3" aria-label="wSize" :tooltip="false">
                 <b-slider-tick :value="1">Маленький</b-slider-tick>

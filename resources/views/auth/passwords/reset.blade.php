@@ -5,7 +5,7 @@
         @component('components.card')
             @slot('title')
                 <span class="icon"><i class="mdi mdi-lock-reset"></i></span>
-                <span>{{ __('Reset Password') }}</span>
+                <span>{{ __('Сбросить пароль') }}</span>
             @endslot
 
             <form method="POST" action="{{ route('password.update') }}">
@@ -14,7 +14,7 @@
                 <input type="hidden" name="token" value="{{ $token }}">
 
                 <div class="field">
-                    <label class="label" for="email">{{ __('E-Mail Address') }}</label>
+                    <label class="label" for="email">{{ __('Ваш E-Mail адрес') }}</label>
                     <div class="control">
                         <input id="email" type="email" class="input @error('email') is-danger @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
                     </div>
@@ -28,7 +28,7 @@
                 <hr>
 
                 <div class="field">
-                    <label class="label" for="password">{{ __('Password') }}</label>
+                    <label class="label" for="password">{{ __('Новый пароль') }}</label>
                     <div class="control">
                         <input id="password" type="password" class="input @error('password') is-danger @enderror" name="password" required autocomplete="new-password" autofocus>
                     </div>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="field">
-                    <label class="label" for="password-confirm">{{ __('Confirm Password') }}</label>
+                    <label class="label" for="password-confirm">{{ __('Повторите новый пароль') }}</label>
                     <div class="control">
                         <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password" autofocus>
                     </div>
@@ -50,7 +50,7 @@
 
                 <div class="field is-form-action-buttons">
                     <button type="submit" class="button is-black">
-                        {{ __('Reset Password') }}
+                        {{ __('Изменить пароль') }}
                     </button>
                 </div>
 

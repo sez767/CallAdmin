@@ -6069,19 +6069,19 @@ button.dropdown-item.is-active {
 
 .menu-list a {
   border-radius: 0;
-  color: #727c8f;
+  color: #cefffa;
   display: block;
   padding: 0.5rem 0;
 }
 
 .menu-list a:hover {
-  background-color: #262930;
-  color: white;
+  background-color: #008478;
+  color: #17ffe9;
 }
 
 .menu-list a.is-active {
-  background-color: #282c33;
-  color: white;
+  background-color: #00897c;
+  color: #17ffe9;
 }
 
 .menu-list li ul {
@@ -6091,7 +6091,7 @@ button.dropdown-item.is-active {
 }
 
 .menu-label {
-  color: #666f81;
+  color: #cefffa;
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -20053,15 +20053,15 @@ aside.aside {
   z-index: 40;
   height: 100vh;
   padding: 0;
-  box-shadow: none;
-  background: #2e323a;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background: #009688;
 }
 
 aside.aside .aside-tools {
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color: #17191e;
+  background-color: #00635a;
   color: white;
   line-height: 3.25rem;
   height: 3.25rem;
@@ -20087,7 +20087,7 @@ aside.aside .menu-list li a.has-dropdown-icon .dropdown-icon {
 aside.aside .menu-list li ul {
   display: none;
   border-left: 0;
-  background-color: #282c33;
+  background-color: #00897c;
   padding-left: 0;
   margin: 0 0 0.75rem;
 }
@@ -20340,7 +20340,7 @@ table.table td.is-progress-col {
 .b-table .table-wrapper + .level .pagination-next,
 .b-table .table-wrapper + .level .pagination-link {
   border-color: #dbdbdb;
-  color: #2e323a;
+  color: #009688;
 }
 
 .b-table .table-wrapper + .level .pagination-previous[disabled],
@@ -20454,7 +20454,7 @@ select:active {
 
 .b-checkbox.checkbox input[type=checkbox] + .check,
 .b-radio.radio input[type=radio] + .check {
-  border: 1px solid #2e323a;
+  border: 1px solid #009688;
 }
 
 section.section.is-main-section {
