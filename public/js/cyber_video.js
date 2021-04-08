@@ -54,19 +54,19 @@ window.onload = function() {
 		modalBorder.classList.add("modall");
 		modalBorder.id = "mod";
 		let modalDialog = document.createElement("div");
-		modalDialog.classList.add("modal-dialog");
+		modalDialog.classList.add("modall-dialog");
 		let modalContent = document.createElement("div");
-		modalContent.classList.add("modal-content");
+		modalContent.classList.add("modall-content");
 		let modalHeader = document.createElement("div");
-		modalHeader.classList.add("modal-header");
+		modalHeader.classList.add("modall-header");
 		let modalBody = document.createElement("div");
-		modalBody.classList.add("modal-body");
+		modalBody.classList.add("modall-body");
 		modalBody.id = "body";
 		let modalControls = document.createElement("div");
 		modalControls.classList.add("media-controls");
 		modalControls.id = "mcontrols";
 		let modalTitle = document.createElement("h3");
-		modalTitle.classList.add("modal-title");
+		modalTitle.classList.add("modall-title");
 		modalTitle.innerHTML = "Видеозвонок"
 		let close = document.createElement("div");
 		let showm = document.querySelector("body");	
