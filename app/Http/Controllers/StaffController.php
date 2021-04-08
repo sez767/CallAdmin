@@ -32,17 +32,21 @@ class StaffController extends Controller
         //TODO 
         // $staff = \Auth::user()->sites()->first()->staff()->get();
         $ids = \Auth::user()->sites()->get();
-        foreach($ids as $id){
-            $arr[]=$id->id;
-        }   
-        $staff = Staff::with('sites')->whereHas('sites', function($q) use($arr){
-            $q->where('site_id', $arr);
-        })->get();
-        
-        $staff->each(function ($staff) {
-            $staff->append('avatar');
-        });
-
+        if($ids){
+            foreach($ids as $id){
+                $arr[]=$id->id;
+            }
+            
+            $staff = Staff::with('sites')->whereHas('sites', function($q) use($arr){
+                $q->where('site_id', $arr);
+            })->get();
+            
+            $staff->each(function ($staff) {
+                $staff->append('avatar');
+            });
+        }else{
+            $staff = Staff::findOrFail(\Auth::user()->id);
+        }
         return response()->json([
             'data' => $staff
         ]);
