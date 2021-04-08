@@ -31,12 +31,11 @@ class StaffController extends Controller
     public function index() {
         //TODO 
         // $staff = \Auth::user()->sites()->first()->staff()->get();
-        $ids = \Auth::user()->sites()->get();
-        if($ids){
+        $ids = \Auth::user()->sites()->get();    
+        if(!$ids->isEmpty()){
             foreach($ids as $id){
                 $arr[]=$id->id;
             }
-            
             $staff = Staff::with('sites')->whereHas('sites', function($q) use($arr){
                 $q->where('site_id', $arr);
             })->get();
@@ -45,7 +44,7 @@ class StaffController extends Controller
                 $staff->append('avatar');
             });
         }else{
-            $staff = Staff::findOrFail(\Auth::user()->id);
+            $staff[] = Staff::findOrFail(\Auth::user()->id);
         }
         return response()->json([
             'data' => $staff

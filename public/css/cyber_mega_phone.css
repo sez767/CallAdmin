@@ -1,0 +1,320 @@
+/******************************************************************************
+*  Cyber Mega Phone 2K
+*  Copyright (C) 2017 Digium, Inc.
+*
+*  This program is free software, distributed under the terms of the
+*  MIT License. See the LICENSE file at the top of the source tree.
+******************************************************************************/
+
+body {
+	font-family: sans-serif;
+}
+
+header {
+	font-size: 1.55rem;
+	text-shadow: 0 2px 2px #b6701e;
+	text-align: center;
+}
+
+/* Checkbox switch */
+.switches {
+	display: block;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 70px;
+	height: 20px;
+}
+
+.switch input {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 12px;
+	width: 16px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+	background-color: #0068b2;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #0068b2;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(46px);
+}
+
+.slider:after {
+	content: 'no';
+	color: white;
+	display: block;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 47%;
+	font-size: 10px;
+	font-family: Verdana, sans-serif;
+}
+
+input:checked + .slider:after {
+	content: 'yes';
+}
+
+ /* Account and connection */
+
+.connection {
+	text-align: left;
+	padding: 20px;
+	border-radius: 5px;
+	width: 20vw;
+	box-shadow: 0 3px 20px rgba(0,0,0,.25);
+}
+
+.connection input {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+ /* Media view and video */
+
+video {
+	width: 48vw;
+	border-radius: 5px;
+}
+
+.media-view {
+	/* float: left; */
+	height: auto;
+	text-align: center;
+	width: 100%;
+}
+.localvid{
+	width: 25%;
+	position: relative;
+	float: right;
+	padding: 0;
+	margin: 0 35px;
+	top: 20%;
+}
+.localvid video{
+	width: 100%;
+}
+
+
+.media-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.media-controls {
+	width: 100%;
+	position: relative;
+	text-align: center;
+}
+
+/* .media-controls button:hover, .media-controls button:focus {
+	opacity: 0.5;
+} */
+.allButtons {
+	display: inline-block;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border-radius: 50%;
+	box-shadow: 0 3px 20px rgba(0,0,0,.25);
+	font-size: 8px;
+	padding: 0;
+}
+.audio-btn{
+	background-color: rgb(150, 0, 0);
+	color: white;
+}
+.video-btn{
+	background-color: rgb(10, 77, 154);
+	color: white;
+}
+.exit-btn{
+	background-color: rgb(84, 0, 123);
+	color: white;
+}
+.audio-out-btn{
+	background-color: rgb(0, 113, 49);
+	color: white;
+}
+.line{
+	text-decoration: line-through;
+}
+
+/* MODAL */
+/* свойства модального окна по умолчанию */
+.modall {
+	position: fixed;
+	/* фиксированное положение */
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	/* цвет фона */
+	z-index: 1050;
+	opacity: 0;
+	/* по умолчанию модальное окно прозрачно */
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	/* анимация перехода */
+	pointer-events: none;
+	/* элемент невидим для событий мыши */
+  }
+
+  /* при отображении модального окно */
+  .modall.show {
+	opacity: 1;
+	pointer-events: auto;
+	overflow-y: auto;
+  }
+
+  /* ширина модального окна и его отступы от экрана */
+  
+  .modal-dialog {
+	max-width: 50vw;
+	max-height: 80vh;
+	margin: 30px auto;
+  }
+  
+  /* свойства для блока, содержащего контент модального окна */
+  .modal-content {
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	background: linear-gradient(-45deg, #ee7752, #76002d, #23a6d5, #23d5ab);
+	background-size: 200% 200%;
+	animation: gradient 15s ease infinite;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: .3rem;
+	outline: 0;
+  }
+  @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+	}
+  @media (min-width: 768px) {
+	.modal-content {
+	  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+	  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+	}
+  }
+
+  /* свойства для заголовка модального окна */
+  .modal-header {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 5px;
+
+  }
+
+  .modal-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 1.5;
+	font-size: 1.25rem;
+	font-weight: 500;
+	margin: 0 auto;
+  }
+
+  /* свойства для кнопки "Закрыть" */
+  .close {
+	float: right;
+	font-family: sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .5;
+	text-decoration: none;
+  }
+
+  /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+  .close:focus,
+  .close:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: .75;
+  }
+
+  /* свойства для блока, содержащего основное содержимое окна */
+  .modal-body {
+	position: relative;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	overflow: auto;
+	margin-top: -90px;
+  }
+  @media only screen and (max-device-width: 700px) {
+	.modal-dialog {
+		position: relative;
+		width: auto;
+		max-width: 98%;
+	  }
+	  video {
+		width: 95vw;
+	}  
+  }

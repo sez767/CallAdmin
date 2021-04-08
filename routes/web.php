@@ -17,7 +17,7 @@ Route::redirect('/home', '/');
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/video', [App\Http\Controllers\HomeController::class, 'video'])->name('video');
 /*
  * Clients management
  * */
