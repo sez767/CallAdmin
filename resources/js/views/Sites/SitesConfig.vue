@@ -200,7 +200,6 @@ export default {
           })
           .catch(e => {
             this.item = null
-
             this.$buefy.toast.open({
               message: `Error: ${e.message}`,
               type: 'is-danger',
