@@ -7,7 +7,7 @@ window.onload = function() {
 		accountName: '',
 		accountPassword: '5993293',
 		accountHost: 'shop.lendos.biz',
-		extension: "912",
+		extension: ext,
 		accountRegister: true
 	}
     createButtons()

@@ -11,5 +11,9 @@
 @endpush
 
 @section('content')
+    Рум - {{$extension}}
 
+<script>
+    var ext = <?= json_encode($extension, JSON_UNESCAPED_UNICODE) ?>
+</script>
 @endsection
