@@ -40,7 +40,7 @@ services:
     volumes:
       - ./docker/mysqldata:/var/lib/mysql
     ports:
-      - 42334:3306
+      - 3306:3306
   redis:
     image: 'redis:latest'
     restart: always
