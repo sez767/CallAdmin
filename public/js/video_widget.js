@@ -8,6 +8,8 @@
 		cshBtnVideoCall.addEventListener("click", () => {
 			window.open(cshLinkVideoCall, cshNameVideoCall, cshParametersVideoCall); // Открывает в новом окне видеозвонок
 		});
+
+        
         // 1. Создаём новый объект XMLHttpRequest
         var xhr = new XMLHttpRequest();
 

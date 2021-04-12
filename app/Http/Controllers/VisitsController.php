@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 use App\Notifications\InviteNotification;
 
 
-class StaffController extends Controller
+class VisitsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -29,7 +29,7 @@ class StaffController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function index() {
-        //
+        dd(11);
     }
 
     
