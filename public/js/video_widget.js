@@ -10,13 +10,14 @@
 		});
 
 
-        // 1. Создаём новый объект XMLHttpRequest
-        var xhr = new XMLHttpRequest();
 
-        // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
+        var xhr = new XMLHttpRequest();
+        let csrftoken = Cookies.get('csrftoken');
+
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+
         xhr.open('POST', 'https://shop.lendos.biz/visits/gethead', false);
 
-        // 3. Отсылаем запрос
         xhr.send();
 
         // 4. Если код ответа сервера не 200, то это ошибка
