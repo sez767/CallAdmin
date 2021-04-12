@@ -41,7 +41,8 @@ class VisitsController extends Controller
      * @throws \Exception
      */
     public function gethead( Request $request ) {
-        dd($request->header());
+        // dd($request->all());
+        dd($request->json()->all());
        
     }
 
