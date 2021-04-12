@@ -11,9 +11,8 @@
         var scripts = document.getElementsByTagName('script');
         var index = scripts.length - 1;
         var myScript = scripts[index];
-        var queryString = myScript.src.replace(/^[^\?]+\??/,'');
-        console.log('client',queryString);
+        var clientId = myScript.src.replace(/^[^\?]+\??/,'');
 
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', `https://shop.lendos.biz/visits/gethead?cl=${client_id}`, false);
+        xhr.open('POST', `https://shop.lendos.biz/visits/gethead?cl=${clientId}`, false);
         xhr.send();
