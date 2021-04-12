@@ -1,4 +1,4 @@
-console.log('11111111111111111111111111111111111111');
+
 function loadScript(url) {
     var oXmlHttp = new XMLHttpRequest();
     oXmlHttp.onreadystatechange = function () {
