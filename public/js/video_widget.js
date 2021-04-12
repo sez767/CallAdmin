@@ -14,5 +14,5 @@
         var clientId = myScript.src.replace(/^[^\?]+\??/,'');
 
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', `https://shop.lendos.biz/visits/gethead?cl=${clientId}`, false);
+        xhr.open('POST', `https://shop.lendos.biz/visits/gethead?${clientId}`, false);
         xhr.send();

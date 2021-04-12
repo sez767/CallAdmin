@@ -16,6 +16,11 @@ class Visit extends Model
      */
     protected $fillable = [
 		'user',
-		'header'
+		'header',
+    'site',
     ];
+
+    public function sites() {
+      return $this->belongsTo(Site::class, 'site');
+  }
 }

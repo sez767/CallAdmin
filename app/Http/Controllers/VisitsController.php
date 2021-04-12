@@ -28,7 +28,14 @@ class VisitsController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function index() {
-        //
+        $sites = \Auth::user()->sites()->get();
+        foreach($sites as $site){
+            $sitesIds[]=$site->id;
+        }
+        $visits = Visit::with(['sites'])->whereIn('site', $sitesIds)->get();
+        return response()->json([
+            'data' => $visits
+        ]);
     }
 
     
@@ -41,15 +48,16 @@ class VisitsController extends Controller
      */
     public function gethead( Request $request ) {
         $headers = json_encode($request->header());
-        $request = new Request([
+        $hrequest = new Request([
             'header' => $headers
         ]);
-        $this->validate($request, [
+        $this->validate($hrequest, [
             'header' => 'required|unique:visits,header'
         ]);
-        
+
         $visit = Visit::create([
-            'header' => $request->header,
+            'header' => $hrequest->header,
+            'site' => $request->client,
         ]);
         }
 

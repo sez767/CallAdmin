@@ -38,20 +38,17 @@
                 <img :src="props.row.avatar" class="is-rounded">
               </div>
             </b-table-column>
-            <b-table-column label="Name" field="name" sortable v-slot="props">
-              {{ props.row.name }}
+            <b-table-column label="Пользователь" field="id" sortable v-slot="props">
+              User_{{ props.row.id}}
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
-              {{ props.row.date }}
-            </b-table-column>
-            <b-table-column label="Статус" field="status" sortable v-slot="props">
-              {{ props.row.status }}
+              {{new Date(props.row.created_at)  }}
             </b-table-column>
             <b-table-column label="Сайт" field="site" sortable v-slot="props">
-              {{ props.row.site }}
+              {{ props.row.sites.url }}
             </b-table-column>
-            <b-table-column label="Оператор" field="staff" sortable v-slot="props">
-              {{ props.row.staff }}
+            <b-table-column label="Header" field="header" sortable v-slot="props">
+              {{ props.row.header }}
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
@@ -95,6 +92,7 @@ import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
 import CardToolbar from '@/components/CardToolbar'
 
+
 export default {
   name: "ClientIndex",
   components: {CardToolbar, HeroBar, TitleBar, ModalBox, CardComponent},
@@ -129,7 +127,7 @@ export default {
     getData () {
       this.isLoading = true
       axios
-        .get('/clients')
+        .get('/visits')
         .then(r => {
           this.isLoading = false
           if (r.data && r.data.data) {

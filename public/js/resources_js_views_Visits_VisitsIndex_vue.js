@@ -193,9 +193,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -243,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoading = true;
-      axios.get('/clients').then(function (r) {
+      axios.get('/visits').then(function (r) {
         _this.isLoading = false;
 
         if (r.data && r.data.data) {
@@ -867,15 +864,15 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Name", field: "name", sortable: "" },
+                    attrs: { label: "Пользователь", field: "id", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
                         fn: function(props) {
                           return [
                             _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.name) +
+                              "\n            User_" +
+                                _vm._s(props.row.id) +
                                 "\n          "
                             )
                           ]
@@ -893,25 +890,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.date) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Статус", field: "status", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.status) +
+                                _vm._s(new Date(props.row.created_at)) +
                                 "\n          "
                             )
                           ]
@@ -929,7 +908,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.site) +
+                                _vm._s(props.row.sites.url) +
                                 "\n          "
                             )
                           ]
@@ -939,7 +918,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Оператор", field: "staff", sortable: "" },
+                    attrs: { label: "Header", field: "header", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -947,7 +926,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.staff) +
+                                _vm._s(props.row.header) +
                                 "\n          "
                             )
                           ]
