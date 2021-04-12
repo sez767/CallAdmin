@@ -9,12 +9,12 @@
 			window.open(cshLinkVideoCall, cshNameVideoCall, cshParametersVideoCall); // Открывает в новом окне видеозвонок
 		});
 
-        
+
         // 1. Создаём новый объект XMLHttpRequest
         var xhr = new XMLHttpRequest();
 
         // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
-        xhr.open('POST', 'https://shop.lendos.biz/visits/getheaders', false);
+        xhr.open('POST', 'https://shop.lendos.biz/visits/gethead', false);
 
         // 3. Отсылаем запрос
         xhr.send();

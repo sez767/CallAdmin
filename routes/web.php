@@ -57,7 +57,7 @@ Route::prefix('/staff')->group(function () {
  * */
 Route::prefix('/visits')->group(function () {
     Route::get('/', [\App\Http\Controllers\VisitsController::class, 'index']);
-    Route::post('/headers', [\App\Http\Controllers\VisitsController::class, 'getheaders']);
+    Route::post('/gethead', [\App\Http\Controllers\VisitsController::class, 'gethead']);
 });
 /*
  * Current user

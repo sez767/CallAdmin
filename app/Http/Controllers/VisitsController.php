@@ -20,7 +20,7 @@ class VisitsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('getheaders');
+        $this->middleware('auth')->except('gethead');
     }
 
     /**
@@ -29,7 +29,7 @@ class VisitsController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function index() {
-        dd(11);
+        //
     }
 
     
@@ -40,7 +40,7 @@ class VisitsController extends Controller
      *
      * @throws \Exception
      */
-    public function getheaders( Request $request ) {
+    public function gethead( Request $request ) {
         dd($request->all());
        
     }
