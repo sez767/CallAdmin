@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Staff;
-use App\Models\Site;
+use App\Models\Visit;
 use App\Models\Invite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -41,9 +40,17 @@ class VisitsController extends Controller
      * @throws \Exception
      */
     public function gethead( Request $request ) {
-        // dd($request->all());
-        dd($request->json()->all());
-       
-    }
+        $headers = json_encode($request->header());
+        $request = new Request([
+            'header' => $headers
+        ]);
+        $this->validate($request, [
+            'header' => 'required|unique:visits,header'
+        ]);
+        
+        $visit = Visit::create([
+            'header' => $request->header,
+        ]);
+        }
 
 }
