@@ -10,14 +10,22 @@ x-template-app: &app_base
     - ./:/var/www
     - ./docker/php.ini:/usr/local/etc/php/php.ini
   depends_on:
-    - database
     - redis
+networks:
+ my_net:
+    ipam:
+      config:
+      - subnet: 172.32.0.0/24
+
 services:
   app:
     <<: *app_base
     restart: always
     container_name: calladmin_app
     entrypoint: /entrypoint.sh
+    networks:
+      my_net:
+        ipv4_address: 172.32.0.5
   web:
     restart: always
     build:
@@ -31,16 +39,10 @@ services:
       - ./:/var/www
     depends_on:
       - app
-  database:
-    restart: always
-    tty: true
-    container_name: calladmin_database
-    image: mariadb:10.3
-    env_file: .env
-    volumes:
-      - ./docker/mysqldata:/var/lib/mysql
-    ports:
-      - 42334:3306
+    networks:
+      my_net:
+        ipv4_address: 172.32.0.4
+
   redis:
     image: 'redis:latest'
     restart: always
@@ -50,6 +52,10 @@ services:
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
     volumes:
       - ./docker/redis_data:/bitnami/redis
+    networks:
+      my_net:
+        ipv4_address: 172.32.0.3
+
   npm:
     image: node:12.18
     container_name: calladmin_npm
@@ -57,8 +63,16 @@ services:
       - ./:/var/www
     working_dir: /var/www
     entrypoint: ['npm', '--no-bin-links']
+    networks:
+      my_net:
+        ipv4_address: 172.32.0.2
+
   worker:
     <<: *app_base
     restart: always
     container_name: calladmin_worker
     entrypoint: ./docker/worker-entrypoint.sh
+    networks:
+      my_net:
+        ipv4_address: 172.32.0.6
+

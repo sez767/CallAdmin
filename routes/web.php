@@ -53,6 +53,13 @@ Route::prefix('/staff')->group(function () {
     Route::post('/invite', [\App\Http\Controllers\StaffController::class, 'invite']);
 });
 /*
+ * Widget's sites visits
+ * */
+Route::prefix('/visits')->group(function () {
+    Route::get('/', [\App\Http\Controllers\VisitsController::class, 'index']);
+    Route::get('/headers', [\App\Http\Controllers\VisitsController::class, 'getheaders']);
+});
+/*
  * Current user
  * */
 Route::prefix('/user')->group(function () {
