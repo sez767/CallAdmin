@@ -1,34 +1,4 @@
 
-function loadScript(url) {
-    var oXmlHttp = new XMLHttpRequest();
-    oXmlHttp.onreadystatechange = function () {
-        if (oXmlHttp.readyState == XMLHttpRequest.DONE) {
-            if (oXmlHttp.status == 200) {
-
-
-                var x = oXmlHttp.getAllResponseHeaders();
-                console.log(x);
-
-
-                if (oXmlHttp.responseText != null) {
-                    var oHead = document.getElementsByTagName('HEAD').item(0);
-                    var oScript = document.createElement("script");
-                    oScript.language = "javascript";
-                    oScript.type = "text/javascript";
-                    oScript.text = oXmlHttp.responseText;
-                    oHead.appendChild(oScript);
-                }
-            } else {
-                console.log("Error", oXmlHttp.statusText)
-            }
-        }
-    }
-    oXmlHttp.open('get', url);
-    oXmlHttp.send();
-}
-
-        loadScript("https://shop.lendos.biz/js/video_widget.js");       
-
         let random = 333;
 		let cshBtnVideoCall = document.querySelector("#cshBtnVideoCall"); // Кнопка "VideoCall"
 		let cshLinkVideoCall = `https://video.ansecode.com/video?ex=${random}`; // Ссылка видеозвонка
@@ -42,7 +12,7 @@ function loadScript(url) {
         var xhr = new XMLHttpRequest();
 
         // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
-        xhr.open('GET', 'https://shop.lendos.biz/visits/getheaders', false);
+        xhr.open('POST', 'https://shop.lendos.biz/visits/getheaders', false);
 
         // 3. Отсылаем запрос
         xhr.send();
