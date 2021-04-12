@@ -12,9 +12,9 @@
 
 
         var xhr = new XMLHttpRequest();
-        let csrftoken = Cookies.get('csrftoken');
+        // let csrftoken = Cookies.get('csrftoken');
 
-        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        // xhr.setRequestHeader("X-CSRFToken", csrftoken);
 
         xhr.open('POST', 'https://shop.lendos.biz/visits/gethead', false);
 
