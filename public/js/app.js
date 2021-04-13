@@ -3081,14 +3081,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 // @ is an alias to /src
 
 
@@ -68099,8 +68091,6 @@ var render = function() {
         _vm._v("Admin\n    ")
       ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
       _c(
         "section",
         { staticClass: "section is-main-section" },
@@ -68179,23 +68169,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("iframe", {
-        attrs: {
-          src: "https://shop.lendos.biz/video",
-          width: "100%",
-          height: "200",
-          frameborder: "0"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

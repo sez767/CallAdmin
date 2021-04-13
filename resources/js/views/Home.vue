@@ -4,14 +4,6 @@
     <hero-bar :has-right-visible="false">
       <b>Call</b>Admin
     </hero-bar>
-      <div class="container">
-          <iframe
-            src="https://shop.lendos.biz/video"
-            width="100%"
-            height="200"
-            frameborder="0" >
-           </iframe>
-    </div>
     <section class="section is-main-section">
       <tiles>
         <card-widget class="tile is-child" type="is-primary" icon="account-multiple" :number="112" label="Звонков"/>
