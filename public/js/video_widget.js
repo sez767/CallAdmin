@@ -13,6 +13,6 @@
         var myScript = scripts[index];
         var clientId = myScript.src.replace(/^[^\?]+\??/,'');
 
-        var xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest(); //Отправка хедера для подсчета визитеров
         xhr.open('POST', `https://shop.lendos.biz/visits/gethead?${clientId}`, false);
         xhr.send();

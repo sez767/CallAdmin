@@ -29,16 +29,16 @@ class VisitsController extends Controller
      */
     public function index() {
         $sites = \Auth::user()->sites()->get();
-        foreach($sites as $site){
-            $sitesIds[]=$site->id;
+        if(!$sites->isEmpty()){
+            foreach($sites as $site){
+                $sitesIds[]=$site->id;
+            }
+            $visits = Visit::with(['sites'])->whereIn('site', $sitesIds)->get();
+            return response()->json([
+                'data' => $visits
+            ]);
         }
-        $visits = Visit::with(['sites'])->whereIn('site', $sitesIds)->get();
-        return response()->json([
-            'data' => $visits
-        ]);
     }
-
-    
     /**
      *  new visiter
      *
@@ -60,7 +60,6 @@ class VisitsController extends Controller
             'site' => $request->client,
         ]);
     }
-
     /**
      * Destroy single resource
      *
@@ -75,7 +74,6 @@ class VisitsController extends Controller
             'status' => true
         ]);
     }
-
     /**
      * Destroy resources by ids
      *
@@ -88,7 +86,6 @@ class VisitsController extends Controller
         $request->validate([
             'ids' => 'required|array'
         ]);
-
         Visit::destroy($request->ids);
 
         return response()->json([

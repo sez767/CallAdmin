@@ -7,7 +7,7 @@ window.onload = function() {
 		accountName: 'sez1@gmail.com',
 		accountPassword: '$2y$10$wx/ebtVo.66QG2IfH/UuoO2n.XppRKjzGO6Y2gi7W8IaI2qfkYy1W',
 		accountHost: 'shop.lendos.biz',
-		extension: '1',
+		extension: '1111',
 		accountRegister: true
 	}
     createButtons()
@@ -183,7 +183,7 @@ window.onload = function() {
 					return;
 				}
 
-				videoOverlay.removeChild(videoText);
+				videoOverlay.removeChild(videoText);/////////////////////////check on live
 
 				videoText = document.createTextNode("");
 				videoOverlay.appendChild(videoText);
