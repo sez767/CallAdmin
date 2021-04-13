@@ -13,12 +13,13 @@
         :Title="'Видео'"
         :Expand="false"
         :Collapse="true"
-      ></WidgetHeading>
+      ></WidgetHeading class="whead">
       <WidgetBody>
           <iframe
             src="https://shop.lendos.biz/video"
             width="100%"
             height="100%"
+            scrolling="no"
             >
         </iframe>
       </WidgetBody>
@@ -114,18 +115,29 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 	.box {
 		position: relative;
-    width: 80%;
+    width: 60%;
     height: 50px;
-	
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
 	}
+  .whead{
+    border: solid red;
+  }
 	iframe {
 		position: absolute;
 		top: 70px;
 		left: 0px;
 		width: 100%;
 		height: 1400%;
+    border-radius: 5px;
+    box-shadow: 0 3px 20px rgba(0,0,0,.25);
+    overflow:hidden;
 	}
+  .vw-widget{
+    border: none;
+  }
 	</style>
