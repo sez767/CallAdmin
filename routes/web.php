@@ -58,6 +58,8 @@ Route::prefix('/staff')->group(function () {
 Route::prefix('/visits')->group(function () {
     Route::get('/', [\App\Http\Controllers\VisitsController::class, 'index']);
     Route::post('/gethead', [\App\Http\Controllers\VisitsController::class, 'gethead']);
+    Route::post('/destroy', [\App\Http\Controllers\VisitsController::class, 'destroyMass']);
+    Route::delete('/{visits}/destroy', [\App\Http\Controllers\VisitsController::class, 'destroy']);
 });
 /*
  * Current user

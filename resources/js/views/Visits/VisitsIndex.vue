@@ -22,6 +22,7 @@
           @confirm="trashConfirm"
           @cancel="trashCancel"
         />
+        
         <b-table
           :checked-rows.sync="checkedRows"
           :checkable="true"
@@ -31,7 +32,9 @@
           :striped="true"
           :hoverable="true"
           default-sort="name"
-          :data="clients">
+          detailed
+          :show-detail-icon="true"
+          :data="visits">
 
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
               <div v-if="props.row.avatar" class="image">
@@ -42,19 +45,16 @@
               User_{{ props.row.id}}
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
-              {{new Date(props.row.created_at)  }}
+              {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Сайт" field="site" sortable v-slot="props">
               {{ props.row.sites.url }}
             </b-table-column>
             <b-table-column label="Header" field="header" sortable v-slot="props">
-              {{ props.row.header }}
+              <span style="word-break:break-all;">{{ slice(props.row.header) }}</span>
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'clients.edit', params: {id: props.row.id}}" class="button is-small is-primary">
-                  <b-icon icon="account-edit" size="is-small"/>
-                </router-link>
                 <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
                   <b-icon icon="trash-can" size="is-small"/>
                 </button>
@@ -77,6 +77,15 @@
               </template>
             </div>
           </section>
+            <template #detail="props">
+              <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p style="word-break:break-all;">{{ props.row.header }}</p>
+                    </div>
+                  </div>
+              </article>
+            </template>
         </b-table>
       </card-component>
     </section>
@@ -91,7 +100,7 @@ import ModalBox from '@/components/ModalBox'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
 import CardToolbar from '@/components/CardToolbar'
-
+import moment from 'moment';
 
 export default {
   name: "ClientIndex",
@@ -100,11 +109,11 @@ export default {
     return {
       isModalActive: false,
       trashObject: null,
-      clients: [],
+      visits: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
-      checkedRows: []
+      checkedRows: [],
     }
   },
   computed: {
@@ -134,7 +143,7 @@ export default {
             if (r.data.data.length > this.perPage) {
               this.paginated = true
             }
-            this.clients = r.data.data
+            this.visits = r.data.data
           }
         })
         .catch( err => {
@@ -145,6 +154,18 @@ export default {
             queue: false
           })
         })
+    },
+    format_date(value){
+         if (value) {
+           return moment(String(value)).format('DD.MM.YY')
+          }
+      },
+    slice(text){
+      let sliced = text.slice(0,150);
+      if (sliced.length < text.length) {
+      sliced += '.....';
+      }
+      return sliced;
     },
     trashModal (trashObject = null) {
       if (trashObject || this.checkedRows.length) {
@@ -161,10 +182,10 @@ export default {
 
       if (this.trashObject) {
         method = 'delete'
-        url = `/clients/${this.trashObject.id}/destroy`
+        url = `/visits/${this.trashObject.id}/destroy`
       } else if (this.checkedRows.length) {
         method = 'post'
-        url = '/clients/destroy'
+        url = '/visits/destroy'
         data = {
           ids: map(this.checkedRows, row => row.id)
         }
@@ -181,7 +202,7 @@ export default {
         this.checkedRows = []
 
         this.$buefy.snackbar.open({
-          message: `Deleted`,
+          message: `Удалено`,
           queue: false
         })
       }).catch( err => {

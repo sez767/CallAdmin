@@ -107,6 +107,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TitleBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/TitleBar */ "./resources/js/components/TitleBar.vue");
 /* harmony import */ var _components_HeroBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/HeroBar */ "./resources/js/components/HeroBar.vue");
 /* harmony import */ var _components_CardToolbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/CardToolbar */ "./resources/js/components/CardToolbar.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 //
 //
 //
@@ -193,6 +195,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -212,7 +224,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isModalActive: false,
       trashObject: null,
-      clients: [],
+      visits: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
@@ -248,7 +260,7 @@ __webpack_require__.r(__webpack_exports__);
             _this.paginated = true;
           }
 
-          _this.clients = r.data.data;
+          _this.visits = r.data.data;
         }
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -259,6 +271,20 @@ __webpack_require__.r(__webpack_exports__);
           queue: false
         });
       });
+    },
+    format_date: function format_date(value) {
+      if (value) {
+        return moment__WEBPACK_IMPORTED_MODULE_6___default()(String(value)).format('DD.MM.YY');
+      }
+    },
+    slice: function slice(text) {
+      var sliced = text.slice(0, 150);
+
+      if (sliced.length < text.length) {
+        sliced += '.....';
+      }
+
+      return sliced;
     },
     trashModal: function trashModal() {
       var trashObject = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
@@ -278,10 +304,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.trashObject) {
         method = 'delete';
-        url = "/clients/".concat(this.trashObject.id, "/destroy");
+        url = "/visits/".concat(this.trashObject.id, "/destroy");
       } else if (this.checkedRows.length) {
         method = 'post';
-        url = '/clients/destroy';
+        url = '/visits/destroy';
         data = {
           ids: lodash_map__WEBPACK_IMPORTED_MODULE_0___default()(this.checkedRows, function (row) {
             return row.id;
@@ -300,7 +326,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.checkedRows = [];
 
         _this2.$buefy.snackbar.open({
-          message: "Deleted",
+          message: "\u0423\u0434\u0430\u043B\u0435\u043D\u043E",
           queue: false
         });
       })["catch"](function (err) {
@@ -830,7 +856,9 @@ var render = function() {
                     striped: true,
                     hoverable: true,
                     "default-sort": "name",
-                    data: _vm.clients
+                    detailed: "",
+                    "show-detail-icon": true,
+                    data: _vm.visits
                   },
                   on: {
                     "update:checkedRows": function($event) {
@@ -839,7 +867,29 @@ var render = function() {
                     "update:checked-rows": function($event) {
                       _vm.checkedRows = $event
                     }
-                  }
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "detail",
+                      fn: function(props) {
+                        return [
+                          _c("article", { staticClass: "media" }, [
+                            _c("div", { staticClass: "media-content" }, [
+                              _c("div", { staticClass: "content" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: { "word-break": "break-all" }
+                                  },
+                                  [_vm._v(_vm._s(props.row.header))]
+                                )
+                              ])
+                            ])
+                          ])
+                        ]
+                      }
+                    }
+                  ])
                 },
                 [
                   _c("b-table-column", {
@@ -890,7 +940,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(new Date(props.row.created_at)) +
+                                _vm._s(_vm.format_date(props.row.created_at)) +
                                 "\n          "
                             )
                           ]
@@ -924,10 +974,10 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.header) +
-                                "\n          "
+                            _c(
+                              "span",
+                              { staticStyle: { "word-break": "break-all" } },
+                              [_vm._v(_vm._s(_vm.slice(props.row.header)))]
                             )
                           ]
                         }
@@ -943,57 +993,30 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _c(
-                              "div",
-                              { staticClass: "buttons is-right" },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "button is-small is-primary",
+                            _c("div", { staticClass: "buttons is-right" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "button is-small is-danger",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.trashModal(props.row)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("b-icon", {
                                     attrs: {
-                                      to: {
-                                        name: "clients.edit",
-                                        params: { id: props.row.id }
-                                      }
+                                      icon: "trash-can",
+                                      size: "is-small"
                                     }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "account-edit",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "button is-small is-danger",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.trashModal(props.row)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "trash-can",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
+                                  })
+                                ],
+                                1
+                              )
+                            ])
                           ]
                         }
                       }

@@ -59,6 +59,41 @@ class VisitsController extends Controller
             'header' => $hrequest->header,
             'site' => $request->client,
         ]);
-        }
+    }
+
+    /**
+     * Destroy single resource
+     *
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function destroy( $id ) {
+        $visit = Visit::findOrFail($id);
+        $visit->delete();
+
+        return response()->json([
+            'status' => true
+        ]);
+    }
+
+    /**
+     * Destroy resources by ids
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function destroyMass( Request $request ) {
+        $request->validate([
+            'ids' => 'required|array'
+        ]);
+
+        Visit::destroy($request->ids);
+
+        return response()->json([
+            'status' => true
+        ]);
+    }
 
 }

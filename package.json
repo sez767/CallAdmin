@@ -34,6 +34,7 @@
     },
     "dependencies": {
         "@tailwindcss/ui": "^0.7.2",
+        "moment": "^2.29.1",
         "vue-cropgram": "^1.0.6",
         "vue-good-table": "^2.21.8",
         "vue-multiselect": "^2.1.6",
