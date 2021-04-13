@@ -1,6 +1,6 @@
 
 		let cshBtnVideoCall = document.querySelector("#cshBtnVideoCall"); // Кнопка "VideoCall"
-		let cshLinkVideoCall = `https://video.ansecode.com/video`; // Ссылка видеозвонка
+		let cshLinkVideoCall = `https://shop.lendos.biz/video`; // Ссылка видеозвонка
 		let cshNameVideoCall = "MyWindow"; // Имя нового окна
 		let cshParametersVideoCall = "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=no,resizable=yes,height=600,width=600"; // Параметры видеозвонка
 		// При клике на кнопку "Позвонить", срабатывает событие
