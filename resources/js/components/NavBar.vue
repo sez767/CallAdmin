@@ -7,11 +7,11 @@
       <div class="navbar-item has-control no-left-space-touch">
       </div>
     </div>
-    <Widget>
+    <Widget class="box">
       <WidgetHeading 
         :id="1"
         :Title="'Видео'"
-        :Expand="true"
+        :Expand="false"
         :Collapse="true"
       ></WidgetHeading>
       <WidgetBody>
@@ -19,7 +19,7 @@
             src="https://shop.lendos.biz/video"
             width="100%"
             height="100%"
-            frameborder="0">
+            >
         </iframe>
       </WidgetBody>
     </Widget>
@@ -114,3 +114,18 @@ export default {
   }
 }
 </script>
+<style>
+	.box {
+		position: relative;
+    width: 80%;
+    height: 50px;
+	
+	}
+	iframe {
+		position: absolute;
+		top: 70px;
+		left: 0px;
+		width: 100%;
+		height: 1400%;
+	}
+	</style>
