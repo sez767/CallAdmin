@@ -7,6 +7,22 @@
       <div class="navbar-item has-control no-left-space-touch">
       </div>
     </div>
+    <Widget>
+      <WidgetHeading 
+        :id="1"
+        :Title="'Видео'"
+        :Expand="true"
+        :Collapse="true"
+      ></WidgetHeading>
+      <WidgetBody>
+          <iframe
+            src="https://shop.lendos.biz/video"
+            width="100%"
+            height="100%"
+            frameborder="0">
+        </iframe>
+      </WidgetBody>
+    </Widget>
     <div class="navbar-brand is-right">
       <a class="navbar-item navbar-item-menu-toggle is-hidden-desktop" @click.prevent="menuNavBarToggle">
         <b-icon :icon="menuNavBarToggleIcon" custom-size="default"/>
@@ -55,6 +71,10 @@
 import { mapState } from 'vuex'
 import NavBarMenu from '@/components/NavBarMenu'
 import UserAvatar from '@/components/UserAvatar'
+import Vue from 'vue'
+import VueWidgets from 'vue-widgets'
+import 'vue-widgets/dist/styles/vue-widgets.css'
+Vue.use(VueWidgets)
 
 export default {
   name: 'NavBar',
