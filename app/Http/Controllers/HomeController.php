@@ -28,7 +28,8 @@ class HomeController extends Controller
 
     public function video(Request $request)
     {   
-        $extension = $request->ex;
-        return view('video')->with('extension', $extension);
+        // $extension = $request->ex;
+        return view('video');
+        // ->with('extension', $extension);
     }
 }
