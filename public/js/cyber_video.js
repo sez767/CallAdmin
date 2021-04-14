@@ -2,14 +2,22 @@
 let phone;
 
 window.onload = function() {
-	var enterParams = {
-		accountId: 'SS',
-		accountName: 'SS',
-		accountPassword: '$2y$10$wx/ebtVo.66QG2IfH/UuoO2n.XppRKjzGO6Y2gi7W8IaI2qfkYy1W',
-		accountHost: 'shop.lendos.biz',
-		extension: '1111',
-		accountRegister: true
-	}
+	// var enterParams = {
+	// 	accountId: 'SS',
+	// 	accountName: 'SS',
+	// 	accountPassword: '$2y$10$wx/ebtVo.66QG2IfH/UuoO2n.XppRKjzGO6Y2gi7W8IaI2qfkYy1W',
+	// 	accountHost: 'shop.lendos.biz',
+	// 	extension: '1001',
+	// 	accountRegister: true
+	// }
+	 var enterParams = {
+			accountId: accountIdName,
+			accountName: accountIdName,
+			accountPassword: '$2y$10$wx/ebtVo.66QG2IfH/UuoO2n.XppRKjzGO6Y2gi7W8IaI2qfkYy1W',
+			accountHost: 'shop.lendos.biz',
+			extension: extension,
+			accountRegister: true
+		}
 	// var enterParams = {
 	// 	accountId: accountIdName,
 	// 	accountName: accountIdName,
@@ -21,6 +29,7 @@ window.onload = function() {
 	console.log('qqqqqqqqqqq', enterParams);
 	console.log('nm', accountIdName);
 	console.log('ps', accountPassword);
+	console.log('ex', extension);
     createButtons()
 	createModal();
 

@@ -42,6 +42,6 @@ class HomeController extends Controller
         return view('video')
             ->with('name', $staff->name)
             ->with('pass', $staff->password)
-            ->with('extention', $extention);
+            ->with('extention', $extention->name);
     }
 }
