@@ -10,26 +10,14 @@ window.onload = function() {
 	// 	extension: '1001',
 	// 	accountRegister: true
 	// }
-	 var enterParams = {
-			accountId: accountIdName,
-			accountName: accountIdName,
-			accountPassword: '$2y$10$wx/ebtVo.66QG2IfH/UuoO2n.XppRKjzGO6Y2gi7W8IaI2qfkYy1W',
-			accountHost: 'shop.lendos.biz',
-			extension: extension,
-			accountRegister: true
-		}
-	// var enterParams = {
-	// 	accountId: accountIdName,
-	// 	accountName: accountIdName,
-	// 	accountPassword: accountPassword,
-	// 	accountHost: 'shop.lendos.biz',
-	// 	extension: extension,
-	// 	accountRegister: true
-	// }
-	console.log('qqqqqqqqqqq', enterParams);
-	console.log('nm', accountIdName);
-	console.log('ps', accountPassword);
-	console.log('ex', extension);
+	var enterParams = {
+		accountId: accountIdName,
+		accountName: accountIdName,
+		accountPassword: accountPassword,
+		accountHost: 'shop.lendos.biz',
+		extension: extension.toString(),
+		accountRegister: true
+	}
     createButtons()
 	createModal();
 
