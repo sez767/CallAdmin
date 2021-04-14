@@ -86,8 +86,6 @@ window.onload = function() {
 		modalDialog.appendChild (modalContent)
 		modalBorder.appendChild (modalDialog)
 		showm.appendChild (modalBorder)
-	
-	
 	}
 	function showModal() {
 		let mod = document.getElementById("mod")
