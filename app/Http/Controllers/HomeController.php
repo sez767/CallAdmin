@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function video(Request $request)
     {   
-        // dd($request->all());
+        dd($request->all());
         if($request->rl == 'staff'){
             $staff = Staff::findOrFail($request->user);
             $extention = new Extention; 
