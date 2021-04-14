@@ -19,16 +19,7 @@ window.onload = function() {
 		accountRegister: true
 	}
     createButtons()
-	createModal();
-	phone = new CyberMegaPhone(
-		enterParams.accountId,
-		enterParams.accountName,
-		enterParams.accountPassword,
-		enterParams.accountHost,
-		enterParams.accountRegister
-	);						
-	phone.connect();
-	phone.call(enterParams.extension);
+	createModal()
 
 	function findMediaView(parent, stream) {
 		let nodes = parent.childNodes;
@@ -250,108 +241,16 @@ window.onload = function() {
 		return obj.value ? obj.value : obj.placeholder;
 	}
 
-	document.getElementById("connect").addEventListener("click", function() {
-		if (document.getElementById("connect").value == "Disconnect") {
-			document.getElementById("call").value = "Call";
-			document.getElementById("call").disabled = true;
-			document.getElementById("connect").value = "Disconnecting";
-			document.getElementById("connect").disabled = true;
-			phone.disconnect();
-			return;
-		}
-
-		phone = new CyberMegaPhone(
-			enterParams.accountId,
-			enterParams.accountName,
-			enterParams.accountPassword,
-			enterParams.accountHost,
-			enterParams.accountRegister
-		);						
-		phone.connect();
-		phone.call(enterParams.extension);
-
-		phone.handle("connected", function () {
-			if (document.getElementById("connect").value != "Disconnect") {
-				document.getElementById("connect").value = "Registering";
-			} else {
-				document.getElementById("connect").value = "Disconnect";
-				document.getElementById("connect").disabled = false;
-				document.getElementById("call").disabled = false;
-			}
-		});
-
-		phone.handle("disconnected", function () {
-			document.getElementById("connect").value = "Connect";
-			document.getElementById("connect").disabled = false;
-			document.getElementById("call").value = "Call";
-			document.getElementById("call").disabled = true;
-		});
-
-		phone.handle("registered", function () {
-			document.getElementById("connect").value = "Disconnect";
-			document.getElementById("connect").disabled = false;
-			document.getElementById("call").disabled = false;
-		});
-
-		phone.handle("registrationFailed", function () {
-			phone.disconnect();
-		});
-
-		phone.handle("incoming", function (reason) {
-			document.getElementById("call").value = "Answer";
-		});
-
-		phone.handle("failed", function (reason) {
-			document.getElementById("call").value = "Call";
-			document.getElementById("call").disabled = false;
-		});
-
-		phone.handle("ended", function (reason) {
-			document.getElementById("call").value = "Call";
-			document.getElementById("call").disabled = document.getElementById("connect").value == "Connect";
-		});
-
-		phone.handle("streamAdded", function (stream) {
-			if(!document.getElementById("mod")){
-				createModal();
-			}
-			let mod = document.getElementById("mod")
-			let body = document.getElementById("body")
-			let elem = body.appendChild(createMediaView(stream));
-			elem.parentNode.insertBefore(elem, elem.parentNode.firstChild)
-			document.getElementById("call").value = "Hangup";
-			document.getElementById("call").disabled = false;
-			mod.classList.add("show");
-		});
-
-		phone.handle("streamRemoved", function (stream) {
-			let modal = document.getElementById("mod")
-			removeMediaView(modal, stream);
-		});
-
-		phone.connect();
-
-
-		document.getElementById("connect").disabled = true;
-		document.getElementById("connect").value = "Connecting";
-	});
-
-	document.getElementById("call").addEventListener("click", function() {
-		let node = document.getElementById("call");
-
-		if (node.value == "Call") {
-			phone.call(enterParams.extension);
-			node.disabled = true;
-			node.value = "Ringing";
-		} else if (node.value == "Answer") {
-			node.disabled = true;
-			node.value = "Hangup";
-		} else {
-			node.value = "Call";
-			phone.terminate();
-		}
-	});
-
+	
+	phone = new CyberMegaPhone(
+		enterParams.accountId,
+		enterParams.accountName,
+		enterParams.accountPassword,
+		enterParams.accountHost,
+		enterParams.accountRegister
+	);						
+	phone.connect();
+	phone.call(enterParams.extension);
 }; // window.onload
 
 window.onunload = function() {
