@@ -16,7 +16,7 @@
       ></WidgetHeading class="whead">
       <WidgetBody>
           <iframe
-            :src="`https://shop.lendos.biz/video?name=${userName}&ps=${userPass}&rl=staff`"
+            :src="`https://shop.lendos.biz/video?user=${userId}&rl=staff`"
             width="100%"
             height="100%"
             scrolling="no"
@@ -86,7 +86,6 @@ export default {
   data () {
     return {
       isMenuNavBarActive: false,
-      iframe_url: "https://shop.lendos.biz/video?name=" + this.userName,
     }
   },
   computed: {
@@ -96,7 +95,7 @@ export default {
     menuToggleMobileIcon () {
       return this.isAsideMobileExpanded ? 'backburger' : 'forwardburger'
     },
-    ...mapState(['isNavBarVisible', 'isAsideMobileExpanded', 'userName', 'userPass'])
+    ...mapState(['isNavBarVisible', 'isAsideMobileExpanded', 'userName', 'userId'])
   },
   mounted () {
     this.$router.afterEach(() => {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatezTable extends Migration
+class CreateExtentionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatezTable extends Migration
      */
     public function up()
     {
-        Schema::create('visits', function (Blueprint $table) {
+        Schema::create('extentions', function (Blueprint $table) {
             $table->id();
-            $table->text('header');
-            $table->integer('site');
+            $table->integer('name');
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatezTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visits');
+        Schema::dropIfExists('extentions');
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Staff;
+use App\Models\Extention;
 
 class HomeController extends Controller
 {
@@ -29,10 +31,12 @@ class HomeController extends Controller
     public function video(Request $request)
     {   
         dd($request->all());
-        // $extension = $request->ex;
-        return view('video')
-            ->with('name', $request->name)
-            ->with('pass', $request->ps)
-            ->with('role', $request->rl);
+        if($request->rl == 'staff'){
+            $staff = Staff::findOrFail($request->user);
+        }
+        // return view('video')
+        //     ->with('name', $staff->name)
+        //     ->with('pass', $staff->password)
+        //     ->with('extention', $extention);
     }
 }

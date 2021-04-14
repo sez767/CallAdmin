@@ -10,7 +10,6 @@ export default new Vuex.Store({
     userEmail: null,
     userAvatar: null,
     userId: null,
-    userPass: null,
 
     /* NavBar */
     isNavBarVisible: true,
@@ -41,9 +40,6 @@ export default new Vuex.Store({
       }
       if (payload.id) {
         state.userId = payload.id
-      }
-      if (payload.password) {
-        state.userPass = payload.password
       }
     },
 
