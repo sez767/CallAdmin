@@ -43,6 +43,10 @@ class HomeController extends Controller
             ->with('pass', $staff->password)
             ->with('extention', $extention->name);
        }
+       if($request->has('close')){
+            $extention = Extention::findOrFail($request->ex);
+            $extention->active = 0;
+       }
        return view('video');
     }
 }

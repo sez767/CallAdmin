@@ -343,15 +343,7 @@ window.onload = function() {
 			phone.terminate();
 		}
 	});
-	// phone = new CyberMegaPhone(
-	// 	enterParams.accountId,
-	// 	enterParams.accountName,
-	// 	enterParams.accountPassword,
-	// 	enterParams.accountHost,
-	// 	enterParams.accountRegister
-	// );						
-	// phone.connect();
-	// phone.call(enterParams.extension);
+
 
 }; // window.onload
 
@@ -359,5 +351,9 @@ window.onunload = function() {
 	if (phone) {
 		phone.disconnect();
 	}
+
 }; 
 // window.onunload
+window.onbeforeunload = function () {
+    window.location.href = "{{URL::to('video')}}?close=1&ex="+extension;
+};
