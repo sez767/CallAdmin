@@ -16,7 +16,7 @@ class CreateExtentionsTable extends Migration
         Schema::create('extentions', function (Blueprint $table) {
             $table->id();
             $table->integer('name');
-            $table->boolean('active')->default(0);
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

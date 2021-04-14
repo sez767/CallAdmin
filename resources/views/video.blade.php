@@ -14,6 +14,8 @@
 
 
 <script>
-    
+   var accountIdName = {!! json_encode($name) !!};
+   var accountPassword = {!! json_encode($pass) !!};
+   var extension = {!! json_encode($extentions) !!};
 </script>
 @endsection
