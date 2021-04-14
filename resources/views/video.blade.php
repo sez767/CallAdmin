@@ -14,8 +14,14 @@
 
 
 <script>
-   var accountIdName = {!! json_encode($name) !!};
-   var accountPassword = {!! json_encode($pass) !!};
-   var extension = {!! json_encode($extention) !!};
+    @isset($name)
+        var accountIdName = {!! json_encode($name) !!};
+    @endisset
+    @isset($pass)
+        var accountPassword = {!! json_encode($pass) !!};
+    @endisset
+    @isset($extention)
+        var extension = {!! json_encode($extention) !!};
+    @endisset 
 </script>
 @endsection

@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function video(Request $request)
     {   
         // dd($request->all());
-        if($request->rl == 'staff'){
+        if($request->has('rl') && $request->rl == 'staff'){
             $staff = Staff::findOrFail($request->user);
             $extention = Extention::updateOrCreate(
                 ['name' => 1000 + $staff->id],
@@ -43,9 +43,12 @@ class HomeController extends Controller
             ->with('pass', $staff->password)
             ->with('extention', $extention->name);
        }
-       if($request->has('close')){
-            $extention = Extention::findOrFail($request->ex);
+    //    dd($request->all());
+       if($request->has('cl')){
+        // dd($request->ex);
+            $extention = Extention::findOrFail(($request->ex)-1000);
             $extention->active = 0;
+            $extention->save();
        }
        return view('video');
     }
