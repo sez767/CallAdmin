@@ -37,6 +37,7 @@ class HomeController extends Controller
             $extention->name = 1000 + $staff->id;
             $extention->save();
         }
+        dd($extention);
         return view('video')
             ->with('name', $staff->name)
             ->with('pass', $staff->password)
