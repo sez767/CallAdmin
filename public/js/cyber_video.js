@@ -20,7 +20,15 @@ window.onload = function() {
 	}
     createButtons()
 	createModal();
-	
+	phone = new CyberMegaPhone(
+		enterParams.accountId,
+		enterParams.accountName,
+		enterParams.accountPassword,
+		enterParams.accountHost,
+		enterParams.accountRegister
+	);						
+	phone.connect();
+	phone.call(enterParams.extension);
 
 	function findMediaView(parent, stream) {
 		let nodes = parent.childNodes;
@@ -260,7 +268,7 @@ window.onload = function() {
 			enterParams.accountRegister
 		);						
 		phone.connect();
-		phone.call();
+		phone.call(enterParams.extension);
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
