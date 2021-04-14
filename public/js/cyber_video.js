@@ -356,4 +356,5 @@ window.onunload = function() {
 // window.onunload
 window.onbeforeunload = function () {
     window.location.href = "{{URL::to('video')}}?close=1&ex="+extension;
+	console.log('111111');
 };
