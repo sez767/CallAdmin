@@ -20,6 +20,7 @@ window.onload = function() {
 	}
     createButtons()
 	createModal();
+	
 
 	function findMediaView(parent, stream) {
 		let nodes = parent.childNodes;
@@ -258,6 +259,8 @@ window.onload = function() {
 			enterParams.accountHost,
 			enterParams.accountRegister
 		);						
+		phone.connect();
+		phone.call();
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
@@ -319,6 +322,7 @@ window.onload = function() {
 		});
 
 		phone.connect();
+
 
 		document.getElementById("connect").disabled = true;
 		document.getElementById("connect").value = "Connecting";

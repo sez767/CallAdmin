@@ -37,11 +37,12 @@ class HomeController extends Controller
                 ['name' => 1000 + $staff->id],
                 ['active' => 1]
             );
-        }
-
+        
         return view('video')
             ->with('name', $staff->name)
             ->with('pass', $staff->password)
             ->with('extention', $extention->name);
+       }
+       return view('video');
     }
 }
