@@ -118,7 +118,7 @@ export default {
 <style scoped>
 	.box {
 		position: relative;
-    width: 60%;
+    width: 50%;
     height: 50px;
     background-color: #fff;
     border-radius: 4px;

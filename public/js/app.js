@@ -37658,7 +37658,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.box[data-v-5dd24bca] {\n\t\tposition: relative;\n    width: 60%;\n    height: 50px;\n    background-color: #fff;\n    border-radius: 4px;\n    box-shadow: 0 1px 1px rgba(0,0,0,.05);\n}\n.whead[data-v-5dd24bca]{\n    border: solid red;\n}\niframe[data-v-5dd24bca] {\n\t\tposition: absolute;\n\t\ttop: 70px;\n\t\tleft: 0px;\n\t\twidth: 100%;\n\t\theight: 1500%;\n    border-radius: 5px;\n    box-shadow: 0 3px 20px rgba(0,0,0,.25);\n    overflow:hidden;\n}\n.vw-widget[data-v-5dd24bca]{\n    border: none;\n}\n\t", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.box[data-v-5dd24bca] {\n\t\tposition: relative;\n    width: 50%;\n    height: 50px;\n    background-color: #fff;\n    border-radius: 4px;\n    box-shadow: 0 1px 1px rgba(0,0,0,.05);\n}\n.whead[data-v-5dd24bca]{\n    border: solid red;\n}\niframe[data-v-5dd24bca] {\n\t\tposition: absolute;\n\t\ttop: 70px;\n\t\tleft: 0px;\n\t\twidth: 100%;\n\t\theight: 1500%;\n    border-radius: 5px;\n    box-shadow: 0 3px 20px rgba(0,0,0,.25);\n    overflow:hidden;\n}\n.vw-widget[data-v-5dd24bca]{\n    border: none;\n}\n\t", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
