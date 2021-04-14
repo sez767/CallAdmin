@@ -327,7 +327,7 @@ window.onload = function() {
 		document.getElementById("connect").disabled = true;
 		document.getElementById("connect").value = "Connecting";
 
-		phone.call(enterParams.extension);
+		// phone.call(enterParams.extension);
 	};
 
 	document.getElementById("call").addEventListener("click", function() {
@@ -361,7 +361,7 @@ window.onunload = function() {
 
 }; 
 // window.onunload
-window.onbeforeunload = function () {
-    window.location.href = "{{URL::to('video')}}?close=1&ex="+extension;
-	console.log('111111');
-};
+// window.onbeforeunload = function () {
+//     window.location.href = "{{URL::to('video')}}?close=1&ex="+extension;
+// 	console.log('111111');
+// };
