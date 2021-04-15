@@ -21,6 +21,8 @@ window.onload = function() {
     createButtons()
 	createModal()
 	startConnect()
+	mute(video.srcObject, {video: false});
+	mute(video.srcObject, {audio: true});
 
 	function findMediaView(parent, stream) {
 		let nodes = parent.childNodes;
@@ -152,14 +154,13 @@ window.onload = function() {
 			muteVideo.value = "Камера";
 			muteVideo.className = "video-btn";
 			muteVideo.classList.add("allButtons");
-			muteVideo.setAttribute("state", "Mute");
+			muteVideo.setAttribute("state", "Unmute");
 			muteVideo.onclick = function() {
 				let state = this.getAttribute("state");
 				this.setAttribute("state", state == "Mute" ? "Unmute" : "Mute");
 				this.classList.toggle("line");
-				mute(video.srcObject, {video: this.getAttribute("state") == "Unmute"});
+				mute(video.srcObject, {video: this.getAttribute("state") == "Mute"});
 			};
-			mute(video.srcObject, {video: false});
 			controls.prepend(muteVideo);
 		}
 			return controls;
