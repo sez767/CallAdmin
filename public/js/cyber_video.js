@@ -190,7 +190,7 @@ window.onload = function() {
 					return;
 				}
 
-				videoOverlay.removeChild(videoText);/////////////////////////check on live
+				videoOverlay.removeChild(videoText);/////////////////////////TODO check on live
 
 				videoText = document.createTextNode("");
 				videoOverlay.appendChild(videoText);
@@ -214,7 +214,8 @@ window.onload = function() {
 				tracks[i].enabled = true;
 			}
 		};
-		mute(video.srcObject, { audio: true, video: true });//////////////////////////////
+		video.muted = true;
+		mute(video.srcObject, { audio: false, video: true });////////////////
 		if (stream.local == true) {
 			video.muted = true;
 		} else {
