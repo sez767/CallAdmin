@@ -152,7 +152,7 @@ window.onload = function() {
 			muteVideo.value = "Камера";
 			muteVideo.className = "video-btn";
 			muteVideo.classList.add("allButtons");
-			muteVideo.setAttribute("state", "Unmute");
+			muteVideo.setAttribute("state", "Mute");
 			muteVideo.onclick = function() {
 				let state = this.getAttribute("state");
 				this.setAttribute("state", state == "Mute" ? "Unmute" : "Mute");
