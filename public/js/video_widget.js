@@ -18,7 +18,7 @@ document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="https:/
         var clientId = myScript.src.replace(/^[^\?]+\??/,'');
 
 		let cshBtnVideoCall = document.querySelector("#cshBtnVideoCall"); // Кнопка "VideoCall"
-		let cshLinkVideoCall = `https://shop.lendos.biz/video?rl=user&cl=${clientId}`; // Ссылка видеозвонка
+		let cshLinkVideoCall = `https://shop.lendos.biz/video?rl=user&${clientId}`; // Ссылка видеозвонка
 		// let cshLinkVideoCall = `http://localhost:8090/video?rl=user&${clientId}`;
 		let cshNameVideoCall = "MyWindow"; // Имя нового окна
 		let cshParametersVideoCall = "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=no,resizable=yes,height=600,width=600"; // Параметры видеозвонка
