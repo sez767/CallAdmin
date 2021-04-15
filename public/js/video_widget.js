@@ -1,9 +1,15 @@
+document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="https://shop.lendos.biz/css/callwidget.css">`;
 
-		let videoButton = document.createElement("input");
+		let videoButton = document.createElement("button");
         videoButton.type = 'button'
-        videoButton.value = 'Call';
+        // videoButton.innerHTML = 'Call';
         videoButton.id = 'cshBtnVideoCall';
+		videoButton.className = "callBtn";
+		videoButton.title = "Видеозвонок оператору";
 		let docBody = document.querySelector("body");
+		let image = document.createElement("img");
+		image.src = "https://shop.lendos.biz/images/calloperator.svg"
+		videoButton.appendChild(image);
         docBody.appendChild(videoButton);
 
 		var scripts = document.getElementsByTagName('script');
