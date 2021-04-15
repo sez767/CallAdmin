@@ -214,8 +214,7 @@ window.onload = function() {
 				tracks[i].enabled = true;
 			}
 		};
-		video.muted = true;
-		mute(video.srcObject, { audio: false, video: true });////////////////
+		
 		if (stream.local == true) {
 			video.muted = true;
 		} else {
@@ -228,8 +227,8 @@ window.onload = function() {
 		}else{
 			createMediaControls(video);	
 		}
-		
-
+		video.muted = true;
+		// mute(video.srcObject, { audio: false, video: true });////////////////
 		return mediaView;
 	}
 
