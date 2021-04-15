@@ -3,6 +3,8 @@
         videoButton.type = 'button'
         videoButton.value = 'Call';
         videoButton.id = 'cshBtnVideoCall';
+		let docBody = document.querySelector("body");
+        docBody.appendChild(videoButton);
 
 		let cshBtnVideoCall = document.querySelector("#cshBtnVideoCall"); // Кнопка "VideoCall"
 		let cshLinkVideoCall = `https://shop.lendos.biz/video?rl=user&cl=${clientId}`; // Ссылка видеозвонка
