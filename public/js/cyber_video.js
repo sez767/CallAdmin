@@ -21,8 +21,8 @@ window.onload = function() {
     createButtons()
 	createModal()
 	startConnect()
-	mute(video.srcObject, {video: false});
-	mute(video.srcObject, {audio: true});
+	mute(video.srcObject, {video: true});
+	mute(video.srcObject, {audio: false});
 
 	function findMediaView(parent, stream) {
 		let nodes = parent.childNodes;
