@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Staff;
-use App\Models\Extention;
+use App\Models\Site;
+use App\Models\Callclient;
 
 class HomeController extends Controller
 {
@@ -33,34 +34,34 @@ class HomeController extends Controller
         // dd($request->all());
         if($request->has('rl') && $request->rl == 'staff'){
             $staff = Staff::findOrFail($request->user);
-            $extention = Extention::updateOrCreate(
-                ['name' => 1000 + $staff->id],
-                ['active' => 1]
-            );
-        return view('video')
-            ->with('name', $staff->name)
-            ->with('pass', $staff->password)
-            ->with('extention', $extention->name);
-       }
+            $staff->is_active = 1;
+
+            return view('video')
+                ->with('name', $staff->name)
+                ->with('pass', $staff->password)
+                ->with('extention', 1000 + $extention->id);
+        }
     
         if($request->has('rl') && $request->rl == 'user'){
-            $extentions = Extention::where('active', 1)->get();
-            $clientSite = $request->cl;
-            foreach($extentions as $extention){
-                dd($extention->staff);
-                if (\Cache::has('staffonline-' . $extention->staff->id) 
-                && $extention->staff->sites()->where('id', $clientSite->id->isNotEmpty())){
-                    dd($extention);
-                }
+            $client = Callclient::create();
+            $client->name = 10000 + $client->id;
+            $client->save();
+            $clientSite = $request->client;
+            $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
+            foreach($staffs as $staff){
+                if (\Cache::has('staffonline-' . $staff->id)){
+                    $free = $staff; 
+                    break;
+                }   
             }
-   
+            $free->is_active = 0;
+            dd($free);
+            return view('video')
+                // ->with('name', $staff->name)
+                // ->with('pass', $staff->password)
+                ->with('extention', 1000 + $free->id);
+        
         }
-        dd(12121);
-
-
-
        return view('video');
-    }
-  
-     
+    }   
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Extention extends Model
+class Callclient extends Model
 {
     use HasFactory;
 
@@ -16,11 +16,5 @@ class Extention extends Model
      */
     protected $fillable = [
 		'name',
-		'active',
     ];
-
-    public function staff() {
-      return $this->belongsTo(Staff::class);
-    }
-
- }
+}
