@@ -152,13 +152,14 @@ window.onload = function() {
 			muteVideo.value = "Камера";
 			muteVideo.className = "video-btn";
 			muteVideo.classList.add("allButtons");
-			muteVideo.setAttribute("state", "Unmute");
+			muteVideo.setAttribute("state", "Mute");
 			muteVideo.onclick = function() {
 				let state = this.getAttribute("state");
 				this.setAttribute("state", state == "Mute" ? "Unmute" : "Mute");
 				this.classList.toggle("line");
-				mute(video.srcObject, {video: this.getAttribute("state") == "Mute"});
+				mute(video.srcObject, {video: this.getAttribute("state") == "Unmute"});
 			};
+			mute(video.srcObject, {video: false});
 			controls.prepend(muteVideo);
 		}
 			return controls;
@@ -347,8 +348,8 @@ window.onload = function() {
 	document.getElementById("connect").addEventListener("click", function() {
 
 	});
-	mute(video.srcObject, {video: true});
-	mute(video.srcObject, {audio: false});
+	// mute(video.srcObject, {video: true});
+	// mute(video.srcObject, {audio: false});
 };
 
 window.onunload = function() {
