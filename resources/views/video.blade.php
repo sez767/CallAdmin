@@ -14,6 +14,10 @@
 
 
 <script>
+    var accountRole = '';
+    @isset($role)
+        var accountRole = {!! json_encode($role) !!};
+    @endisset
     @isset($name)
         var accountIdName = {!! json_encode($name) !!};
     @endisset

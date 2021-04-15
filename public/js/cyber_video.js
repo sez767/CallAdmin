@@ -135,7 +135,7 @@ window.onload = function() {
 			muteAudio.value = 'Микрофон';
 			muteAudio.className = "audio-btn";
 			muteAudio.classList.add("allButtons");
-			muteAudio.setAttribute("state", "Unmute");
+			muteAudio.setAttribute("state", "Mute");
 			
 			muteAudio.onclick = function() {
 				let state = this.getAttribute("state");
