@@ -23,14 +23,4 @@ class Extention extends Model
       return $this->belongsTo(Staff::class);
     }
 
-    public function findFreeExtention($clientSite)
-    { 
-      $extentions = Extention::where('active', 1)->get();
-      foreach($extentions as $extention){
-        if (Cache::has('staffonline-' . $extention->$staff->id) 
-          && $extention->$staff->sites()->where('id', $clientSite->id->isNotEmpty())){
-            return $extention;
-          }
-        }
-    }
  }

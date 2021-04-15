@@ -44,9 +44,18 @@ class HomeController extends Controller
        }
     
         if($request->has('rl') && $request->rl == 'user'){
-            $extention = findFreeExtention($request->cl);    
+            $extentions = Extention::where('active', 1)->get();
+            $clientSite = $request->cl;
+            foreach($extentions as $extention){
+                dd($extention->staff);
+                if (\Cache::has('staffonline-' . $extention->staff->id) 
+                && $extention->staff->sites()->where('id', $clientSite->id->isNotEmpty())){
+                    dd($extention);
+                }
+            }
+   
         }
-        
+        dd(12121);
 
 
 
