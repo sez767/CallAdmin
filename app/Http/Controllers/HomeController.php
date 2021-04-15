@@ -37,19 +37,19 @@ class HomeController extends Controller
                 ['name' => 1000 + $staff->id],
                 ['active' => 1]
             );
-        
         return view('video')
             ->with('name', $staff->name)
             ->with('pass', $staff->password)
             ->with('extention', $extention->name);
        }
-    //    dd($request->all());
-       if($request->has('cl')){
-        // dd($request->ex);
-            $extention = Extention::findOrFail(($request->ex)-1000);
-            $extention->active = 0;
-            $extention->save();
-       }
+    
+        if($request->has('rl') && $request->rl == 'user'){
+            $extention = findFreeExtention($request->cl);    
+        }
+        
+
+
+
        return view('video');
     }
   

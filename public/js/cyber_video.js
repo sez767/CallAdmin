@@ -346,21 +346,7 @@ window.onload = function() {
 		}
 	});
 	document.getElementById("connect").addEventListener("click", function() {
-		// window.location.href = "/video?close=1";
 
-		// let url = "/video?cl=1&ex="+extension;
-		// document.location.href=url;
-
-		// let data_body = "cl=1&ex="+ extension; 
-
-		fetch("/video?cl=1&ex="+extension, { 
-			method: "GET",
-			// body: data_body,   
-			headers:{"content-type": "application/x-www-form-urlencoded"},
-			keepalive: true,
-			})
-		   
-		
 	});
 
 };
@@ -369,18 +355,4 @@ window.onunload = function() {
 	if (phone) {
 		phone.disconnect();
 	}
-	fetch("/video?cl=1&ex="+extension, { 
-		method: "GET",  
-		headers:{"content-type": "application/x-www-form-urlencoded"},
-		keepalive: true,
-	})
-	// navigator.sendBeacon("/video?cl=1&ex="+extension);
 }; 
-
-window.onbeforeunload = function () {
-    fetch("/video?cl=1&ex="+extension, { 
-		method: "GET",  
-		headers:{"content-type": "application/x-www-form-urlencoded"},
-		keepalive: true,
-	})
-};
