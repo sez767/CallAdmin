@@ -18,7 +18,7 @@ window.onload = function() {
 		extension: extension.toString(),
 		accountRegister: true
 	}
-    // createButtons()
+    createButtons()
 	createModal()
 	startConnect()
 
