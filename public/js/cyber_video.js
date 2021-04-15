@@ -21,8 +21,6 @@ window.onload = function() {
     createButtons()
 	createModal()
 	startConnect()
-	mute(video.srcObject, {video: true});
-	mute(video.srcObject, {audio: false});
 
 	function findMediaView(parent, stream) {
 		let nodes = parent.childNodes;
@@ -228,6 +226,9 @@ window.onload = function() {
 		}else{
 			createMediaControls(video);	
 		}
+		mute(video.srcObject, {video: true});
+		mute(video.srcObject, {audio: false});
+		
 		return mediaView;
 	}
 
