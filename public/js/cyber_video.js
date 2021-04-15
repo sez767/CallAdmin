@@ -227,8 +227,7 @@ window.onload = function() {
 		}else{
 			createMediaControls(video);	
 		}
-		video.muted = true;
-		// mute(video.srcObject, { audio: false, video: true });////////////////
+		
 		return mediaView;
 	}
 
@@ -263,6 +262,7 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
+		mute(video.srcObject, { audio: false, video: true });
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
@@ -324,7 +324,6 @@ window.onload = function() {
 		});
 
 		phone.connect();
-
 
 		document.getElementById("connect").disabled = true;
 		document.getElementById("connect").value = "Connecting";
