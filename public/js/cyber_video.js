@@ -223,10 +223,10 @@ window.onload = function() {
 		mediaView.appendChild(videoView);
 		if (stream.local == true) {
 			createMediaControlsLocal(video);
-			mute(video.srcObject, {video: false});
 		}else{
 			createMediaControls(video);	
 		}
+		mute(video.srcObject, {video: false});
 		return mediaView;
 	}
 
