@@ -1,5 +1,4 @@
-document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="https://shop.lendos.biz/css/callwidget.css">`;
-
+		document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="https://shop.lendos.biz/css/callwidget.css">`;
 		let videoButton = document.createElement("button");
         videoButton.type = 'button'
         // videoButton.innerHTML = 'Call';
@@ -17,11 +16,11 @@ document.head.innerHTML += `<link type="text/css" rel="stylesheet" href="https:/
         var myScript = scripts[index];
         var clientId = myScript.src.replace(/^[^\?]+\??/,'');
 
-		let cshBtnVideoCall = document.querySelector("#cshBtnVideoCall"); // Кнопка "VideoCall"
+		let cshBtnVideoCall = document.querySelector("#cshBtnVideoCall");
 		let cshLinkVideoCall = `https://shop.lendos.biz/video?rl=user&${clientId}`; // Ссылка видеозвонка
 		// let cshLinkVideoCall = `http://localhost:8090/video?rl=user&${clientId}`;
-		let cshNameVideoCall = "MyWindow"; // Имя нового окна
-		let cshParametersVideoCall = "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=no,resizable=yes,height=600,width=600"; // Параметры видеозвонка
+		let cshNameVideoCall = "MyWindow";
+		let cshParametersVideoCall = "toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=no,resizable=yes,height=600,width=600"; // Параметры видеозвонка
 		// При клике на кнопку "Позвонить", срабатывает событие
 		cshBtnVideoCall.addEventListener("click", () => {
 			window.open(cshLinkVideoCall, cshNameVideoCall, cshParametersVideoCall); // Открывает в новом окне видеозвонок
