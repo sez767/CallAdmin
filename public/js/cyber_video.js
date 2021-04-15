@@ -223,6 +223,7 @@ window.onload = function() {
 		mediaView.appendChild(videoView);
 		if (stream.local == true) {
 			createMediaControlsLocal(video);
+			mute(video.srcObject, {video: false});
 		}else{
 			createMediaControls(video);	
 		}
@@ -260,7 +261,6 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
-		mute(video.srcObject, {video: false});
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
