@@ -39,7 +39,7 @@ class HomeController extends Controller
             return view('video')
                 ->with('name', $staff->name)
                 ->with('pass', $staff->password)
-                ->with('extention', 1000 + $extention->id);
+                ->with('extention', 1000 + $staff->id);
         }
     
         if($request->has('rl') && $request->rl == 'user'){
