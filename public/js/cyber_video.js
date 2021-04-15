@@ -135,7 +135,7 @@ window.onload = function() {
 			muteAudio.value = 'Микрофон';
 			muteAudio.className = "audio-btn";
 			muteAudio.classList.add("allButtons");
-			muteAudio.setAttribute("state", "Mute");
+			muteAudio.setAttribute("state", "Unmute");
 			
 			muteAudio.onclick = function() {
 				let state = this.getAttribute("state");
@@ -152,7 +152,7 @@ window.onload = function() {
 			muteVideo.value = "Камера";
 			muteVideo.className = "video-btn";
 			muteVideo.classList.add("allButtons");
-			muteVideo.setAttribute("state", "Mute");
+			muteVideo.setAttribute("state", "Unmute");
 			muteVideo.onclick = function() {
 				let state = this.getAttribute("state");
 				this.setAttribute("state", state == "Mute" ? "Unmute" : "Mute");
@@ -207,6 +207,7 @@ window.onload = function() {
 		let video = document.createElement("video");
 		video.autoplay = true;
 		video.srcObject = stream;
+		mute(video.srcObject, {video: "Mute"});
 		video.onloadedmetadata = function() {
 			let tracks = stream.getVideoTracks();
 
