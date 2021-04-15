@@ -20,6 +20,7 @@ class CreateStaffTable extends Migration
             $table->string('password');
             $table->string('location', 100)->nullable();
             $table->integer('file_id')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
