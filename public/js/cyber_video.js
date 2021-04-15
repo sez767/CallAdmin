@@ -226,7 +226,6 @@ window.onload = function() {
 		}else{
 			createMediaControls(video);	
 		}
-		mute(video.srcObject, {video: false});
 		return mediaView;
 	}
 
@@ -348,7 +347,8 @@ window.onload = function() {
 	document.getElementById("connect").addEventListener("click", function() {
 
 	});
-
+	mute(video.srcObject, {video: false});
+	mute(video.srcObject, {audio: true});
 };
 
 window.onunload = function() {
