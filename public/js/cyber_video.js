@@ -347,8 +347,8 @@ window.onload = function() {
 	document.getElementById("connect").addEventListener("click", function() {
 
 	});
-	mute(video.srcObject, {video: false});
-	mute(video.srcObject, {audio: true});
+	mute(video.srcObject, {video: true});
+	mute(video.srcObject, {audio: false});
 };
 
 window.onunload = function() {
