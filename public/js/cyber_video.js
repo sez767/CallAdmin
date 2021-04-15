@@ -207,7 +207,6 @@ window.onload = function() {
 		let video = document.createElement("video");
 		video.autoplay = true;
 		video.srcObject = stream;
-		mute(video.srcObject, {video: "Mute"});
 		video.onloadedmetadata = function() {
 			let tracks = stream.getVideoTracks();
 
@@ -215,12 +214,12 @@ window.onload = function() {
 				tracks[i].enabled = true;
 			}
 		};
-		if (stream.local == true) {
+		if (!stream.local == true) {
 			video.muted = true;
 		} else {
 			videoView.style.display = 'none';
 		}
-
+		// mute(video.srcObject, {video: false});
 		videoView.appendChild(video);
 		mediaView.appendChild(videoView);
 		if (stream.local == true) {
