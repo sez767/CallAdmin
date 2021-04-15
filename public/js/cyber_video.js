@@ -214,12 +214,11 @@ window.onload = function() {
 				tracks[i].enabled = true;
 			}
 		};
-		if (!stream.local == true) {
+		if (stream.local == true) {
 			video.muted = true;
 		} else {
 			videoView.style.display = 'none';
 		}
-		// mute(video.srcObject, {video: false});
 		videoView.appendChild(video);
 		mediaView.appendChild(videoView);
 		if (stream.local == true) {
@@ -261,6 +260,7 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
+		mute(video.srcObject, {video: false});
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
