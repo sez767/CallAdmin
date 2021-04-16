@@ -267,7 +267,7 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
-		if(accountRole==staff){
+		if(accountRole=='staff'){
 			setTimeout(function mt(){
 				console.log("MUTE!");
 				mt = function(){};
