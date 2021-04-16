@@ -83,5 +83,5 @@ Route::get('/registration/{token}', [\App\Http\Controllers\StaffController::clas
 * Videocall
 *
 **/
-Route::get('/videoclient', [App\Http\Controllers\VideoController::class, 'video'])->name('videoClient');
-Route::get('/videostaff', [App\Http\Controllers\VideoController::class, 'video'])->name('videoStaff');
+Route::get('/videoclient', [App\Http\Controllers\VideoController::class, 'videoClient'])->name('videoClient');
+Route::get('/videostaff', [App\Http\Controllers\VideoController::class, 'videoStaff'])->name('videoStaff');

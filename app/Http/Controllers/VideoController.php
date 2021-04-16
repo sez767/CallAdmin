@@ -32,7 +32,6 @@ class VideoController extends Controller
     
     
     public function videoClient(Request $request){
-
             $client = Callclient::create();
             $client->name = 10000 + $client->id;
             $client->save();
