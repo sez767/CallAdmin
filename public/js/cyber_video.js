@@ -155,7 +155,8 @@ window.onload = function() {
 			muteVideo.className = "video-btn";
 			muteVideo.classList.add("allButtons");
 			muteVideo.setAttribute("state", "Unmute");
-			muteVideo.onclick = function() {
+			muteVideo.onclick = muteFn(video);
+			function muteFn(video) {
 				let state = this.getAttribute("state");
 				this.setAttribute("state", state == "Mute" ? "Unmute" : "Mute");
 				this.classList.toggle("line");
@@ -321,11 +322,16 @@ window.onload = function() {
 			document.getElementById("call").disabled = false;
 			
 			mod.classList.add("show");
-			setTimeout(function mt(){
-				console.log("MUTE!!!!!!!!!");
-				mt = function(){};
-				document.getElementById("muteVb").click(); 
-			}, 5000);
+			// setTimeout(function mt(){
+			// 	console.log("MUTE!!!!!!!!!");
+			// 	mt = function(){};
+			// 	document.getElementById("muteVb").click(); 
+			// }, 2000);
+			document.getElementById("muteVb").click();
+			// setTimeout(function mt(){
+			// 	console.log("MUTE!!!!!!!!!");
+			// 	muteFn(xxxxxx); 
+			// }, 2000);
 		});
 
 		phone.handle("streamRemoved", function (stream) {
