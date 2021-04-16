@@ -290,6 +290,7 @@ window.onload = function() {
 			document.getElementById("connect").disabled = false;
 			document.getElementById("call").value = "Call";
 			document.getElementById("call").disabled = true;
+			console.log("DISCONECT !!!!!!!!!!!");
 		});
 
 		phone.handle("registered", function () {
@@ -304,16 +305,19 @@ window.onload = function() {
 
 		phone.handle("incoming", function (reason) {
 			document.getElementById("call").value = "Answer";
+			console.log("INCOMEEEE !!!!!!!!!!!");
 		});
 
 		phone.handle("failed", function (reason) {
 			document.getElementById("call").value = "Call";
 			document.getElementById("call").disabled = false;
+			console.log("FAILed !!!!!!!!!!!");
 		});
 
 		phone.handle("ended", function (reason) {
 			document.getElementById("call").value = "Call";
 			document.getElementById("call").disabled = document.getElementById("connect").value == "Connect";
+			console.log("CALL ENDED !!!!!!!!!!!");
 		});
 
 		phone.handle("streamAdded", function (stream) {
