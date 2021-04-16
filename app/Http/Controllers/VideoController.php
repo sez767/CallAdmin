@@ -33,7 +33,7 @@ class VideoController extends Controller
     
     public function videoClient(Request $request){
             $client = Callclient::create();
-            $client->name = 10000 + $client->id;
+            $client->name = '10000' + $client->id;
             $client->save();
             $clientSite = $request->client;
             $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);

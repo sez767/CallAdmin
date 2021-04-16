@@ -15,7 +15,7 @@ class CreateCallclientsTable extends Migration
     {
         Schema::create('callclients', function (Blueprint $table) {
             $table->id();
-            $table->integer('name')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
