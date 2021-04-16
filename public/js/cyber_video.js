@@ -119,12 +119,13 @@ window.onload = function() {
 			exit.className = "exit-btn";
 			exit.classList.add("allButtons");
 			controls.appendChild(exit);
-			exit.onclick = function() {
-				phone.terminate();
-				let mod = document.getElementById("mod")
-				mod.classList.remove("show")
-				mod.remove()
-			};
+			exit.onclick = window.close();
+			// function() {
+			// 	phone.terminate();
+			// 	let mod = document.getElementById("mod")
+			// 	mod.classList.remove("show")
+			// 	mod.remove()
+			// };
 		return controls;
 	}
 	function createMediaControlsLocal(video) {
