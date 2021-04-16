@@ -35,7 +35,6 @@ class HomeController extends Controller
         if($request->has('rl') && $request->rl == 'staff'){
             $staff = Staff::findOrFail($request->user);
             $staff->is_active = 1;
-            dd($staff);
             return view('video')
                 ->with('name', $staff->name)
                 ->with('pass', $staff->password)
@@ -49,6 +48,7 @@ class HomeController extends Controller
             $clientSite = $request->client;
             $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
             $free = 0;
+            dd($staffs);
             foreach($staffs as $staff){
                 if (\Cache::has('staffonline-' . $staff->id)){
                     $free = $staff; 
