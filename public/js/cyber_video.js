@@ -323,7 +323,7 @@ window.onload = function() {
 			mod.classList.add("show");
 			setTimeout(function(){
 				document.getElementById("muteVb").click(); 
-			}, 2000);
+			}, 5000);
 		});
 
 		phone.handle("streamRemoved", function (stream) {
