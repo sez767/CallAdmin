@@ -120,12 +120,11 @@ window.onload = function() {
 			exit.classList.add("allButtons");
 			controls.appendChild(exit);
 			exit.onclick = function() {
-				// phone.terminate();
-				// let mod = document.getElementById("mod")
-				// mod.classList.remove("show")
-				// mod.remove()
-				// window.close();
-				window.location.reload(false);
+				if(accountRole=='staff'){
+					window.location.reload(false);
+				}else{
+					window.close();
+				}	
 			};
 		return controls;
 	}
@@ -140,7 +139,6 @@ window.onload = function() {
 			muteAudio.className = "audio-btn";
 			muteAudio.classList.add("allButtons");
 			muteAudio.setAttribute("state", "Unmute");
-			
 			muteAudio.onclick = function() {
 				let state = this.getAttribute("state");
 				this.setAttribute("state", state == "Mute" ? "Unmute" : "Mute");
@@ -230,7 +228,6 @@ window.onload = function() {
 		mediaView.appendChild(videoView);
 		if (stream.local == true) {
 			createMediaControlsLocal(video);
-			mute(video.srcObject, { audio: false, video: true });/////////////////////////////
 		}else{
 			createMediaControls(video);	
 		}
@@ -268,15 +265,6 @@ window.onload = function() {
 			enterParams.accountRegister
 		);						
 		phone.connect();
-		// phone.call(enterParams.extension);
-		// if(accountRole=='staff'){
-		// 	setTimeout(function mt(){
-		// 		console.log("MUTE!");
-		// 		mt = function(){};
-		// 		document.getElementById("muteVb").click();
-		// 		document.getElementById("muteMb").click();
-		// 	}, 5000);
-		// }	
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
