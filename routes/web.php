@@ -17,7 +17,7 @@ Route::redirect('/home', '/');
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/video', [App\Http\Controllers\HomeController::class, 'video'])->name('video');
+
 /*
  * Clients management
  * */
@@ -79,4 +79,9 @@ Route::post('/files/store', [\App\Http\Controllers\FilesController::class, 'stor
 *
 **/
 Route::get('/registration/{token}', [\App\Http\Controllers\StaffController::class, 'mailregistration'])->name('mailregistration');
-// Route::POST('/registration', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('accept');
+/*
+* Videocall
+*
+**/
+Route::get('/videoclient', [App\Http\Controllers\VideoController::class, 'video'])->name('videoClient');
+Route::get('/videostaff', [App\Http\Controllers\VideoController::class, 'video'])->name('videoStaff');

@@ -16,7 +16,7 @@
       ></WidgetHeading class="whead">
       <WidgetBody>
           <iframe
-            :src="`https://shop.lendos.biz/video?user=${userId}&rl=staff`"
+            :src="`https://shop.lendos.biz/videostaff?user=${userId}`"
             width="100%"
             height="100%"
             scrolling="no"

@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('video');;
+        $this->middleware('auth');
     }
 
     /**
@@ -28,42 +28,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function video(Request $request)
-    {   
-        // dd($request->all());
-        if($request->has('rl') && $request->rl == 'staff'){
-            $staff = Staff::findOrFail($request->user);
-            $staff->is_active = 1;
-            return view('video')
-                ->with('name', $staff->name)
-                ->with('pass', $staff->password)
-                ->with('extention', 1000 + $staff->id);
-        }
-    
-        if($request->has('rl') && $request->rl == 'user'){
-            $client = Callclient::create();
-            $client->name = 10000 + $client->id;
-            $client->save();
-            $clientSite = $request->client;
-            $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
-            $free = 0;
-            dd($staffs);
-            foreach($staffs as $staff){
-                if (\Cache::has('staffonline-' . $staff->id)){
-                    $free = $staff; 
-                    $free->is_active = 0;
-                    break;
-                }   
-            }
-            
-            dd($free);
-            return view('video')
-                // ->with('name', $staff->name)
-                // ->with('pass', $staff->password)
-                ->with('extention', 1000 + $free->id);
-        
-        }
-       return view('video');
-    }   
 }
