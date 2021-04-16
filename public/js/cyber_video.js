@@ -53,6 +53,7 @@ window.onload = function() {
 
         buttonsDiv.appendChild(connectButton);
         buttonsDiv.appendChild(callButton);
+		buttonsDiv.style.display = 'none';
 
         let docBody = document.querySelector("body");
         docBody.appendChild(buttonsDiv);   //?????
