@@ -262,7 +262,7 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
-		mute(video.srcObject, { audio: false, video: true });
+		
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
@@ -315,6 +315,7 @@ window.onload = function() {
 			elem.parentNode.insertBefore(elem, elem.parentNode.firstChild)
 			document.getElementById("call").value = "Hangup";
 			document.getElementById("call").disabled = false;
+			mute(video.srcObject, { audio: false, video: true });/////////////////////////////
 			mod.classList.add("show");
 		});
 
