@@ -151,6 +151,7 @@ window.onload = function() {
 			let muteVideo = document.createElement("input");
 			muteVideo.type = "button";
 			muteVideo.value = "Камера";
+			muteVideo.id= "muteVb"; 
 			muteVideo.className = "video-btn";
 			muteVideo.classList.add("allButtons");
 			muteVideo.setAttribute("state", "Unmute");
@@ -265,6 +266,7 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
+		document.getElementById("muteVb").click(); 
 		
 
 		phone.handle("connected", function () {
