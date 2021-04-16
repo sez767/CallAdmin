@@ -14,24 +14,20 @@ class VideoController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        // $this->middleware('auth')->except('video');
-    }
-
-
     public function videoStaff(Request $request)
     {   
         $staff = Staff::findOrFail($request->user);
         $staff->is_active = 1;
         return view('video')
+            ->with('role', 'staff')
             ->with('name', $staff->name)
             ->with('pass', $staff->password)
             ->with('extention', 1000 + $staff->id);
     }  
     
     
-    public function videoClient(Request $request){
+    public function videoClient(Request $request)
+    {
         $client = Callclient::create();
         $client->name = '10000' + $client->id;
         $client->save();
@@ -45,8 +41,10 @@ class VideoController extends Controller
                 break;
             }   
         } 
+        //DO SMSNG when NOT FOUD
         // dd($free);
         return view('video')
+            ->with('role', 'user')
             ->with('name', $client->name)
             ->with('pass', $client->name)
             ->with('extention', 1000 + $free->id);    
