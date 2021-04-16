@@ -46,7 +46,7 @@ class HomeController extends Controller
             $client->name = 10000 + $client->id;
             $client->save();
             $clientSite = $request->client;
-            $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1)->get();
+            $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
             $free = 0;
             dd($staffs);
             foreach($staffs as $staff){
