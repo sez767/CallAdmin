@@ -134,7 +134,7 @@ window.onload = function() {
 			let muteAudio = document.createElement("input");
 			muteAudio.type = "button";
 			muteAudio.value = 'Микрофон';
-			muteVideo.id= "muteMb";
+			muteAudio.id= "muteMb";
 			muteAudio.className = "audio-btn";
 			muteAudio.classList.add("allButtons");
 			muteAudio.setAttribute("state", "Unmute");
