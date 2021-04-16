@@ -17,8 +17,8 @@
         var clientId = myScript.src.replace(/^[^\?]+\??/,'');
 
 		let cshBtnVideoCall = document.querySelector("#cshBtnVideoCall");
-		// let cshLinkVideoCall = `https://shop.lendos.biz/videoclient?${clientId}`; // Ссылка видеозвонка
-		let cshLinkVideoCall = `http://localhost:8090/videoclient?${clientId}`;
+		let cshLinkVideoCall = `https://shop.lendos.biz/videoclient?${clientId}`; // Ссылка видеозвонка
+		// let cshLinkVideoCall = `http://localhost:8090/videoclient?${clientId}`;
 		let cshNameVideoCall = "MyWindow";
 		let cshParametersVideoCall = "toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=no,resizable=yes,height=600,width=600"; // Параметры видеозвонка
 		// При клике на кнопку "Позвонить", срабатывает событие
