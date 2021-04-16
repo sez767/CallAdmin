@@ -267,6 +267,7 @@ window.onload = function() {
 		phone.connect();
 
 		phone.handle("connected", function () {
+			console.log("CONECT !!!!!!!!!!!");
 			if (document.getElementById("connect").value != "Disconnect") {
 				document.getElementById("connect").value = "Registering";
 			} else {
@@ -337,6 +338,7 @@ window.onload = function() {
 		phone.handle("streamRemoved", function (stream) {
 			let modal = document.getElementById("mod")
 			removeMediaView(modal, stream);
+			console.log("REMOVED !!!!!!!!!!!");
 		});
 
 		phone.connect();
