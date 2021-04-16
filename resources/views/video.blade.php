@@ -12,7 +12,6 @@
 
 @section('content')
 
-
 <script>
     var accountRole = '';
     @isset($role)
@@ -27,6 +26,5 @@
     @isset($extention)
         var extension = {!! json_encode($extention) !!};
     @endisset 
-    console.log('accountRole',accountRole);
 </script>
 @endsection

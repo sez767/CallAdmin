@@ -134,6 +134,7 @@ window.onload = function() {
 			let muteAudio = document.createElement("input");
 			muteAudio.type = "button";
 			muteAudio.value = 'Микрофон';
+			muteVideo.id= "muteMb";
 			muteAudio.className = "audio-btn";
 			muteAudio.classList.add("allButtons");
 			muteAudio.setAttribute("state", "Unmute");
@@ -266,11 +267,14 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
-		setTimeout(function mt(){
-			console.log("MUTE!!!!!!!!!");
-			mt = function(){};
-			document.getElementById("muteVb").click(); 
-		}, 5000);	
+		if(accountRole==staff){
+			setTimeout(function mt(){
+				console.log("MUTE!");
+				mt = function(){};
+				document.getElementById("muteVb").click();
+				document.getElementById("muteMb").click();
+			}, 5000);
+		}	
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
