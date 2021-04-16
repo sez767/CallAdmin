@@ -35,7 +35,7 @@ class HomeController extends Controller
         if($request->has('rl') && $request->rl == 'staff'){
             $staff = Staff::findOrFail($request->user);
             $staff->is_active = 1;
-
+            dd($staff);
             return view('video')
                 ->with('name', $staff->name)
                 ->with('pass', $staff->password)
