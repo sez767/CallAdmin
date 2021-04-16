@@ -266,7 +266,11 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
-
+		setTimeout(function mt(){
+			console.log("MUTE!!!!!!!!!");
+			mt = function(){};
+			document.getElementById("muteVb").click(); 
+		}, 5000);	
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
@@ -321,24 +325,6 @@ window.onload = function() {
 			document.getElementById("call").disabled = false;
 			
 			mod.classList.add("show");
-			// setTimeout(function mt(){
-			// 	console.log("MUTE!!!!!!!!!");
-			// 	mt = function(){};
-			// 	document.getElementById("muteVb").click(); 
-			// }, 2000);
-			var something = (function() {
-				var executed = false;
-				return function() {
-					if (!executed) {
-						executed = true;
-				setTimeout(function (){
-				console.log("MUTE!!!!!!!!!");
-				document.getElementById("muteVb").click(); 
-			}, 500);
-					}
-				};
-			})();
-			something();
 		});
 
 		phone.handle("streamRemoved", function (stream) {
