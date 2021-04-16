@@ -205,6 +205,7 @@ window.onload = function() {
 		}
 
 		mediaView.appendChild(videoOverlay);
+
 		let video = document.createElement("video");
 		video.autoplay = true;
 		video.srcObject = stream;
@@ -225,6 +226,7 @@ window.onload = function() {
 		mediaView.appendChild(videoView);
 		if (stream.local == true) {
 			createMediaControlsLocal(video);
+			mute(video.srcObject, { audio: false, video: true });/////////////////////////////
 		}else{
 			createMediaControls(video);	
 		}
@@ -316,7 +318,7 @@ window.onload = function() {
 			elem.parentNode.insertBefore(elem, elem.parentNode.firstChild)
 			document.getElementById("call").value = "Hangup";
 			document.getElementById("call").disabled = false;
-			mute(video.srcObject, { audio: false, video: true });/////////////////////////////
+			
 			mod.classList.add("show");
 		});
 
