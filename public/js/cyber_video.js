@@ -124,7 +124,8 @@ window.onload = function() {
 				// let mod = document.getElementById("mod")
 				// mod.classList.remove("show")
 				// mod.remove()
-				window.close();
+				// window.close();
+				window.location.reload(false);
 			};
 		return controls;
 	}
