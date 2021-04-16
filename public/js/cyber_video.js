@@ -322,6 +322,7 @@ window.onload = function() {
 			
 			mod.classList.add("show");
 			setTimeout(function(){
+				consile.log("MUTE!!!!!!!!!");
 				document.getElementById("muteVb").click(); 
 			}, 5000);
 		});
