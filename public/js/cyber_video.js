@@ -321,8 +321,9 @@ window.onload = function() {
 			document.getElementById("call").disabled = false;
 			
 			mod.classList.add("show");
-			setTimeout(function(){
+			setTimeout(function mt(){
 				console.log("MUTE!!!!!!!!!");
+				mt = function(){};
 				document.getElementById("muteVb").click(); 
 			}, 5000);
 		});
