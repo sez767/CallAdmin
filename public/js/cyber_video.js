@@ -266,8 +266,7 @@ window.onload = function() {
 		);						
 		phone.connect();
 		phone.call(enterParams.extension);
-		document.getElementById("muteVb").click(); 
-		
+
 
 		phone.handle("connected", function () {
 			if (document.getElementById("connect").value != "Disconnect") {
@@ -322,6 +321,9 @@ window.onload = function() {
 			document.getElementById("call").disabled = false;
 			
 			mod.classList.add("show");
+			setTimeout(function(){
+				document.getElementById("muteVb").click(); 
+			}, 2000);
 		});
 
 		phone.handle("streamRemoved", function (stream) {
