@@ -334,7 +334,7 @@ window.onload = function() {
 				setTimeout(function (){
 				console.log("MUTE!!!!!!!!!");
 				document.getElementById("muteVb").click(); 
-			}, 2000);
+			}, 500);
 					}
 				};
 			})();
