@@ -322,12 +322,18 @@ window.onload = function() {
 			document.getElementById("call").disabled = false;
 			
 			mod.classList.add("show");
-			// setTimeout(function mt(){
-			// 	console.log("MUTE!!!!!!!!!");
-			// 	mt = function(){};
-			// 	document.getElementById("muteVb").click(); 
-			// }, 2000);
-			document.getElementById("muteVb").click();
+
+			var isM = false;
+
+				if(!isM) {
+					setTimeout(function (){
+						console.log("MUTE!!!!!!!!!");
+						isM = true;
+						document.getElementById("muteVb").click(); 
+					}, 1000);
+				}
+			
+			
 			// setTimeout(function mt(){
 			// 	console.log("MUTE!!!!!!!!!");
 			// 	muteFn(xxxxxx); 
