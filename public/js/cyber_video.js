@@ -190,6 +190,7 @@ window.onload = function() {
 			function checkForVideo() {
 				if (video.videoWidth < 10 || video.videoHeight < 10) {
 					videoView.style.display = 'none';
+					console.log("novideo1111");
 					return;
 				}
 
