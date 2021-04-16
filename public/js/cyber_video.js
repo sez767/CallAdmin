@@ -326,18 +326,19 @@ window.onload = function() {
 			// 	mt = function(){};
 			// 	document.getElementById("muteVb").click(); 
 			// }, 2000);
-			var isM = false;
-			function mut(){
-				document.getElementById("muteVb").click();
-			}
-			if(!isM) {
-				mut();
-				// setTimeout(function (){
-				// 	console.log("MUTE!!!!!!!!!");
-				// 	isM = true;
-				// 	document.getElementById("muteVb").click(); 
-				// }, 1000);
-			}
+			var something = (function() {
+				var executed = false;
+				return function() {
+					if (!executed) {
+						executed = true;
+				setTimeout(function (){
+				console.log("MUTE!!!!!!!!!");
+				document.getElementById("muteVb").click(); 
+			}, 2000);
+					}
+				};
+			})();
+			something();
 		});
 
 		phone.handle("streamRemoved", function (stream) {
@@ -349,8 +350,6 @@ window.onload = function() {
 
 		document.getElementById("connect").disabled = true;
 		document.getElementById("connect").value = "Connecting";
-
-		// phone.call(enterParams.extension);
 	};
 
 	document.getElementById("call").addEventListener("click", function() {
@@ -371,8 +370,7 @@ window.onload = function() {
 	document.getElementById("connect").addEventListener("click", function() {
 
 	});
-	// mute(video.srcObject, {video: true});
-	// mute(video.srcObject, {audio: false});
+
 };
 
 window.onunload = function() {
