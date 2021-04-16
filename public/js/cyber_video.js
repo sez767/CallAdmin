@@ -327,13 +327,16 @@ window.onload = function() {
 			// 	document.getElementById("muteVb").click(); 
 			// }, 2000);
 			var isM = false;
-
+			function mut(){
+				document.getElementById("muteVb").click();
+			}
 			if(!isM) {
-				setTimeout(function (){
-					console.log("MUTE!!!!!!!!!");
-					isM = true;
-					document.getElementById("muteVb").click(); 
-				}, 1000);
+				mut();
+				// setTimeout(function (){
+				// 	console.log("MUTE!!!!!!!!!");
+				// 	isM = true;
+				// 	document.getElementById("muteVb").click(); 
+				// }, 1000);
 			}
 		});
 
