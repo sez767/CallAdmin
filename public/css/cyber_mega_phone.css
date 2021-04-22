@@ -6,10 +6,6 @@
 *  MIT License. See the LICENSE file at the top of the source tree.
 ******************************************************************************/
 
-body {
-	font-family: sans-serif;
-}
-
 header {
 	font-size: 1.55rem;
 	text-shadow: 0 2px 2px #b6701e;

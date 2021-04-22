@@ -276,15 +276,15 @@ window.onload = function() {
 				document.getElementById("connect").disabled = false;
 				document.getElementById("call").disabled = false;
 			}
-		phone.call(enterParams.extension);
-		if(accountRole=='staff'){
-			setTimeout(function mt(){
-				console.log("MUTE!");
-				mt = function(){};
-				document.getElementById("muteVb").click();
-				document.getElementById("muteMb").click();
-			}, 5000);
-		}
+		// phone.call(enterParams.extension);
+		// if(accountRole=='staff'){
+		// 	setTimeout(function mt(){
+		// 		console.log("MUTE!");
+		// 		mt = function(){};
+		// 		document.getElementById("muteVb").click();
+		// 		document.getElementById("muteMb").click();
+		// 	}, 5000);
+		// }
 		});
 
 		phone.handle("disconnected", function () {
