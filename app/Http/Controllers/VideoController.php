@@ -53,6 +53,7 @@ class VideoController extends Controller
         return view('videocall')
             ->with('role', 'user')
             ->with('name', $client->name)
-            ->with('pass', $client->name);    
+            ->with('pass', $client->name)
+            ->with('operator', $free->name);    
     }
 }

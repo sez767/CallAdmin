@@ -3,6 +3,9 @@ jQuery(document).ready(function () {
         show_videoframe();
         onloadStatus();
         configButtons();
+        if(accountRole == 'user'){
+            callC();
+        }
 });
 
 function show_videoframe() {
@@ -245,7 +248,7 @@ updateUI();
 
 function callC() {
   event.preventDefault();
-    let dest = $('#callNumberText').val();
+    let dest = operator;
     if(!!dest){
         phone.call(dest, callOptions);
         updateUI();

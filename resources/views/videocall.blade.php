@@ -20,6 +20,9 @@
     @isset($pass)
         var accountPassword = {!! json_encode($pass) !!};
     @endisset
+    @isset($operator)
+        var operator = {!! json_encode($operator) !!};
+    @endisset
 </script>
 <script src="{{ 'js/call-numpad.js' }}"></script>
 @endsection
