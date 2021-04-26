@@ -24,7 +24,7 @@
         </iframe>
       </WidgetBody>
     </Widget>
-    <b-button label="CALL" style="font-size: 16px;" size="is-medium" slot="right"
+    <b-button label="CALL" id="callB" style="font-size: 16px;" size="is-medium" slot="right"
         @click=""
          />
     <div class="navbar-brand is-right">
@@ -117,7 +117,7 @@ export default {
       document.getElementById('logout-form').submit()
     },
     receiveMessage (event) {
-      console.log(event.data)
+      console.log(event.data.message)
     }
   }
 }

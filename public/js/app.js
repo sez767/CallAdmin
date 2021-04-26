@@ -2883,7 +2883,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
       document.getElementById('logout-form').submit();
     },
     receiveMessage: function receiveMessage(event) {
-      console.log(event.data);
+      console.log(event.data.message);
     }
   }
 });
@@ -68180,7 +68180,7 @@ var render = function() {
       _vm._v(" "),
       _c("b-button", {
         staticStyle: { "font-size": "16px" },
-        attrs: { slot: "right", label: "CALL", size: "is-medium" },
+        attrs: { slot: "right", label: "CALL", id: "callB", size: "is-medium" },
         on: { click: function($event) {} },
         slot: "right"
       }),
