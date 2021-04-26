@@ -118,7 +118,8 @@ export default {
       document.getElementById('logout-form').submit()
     },
     receiveMessage (event) {
-      console.log(event.data.message)
+      this.callButtontext = event.data.message;
+      // console.log()
     }
   }
 }
