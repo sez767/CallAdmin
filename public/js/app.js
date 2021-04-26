@@ -2836,6 +2836,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -68174,6 +68177,13 @@ var render = function() {
         ],
         1
       ),
+      _vm._v(" "),
+      _c("b-button", {
+        staticStyle: { "font-size": "16px" },
+        attrs: { slot: "right", label: "CALL", size: "is-medium" },
+        on: { click: function($event) {} },
+        slot: "right"
+      }),
       _vm._v(" "),
       _c("div", { staticClass: "navbar-brand is-right" }, [
         _c(
