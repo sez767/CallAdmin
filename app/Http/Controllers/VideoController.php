@@ -50,8 +50,7 @@ class VideoController extends Controller
             }   
         } 
         //DO SMSNG when NOT FOUD
-        // dd($free);
-        return view('video')
+        return view('videocall')
             ->with('role', 'user')
             ->with('name', $client->name)
             ->with('pass', $client->name);    
