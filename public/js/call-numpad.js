@@ -4,7 +4,7 @@ jQuery(document).ready(function () {
         onloadStatus();
         configButtons();
         if(accountRole == 'user'){
-            setTimeout(callC(), 3000);
+            setTimeout(callC(), 5000);
         }
 });
 
