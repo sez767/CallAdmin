@@ -17,6 +17,7 @@ function show_videoframe() {
                 <video id="lvideo" class="localvideo" autoPlay></video>
             </div>
             <div id="buttons-div" class="buttons-div">
+            <input type="button" id="mmm" class="allButtons" value="TEST"></input>
             <input type="button" id="audio-out-btn" class="allButtons audio-out-btn" value="Звук"></input>
             <input type="button" id="audio-btn" class="allButtons audio-btn" value="Микрофон"></input>
             <input type="button" id="video-btn" class="allButtons video-btn" value="Камера"></input>
@@ -142,8 +143,8 @@ var callOptions = {
     mediaConstraints: {audio: true, video: true},
     pcConfig:
     {
-        hackStripTcp: true, // Важно для хрома
-        rtcpMuxPolicy: 'negotiate', // Важно для хрома, чтоб работал multiplexing. включить на астере.
+        hackStripTcp: true, 
+        rtcpMuxPolicy: 'negotiate',
         iceServers: []
     },
     rtcOfferConstraints:
@@ -251,13 +252,9 @@ updateUI();
 function callC() {
   event.preventDefault();
     let dest = `991*${operator}`;
-    if(!!dest){
         phone.call(dest, callOptions);
         updateUI();
-        console.log('11111111111111111111',dest);
-    }else{
-        $('#callInfoText').val('Наберите номер')
-    }  
+  
 }
 
 function answerC(){
@@ -278,6 +275,12 @@ window.onload = function() {
          $('#cCall').click();
         }
     });
+    $('#mmm').bind("click",function(){
+        window.parent.postMessage({
+          'func': 'parentFunc',
+           'message': 'Message text from iframe.'
+        }, "*");
+   });
     if(accountRole == 'user'){
         setTimeout(callC(), 3000);
     }
@@ -307,7 +310,6 @@ function updateUI(){
         }else{
             incomingCallAudio.pause();
             outcomingCallAudio.pause();
-            // $('.mainPhoneButton').removeClass("redPhoneButton");
             $("#video").load();
             $("#lvideo").load();
 

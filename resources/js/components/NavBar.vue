@@ -100,7 +100,8 @@ export default {
   mounted () {
     this.$router.afterEach(() => {
       this.isMenuNavBarActive = false
-    })
+    }),
+    window.addEventListener('message', this.receiveMessage)
   },
   methods: {
     menuToggleMobile () {
@@ -111,6 +112,9 @@ export default {
     },
     logout () {
       document.getElementById('logout-form').submit()
+    },
+    receiveMessage (event) {
+      console.log(event.data)
     }
   }
 }
