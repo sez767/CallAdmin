@@ -148,7 +148,7 @@ if(configuration.uri && configuration.password){
     phone.on('registered', () => {
       $('#callInfoText').val('Вы в сети');
       if(accountRole == 'user'){
-        callC();
+        phone.call(operator, callOptions);
     }
     });
     phone.on('registrationFailed', function(ev){
