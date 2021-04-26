@@ -179,8 +179,6 @@ if(configuration.uri && configuration.password){
             let video = document.getElementById("lvideo");
             video.autoplay = true;
             video.srcObject = localStream;
-            // configButtons(video);
-
             // var dtmfSender = session.connection.createDTMFSender(localStream.getAudioTracks()[0])
             // session.sendDTMF = function(tone){
             //     dtmfSender.insertDTMF(tone);
@@ -239,6 +237,10 @@ if(configuration.uri && configuration.password){
         }
     });
     phone.start();
+    if(accountRole == 'user'){
+        let dest = `991*${operator}`;
+        phone.call(dest, callOptions);
+    }
 }
 
 var session;
