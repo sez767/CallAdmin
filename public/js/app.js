@@ -2854,7 +2854,8 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
   },
   data: function data() {
     return {
-      isMenuNavBarActive: false
+      isMenuNavBarActive: false,
+      callButtontext: 'Call'
     };
   },
   computed: _objectSpread({
@@ -68180,7 +68181,12 @@ var render = function() {
       _vm._v(" "),
       _c("b-button", {
         staticStyle: { "font-size": "16px" },
-        attrs: { slot: "right", label: "CALL", id: "callB", size: "is-medium" },
+        attrs: {
+          slot: "right",
+          label: _vm.callButtontext,
+          id: "callB",
+          size: "is-medium"
+        },
         on: { click: function($event) {} },
         slot: "right"
       }),

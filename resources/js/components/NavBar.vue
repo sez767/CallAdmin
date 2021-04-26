@@ -24,7 +24,7 @@
         </iframe>
       </WidgetBody>
     </Widget>
-    <b-button label="CALL" id="callB" style="font-size: 16px;" size="is-medium" slot="right"
+    <b-button :label="callButtontext" id="callB" style="font-size: 16px;" size="is-medium" slot="right"
         @click=""
          />
     <div class="navbar-brand is-right">
@@ -89,6 +89,7 @@ export default {
   data () {
     return {
       isMenuNavBarActive: false,
+      callButtontext: 'Call'
     }
   },
   computed: {
