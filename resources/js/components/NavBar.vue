@@ -117,7 +117,7 @@ export default {
       document.getElementById('logout-form').submit()
     },
     receiveMessage (event) {
-      console.log(event.message)
+      console.log(event.data.message)
     }
   }
 }

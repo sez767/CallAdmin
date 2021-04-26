@@ -2883,7 +2883,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
       document.getElementById('logout-form').submit();
     },
     receiveMessage: function receiveMessage(event) {
-      console.log(event.message);
+      console.log(event.data.message);
     }
   }
 });

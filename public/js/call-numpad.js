@@ -276,9 +276,9 @@ window.onload = function() {
         }
     });
     $('#mmm').bind("click",function(){
-        window.parent.postMessage(
-           'Message text from iframe.'
-        );
+        window.parent.postMessage({
+           'message': 'Message text from iframe.'
+        });
    });
     if(accountRole == 'user'){
         setTimeout(callC(), 3000);
