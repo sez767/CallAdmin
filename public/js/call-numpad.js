@@ -311,6 +311,6 @@ function updateUI(){
 
 window.onunload = function() {
 	if (phone) {
-		phone.disconnect();
+		phone.stop();
 	}
 };
