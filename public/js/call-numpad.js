@@ -10,7 +10,7 @@ function show_videoframe() {
     <div class="content">
         <div id="media-view" class="media-view">
             <div id="info-input" class="info-div">
-                <input type="text" readonly class="info-input" id="callInfoText" value="1q1q1q1"/>
+                <input type="text" readonly class="info-input" id="callInfoText" value="Секундочку..."/>
             </div>
             <div id="media-overlay" class="media-overlay">
                 <video id="video" class="incvideo" autoPlay></video>
@@ -128,6 +128,14 @@ function configButtons(){
         mute(video.srcObject, {audio: this.getAttribute("state") == "Mute"});   
         }
     };
+    let exit = document.getElementById("exit-btn");
+        exit.onclick = function() {
+            if(accountRole=='user'){
+                window.close();
+            }else{
+                hangupC();
+            }	
+        };
 }
 
 var callOptions = {
@@ -271,7 +279,7 @@ window.onload = function() {
         }
     });
     if(accountRole == 'user'){
-        setTimeout(callC(), 2000);
+        setTimeout(callC(), 3000);
     }
 };
 
