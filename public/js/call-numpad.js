@@ -17,7 +17,6 @@ function show_videoframe() {
                 <video id="lvideo" class="localvideo" autoPlay></video>
             </div>
             <div id="buttons-div" class="buttons-div">
-            <input type="button" class="allButtons" value="call" onclick="callC()"></input>
             <input type="button" id="audio-out-btn" class="allButtons audio-out-btn" value="Звук"></input>
             <input type="button" id="audio-btn" class="allButtons audio-btn" value="Микрофон"></input>
             <input type="button" id="video-btn" class="allButtons video-btn" value="Камера"></input>
