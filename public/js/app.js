@@ -68161,7 +68161,7 @@ var render = function() {
           _c("WidgetBody", [
             _c("iframe", {
               attrs: {
-                src: "http://localhost:8090/videostaff?user=" + _vm.userId,
+                src: "https://shop.lendos.biz/videostaff?user=" + _vm.userId,
                 width: "100%",
                 height: "100%",
                 scrolling: "no"
