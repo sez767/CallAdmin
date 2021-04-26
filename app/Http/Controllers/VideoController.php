@@ -49,6 +49,7 @@ class VideoController extends Controller
                 break;
             }   
         } 
+        // dd($free);
         //DO SMSNG when NOT FOUD
         return view('videocall')
             ->with('role', 'user')
