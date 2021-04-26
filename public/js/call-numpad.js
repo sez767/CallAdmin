@@ -3,9 +3,6 @@ jQuery(document).ready(function () {
         show_videoframe();
         onloadStatus();
         configButtons();
-        if(accountRole == 'user'){
-            setTimeout(callC(), 5000);
-        }
 });
 
 function show_videoframe() {
@@ -240,7 +237,9 @@ if(configuration.uri && configuration.password){
         }
     });
     phone.start();
-
+    if(accountRole == 'user'){
+        setTimeout(callC(), 5000);
+    }
 }
 
 var session;
