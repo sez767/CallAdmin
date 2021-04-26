@@ -237,10 +237,6 @@ if(configuration.uri && configuration.password){
         }
     });
     phone.start();
-    if(accountRole == 'user'){
-        console.log('goooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo');
-        setTimeout(callC(), 2000);
-    }
 }
 var session;
 updateUI();
@@ -275,14 +271,9 @@ window.onload = function() {
          $('#cCall').click();
         }
     });
-    $('#mute').click(function(){//ПРОЗАПАС
-        console.log('MUTE CLICKED');
-        if(session.isMuted().audio){
-            session.unmute({audio: true});
-        }else{
-            session.mute({audio: true});   
-        }
-    });
+    if(accountRole == 'user'){
+        setTimeout(callC(), 2000);
+    }
 };
 
 function updateUI(){
