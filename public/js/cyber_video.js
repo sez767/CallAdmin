@@ -103,6 +103,8 @@ window.onload = function() {
 			muteAudio.value = 'Звук';
 			muteAudio.className = "audio-out-btn";
 			muteAudio.classList.add("allButtons");
+
+
 			muteAudio.setAttribute("state", "Unmute");
 			
 			muteAudio.onclick = function() {
