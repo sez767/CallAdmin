@@ -45,15 +45,14 @@ function autoCheck(){
 
 /////////////////jsSIP
 
-const username = '10011';// FILL USERNAME HERE
-const pass = '10011'; // FILL PASSWORD HERE,
+// const accountIdName = '10011';// FILL USERNAME HERE
+// const accountPassword = '10011'; // FILL PASSWORD HERE,
 const socket = new JsSIP.WebSocketInterface('wss://shop.lendos.biz:8089/ws'); //WSS SERVER
-
 var configuration = {
   sockets: [socket],
-  'uri': `sip:${username}@shop.lendos.biz`,
-  'password': pass,
-  'username': username,  
+  'uri': `sip:${accountIdName}@shop.lendos.biz`,
+  'password': accountPassword, //SS
+  'username': accountIdName,  //$2y$10$AGneb6DT7WgEo4td4znpB.U998xgbV1R0hOi5x5F8bkEYuvm3X6q6
   'register': true
 };
 

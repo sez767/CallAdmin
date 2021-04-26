@@ -16,7 +16,7 @@
       ></WidgetHeading class="whead">
       <WidgetBody>
           <iframe
-            :src="`https://shop.lendos.biz/videostaff?user=${userId}`"
+            :src="`http://localhost:8090/videostaff?user=${userId}`"
             width="100%"
             height="100%"
             scrolling="no"
@@ -118,7 +118,7 @@ export default {
 <style scoped>
 	.box {
 		position: relative;
-    width: 50%;
+    width: 60%;
     height: 50px;
     background-color: #fff;
     border-radius: 4px;
@@ -132,7 +132,7 @@ export default {
 		top: 70px;
 		left: 0px;
 		width: 100%;
-		height: 1300%;
+		height: 1200%;
     border-radius: 5px;
     box-shadow: 0 3px 20px rgba(0,0,0,.25);
     overflow:hidden;
