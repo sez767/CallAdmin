@@ -3,9 +3,6 @@ jQuery(document).ready(function () {
         show_videoframe();
         onloadStatus();
         configButtons();
-        if(accountRole == 'user'){
-            callC();
-        }
 });
 
 function show_videoframe() {
@@ -150,6 +147,9 @@ if(configuration.uri && configuration.password){
     phone = new JsSIP.UA(configuration);
     phone.on('registered', () => {
       $('#callInfoText').val('Вы в сети');
+      if(accountRole == 'user'){
+        callC();
+    }
     });
     phone.on('registrationFailed', function(ev){
     	alert('Registering on SIP server failed with error: ' + ev.cause);
