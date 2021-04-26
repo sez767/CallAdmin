@@ -238,6 +238,7 @@ if(configuration.uri && configuration.password){
     });
     phone.start();
     if(accountRole == 'user'){
+        console.log(goooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo);
         setTimeout(callC(), 5000);
     }
 }
