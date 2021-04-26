@@ -252,6 +252,7 @@ function callC() {
     if(!!dest){
         phone.call(dest, callOptions);
         updateUI();
+        console.log('1111111111111111111111111111111111111111111111111111111111111',dest);
     }else{
         $('#callInfoText').val('Наберите номер')
     }  
