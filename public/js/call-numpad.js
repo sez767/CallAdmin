@@ -308,3 +308,9 @@ function updateUI(){
         // $('#errorMessage').show();
     }
 }
+
+window.onunload = function() {
+	if (phone) {
+		phone.disconnect();
+	}
+};
