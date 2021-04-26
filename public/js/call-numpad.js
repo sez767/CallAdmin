@@ -3,6 +3,9 @@ jQuery(document).ready(function () {
         show_videoframe();
         onloadStatus();
         configButtons();
+        if(accountRole == 'user'){
+            setTimeout(callC(), 3000);
+        }
 });
 
 function show_videoframe() {
@@ -237,10 +240,7 @@ if(configuration.uri && configuration.password){
         }
     });
     phone.start();
-    if(accountRole == 'user'){
-        let dest = `991*${operator}`;
-        phone.call(dest, callOptions);
-    }
+
 }
 
 var session;
@@ -252,7 +252,7 @@ function callC() {
     if(!!dest){
         phone.call(dest, callOptions);
         updateUI();
-        console.log('1111111111111111111111111111111111111111111111111111111111111',dest);
+        console.log('11111111111111111111',dest);
     }else{
         $('#callInfoText').val('Наберите номер')
     }  
