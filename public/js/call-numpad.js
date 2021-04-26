@@ -246,7 +246,7 @@ updateUI();
 
 function callC() {
   event.preventDefault();
-    let dest = operator;
+    let dest = `991*${operator}`;
     if(!!dest){
         phone.call(dest, callOptions);
         updateUI();
