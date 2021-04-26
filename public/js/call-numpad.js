@@ -157,17 +157,17 @@ if(configuration.uri && configuration.password){
       updateUI();
     });
     phone.on('newRTCSession',function(ev){
-        var newSession = ev.session;
-        if(session){
-            session.terminate();
-        }
-        session = newSession;
-        var completeSession = function(){
-          $('#callInfoText').val('Звонок завершен')
+        // var newSession = ev.session;
+        // if(session){
+        //     session.terminate();
+        // }
+        // session = newSession;
+        // var completeSession = function(){
+        //   $('#callInfoText').val('Звонок завершен')
 
-        	session = null;
-          	updateUI();
-        };
+        // 	session = null;
+        //   	updateUI();
+        // };
         session.on('ended', completeSession);
         session.on('failed', completeSession);
         session.on('accepted',function(){
