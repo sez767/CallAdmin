@@ -54,7 +54,6 @@ class VideoController extends Controller
         return view('video')
             ->with('role', 'user')
             ->with('name', $client->name)
-            ->with('pass', $client->name)
-            ->with('extention', 1000 + $free->id);    
+            ->with('pass', $client->name);    
     }
 }
