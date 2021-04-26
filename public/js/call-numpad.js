@@ -181,10 +181,10 @@ if(configuration.uri && configuration.password){
             video.srcObject = localStream;
             // configButtons(video);
 
-            var dtmfSender = session.connection.createDTMFSender(localStream.getAudioTracks()[0])
-            session.sendDTMF = function(tone){
-                dtmfSender.insertDTMF(tone);
-            };
+            // var dtmfSender = session.connection.createDTMFSender(localStream.getAudioTracks()[0])
+            // session.sendDTMF = function(tone){
+            //     dtmfSender.insertDTMF(tone);
+            // };
             updateUI();
         });
         session.on('peerconnection', (e) => {
