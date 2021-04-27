@@ -271,7 +271,7 @@ function hangupC(){
 function toVue(){
         window.parent.postMessage({
            'message': 'CALLING'
-        });
+        },'*');
    };
 
 window.onload = function() {
