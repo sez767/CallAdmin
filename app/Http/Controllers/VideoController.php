@@ -22,6 +22,7 @@ class VideoController extends Controller
         return view('videocall')
             ->with('role', 'staff')
             ->with('name', $staff->name)
+            ->with('staffId', $staff->id)
             ->with('pass', $staff->password);
     } 
     
@@ -53,5 +54,9 @@ class VideoController extends Controller
             ->with('name', $client->name)
             ->with('pass', $client->name)
             ->with('operator', $oname);    
+    }
+
+    public function videoActivate(Request $request){
+        dd(111111111111111);
     }
 }

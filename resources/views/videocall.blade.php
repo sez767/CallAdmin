@@ -24,6 +24,9 @@
     @isset($operator)
         var operator = {!! json_encode($operator) !!};
     @endisset
+    @isset($staffId)
+        var staffId = {!! json_encode($staffId) !!};
+    @endisset
 </script>
 <script src="{{ 'js/call-numpad.js' }}"></script>
 @endsection

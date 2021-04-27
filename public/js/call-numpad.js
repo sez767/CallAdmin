@@ -187,6 +187,13 @@ if(configuration.uri && configuration.password){
         	session = null;
             reloadButtons();
           	updateUI();
+              if(accountRole == 'staff'){
+                $.ajax({
+                    url: "https://shop.lendos.biz/videoactive", 
+                    method: "POST",  
+                    data: {"staff": staffId}     
+               });
+              }
         };
         var endSession = function(){
             completeSession();
