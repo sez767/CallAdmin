@@ -11,6 +11,7 @@
     <audio id="outsounds" src="{{ asset('sounds/ringing.ogg') }}" type="audio/ogg" ></audio>
 <script>
     var accountRole = '';
+    var operator = null;
     @isset($role)
         var accountRole = {!! json_encode($role) !!};
     @endisset

@@ -259,10 +259,17 @@ var session;
 updateUI();
 
 function callC() {
-    let dest = `991*${operator}`;
-        phone.call(dest, callOptions);
-        updateUI();
-  
+    if(operator){
+        let dest = `991*${operator}`;
+    phone.call(dest, callOptions);
+    updateUI();
+    }else{
+        $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...')ж
+        setTimeout(function() {
+            window.location.reload(false);
+        }, 15000);
+    }
+      
 }
 
 function answerC(){
