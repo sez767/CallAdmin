@@ -13,17 +13,7 @@ class VideoController extends Controller
      * Create a new controller instance.
      *
      * @return void
-     */
-    // public function videoStaff(Request $request)
-    // {   
-    //     $staff = Staff::findOrFail($request->user);
-    //     $staff->is_active = 1;
-    //     return view('video')
-    //         ->with('role', 'staff')
-    //         ->with('name', $staff->name)
-    //         ->with('pass', $staff->password)
-    //         ->with('extention', 1000 + $staff->id);
-    // }  
+     */ 
     public function videoStaff(Request $request)
     {   
         $staff = Staff::findOrFail($request->user);
@@ -41,7 +31,7 @@ class VideoController extends Controller
         $client->save();
         $clientSite = $request->client;
         $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
-        $free = 0;
+        $free = null;
         foreach($staffs as $staff){
             if (\Cache::has('staffonline-' . $staff->id)){
                 $free = $staff; 
@@ -49,7 +39,9 @@ class VideoController extends Controller
                 break;
             }   
         } 
-        // dd($free);
+        if($free){
+            dd(21212121212121);
+        }
         //DO SMSNG when NOT FOUD
         return view('videocall')
             ->with('role', 'user')
