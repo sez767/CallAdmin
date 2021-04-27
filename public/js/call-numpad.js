@@ -264,7 +264,7 @@ function callC() {
     phone.call(dest, callOptions);
     updateUI();
     }else{
-        $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...')ж
+        $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
         setTimeout(function() {
             window.location.reload(false);
         }, 15000);
