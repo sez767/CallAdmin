@@ -33,9 +33,7 @@ class VideoController extends Controller
         $staffs = null;
         $free = null;
         $oname = null;
-        $staffs = Site::findOrFail($clientSite)->staff;
-        dd($staffs);
-        // ->where('is_active', 1);
+        $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
         if($staffs){
           foreach($staffs as $staff){
                 if (\Cache::has('staffonline-' . $staff->id)){
@@ -45,7 +43,7 @@ class VideoController extends Controller
                 }   
             }   
         }
-        
+        dd($staff);
         if($free){
             $oname = $free->name;
         }
