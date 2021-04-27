@@ -32,16 +32,16 @@ class VideoController extends Controller
         $clientSite = $request->client;
         $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
         $free = null;
-        foreach($staffs as $staff){
-            if (\Cache::has('staffonline-' . $staff->id)){
-                $free = $staff; 
-                $free->is_active = 0;
-                break;
-            }   
-        } 
+        // foreach($staffs as $staff){
+        //     if (\Cache::has('staffonline-' . $staff->id)){
+        //         $free = $staff; 
+        //         $free->is_active = 0;
+        //         break;
+        //     }   
+        // } 
         if($free){
             dd(21212121212121);
-        }
+        }else{dd(33333333333);}
         //DO SMSNG when NOT FOUD
         return view('videocall')
             ->with('role', 'user')
