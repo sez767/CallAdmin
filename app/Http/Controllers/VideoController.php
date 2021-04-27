@@ -30,7 +30,7 @@ class VideoController extends Controller
         $client = Callclient::create();
         $client->name = '10000' + $client->id;
         $client->save();
-        $clientSite=1;
+        $clientSite = $request->client;
         $staffs = null;
         $free = null;
         $oname = null;
