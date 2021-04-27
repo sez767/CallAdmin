@@ -1,8 +1,3 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 jQuery(document).ready(function () {
         show_videoframe();
         // onloadStatus();
@@ -194,9 +189,10 @@ if(configuration.uri && configuration.password){
               if(accountRole == 'staff'){
                 $.ajax({
                     url: "https://shop.lendos.biz/videoactive", 
-                    method: "POST",  
+                    method: "POST", 
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
                     data: {
-                        "_token": "{{ csrf_token() }}",
+                        // "_token": "{{ csrf_token() }}",
                         "staff": staffId
                     }     
                });
