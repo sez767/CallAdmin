@@ -291,6 +291,7 @@ function updateUI(){
         if(session){
             if(session.isInProgress()){
                 if(session.direction === 'incoming'){
+                    toVue('true')
                     // $('.callTd').addClass("hide");
                     // $('.answerTd').removeClass("hide");
                     // if($('.mainPhoneButton').html() == 'Развернуть телефон'){
@@ -304,6 +305,7 @@ function updateUI(){
             }else if(session.isEstablished()){
                 incomingCallAudio.pause();
                 outcomingCallAudio.pause();
+                toVue('false')
                 // $('.tel').addClass("disabled")
                 // $('.mainPhoneButton').removeClass("redPhoneButton");
             }
@@ -312,6 +314,7 @@ function updateUI(){
             outcomingCallAudio.pause();
             $("#video").load();
             $("#lvideo").load();
+            toVue('false')
 
         }
     }else{
