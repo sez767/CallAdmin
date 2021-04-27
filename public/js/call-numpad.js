@@ -298,6 +298,7 @@ function updateUI(){
                     //     $('.mainPhoneButton').addClass("redPhoneButton");
                     // }
                 }else{
+                 toVue('false')   
                 //   $('.callTd').removeClass("hide");
                 //   $('.answerTd').addClass("hide"); 
                 //   $('.tel').addClass("disabled")               
