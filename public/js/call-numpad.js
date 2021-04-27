@@ -284,7 +284,9 @@ window.onload = function() {
     });
 
     if(accountRole == 'user'){
-        setTimeout(callC(), 20000);
+        setTimeout(function() {
+            callC();
+        }, 3000);
     }
 };
 
