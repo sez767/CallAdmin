@@ -17,7 +17,7 @@ function show_videoframe() {
                 <video id="lvideo" class="localvideo" autoPlay></video>
             </div>
             <div id="buttons-div" class="buttons-div">
-            <input type="button" id="mmm" onclick="toVue()" class="allButtons" value="TEST"></input>
+            <input type="button" id="mmm" onclick="toVue('true')" class="allButtons" value="TEST"></input>
             <input type="button" id="audio-out-btn" class="allButtons audio-out-btn" value="Звук"></input>
             <input type="button" id="audio-btn" class="allButtons audio-btn" value="Микрофон"></input>
             <input type="button" id="video-btn" class="allButtons video-btn" value="Камера"></input>
@@ -268,9 +268,9 @@ function hangupC(){
         session.terminate();
     }
 };
-function toVue(){
+function toVue(msg){
         window.parent.postMessage({
-           'message': 'true'
+           'message': msg
         },'*');
    };
 
