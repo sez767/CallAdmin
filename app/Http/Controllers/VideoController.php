@@ -30,8 +30,9 @@ class VideoController extends Controller
         $client->name = '10000' + $client->id;
         $client->save();
         $clientSite = $request->client;
-        $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
+        // $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
         $free = null;
+        $oname = null;
         // foreach($staffs as $staff){
         //     if (\Cache::has('staffonline-' . $staff->id)){
         //         $free = $staff; 
