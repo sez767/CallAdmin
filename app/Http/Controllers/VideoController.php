@@ -32,13 +32,13 @@ class VideoController extends Controller
         $clientSite = $request->client;
         $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
         $free = null;
-        foreach($staffs as $staff){
-            if (\Cache::has('staffonline-' . $staff->id)){
-                $free = $staff; 
-                $free->is_active = 0;
-                break;
-            }   
-        } 
+        // foreach($staffs as $staff){
+        //     if (\Cache::has('staffonline-' . $staff->id)){
+        //         $free = $staff; 
+        //         $free->is_active = 0;
+        //         break;
+        //     }   
+        // } 
         if($free){
             $oname = $free->name;
         }
