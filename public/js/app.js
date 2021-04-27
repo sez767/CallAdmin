@@ -68152,7 +68152,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("b-button", {
-        class: _vm.activei ? "redbutton" : "",
+        class: _vm.activei == "true" ? "redbutton" : "",
         staticStyle: { "font-size": "16px" },
         attrs: {
           slot: "left",

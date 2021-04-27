@@ -7,7 +7,7 @@
       <div class="navbar-item has-control no-left-space-touch">
       </div>
     </div>
- <b-button :label="callButtontext" v-on:click="showi = !showi" :class="activei ? 'redbutton' : ''" id="callB" style="font-size: 16px;" size="is-medium" slot="left" />
+ <b-button :label="callButtontext" v-on:click="showi = !showi" :class="activei == 'true' ? 'redbutton' : ''" id="callB" style="font-size: 16px;" size="is-medium" slot="left" />
     <div class="iframeDiv" :class="showi ? '' : 'hide'">
     <iframe
         :src="`https://shop.lendos.biz/videostaff?user=${userId}`"
