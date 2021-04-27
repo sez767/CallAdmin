@@ -51,9 +51,9 @@ class VisitsController extends Controller
         $hrequest = new Request([
             'header' => $headers
         ]);
-        // $this->validate($hrequest, [
-        //     'header' => 'required|unique:visits,header'
-        // ]);
+        $this->validate($hrequest, [
+            'header' => 'required|unique:visits,header'
+        ]);
 
         $visit = Visit::create([
             'header' => $hrequest->header,
