@@ -227,7 +227,7 @@ if(configuration.uri && configuration.password){
             updateUI();
         } else {
           incomingCallAudio.play();
-          $('#callInfoText').val('Звоним ...')
+          $('#callInfoText').val('Звоним оператору...')
           updateUI();
 
 
@@ -284,7 +284,7 @@ window.onload = function() {
     });
 
     if(accountRole == 'user'){
-        setTimeout(callC(), 5000);
+        setTimeout(callC(), 20000);
     }
 };
 
