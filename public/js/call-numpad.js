@@ -188,8 +188,15 @@ if(configuration.uri && configuration.password){
             reloadButtons();
           	updateUI();
         };
+        var endSession = function(){
+            session = null;
+            $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
+            setTimeout(function() {
+                window.location.reload(false);
+            }, 15000);   
+          };
         session.on('ended', completeSession);
-        session.on('failed', completeSession);
+        session.on('failed', endSession);
         session.on('accepted',function(){
           $('#callInfoText').val('Звонок принят')
           reloadButtons();
