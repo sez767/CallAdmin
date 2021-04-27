@@ -191,6 +191,8 @@ if(configuration.uri && configuration.password){
         var endSession = function(){
             session = null;
             $('#callInfoText').val('Звонок завершен')
+            reloadButtons();
+            updateUI();
             if(accountRole == 'user'){
                 $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
                     setTimeout(function() {
