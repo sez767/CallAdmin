@@ -3,7 +3,10 @@
 	max-width: 99%;
 	max-height: 100%;
 	border-radius: 5px;
-	margin: 0 auto;
+	top: 50%;
+   	transform: translate(0, -50%);
+	left: 0;
+	margin: auto;
 }
 .localvideo{
 	border-radius: 5px;
@@ -11,8 +14,8 @@
 	position: absolute;
 	top:0;
 	right: 0;
-	margin-right: 5%;
-	margin-top: 5%;
+	margin-right: 1%;
+	margin-top: 1%;
 }
 .allButtons {
 	display: inline-block;
