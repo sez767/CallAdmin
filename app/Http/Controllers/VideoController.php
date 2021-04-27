@@ -57,6 +57,6 @@ class VideoController extends Controller
     }
 
     public function videoActivate(Request $request){
-        dd(111111111111111);
+        dd($request->all());
     }
 }

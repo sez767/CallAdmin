@@ -192,7 +192,6 @@ if(configuration.uri && configuration.password){
                     method: "POST", 
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
                     data: {
-                        // "_token": "{{ csrf_token() }}",
                         "staff": staffId
                     }     
                });
