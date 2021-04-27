@@ -37,13 +37,13 @@ class VideoController extends Controller
         if($staffs){
           foreach($staffs as $staff){
                 if (\Cache::has('staffonline-' . $staff->id)){
-                    $free = $staff; 
                     $staff->is_active = 0;
+                    $free = $staff; 
                     break;
                 }   
             }   
         }
-        dd($free);
+        dd($staff);
         if($free){
             $oname = $free->name;
         }
