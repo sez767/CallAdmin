@@ -99,7 +99,7 @@ function configButtons(){
     let lvideo = document.getElementById("lvideo");
     let video = document.getElementById("video");
     let muteAudio = document.getElementById("audio-btn");
-    muteAudio.removeClass("line");
+    muteAudio.classList.remove("line");
     muteAudio.setAttribute("state", "Unmute");
     
     muteAudio.onclick = function() {
@@ -113,7 +113,7 @@ function configButtons(){
 
     let muteVideo = document.getElementById("video-btn"); 
     muteVideo.setAttribute("state", "Unmute");
-    muteVideo.removeClass("line");
+    muteVideo.classList.remove("line");
     muteVideo.onclick = function() {
         if(lvideo.srcObject){
         let state = this.getAttribute("state");
