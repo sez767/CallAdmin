@@ -172,7 +172,6 @@ if(configuration.uri && configuration.password){
         session = newSession;
         var completeSession = function(){
           $('#callInfoText').val('Звонок завершен')
-
         	session = null;
           	updateUI();
         };
@@ -217,9 +216,9 @@ if(configuration.uri && configuration.password){
         if(session.direction === 'incoming'){
             outcomingCallAudio.play();
             // var getStatus = localStorage.getItem('autoAnswer');////////////!!!!!!!!!!!!!11
-            if (1){
-             session.answer(callOptions);
-            }
+            // if (1){
+            //  session.answer(callOptions);
+            // }
             let coller = session.remote_identity.uri.user
             $('#callInfoText').val(`Звонок от ${coller}`)
             updateUI();
