@@ -139,22 +139,14 @@
 	transition: transform 1s ease;
 	box-shadow:inset -5px -5px 5px 0 rgba(24, 24, 24, 0.5), 
              inset 5px 5px 5px 0 rgba(147, 147, 147, 0.5);
-	animation: sizer 1s linear infinite;
+	animation: sizer 2s linear infinite;
 }
 #answerButton:active, #answerButton:focus {
 	outline: none !important;
   }
-  #answerButton:hover{
-	  transform: scale(1.1);
-	  transition: transform 1s ease;
-	  
-  }
  .hide{
 	 display: none;
  } 
- /* .redbutton{
-    animation: sizer 1s linear infinite;
-  } */
   @keyframes sizer {
   0% { transform: scale(.9); }
   50% { transform: scale(1.1); }
