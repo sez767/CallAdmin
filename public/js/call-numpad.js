@@ -284,7 +284,7 @@ window.onload = function() {
     });
 
     if(accountRole == 'user'){
-        setTimeout(callC(), 5000);
+        setTimeout(callC(), 3000);
     }
 };
 
@@ -321,7 +321,7 @@ function updateUI(){
             $("#lvideo").load();
             toVue('false');
             $('#answerButton').addClass("hide");
-            configButtons();
+            // configButtons();
         }
     }else{
         // $('#errorMessage').show();
