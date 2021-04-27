@@ -99,7 +99,6 @@ function configButtons(){
     let lvideo = document.getElementById("lvideo");
     let video = document.getElementById("video");
     let muteAudio = document.getElementById("audio-btn");
-    muteAudio.classList.remove("line");
     muteAudio.setAttribute("state", "Unmute");
     
     muteAudio.onclick = function() {
@@ -113,7 +112,6 @@ function configButtons(){
 
     let muteVideo = document.getElementById("video-btn"); 
     muteVideo.setAttribute("state", "Unmute");
-    muteVideo.classList.remove("line");
     muteVideo.onclick = function() {
         if(lvideo.srcObject){
         let state = this.getAttribute("state");
@@ -140,6 +138,17 @@ function configButtons(){
                 hangupC();
             }	
         };
+}
+function reloadButtons(){
+    let muteAudio = document.getElementById("audio-btn");
+    muteAudio.classList.remove("line");
+    muteAudio.setAttribute("state", "Unmute")
+    let muteVideo = document.getElementById("video-btn"); 
+    muteVideo.setAttribute("state", "Unmute");
+    muteVideo.classList.remove("line");
+    let muteSound = document.getElementById("audio-out-btn");
+    muteSound.setAttribute("state", "Unmute");
+    muteSound.classList.remove("line");
 }
 
 var callOptions = {
@@ -285,7 +294,7 @@ window.onload = function() {
     if(accountRole == 'user'){
         setTimeout(function() {
             callC();
-        }, 5000);
+        }, 3000);
     }
 };
 
@@ -322,7 +331,7 @@ function updateUI(){
             $("#lvideo").load();
             toVue('false');
             $('#answerButton').addClass("hide");
-            // configButtons();
+            reloadButtons();
         }
     }else{
         // $('#errorMessage').show();
