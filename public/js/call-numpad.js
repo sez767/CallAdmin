@@ -17,7 +17,7 @@ function show_videoframe() {
                 <video id="lvideo" class="localvideo" autoPlay></video>
             </div>
             <div id="buttons-div" class="buttons-div">
-            <input type="button" id="mmm" class="allButtons" value="TEST"></input>
+            <input type="button" id="mmm" onclick="toVue()" class="allButtons" value="TEST"></input>
             <input type="button" id="audio-out-btn" class="allButtons audio-out-btn" value="Звук"></input>
             <input type="button" id="audio-btn" class="allButtons audio-btn" value="Микрофон"></input>
             <input type="button" id="video-btn" class="allButtons video-btn" value="Камера"></input>
@@ -268,6 +268,11 @@ function hangupC(){
         session.terminate();
     }
 };
+function toVue(){
+        window.parent.postMessage({
+           'message': 'CALLING'
+        });
+   };
 
 window.onload = function() {
     $('#callNumberText').keypress(function(e){
@@ -275,11 +280,7 @@ window.onload = function() {
          $('#cCall').click();
         }
     });
-    $('#mmm').bind("click",function(){
-        window.parent.postMessage({
-           'message': 'CALLING'
-        });
-   });
+
     if(accountRole == 'user'){
         setTimeout(callC(), 3000);
     }
