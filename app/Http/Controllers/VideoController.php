@@ -18,6 +18,7 @@ class VideoController extends Controller
     {   
         $staff = Staff::findOrFail($request->user);
         $staff->is_active = 1;
+        $staff->save();
         return view('videocall')
             ->with('role', 'staff')
             ->with('name', $staff->name)
@@ -26,10 +27,11 @@ class VideoController extends Controller
     
     public function videoClient(Request $request)
     {
-        $client = Callclient::create();
-        $client->name = '10000' + $client->id;
-        $client->save();
-        $clientSite = $request->client;
+        // $client = Callclient::create();
+        // $client->name = '10000' + $client->id;
+        // $client->save();
+        // $clientSite = $request->client;
+        $clientSite=1;
         $staffs = null;
         $free = null;
         $oname = null;
@@ -37,13 +39,14 @@ class VideoController extends Controller
         if($staffs){
           foreach($staffs as $staff){
                 if (\Cache::has('staffonline-' . $staff->id)){
+                    dd($staff->id);
                     $staff->is_active = 0;
+                    $staff->save();
                     $free = $staff; 
                     break;
                 }   
             }   
         }
-        dd($staff);
         if($free){
             $oname = $free->name;
         }
