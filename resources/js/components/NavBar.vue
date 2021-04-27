@@ -114,6 +114,7 @@ export default {
     },
     receiveMessage (event) {
       if (event.data.message) this.activei = event.data.message;
+      console.log(this.activei);
     },
   }
 }
