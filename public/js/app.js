@@ -2879,7 +2879,6 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
     },
     receiveMessage: function receiveMessage(event) {
       if (event.data.message) this.activei = event.data.message;
-      console.log(this.activei);
     }
   }
 });

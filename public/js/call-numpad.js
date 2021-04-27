@@ -29,7 +29,7 @@ function show_videoframe() {
 
     $('body').append(easy_vid);
 }
-
+//////////////////////////////////autoanswer checkbox
 // function onloadStatus(){
 //     var getStatus = localStorage.getItem('autoAnswer');
 //     if (getStatus === "true"){
@@ -52,8 +52,8 @@ const socket = new JsSIP.WebSocketInterface('wss://shop.lendos.biz:8089/ws'); //
 var configuration = {
   sockets: [socket],
   'uri': `sip:${accountIdName}@shop.lendos.biz`,
-  'password': accountPassword, //SS
-  'username': accountIdName,  //$2y$10$AGneb6DT7WgEo4td4znpB.U998xgbV1R0hOi5x5F8bkEYuvm3X6q6
+  'password': accountPassword,
+  'username': accountIdName,
   'register': true
 };
 
@@ -163,7 +163,7 @@ var callOptions = {
   };
 var phone;
 if(configuration.uri && configuration.password){
-    // JsSIP.debug.enable('JsSIP:*'); ///////////////////////////// debug output
+    // JsSIP.debug.enable('JsSIP:*'); /// debug output
     phone = new JsSIP.UA(configuration);
     phone.on('registered', () => {
       $('#callInfoText').val('Вы в сети');
@@ -215,6 +215,7 @@ if(configuration.uri && configuration.password){
           updateUI();
         });
         session.on('confirmed',function(){
+            console.log('111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
             var localStream = session.connection.getLocalStreams()[0];
             let video = document.getElementById("lvideo");
             video.autoplay = true;
@@ -308,20 +309,6 @@ function toVue(msg){
         },'*');
    };
 
-window.onload = function() {
-    $('#callNumberText').keypress(function(e){
-        if(e.which === 13){//Enter
-         $('#cCall').click();
-        }
-    });
-
-    if(accountRole == 'user'){
-        setTimeout(function() {
-            callC();
-        }, 3000);
-    }
-};
-
 function updateUI(){
     if(configuration.uri && configuration.password){
         if(session){
@@ -361,6 +348,14 @@ function updateUI(){
         // $('#errorMessage').show();
     }
 }
+
+window.onload = function() {
+    if(accountRole == 'user'){
+        setTimeout(function() {
+            callC();
+        }, 3000);
+    }
+};
 
 window.onunload = function() {
 	if (phone) {
