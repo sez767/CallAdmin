@@ -189,6 +189,7 @@ if(configuration.uri && configuration.password){
           	updateUI();
         };
         var endSession = function(){
+            console.log('111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
             session = null;
             $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
             setTimeout(function() {
