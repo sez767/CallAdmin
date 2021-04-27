@@ -252,7 +252,6 @@ var session;
 updateUI();
 
 function callC() {
-  event.preventDefault();
     let dest = `991*${operator}`;
         phone.call(dest, callOptions);
         updateUI();
