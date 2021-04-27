@@ -190,10 +190,14 @@ if(configuration.uri && configuration.password){
         };
         var endSession = function(){
             session = null;
-            $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
-            setTimeout(function() {
+            $('#callInfoText').val('Звонок завершен')
+            if(accountRole == 'user'){
+                $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
+                    setTimeout(function() {
                 window.location.reload(false);
-            }, 15000);   
+                }, 15000);
+            }
+               
           };
         session.on('ended', completeSession);
         session.on('failed', endSession);
