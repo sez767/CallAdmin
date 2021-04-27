@@ -191,7 +191,10 @@ if(configuration.uri && configuration.password){
                 $.ajax({
                     url: "https://shop.lendos.biz/videoactive", 
                     method: "POST",  
-                    data: {"staff": staffId}     
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        "staff": staffId
+                    }     
                });
               }
         };
