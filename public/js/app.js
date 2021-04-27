@@ -2753,13 +2753,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/NavBarMenu */ "./resources/js/components/NavBarMenu.vue");
-/* harmony import */ var _components_UserAvatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/UserAvatar */ "./resources/js/components/UserAvatar.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_widgets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-widgets */ "./node_modules/vue-widgets/dist/vue-widgets.js");
-/* harmony import */ var vue_widgets__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_widgets__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vue_widgets_dist_styles_vue_widgets_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-widgets/dist/styles/vue-widgets.css */ "./node_modules/vue-widgets/dist/styles/vue-widgets.css");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/NavBarMenu */ "./resources/js/components/NavBarMenu.vue");
+/* harmony import */ var _components_UserAvatar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/UserAvatar */ "./resources/js/components/UserAvatar.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_widgets__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-widgets */ "./node_modules/vue-widgets/dist/vue-widgets.js");
+/* harmony import */ var vue_widgets__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_widgets__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_widgets_dist_styles_vue_widgets_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-widgets/dist/styles/vue-widgets.css */ "./node_modules/vue-widgets/dist/styles/vue-widgets.css");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2832,30 +2832,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODULE_4___default()));
+vue__WEBPACK_IMPORTED_MODULE_4__.default.use((vue_widgets__WEBPACK_IMPORTED_MODULE_2___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'NavBar',
   components: {
-    UserAvatar: _components_UserAvatar__WEBPACK_IMPORTED_MODULE_2__.default,
-    NavBarMenu: _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_1__.default
+    UserAvatar: _components_UserAvatar__WEBPACK_IMPORTED_MODULE_1__.default,
+    NavBarMenu: _components_NavBarMenu__WEBPACK_IMPORTED_MODULE_0__.default
   },
   data: function data() {
     return {
       isMenuNavBarActive: false,
-      callButtontext: 'Call'
+      callButtontext: 'Call',
+      Minimize: true
     };
   },
   computed: _objectSpread({
@@ -2865,7 +2859,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
     menuToggleMobileIcon: function menuToggleMobileIcon() {
       return this.isAsideMobileExpanded ? 'backburger' : 'forwardburger';
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['isNavBarVisible', 'isAsideMobileExpanded', 'userName', 'userId'])),
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapState)(['isNavBarVisible', 'isAsideMobileExpanded', 'userName', 'userId'])),
   mounted: function mounted() {
     var _this = this;
 
@@ -37665,7 +37659,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.box[data-v-5dd24bca] {\n\t\tposition: relative;\n    width: 60%;\n    height: 50px;\n    background-color: #fff;\n    border-radius: 4px;\n    box-shadow: 0 1px 1px rgba(0,0,0,.05);\n}\n.whead[data-v-5dd24bca]{\n    border: solid red;\n}\niframe[data-v-5dd24bca] {\n\t\tposition: absolute;\n\t\ttop: 70px;\n\t\tleft: 0px;\n\t\twidth: 100%;\n\t\theight: 1300%;\n    border-radius: 5px;\n    box-shadow: 0 3px 20px rgba(0,0,0,.25);\n    overflow:hidden;\n}\n.vw-widget[data-v-5dd24bca]{\n    border: none;\n}\n\t", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.box[data-v-5dd24bca] {\n\t\tposition: relative;\n    width: 60%;\n    height: 50px;\n    background-color: #fff;\n    border-radius: 4px;\n    box-shadow: 0 1px 1px rgba(0,0,0,.05);\n}\n.whead[data-v-5dd24bca]{\n    border: solid red;\n}\niframe[data-v-5dd24bca] {\n\t\tposition: absolute;\n\t\ttop: 70px;\n\t\tleft: 0px;\n\t\twidth: 100%;\n\t\theight: 1300%;\n    border-radius: 5px;\n    overflow:hidden;\n    background: none;\n}\n.vw-widget[data-v-5dd24bca]{\n    border: none;\n}\n.iframeDiv[data-v-5dd24bca]{\n    width: 60%;\n    position: relative;\n}\n\t", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68157,27 +68151,17 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c(
-        "Widget",
-        { staticClass: "box" },
-        [
-          _c("WidgetHeading", {
-            attrs: { id: 1, Title: "Видео", Expand: false, Collapse: true }
-          }),
-          _vm._v(" "),
-          _c("WidgetBody", [
-            _c("iframe", {
-              attrs: {
-                src: "https://shop.lendos.biz/videostaff?user=" + _vm.userId,
-                width: "100%",
-                height: "100%",
-                scrolling: "no"
-              }
-            })
-          ])
-        ],
-        1
-      ),
+      _c("div", { staticClass: "iframeDiv" }, [
+        _c("iframe", {
+          attrs: {
+            src: "https://shop.lendos.biz/videostaff?user=" + _vm.userId,
+            width: "100%",
+            height: "100%",
+            scrolling: "no",
+            allowTransparency: "true"
+          }
+        })
+      ]),
       _vm._v(" "),
       _c("b-button", {
         staticStyle: { "font-size": "16px" },
@@ -68187,7 +68171,6 @@ var render = function() {
           id: "callB",
           size: "is-medium"
         },
-        on: { click: function($event) {} },
         slot: "right"
       }),
       _vm._v(" "),

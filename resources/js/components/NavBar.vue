@@ -7,25 +7,18 @@
       <div class="navbar-item has-control no-left-space-touch">
       </div>
     </div>
-    <Widget class="box">
-      <WidgetHeading 
-        :id="1"
-        :Title="'Видео'"
-        :Expand="false"
-        :Collapse="true"
-      ></WidgetHeading class="whead">
-      <WidgetBody>
-          <iframe
-            :src="`https://shop.lendos.biz/videostaff?user=${userId}`"
-            width="100%"
-            height="100%"
-            scrolling="no"
-            >
-        </iframe>
-      </WidgetBody>
-    </Widget>
+    <div class="iframeDiv">
+    <iframe
+        :src="`https://shop.lendos.biz/videostaff?user=${userId}`"
+        width="100%"
+        height="100%"
+        scrolling="no"
+        allowTransparency="true"
+        >
+    </iframe>
+    </div>
     <b-button :label="callButtontext" id="callB" style="font-size: 16px;" size="is-medium" slot="right"
-        @click=""
+        
          />
     <div class="navbar-brand is-right">
       <a class="navbar-item navbar-item-menu-toggle is-hidden-desktop" @click.prevent="menuNavBarToggle">
@@ -89,7 +82,8 @@ export default {
   data () {
     return {
       isMenuNavBarActive: false,
-      callButtontext: 'Call'
+      callButtontext: 'Call',
+      Minimize: true,
     }
   },
   computed: {
@@ -120,11 +114,12 @@ export default {
     receiveMessage (event) {
       this.callButtontext = event.data.message;
       // console.log()
-    }
+    },
   }
 }
 </script>
 <style scoped>
+
 	.box {
 		position: relative;
     width: 60%;
@@ -143,10 +138,14 @@ export default {
 		width: 100%;
 		height: 1300%;
     border-radius: 5px;
-    box-shadow: 0 3px 20px rgba(0,0,0,.25);
     overflow:hidden;
+    background: none;
 	}
   .vw-widget{
     border: none;
+  }
+  .iframeDiv{
+    width: 60%;
+    position: relative;
   }
 	</style>

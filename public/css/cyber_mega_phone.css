@@ -1,4 +1,6 @@
-
+body{
+	background-color:transparent;
+}
 .incvideo {
 	max-width: 99%;
 	max-height: 100%;
