@@ -26,12 +26,12 @@ class VideoController extends Controller
     // }  
     public function videoStaff(Request $request)
     {   
-        // $staff = Staff::findOrFail($request->user);
-        // $staff->is_active = 1;
-        return view('videocall');
-            // ->with('role', 'staff')
-            // ->with('name', $staff->name)
-            // ->with('pass', $staff->password);
+        $staff = Staff::findOrFail($request->user);
+        $staff->is_active = 1;
+        return view('videocall')
+            ->with('role', 'staff')
+            ->with('name', $staff->name)
+            ->with('pass', $staff->password);
     } 
     
     public function videoClient(Request $request)
