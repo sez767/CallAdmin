@@ -57,6 +57,8 @@ class VideoController extends Controller
     }
 
     public function videoActivate(Request $request){
-        dd($request->all());
+        $staff = Staff::findOrFail($request->staff);
+        $staff->is_active = 1;
+        $staff->save();
     }
 }
