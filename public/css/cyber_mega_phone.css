@@ -22,16 +22,23 @@
 	cursor: pointer;
 	border: none;
 	border-radius: 50%;
-	box-shadow: 0 3px 20px rgba(0,0,0,.25);
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.456);
 	font-size: 8px;
 	padding: 0;
 	outline: none !important;
+	transform: scale(1);
+	transition: transform 1s ease;
+	
 }
 .allButtons:active, .allButtons:focus {
 	outline: none !important;
   }
+.allButtons:hover{
+	transform: scale(1.1);
+	transition: transform 1s ease;
+  }
 .audio-btn{
-	background-color: rgb(150, 0, 0);
+	background-color: rgb(84, 0, 123);
 	color: white;
 }
 .video-btn{
@@ -39,11 +46,11 @@
 	color: white;
 }
 .exit-btn{
-	background-color: rgb(84, 0, 123);
+	background-color: rgb(150, 0, 0);
 	color: white;
 }
 .audio-out-btn{
-	background-color: rgb(0, 113, 49);
+	background-color: rgb(147, 134, 32);
 	color: white;
 }
 .line{
@@ -55,7 +62,7 @@
 }
 .media-view {
 	position: relative;
-	display: flex;
+	/* display: flex; */
 	flex-direction: column;
 	background: linear-gradient(-45deg, #ee7752, #8b0002, #23a6d5, #23d5ab);
 	background-size: 200% 200%;
@@ -110,8 +117,37 @@
 	width: 95%;
 	margin: 5px auto;
 	border-radius: .3rem;
+	position: relative;
 }
 .buttons-div{
 	/* border: solid green; */
 	height: 20%;
 }
+#answerButton{
+	z-index: 1000;
+	position: absolute;
+	font-size: 50px;
+	top: calc(50% - 100px);
+	right: calc(50% - 100px);
+	height: 200px;
+	width: 200px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: green;
+	transform: scale(1);
+	transition: transform 1s ease;
+	box-shadow:inset -5px -5px 5px 0 rgba(24, 24, 24, 0.5), 
+             inset 5px 5px 5px 0 rgba(147, 147, 147, 0.5);
+}
+#answerButton:active, #answerButton:focus {
+	outline: none !important;
+  }
+  #answerButton:hover{
+	  transform: scale(1.1);
+	  transition: transform 1s ease;
+	  
+  }
+ .hide{
+	 display: none;
+ } 

@@ -1,7 +1,7 @@
 
 jQuery(document).ready(function () {
         show_videoframe();
-        onloadStatus();
+        // onloadStatus();
         configButtons();
 });
 
@@ -15,7 +15,7 @@ function show_videoframe() {
             <div id="media-overlay" class="media-overlay">
                 <video id="video" class="incvideo" autoPlay></video>
                 <video id="lvideo" class="localvideo" autoPlay></video>
-<input type="button" id="mmm" onclick="" class="allButtons" value="TEST"></input>
+                <input type="button" class="hide" id="answerButton" onclick="answerC()" value="&#128222;"></input>
             </div>
             <div id="buttons-div" class="buttons-div">
             
@@ -31,19 +31,19 @@ function show_videoframe() {
     $('body').append(easy_vid);
 }
 
-function onloadStatus(){
-    var getStatus = localStorage.getItem('autoAnswer');
-    if (getStatus === "true"){
-        document.getElementById("autoAnswer").checked = true;
-    }    
-}
-function autoCheck(){
-    if(document.getElementById('autoAnswer').checked) {
-        localStorage.setItem('autoAnswer', "true");
-    } else {
-        localStorage.setItem('autoAnswer', "false");
-    }
-};
+// function onloadStatus(){
+//     var getStatus = localStorage.getItem('autoAnswer');
+//     if (getStatus === "true"){
+//         document.getElementById("autoAnswer").checked = true;
+//     }    
+// }
+// function autoCheck(){
+//     if(document.getElementById('autoAnswer').checked) {
+//         localStorage.setItem('autoAnswer', "true");
+//     } else {
+//         localStorage.setItem('autoAnswer', "false");
+//     }
+// };
 
 /////////////////jsSIP
 
@@ -293,12 +293,13 @@ function updateUI(){
                 if(session.direction === 'incoming'){
                     toVue('true')
                     // $('.callTd').addClass("hide");
-                    // $('.answerTd').removeClass("hide");
+                    $('#answerButton').removeClass("hide");
                     // if($('.mainPhoneButton').html() == 'Развернуть телефон'){
                     //     $('.mainPhoneButton').addClass("redPhoneButton");
                     // }
                 }else{
-                 toVue('false')   
+                 toVue('false')
+                 $('#answerButton').addClass("hide");
                 //   $('.callTd').removeClass("hide");
                 //   $('.answerTd').addClass("hide"); 
                 //   $('.tel').addClass("disabled")               
@@ -307,6 +308,7 @@ function updateUI(){
                 incomingCallAudio.pause();
                 outcomingCallAudio.pause();
                 toVue('false')
+                $('#answerButton').addClass("hide");
                 // $('.tel').addClass("disabled")
                 // $('.mainPhoneButton').removeClass("redPhoneButton");
             }
@@ -315,7 +317,8 @@ function updateUI(){
             outcomingCallAudio.pause();
             $("#video").load();
             $("#lvideo").load();
-            toVue('false')
+            toVue('false');
+            $('#answerButton').addClass("hide");
 
         }
     }else{
