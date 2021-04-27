@@ -2831,6 +2831,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2848,8 +2849,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
     return {
       isMenuNavBarActive: false,
       showi: false,
-      activei: false,
-      callButtontext: 'Видеозвонок'
+      activei: false
     };
   },
   computed: _objectSpread({
@@ -68155,11 +68155,11 @@ var render = function() {
       _c("b-button", {
         class: _vm.activei == "true" ? "redbutton" : "",
         staticStyle: { "font-size": "16px" },
-        attrs: {
-          slot: "left",
-          label: _vm.callButtontext,
-          id: "callB",
-          size: "is-medium"
+        attrs: { slot: "left", id: "callB", size: "is-medium" },
+        domProps: {
+          innerHTML: _vm._s(
+            _vm.showi ? "Видеозвонок &#9650;" : "Видеозвонок &#9660;"
+          )
         },
         on: {
           click: function($event) {
