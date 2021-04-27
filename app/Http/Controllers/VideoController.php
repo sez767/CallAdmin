@@ -40,7 +40,7 @@ class VideoController extends Controller
           foreach($staffs as $staff){
                 if (\Cache::has('staffonline-' . $staff->id)){
                     $staff->is_active = 0;
-                    $staff->save();///////////////////////////////////////////////////////////////////////
+                    $staff->save();
                     $free = $staff; 
                     break;
                 }   
@@ -56,6 +56,8 @@ class VideoController extends Controller
             ->with('operator', $oname);    
     }
 
+    // Activate staff after call finished
+    
     public function videoActivate(Request $request){
         $staff = Staff::findOrFail($request->staff);
         $staff->is_active = 1;
