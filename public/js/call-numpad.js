@@ -185,6 +185,7 @@ if(configuration.uri && configuration.password){
         var completeSession = function(){
           $('#callInfoText').val('Звонок завершен')
         	session = null;
+            reloadButtons();
           	updateUI();
         };
         session.on('ended', completeSession);
@@ -238,7 +239,6 @@ if(configuration.uri && configuration.password){
           incomingCallAudio.play();
           $('#callInfoText').val('Звоним оператору...')
           updateUI();
-
 
           session.connection.addEventListener('addstream', function(e){
             remoteAudio.srcObject = e.stream;
@@ -331,7 +331,7 @@ function updateUI(){
             $("#lvideo").load();
             toVue('false');
             $('#answerButton').addClass("hide");
-            reloadButtons();
+            
         }
     }else{
         // $('#errorMessage').show();
