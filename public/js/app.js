@@ -2848,6 +2848,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
     return {
       isMenuNavBarActive: false,
       showi: false,
+      activei: false,
       callButtontext: 'Видеозвонок'
     };
   },
@@ -2877,8 +2878,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use((vue_widgets__WEBPACK_IMPORTED_MODU
       document.getElementById('logout-form').submit();
     },
     receiveMessage: function receiveMessage(event) {
-      if (event) this.callButtontext = event.data.message;
-      console.log('1111111111111111111111111111111111111111111111111');
+      if (event.data.message) this.activei = event.data.message;
     }
   }
 });
@@ -37659,7 +37659,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\niframe[data-v-5dd24bca] {\n\t\tposition: absolute;\n\t\ttop: 42px;\n\t\tleft: -200px;\n\t\twidth: 100%;\n\t\theight: 1300%;\n    border-radius: 5px;\n    overflow:hidden;\n    background: none;\n}\n.iframeDiv[data-v-5dd24bca]{\n    width: 60%;\n    position: relative;\n}\n#callB[data-v-5dd24bca]{\n    margin-top: 5px;\n}\n.hide[data-v-5dd24bca]{\n    opacity: 0;\n}\n\t", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\niframe[data-v-5dd24bca] {\n\t\tposition: absolute;\n\t\ttop: 42px;\n\t\tleft: -200px;\n\t\twidth: 100%;\n\t\theight: 1300%;\n    border-radius: 5px;\n    overflow:hidden;\n    background: none;\n}\n.iframeDiv[data-v-5dd24bca]{\n    width: 60%;\n    position: relative;\n}\n#callB[data-v-5dd24bca]{\n    margin-top: 5px;\n}\n.hide[data-v-5dd24bca]{\n    opacity: 0;\n}\n.redbutton[data-v-5dd24bca]{\n    -webkit-animation: blinker-data-v-5dd24bca 1s linear infinite;\n            animation: blinker-data-v-5dd24bca 1s linear infinite;\n}\n@-webkit-keyframes blinker-data-v-5dd24bca {\n0% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red;\n}\n50% { background-color: rgb(220, 0, 0); box-shadow: 0 0 10px red;\n}\n100% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red;\n}\n}\n@keyframes blinker-data-v-5dd24bca {\n0% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red;\n}\n50% { background-color: rgb(220, 0, 0); box-shadow: 0 0 10px red;\n}\n100% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red;\n}\n}\n\t", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68152,6 +68152,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("b-button", {
+        class: _vm.activei ? "redbutton" : "",
         staticStyle: { "font-size": "16px" },
         attrs: {
           slot: "left",

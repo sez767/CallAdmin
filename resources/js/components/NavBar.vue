@@ -7,7 +7,7 @@
       <div class="navbar-item has-control no-left-space-touch">
       </div>
     </div>
- <b-button :label="callButtontext" v-on:click="showi = !showi" id="callB" style="font-size: 16px;" size="is-medium" slot="left" />
+ <b-button :label="callButtontext" v-on:click="showi = !showi" :class="activei ? 'redbutton' : ''" id="callB" style="font-size: 16px;" size="is-medium" slot="left" />
     <div class="iframeDiv" :class="showi ? '' : 'hide'">
     <iframe
         :src="`https://shop.lendos.biz/videostaff?user=${userId}`"
@@ -82,6 +82,7 @@ export default {
     return {
       isMenuNavBarActive: false,
       showi: false,
+      activei: false,
       callButtontext: 'Видеозвонок',
 
     }
@@ -112,8 +113,7 @@ export default {
       document.getElementById('logout-form').submit()
     },
     receiveMessage (event) {
-      if (event) this.callButtontext = event.data.message;
-      console.log('1111111111111111111111111111111111111111111111111')
+      if (event.data.message) this.activei = event.data.message;
     },
   }
 }
@@ -138,5 +138,13 @@ export default {
   }
   .hide{
     opacity: 0;
+  }
+  .redbutton{
+    animation: blinker 1s linear infinite;
+  }
+  @keyframes blinker {
+  0% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red; }
+  50% { background-color: rgb(220, 0, 0); box-shadow: 0 0 10px red; }
+  100% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red; }
   }
 	</style>

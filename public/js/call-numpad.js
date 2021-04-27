@@ -270,7 +270,7 @@ function hangupC(){
 };
 function toVue(){
         window.parent.postMessage({
-           'message': 'CALLING'
+           'message': 'true'
         },'*');
    };
 
