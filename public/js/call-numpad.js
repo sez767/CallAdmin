@@ -192,6 +192,7 @@ if(configuration.uri && configuration.password){
         session.on('failed', completeSession);
         session.on('accepted',function(){
           $('#callInfoText').val('Звонок принят')
+          reloadButtons();
           updateUI();
         });
         session.on('confirmed',function(){
@@ -199,10 +200,7 @@ if(configuration.uri && configuration.password){
             let video = document.getElementById("lvideo");
             video.autoplay = true;
             video.srcObject = localStream;
-            // var dtmfSender = session.connection.createDTMFSender(localStream.getAudioTracks()[0])
-            // session.sendDTMF = function(tone){
-            //     dtmfSender.insertDTMF(tone);
-            // };
+            reloadButtons();
             updateUI();
         });
         session.on('peerconnection', (e) => {
