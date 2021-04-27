@@ -22,7 +22,7 @@ function show_videoframe() {
             <input type="button" id="audio-out-btn" class="allButtons audio-out-btn" value="Звук"></input>
             <input type="button" id="audio-btn" class="allButtons audio-btn" value="Микрофон"></input>
             <input type="button" id="video-btn" class="allButtons video-btn" value="Камера"></input>
-            <input type="button" id="exit-btn" class="allButtons exit-btn" value="Выход"></input>
+            <input type="button" id="exit-btn" class="allButtons exit-btn" value="Завершить"></input>
             </div>
         </div>    
     </div>    
