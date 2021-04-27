@@ -39,6 +39,9 @@ class VideoController extends Controller
                 break;
             }   
         } 
+        if($free){
+            $oname = $free->name;
+        }
         // if($free){
         //     dd(21212121212121);
         // }else{dd(33333333333);}
@@ -47,6 +50,6 @@ class VideoController extends Controller
             ->with('role', 'user')
             ->with('name', $client->name)
             ->with('pass', $client->name)
-            ->with('operator', $free->name);    
+            ->with('operator', $oname);    
     }
 }
