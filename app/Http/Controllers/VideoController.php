@@ -43,6 +43,7 @@ class VideoController extends Controller
                 }   
             }   
         }
+        dd($free);
         if($free){
             $oname = $free->name;
         }
