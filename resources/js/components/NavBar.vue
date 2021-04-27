@@ -7,6 +7,7 @@
       <div class="navbar-item has-control no-left-space-touch">
       </div>
     </div>
+ <b-button :label="callButtontext" id="callB" style="font-size: 16px;" size="is-medium" slot="left" />
     <div class="iframeDiv">
     <iframe
         :src="`https://shop.lendos.biz/videostaff?user=${userId}`"
@@ -17,9 +18,7 @@
         >
     </iframe>
     </div>
-    <b-button :label="callButtontext" id="callB" style="font-size: 16px;" size="is-medium" slot="right"
-        
-         />
+   
     <div class="navbar-brand is-right">
       <a class="navbar-item navbar-item-menu-toggle is-hidden-desktop" @click.prevent="menuNavBarToggle">
         <b-icon :icon="menuNavBarToggleIcon" custom-size="default"/>
@@ -82,7 +81,7 @@ export default {
   data () {
     return {
       isMenuNavBarActive: false,
-      callButtontext: 'Call',
+      callButtontext: 'Видеозвонок',
       Minimize: true,
     }
   },
@@ -112,40 +111,28 @@ export default {
       document.getElementById('logout-form').submit()
     },
     receiveMessage (event) {
-      this.callButtontext = event.data.message;
+      // this.callButtontext = event.data.message;
       // console.log()
     },
   }
 }
 </script>
 <style scoped>
-
-	.box {
-		position: relative;
-    width: 60%;
-    height: 50px;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
-	}
-  .whead{
-    border: solid red;
-  }
 	iframe {
 		position: absolute;
-		top: 70px;
-		left: 0px;
+		top: 30px;
+		left: -200px;
 		width: 100%;
 		height: 1300%;
     border-radius: 5px;
     overflow:hidden;
     background: none;
 	}
-  .vw-widget{
-    border: none;
-  }
   .iframeDiv{
     width: 60%;
     position: relative;
+  }
+  #callB{
+    margin-top: 5px;
   }
 	</style>
