@@ -64,8 +64,8 @@
 	position: relative;
 	/* display: flex; */
 	flex-direction: column;
-	background: linear-gradient(-45deg, #b8664d, #8b0002, #00b5af, #23d5ab);
-	background-size: 100% 100%;
+	background: linear-gradient(-45deg, #b8664d, #8b0002, #00b5af, #175f4e);
+	background-size: 120% 120%;
 	animation: gradient 15s ease infinite;
 	background-clip: padding-box;
 	border: 1px solid rgba(0, 0, 0, .2);
@@ -139,6 +139,7 @@
 	transition: transform 1s ease;
 	box-shadow:inset -5px -5px 5px 0 rgba(24, 24, 24, 0.5), 
              inset 5px 5px 5px 0 rgba(147, 147, 147, 0.5);
+	animation: sizer 1s linear infinite;
 }
 #answerButton:active, #answerButton:focus {
 	outline: none !important;
@@ -151,3 +152,11 @@
  .hide{
 	 display: none;
  } 
+ /* .redbutton{
+    animation: sizer 1s linear infinite;
+  } */
+  @keyframes sizer {
+  0% { transform: scale(.9); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(.9); }
+  }
