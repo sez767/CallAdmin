@@ -189,7 +189,7 @@ if(configuration.uri && configuration.password){
           	updateUI();
         };
         var endSession = function(){
-            completeSession;
+            completeSession();
             if(accountRole == 'user'){
                 $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
                     setTimeout(function() {
