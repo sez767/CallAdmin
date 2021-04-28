@@ -129,7 +129,7 @@ export default {
     getData () {
       this.isLoading = true
       axios
-        .get('/clients')
+        .get('/calls')
         .then(r => {
           this.isLoading = false
           if (r.data && r.data.data) {
@@ -137,6 +137,7 @@ export default {
               this.paginated = true
             }
             this.clients = r.data.data
+            console.log('111111111111111', this.clients);
           }
         })
         .catch( err => {

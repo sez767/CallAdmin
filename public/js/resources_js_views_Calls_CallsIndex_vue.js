@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoading = true;
-      axios.get('/clients').then(function (r) {
+      axios.get('/calls').then(function (r) {
         _this.isLoading = false;
 
         if (r.data && r.data.data) {
@@ -252,6 +252,7 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           _this.clients = r.data.data;
+          console.log('111111111111111', _this.clients);
         }
       })["catch"](function (err) {
         _this.isLoading = false;

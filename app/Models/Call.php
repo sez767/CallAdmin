@@ -19,6 +19,14 @@ class Call extends Model
 		'staff_id',
 		'comment',
 		'source',
+    'site',
 		'is_subscribe',
     ];
+
+  public function site() {
+    return $this->belongsTo(Site::class, 'site');
+  }
+  public function staff() {
+    return $this->belongsTo(Staff::class, 'staff_id');
+  }
 }

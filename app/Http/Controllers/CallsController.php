@@ -23,18 +23,18 @@ class CallsController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    // public function index() {
-    //     $sites = \Auth::user()->sites()->get();
-    //     if(!$sites->isEmpty()){
-    //         foreach($sites as $site){
-    //             $sitesIds[]=$site->id;
-    //         }
-    //         $visits = Calls::with(['sites'])->whereIn('site', $sitesIds)->get();
-    //         return response()->json([
-    //             'data' => $visits
-    //         ]);
-    //     }
-    // }
+    public function index() {
+        $sites = \Auth::user()->sites()->get();
+        if(!$sites->isEmpty()){
+            foreach($sites as $site){
+                $sitesIds[]=$site->id;
+            }
+            $calls = Call::with(['site'])->whereIn('site', $sitesIds)->get();
+            return response()->json([
+                'data' => $calls
+            ]);
+        }
+    }
     /**
      * Destroy single resource
      *
@@ -82,7 +82,9 @@ class CallsController extends Controller
             'status' => true
         ]);
     }
-
+    /*
+        confirm new call
+    */
     public function confirmCall(Request $request){
         $staff = Staff::findOrFail($request->staff_id);
         $staff->is_active = 0;
