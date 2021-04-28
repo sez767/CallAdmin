@@ -30,7 +30,7 @@
           :per-page="perPage"
           :striped="true"
           :hoverable="true"
-          default-sort="name"
+          default-sort="id"
           :data="calls">
 
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
@@ -38,17 +38,20 @@
                 <img :src="props.row.avatar" class="is-rounded">
               </div>
             </b-table-column>
+            <b-table-column label="ID" field="id" sortable v-slot="props">
+              {{ props.row.id}}
+            </b-table-column>
             <b-table-column label="Клиент" field="name" sortable v-slot="props">
               {{ props.row.client}}
             </b-table-column>
+            <b-table-column label="Сайт" field="site" sortable v-slot="props">
+              {{ props.row.site.url }}
+            </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
-              {{ props.row.date }}
+              {{ props.row.created_at }}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
               {{ props.row.status }}
-            </b-table-column>
-            <b-table-column label="Сайт" field="site" sortable v-slot="props">
-              {{ props.row.site.url }}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
               {{ props.row.staff.email }}

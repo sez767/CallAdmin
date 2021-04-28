@@ -196,6 +196,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -832,7 +835,7 @@ var render = function() {
                     "per-page": _vm.perPage,
                     striped: true,
                     hoverable: true,
-                    "default-sort": "name",
+                    "default-sort": "id",
                     data: _vm.clients
                   },
                   on: {
@@ -860,6 +863,24 @@ var render = function() {
                                   })
                                 ])
                               : _vm._e()
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "ID", field: "id", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.id) +
+                                "\n          "
+                            )
                           ]
                         }
                       }

@@ -196,6 +196,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -832,7 +835,7 @@ var render = function() {
                     "per-page": _vm.perPage,
                     striped: true,
                     hoverable: true,
-                    "default-sort": "name",
+                    "default-sort": "id",
                     data: _vm.calls
                   },
                   on: {
@@ -867,6 +870,24 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
+                    attrs: { label: "ID", field: "id", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.id) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
                     attrs: { label: "Клиент", field: "name", sortable: "" },
                     scopedSlots: _vm._u([
                       {
@@ -885,6 +906,24 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
+                    attrs: { label: "Сайт", field: "site", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.site.url) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
                     attrs: { label: "Дата", field: "date", sortable: "" },
                     scopedSlots: _vm._u([
                       {
@@ -893,7 +932,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.date) +
+                                _vm._s(props.row.created_at) +
                                 "\n          "
                             )
                           ]
@@ -912,24 +951,6 @@ var render = function() {
                             _vm._v(
                               "\n            " +
                                 _vm._s(props.row.status) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Сайт", field: "site", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.site.url) +
                                 "\n          "
                             )
                           ]
