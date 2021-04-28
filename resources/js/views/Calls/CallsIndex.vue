@@ -47,14 +47,14 @@
             <b-table-column label="Сайт" field="site" sortable v-slot="props">
               {{ props.row.site.url }}
             </b-table-column>
+            <b-table-column label="Статус" field="status" sortable v-slot="props">
+              {{ props.row.status }}
+            </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Продолжительность" field="time" sortable v-slot="props">
-              {{props.row.updated_at - props.row.created_at}}
-            </b-table-column>
-            <b-table-column label="Статус" field="status" sortable v-slot="props">
-              {{ props.row.status }}
+              {{format_date(props.row.updated_at) - format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
               {{ props.row.staff.email }}
