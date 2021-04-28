@@ -67,23 +67,25 @@ class CallsController extends Controller
             'status' => true
         ]);
     }
-     /*
-        call finished -- activate staff staus, save call end-time or save braking call
+    /*
+        save new call start
     */
-    public function endCall(Request $request){
-        $staff = Staff::findOrFail($request->staff_id);
-        $staff->is_active = 1;
-        $staff->save();
-        
-        $call = Call::where('client', $request->client)->first();
-        $call->touch();
+    public function startCall(Request $request){
+        $call = new Call();
+        $call->client = $request->client;
+        $call->staff_id = $request->staff_id;
+        $call->site = $request->site;
+        $call->status = 0;
+        $user->timestamps = false;
         $call->save();
+
         return response()->json([
             'status' => true
         ]);
     }
+    
     /*
-        confirm new call
+        when confirm new call
     */
     public function confirmCall(Request $request){
         $staff = Staff::findOrFail($request->staff_id);
@@ -98,21 +100,19 @@ class CallsController extends Controller
             'status' => true
         ]);
     }
-
     /*
-        save new call start
+        call finished -- activate staff staus, save call end-time or save braking call
     */
-    public function startCall(Request $request){
-        $call = new Call();
-        $call->client = $request->client;
-        $call->staff_id = $request->staff_id;
-        $call->site = $request->site;
-        $call->status = 0;
+    public function endCall(Request $request){
+        $staff = Staff::findOrFail($request->staff_id);
+        $staff->is_active = 1;
+        $staff->save();
+        
+        $call = Call::where('client', $request->client)->first();
+        $call->touch();
         $call->save();
-
         return response()->json([
             'status' => true
         ]);
     }
-
 }
