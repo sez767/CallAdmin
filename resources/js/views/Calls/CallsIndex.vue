@@ -49,7 +49,8 @@
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
               {{ props.row.status }}
-              <b-icon icon="trash-can" size="is-small"/>
+              <b-icon icon="video-check" size="is-big"/>
+              <b-icon icon="video-off" size="is-big"/>
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}

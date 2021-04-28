@@ -202,6 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -952,7 +953,11 @@ var render = function() {
                                 "\n            "
                             ),
                             _c("b-icon", {
-                              attrs: { icon: "trash-can", size: "is-small" }
+                              attrs: { icon: "video-check", size: "is-big" }
+                            }),
+                            _vm._v(" "),
+                            _c("b-icon", {
+                              attrs: { icon: "video-off", size: "is-big" }
                             })
                           ]
                         }
