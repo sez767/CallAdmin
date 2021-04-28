@@ -42,8 +42,8 @@ class CallsController extends Controller
      * @throws \Exception
      */
     public function destroy( $id ) {
-        $visit = Visit::findOrFail($id);
-        $visit->delete();
+        $calls = Call::findOrFail($id);
+        $calls->delete();
 
         return response()->json([
             'status' => true
@@ -61,7 +61,7 @@ class CallsController extends Controller
         $request->validate([
             'ids' => 'required|array'
         ]);
-        Visit::destroy($request->ids);
+        Callt::destroy($request->ids);
 
         return response()->json([
             'status' => true

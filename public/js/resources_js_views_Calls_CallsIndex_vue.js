@@ -203,7 +203,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "ClientIndex",
+  name: "CallIndex",
   components: {
     CardToolbar: _components_CardToolbar__WEBPACK_IMPORTED_MODULE_5__.default,
     HeroBar: _components_HeroBar__WEBPACK_IMPORTED_MODULE_4__.default,
@@ -215,7 +215,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isModalActive: false,
       trashObject: null,
-      clients: [],
+      calls: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
@@ -251,8 +251,7 @@ __webpack_require__.r(__webpack_exports__);
             _this.paginated = true;
           }
 
-          _this.clients = r.data.data;
-          console.log('111111111111111', _this.clients);
+          _this.calls = r.data.data;
         }
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -282,10 +281,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.trashObject) {
         method = 'delete';
-        url = "/clients/".concat(this.trashObject.id, "/destroy");
+        url = "/calls/".concat(this.trashObject.id, "/destroy");
       } else if (this.checkedRows.length) {
         method = 'post';
-        url = '/clients/destroy';
+        url = '/calls/destroy';
         data = {
           ids: lodash_map__WEBPACK_IMPORTED_MODULE_0___default()(this.checkedRows, function (row) {
             return row.id;
@@ -868,7 +867,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Name", field: "name", sortable: "" },
+                    attrs: { label: "Клиент", field: "name", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -876,7 +875,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.name) +
+                                _vm._s(props.row.client) +
                                 "\n          "
                             )
                           ]
@@ -930,7 +929,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.site) +
+                                _vm._s(props.row.site.url) +
                                 "\n          "
                             )
                           ]
@@ -948,7 +947,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.staff) +
+                                _vm._s(props.row.staff.email) +
                                 "\n          "
                             )
                           ]

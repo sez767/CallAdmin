@@ -38,8 +38,8 @@
                 <img :src="props.row.avatar" class="is-rounded">
               </div>
             </b-table-column>
-            <b-table-column label="Name" field="name" sortable v-slot="props">
-              {{ props.row.name }}
+            <b-table-column label="Клиент" field="name" sortable v-slot="props">
+              {{ props.row.client}}
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
               {{ props.row.date }}
@@ -48,10 +48,10 @@
               {{ props.row.status }}
             </b-table-column>
             <b-table-column label="Сайт" field="site" sortable v-slot="props">
-              {{ props.row.site }}
+              {{ props.row.site.url }}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
-              {{ props.row.staff }}
+              {{ props.row.staff.email }}
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
@@ -96,13 +96,13 @@ import HeroBar from '@/components/HeroBar'
 import CardToolbar from '@/components/CardToolbar'
 
 export default {
-  name: "ClientIndex",
+  name: "CallIndex",
   components: {CardToolbar, HeroBar, TitleBar, ModalBox, CardComponent},
   data () {
     return {
       isModalActive: false,
       trashObject: null,
-      clients: [],
+      calls: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
@@ -136,8 +136,7 @@ export default {
             if (r.data.data.length > this.perPage) {
               this.paginated = true
             }
-            this.clients = r.data.data
-            console.log('111111111111111', this.clients);
+            this.calls = r.data.data
           }
         })
         .catch( err => {
@@ -164,10 +163,10 @@ export default {
 
       if (this.trashObject) {
         method = 'delete'
-        url = `/clients/${this.trashObject.id}/destroy`
+        url = `/calls/${this.trashObject.id}/destroy`
       } else if (this.checkedRows.length) {
         method = 'post'
-        url = '/clients/destroy'
+        url = '/calls/destroy'
         data = {
           ids: map(this.checkedRows, row => row.id)
         }
