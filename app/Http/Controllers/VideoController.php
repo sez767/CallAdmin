@@ -63,9 +63,10 @@ class VideoController extends Controller
         $staff = Staff::findOrFail($request->staff_id);
         $staff->is_active = 1;
         $staff->save();
+
         $call = Call::where('client', $request->client)->first();
         if($call){
-            $call->save();
+            $call->update();
         }else{
             $call = new Call();
             $call->client = $request->client;
