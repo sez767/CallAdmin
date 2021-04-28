@@ -70,7 +70,7 @@ class VideoController extends Controller
     }
 
     public function videoCall(Request $request){
-        $call = Call::create();
+        $call = new Call();
         $call->client = $request->client;
         $call->staff_id = $request->staff_id;
         $call->source = 1;
