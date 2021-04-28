@@ -154,8 +154,10 @@ export default {
         })
     },
     dateDiff (startDateString, endDateString) {
+      if(!startDateString){
+        return "00:00"
+      }
       let start = moment(String(startDateString));
-      console.log('sssssssssssssssssssssssssssssssssssssssssssss', startDateString);
       let end = moment(String(endDateString));
       let diff = end.diff(start);
       let inMinutes = moment.utc(diff).format("mm:ss");
