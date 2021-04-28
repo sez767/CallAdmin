@@ -15,8 +15,9 @@ class CreateCallsTable extends Migration
     {
         Schema::create('calls', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('source');
+            $table->integer('client');
             $table->integer('staff_id');
+            $table->tinyInteger('source')->nullable();;
             $table->string('record_url')->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();

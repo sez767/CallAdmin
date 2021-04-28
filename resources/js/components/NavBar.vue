@@ -142,8 +142,9 @@ export default {
     animation: blinker 1s linear infinite;
   }
   @keyframes blinker {
-  0% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red; }
-  50% { background-color: rgb(220, 0, 0); box-shadow: 0 0 10px red; }
-  100% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red; }
+    0% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red; }
+    50% { background-color: rgb(220, 0, 0); box-shadow: 0 0 10px red; }
+    100% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red; }
   }
+
 	</style>

@@ -215,7 +215,9 @@ if(configuration.uri && configuration.password){
           updateUI();
         });
         session.on('confirmed',function(){
-            console.log('111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
+            console.log('11111111111111111111111111111111111111111');
+            console.log('coller--', session.remote_identity.uri.user);
+            console.log('staff--', staffId);
             var localStream = session.connection.getLocalStreams()[0];
             let video = document.getElementById("lvideo");
             video.autoplay = true;
