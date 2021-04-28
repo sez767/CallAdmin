@@ -71,6 +71,7 @@ class CallsController extends Controller
         save new call start
     */
     public function startCall(Request $request){
+        dd($request->all());
         $call = new Call();
         $call->client = $request->client;
         $call->staff_id = $request->staff_id;
