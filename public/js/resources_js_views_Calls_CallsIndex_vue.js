@@ -273,11 +273,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     dateDiff: function dateDiff(startDateString, endDateString) {
-      var start = moment__WEBPACK_IMPORTED_MODULE_6___default()(startDateString);
-      var end = moment__WEBPACK_IMPORTED_MODULE_6___default()(endDateString);
-      var duration = moment__WEBPACK_IMPORTED_MODULE_6___default().duration(end.diff(start));
-      var f = moment__WEBPACK_IMPORTED_MODULE_6___default().utc(duration).format("HH:mm:ss.SSS");
-      return f;
+      var start = moment__WEBPACK_IMPORTED_MODULE_6___default()(String(startDateString)); // some random moment in time (in ms)
+
+      var end = moment__WEBPACK_IMPORTED_MODULE_6___default()(String(endDateString)); // some random moment after start (in ms)
+
+      var diff = end.diff(start); // execution
+
+      var f = moment__WEBPACK_IMPORTED_MODULE_6___default().utc(diff).format("HH:mm:ss.SSS");
+      alert(f);
     },
     format_date: function format_date(value) {
       if (value) {

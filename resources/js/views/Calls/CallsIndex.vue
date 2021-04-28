@@ -156,11 +156,13 @@ export default {
         })
     },
     dateDiff (startDateString, endDateString) {
-      let start = moment(startDateString);
-      let end = moment(endDateString);
-      let duration = moment.duration(end.diff(start));
-      let f = moment.utc(duration).format("HH:mm:ss.SSS");
-      return f;
+      let start = moment(String(startDateString)); // some random moment in time (in ms)
+      let end = moment(String(endDateString)); // some random moment after start (in ms)
+      let diff = end.diff(start);
+
+      // execution
+      let f = moment.utc(diff).format("HH:mm:ss.SSS");
+      alert(f);
     },
     format_date(value){
          if (value) {
