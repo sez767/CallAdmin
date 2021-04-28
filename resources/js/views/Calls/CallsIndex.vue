@@ -54,7 +54,7 @@
               {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Продолжительность" field="time" sortable v-slot="props">
-              {{format_date(props.row.updated_at) - format_date(props.row.created_at)}}
+              {{dateDiff(props.row.created_at, props.row.updated_at)}}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
               {{ props.row.staff.email }}
@@ -155,6 +155,13 @@ export default {
           })
         })
     },
+    dateDiff(startDateString, endDateString) => {
+      let start = moment(startDateString);
+      let end = moment(endDateString);
+      let duration = moment.duration(end.diff(start));
+      // let days = duration.asDays();
+      return duration;
+    }
     format_date(value){
          if (value) {
            return moment(String(value)).format('HH:mm:ss - DD.MM.YY')
