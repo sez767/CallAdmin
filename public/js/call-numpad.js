@@ -188,7 +188,7 @@ if(configuration.uri && configuration.password){
           	updateUI();
               if(accountRole == 'staff'){
                 $.ajax({
-                    url: "https://shop.lendos.biz/videoactive", 
+                    url: "https://shop.lendos.biz/videoended", 
                     method: "POST", 
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
                     data: {

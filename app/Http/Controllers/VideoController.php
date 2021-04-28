@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Staff;
 use App\Models\Site;
 use App\Models\Callclient;
+use App\Models\Call;
 
 class VideoController extends Controller
 {
@@ -58,13 +59,25 @@ class VideoController extends Controller
 
     // Activate staff after call finished
     
-    public function videoActivate(Request $request){
+    public function videoEnded(Request $request){
         $staff = Staff::findOrFail($request->staff);
         $staff->is_active = 1;
         $staff->save();
+
+        return response()->json([
+            'status' => true
+        ]);
     }
 
     public function videoCall(Request $request){
-        dd($request->all());
+        $call = Call::create();
+        $call->client = $request->client;
+        $call->staff_id = $request->staff_id;
+        $call->source = 1;
+        $call->save();
+
+        return response()->json([
+            'status' => true
+        ]);
     }
 }
