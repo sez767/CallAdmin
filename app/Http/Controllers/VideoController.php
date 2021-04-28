@@ -37,6 +37,7 @@ class VideoController extends Controller
         $clientSite = $request->client;
         $staffs = null;
         $free = null;
+        $staffId = null;
         $oname = null;
         $staffs = Site::findOrFail($clientSite)->staff->where('is_active', 1);
         if($staffs){
