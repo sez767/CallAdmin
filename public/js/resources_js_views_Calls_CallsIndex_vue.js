@@ -275,9 +275,9 @@ __webpack_require__.r(__webpack_exports__);
     dateDiff: function dateDiff(startDateString, endDateString) {
       var start = moment__WEBPACK_IMPORTED_MODULE_6___default()(startDateString);
       var end = moment__WEBPACK_IMPORTED_MODULE_6___default()(endDateString);
-      var duration = moment__WEBPACK_IMPORTED_MODULE_6___default().duration(end.diff(start)); // let days = duration.asDays();
+      var duration = moment__WEBPACK_IMPORTED_MODULE_6___default().duration(end.diff(start).format("mm:ss")); // let days = duration.asDays();
 
-      return duration.humanize();
+      return duration;
     },
     format_date: function format_date(value) {
       if (value) {
