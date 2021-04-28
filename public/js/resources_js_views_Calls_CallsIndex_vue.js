@@ -833,7 +833,7 @@ var render = function() {
                     striped: true,
                     hoverable: true,
                     "default-sort": "name",
-                    data: _vm.clients
+                    data: _vm.calls
                   },
                   on: {
                     "update:checkedRows": function($event) {
@@ -974,7 +974,7 @@ var render = function() {
                                     staticClass: "button is-small is-primary",
                                     attrs: {
                                       to: {
-                                        name: "clients.edit",
+                                        name: "calls.edit",
                                         params: { id: props.row.id }
                                       }
                                     }

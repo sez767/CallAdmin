@@ -31,7 +31,7 @@
           :striped="true"
           :hoverable="true"
           default-sort="name"
-          :data="clients">
+          :data="calls">
 
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
               <div v-if="props.row.avatar" class="image">
@@ -55,7 +55,7 @@
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'clients.edit', params: {id: props.row.id}}" class="button is-small is-primary">
+                <router-link :to="{name:'calls.edit', params: {id: props.row.id}}" class="button is-small is-primary">
                   <b-icon icon="account-edit" size="is-small"/>
                 </router-link>
                 <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
