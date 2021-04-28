@@ -953,10 +953,15 @@ var render = function() {
                                 "\n            "
                             ),
                             _c("b-icon", {
-                              attrs: { icon: "video-check", size: "is-big" }
+                              attrs: {
+                                icon: "video-check",
+                                size: "is-big",
+                                color: "green"
+                              }
                             }),
                             _vm._v(" "),
                             _c("b-icon", {
+                              staticStyle: { color: "red" },
                               attrs: { icon: "video-off", size: "is-big" }
                             })
                           ]
