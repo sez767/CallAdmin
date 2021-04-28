@@ -61,7 +61,7 @@ class CallsController extends Controller
         $request->validate([
             'ids' => 'required|array'
         ]);
-        Callt::destroy($request->ids);
+        Call::destroy($request->ids);
 
         return response()->json([
             'status' => true
@@ -76,7 +76,6 @@ class CallsController extends Controller
         $call->staff_id = $request->staff_id;
         $call->site = $request->site;
         $call->status = 0;
-        $call->timestamps = false;
         $call->save();
 
         return response()->json([
@@ -94,6 +93,7 @@ class CallsController extends Controller
         
         $call = Call::where('client', $request->client)->first();
         $call->status = 1;
+        $call->confirm_time = \Carbon\Carbon::now()->toDateTimeString();
         $call->save();
 
         return response()->json([

@@ -22,6 +22,7 @@ class CreateCallsTable extends Migration
             $table->tinyInteger('source')->nullable();
             $table->string('record_url')->nullable();
             $table->string('comment')->nullable();
+            $table->string('confirm_time')->nullable();
             $table->timestamps();
         });
     }
