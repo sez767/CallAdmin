@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Staff;
 use App\Models\Site;
 use App\Models\Callclient;
-use App\Models\Call;
 
 class VideoController extends Controller
 {

@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visit;
-use App\Models\Invite;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use App\Notifications\InviteNotification;
-
+use App\Models\Call;
+use App\Models\Staff;
 
 class CallsController extends Controller
 {
@@ -27,18 +23,18 @@ class CallsController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index() {
-        $sites = \Auth::user()->sites()->get();
-        if(!$sites->isEmpty()){
-            foreach($sites as $site){
-                $sitesIds[]=$site->id;
-            }
-            $visits = Calls::with(['sites'])->whereIn('site', $sitesIds)->get();
-            return response()->json([
-                'data' => $visits
-            ]);
-        }
-    }
+    // public function index() {
+    //     $sites = \Auth::user()->sites()->get();
+    //     if(!$sites->isEmpty()){
+    //         foreach($sites as $site){
+    //             $sitesIds[]=$site->id;
+    //         }
+    //         $visits = Calls::with(['sites'])->whereIn('site', $sitesIds)->get();
+    //         return response()->json([
+    //             'data' => $visits
+    //         ]);
+    //     }
+    // }
     /**
      * Destroy single resource
      *
