@@ -273,9 +273,10 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     dateDiff: function dateDiff(startDateString, endDateString) {
-      var start = moment__WEBPACK_IMPORTED_MODULE_6___default()(startDateString);
-      var end = moment__WEBPACK_IMPORTED_MODULE_6___default()(endDateString);
-      var duration = moment__WEBPACK_IMPORTED_MODULE_6___default().duration(end.diff(start)).format('mm:ss'); // let days = duration.asDays();
+      // let start = moment(startDateString);
+      // let end = moment(endDateString);
+      // let duration = moment.duration(end.diff(start));
+      var duration = moment__WEBPACK_IMPORTED_MODULE_6___default().utc(moment__WEBPACK_IMPORTED_MODULE_6___default()(now, startDateString).diff(moment__WEBPACK_IMPORTED_MODULE_6___default()(then, endDateString))).format("HH:mm:ss"); // let days = duration.asDays();
 
       return duration;
     },

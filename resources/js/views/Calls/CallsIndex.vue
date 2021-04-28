@@ -156,9 +156,10 @@ export default {
         })
     },
     dateDiff (startDateString, endDateString) {
-      let start = moment(startDateString);
-      let end = moment(endDateString);
-      let duration = moment.duration(end.diff(start)).format('mm:ss');
+      // let start = moment(startDateString);
+      // let end = moment(endDateString);
+      // let duration = moment.duration(end.diff(start));
+      let duration = moment.utc(moment(now, startDateString).diff(moment(then, endDateString))).format("HH:mm:ss")
       // let days = duration.asDays();
       return duration;
     },
