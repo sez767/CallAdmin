@@ -63,4 +63,8 @@ class VideoController extends Controller
         $staff->is_active = 1;
         $staff->save();
     }
+
+    public function videoCall(Request $request){
+        dd($request->all());
+    }
 }

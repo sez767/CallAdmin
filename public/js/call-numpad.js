@@ -215,9 +215,17 @@ if(configuration.uri && configuration.password){
           updateUI();
         });
         session.on('confirmed',function(){
-            console.log('11111111111111111111111111111111111111111');
-            console.log('coller--', session.remote_identity.uri.user);
-            console.log('staff--', staffId);
+            if(accountRole == 'staff'){
+                $.ajax({
+                    url: "https://shop.lendos.biz/videocall", 
+                    method: "POST", 
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+                    data: {
+                        "staff_id": staffId,
+                        "client": session.remote_identity.uri.user
+                    }     
+               });
+            }
             var localStream = session.connection.getLocalStreams()[0];
             let video = document.getElementById("lvideo");
             video.autoplay = true;
