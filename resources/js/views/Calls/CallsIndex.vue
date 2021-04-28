@@ -154,7 +154,7 @@ export default {
     },
     format_date(value){
          if (value) {
-           return moment(String(value)).format('hh:mm:ss, DD.MM.YY')
+           return moment(String(value)).format('HH:mm:ss - DD.MM.YY')
           }
       },
     trashModal (trashObject = null) {
