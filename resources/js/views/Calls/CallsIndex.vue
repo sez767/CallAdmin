@@ -97,6 +97,7 @@ import ModalBox from '@/components/ModalBox'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
 import CardToolbar from '@/components/CardToolbar'
+import moment from 'moment';
 
 export default {
   name: "CallIndex",
@@ -151,6 +152,11 @@ export default {
           })
         })
     },
+    format_date(value){
+         if (value) {
+           return moment(String(value)).format('hh.mm.ss - DD.MM.YY')
+          }
+      },
     trashModal (trashObject = null) {
       if (trashObject || this.checkedRows.length) {
         this.trashObject = trashObject
