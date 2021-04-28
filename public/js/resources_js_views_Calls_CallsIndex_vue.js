@@ -202,7 +202,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -947,23 +946,15 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.status) +
-                                "\n            "
-                            ),
-                            _c("b-icon", {
-                              attrs: {
-                                icon: "video-check",
-                                size: "is-big",
-                                color: "green"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("b-icon", {
-                              staticStyle: { color: "red" },
-                              attrs: { icon: "video-off", size: "is-big" }
-                            })
+                            props.row.status == 1
+                              ? _c("b-icon", {
+                                  staticStyle: { color: "green" },
+                                  attrs: { icon: "video-check", size: "is-big" }
+                                })
+                              : _c("b-icon", {
+                                  staticStyle: { color: "red" },
+                                  attrs: { icon: "video-off", size: "is-big" }
+                                })
                           ]
                         }
                       }

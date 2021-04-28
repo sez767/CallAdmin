@@ -48,9 +48,8 @@
               {{ props.row.site.url }}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
-              {{ props.row.status }}
-              <b-icon icon="video-check" size="is-big" color="green"/>
-              <b-icon icon="video-off" size="is-big" style="color:red;"/>
+              <b-icon v-if="props.row.status == 1" icon="video-check" size="is-big" style="color:green;"/>
+              <b-icon v-else icon="video-off" size="is-big" style="color:red;"/>
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}
