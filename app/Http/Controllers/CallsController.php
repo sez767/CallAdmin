@@ -15,7 +15,7 @@ class CallsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('startCall','endCall');
+        $this->middleware('auth')->except('startCall','endCall','confirmCall');
     }
 
     /**
@@ -76,16 +76,22 @@ class CallsController extends Controller
         $staff->save();
         
         $call = Call::where('client', $request->client)->first();
-        if($call){
-            $call->touch();
-            $call->save();
-        }else{
-            $call = new Call();
-            $call->client = $request->client;
-            $call->staff_id = $request->staff_id;
-            $call->source = 0;
-            $call->save();
-        }
+        $call->touch();
+        $call->save();
+        return response()->json([
+            'status' => true
+        ]);
+    }
+
+    public function confirmCall(Request $request){
+        $staff = Staff::findOrFail($request->staff_id);
+        $staff->is_active = 0;
+        $staff->save();
+        
+        $call = Call::where('client', $request->client)->first();
+        $call->status = 1;
+        $call->save();
+
         return response()->json([
             'status' => true
         ]);
@@ -95,12 +101,11 @@ class CallsController extends Controller
         save new call start
     */
     public function startCall(Request $request){
-        // dd($request->all());
         $call = new Call();
         $call->client = $request->client;
         $call->staff_id = $request->staff_id;
         $call->site = $request->site;
-        // $call->status = 1;
+        $call->status = 0;
         $call->save();
 
         return response()->json([

@@ -70,6 +70,7 @@ Route::prefix('/calls')->group(function () {
     Route::delete('/{calls}/destroy', [\App\Http\Controllers\CallsController::class, 'destroy']);
     Route::post('/endcall', [App\Http\Controllers\CallsController::class, 'endCall']);
     Route::post('/startcall', [App\Http\Controllers\CallsController::class, 'startCall']);
+    Route::post('/addcall', [App\Http\Controllers\CallsController::class, 'confirmCall']);
 });
 /*
  * Current user

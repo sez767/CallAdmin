@@ -184,7 +184,7 @@ if(configuration.uri && configuration.password){
         var completeSession = function(){
             if(accountRole == 'staff'){
                 $.ajax({
-                    url: "https://shop.lendos.biz/videoended", 
+                    url: "https://shop.lendos.biz/calls/endcall", 
                     method: "POST", 
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
                     data: {
@@ -217,17 +217,17 @@ if(configuration.uri && configuration.password){
           updateUI();
         });
         session.on('confirmed',function(){
-            // if(accountRole == 'staff'){
-            //     $.ajax({
-            //         url: "https://shop.lendos.biz/videocall", 
-            //         method: "POST", 
-            //         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
-            //         data: {
-            //             "staff_id": staffId,
-            //             "client": session.remote_identity.uri.user
-            //         }     
-            //    });
-            // }
+            if(accountRole == 'staff'){
+                $.ajax({
+                    url: "https://shop.lendos.biz/calls/addcall", 
+                    method: "POST", 
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+                    data: {
+                        "staff_id": staffId,
+                        "client": session.remote_identity.uri.user
+                    }     
+               });
+            }
             var localStream = session.connection.getLocalStreams()[0];
             let video = document.getElementById("lvideo");
             video.autoplay = true;
