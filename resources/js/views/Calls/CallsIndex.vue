@@ -159,7 +159,7 @@ export default {
       let start = moment(String(startDateString));
       let end = moment(String(endDateString));
       let diff = end.diff(start);
-      let inMinutes = moment.utc(diff).format("HH:mm:ss.SSS");
+      let inMinutes = moment.utc(diff).format("HH:mm:ss");
       return inMinutes;
     },
     format_date(value){

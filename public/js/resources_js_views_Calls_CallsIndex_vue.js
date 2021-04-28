@@ -276,7 +276,7 @@ __webpack_require__.r(__webpack_exports__);
       var start = moment__WEBPACK_IMPORTED_MODULE_6___default()(String(startDateString));
       var end = moment__WEBPACK_IMPORTED_MODULE_6___default()(String(endDateString));
       var diff = end.diff(start);
-      var inMinutes = moment__WEBPACK_IMPORTED_MODULE_6___default().utc(diff).format("HH:mm:ss.SSS");
+      var inMinutes = moment__WEBPACK_IMPORTED_MODULE_6___default().utc(diff).format("HH:mm:ss");
       return inMinutes;
     },
     format_date: function format_date(value) {

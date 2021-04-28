@@ -169,7 +169,6 @@ if(configuration.uri && configuration.password){
       $('#callInfoText').val('Вы в сети');
     });
     phone.on('registrationFailed', function(ev){
-    	alert('Registering on SIP server failed with error: ' + ev.cause);
       $('#callInfoText').val('Регистрация провалена');
       configuration.uri = null;
       configuration.password = null;
