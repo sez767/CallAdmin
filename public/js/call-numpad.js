@@ -192,7 +192,8 @@ if(configuration.uri && configuration.password){
                     method: "POST", 
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
                     data: {
-                        "staff": staffId
+                        "staff_id": staffId,
+                        "client": session.remote_identity.uri.user
                     }     
                });
               }

@@ -60,10 +60,19 @@ class VideoController extends Controller
     // Activate staff after call finished
     
     public function videoEnded(Request $request){
-        $staff = Staff::findOrFail($request->staff);
+        $staff = Staff::findOrFail($request->staff_id);
         $staff->is_active = 1;
         $staff->save();
-
+        $call = Call::where('client', $request->client)->first();
+        if($call){
+            $call->save();
+        }else{
+            $call = new Call();
+            $call->client = $request->client;
+            $call->staff_id = $request->staff_id;
+            $call->source = 0;
+            $call->save();
+        }
         return response()->json([
             'status' => true
         ]);
