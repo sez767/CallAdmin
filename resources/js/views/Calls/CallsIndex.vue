@@ -55,7 +55,7 @@
               {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Продолжительность" field="time" sortable v-slot="props">
-              {{dateDiff(props.row.created_at, props.row.updated_at)}}
+              {{dateDiff(props.row.confirm_time, props.row.updated_at)}}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
               {{ props.row.staff.email }}

@@ -998,7 +998,7 @@ var render = function() {
                               "\n            " +
                                 _vm._s(
                                   _vm.dateDiff(
-                                    props.row.created_at,
+                                    props.row.confirm_time,
                                     props.row.updated_at
                                   )
                                 ) +
