@@ -155,7 +155,7 @@ export default {
           })
         })
     },
-    dateDiff(startDateString, endDateString) => {
+    dateDiff(startDateString, endDateString){
       let start = moment(startDateString);
       let end = moment(endDateString);
       let duration = moment.duration(end.diff(start));
