@@ -66,7 +66,8 @@ class VideoController extends Controller
         
         $call = Call::where('client', $request->client)->first();
         if($call){
-            $call->update();
+            $call->touch();
+            $call->save();
             dd($call);
         }else{
             $call = new Call();
