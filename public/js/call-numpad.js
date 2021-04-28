@@ -182,11 +182,7 @@ if(configuration.uri && configuration.password){
         }
         session = newSession;
         var completeSession = function(){
-          $('#callInfoText').val('Звонок завершен')
-        	session = null;
-            reloadButtons();
-          	updateUI();
-              if(accountRole == 'staff'){
+            if(accountRole == 'staff'){
                 $.ajax({
                     url: "https://shop.lendos.biz/videoended", 
                     method: "POST", 
@@ -197,6 +193,11 @@ if(configuration.uri && configuration.password){
                     }     
                });
               }
+          $('#callInfoText').val('Звонок завершен')
+        	session = null;
+            reloadButtons();
+          	updateUI();
+
         };
         var endSession = function(){
             completeSession();
