@@ -158,9 +158,9 @@ export default {
     dateDiff (startDateString, endDateString) {
       let start = moment(startDateString);
       let end = moment(endDateString);
-      let duration = moment.duration(end.diff(start));
+      let duration = moment.duration(end.diff(start)).format('mm:ss');
       // let days = duration.asDays();
-      return duration.format("mm:ss");
+      return duration;
     },
     format_date(value){
          if (value) {
