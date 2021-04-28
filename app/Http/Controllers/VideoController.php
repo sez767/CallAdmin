@@ -11,9 +11,8 @@ use App\Models\Call;
 class VideoController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Video window for satff (when login into adminKA)
      *
-     * @return void
      */ 
     public function videoStaff(Request $request)
     {   
@@ -26,7 +25,11 @@ class VideoController extends Controller
             ->with('staffId', $staff->id)
             ->with('pass', $staff->password);
     } 
-    
+
+        /**
+     * Video window for client
+     *
+     */
     public function videoClient(Request $request)
     {
         $client = Callclient::create();
@@ -57,8 +60,9 @@ class VideoController extends Controller
             ->with('operator', $oname);    
     }
 
-    // Activate staff after call finished
-    
+    /*
+        call finished -- activate staff staus, save call end-time or save braking call
+    */
     public function videoEnded(Request $request){
         $staff = Staff::findOrFail($request->staff_id);
         $staff->is_active = 1;
@@ -68,7 +72,6 @@ class VideoController extends Controller
         if($call){
             $call->touch();
             $call->save();
-            dd($call);
         }else{
             $call = new Call();
             $call->client = $request->client;
@@ -81,6 +84,9 @@ class VideoController extends Controller
         ]);
     }
 
+    /*
+        save new call start
+    */
     public function videoCall(Request $request){
         $call = new Call();
         $call->client = $request->client;
