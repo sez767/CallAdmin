@@ -49,6 +49,7 @@
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
               {{ props.row.status }}
+              <b-icon icon="trash-can" size="is-small"/>
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}
@@ -61,9 +62,6 @@
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'calls.edit', params: {id: props.row.id}}" class="button is-small is-primary">
-                  <b-icon icon="account-edit" size="is-small"/>
-                </router-link>
                 <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
                   <b-icon icon="trash-can" size="is-small"/>
                 </button>

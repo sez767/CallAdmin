@@ -202,8 +202,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -951,8 +949,11 @@ var render = function() {
                             _vm._v(
                               "\n            " +
                                 _vm._s(props.row.status) +
-                                "\n          "
-                            )
+                                "\n            "
+                            ),
+                            _c("b-icon", {
+                              attrs: { icon: "trash-can", size: "is-small" }
+                            })
                           ]
                         }
                       }
@@ -1030,57 +1031,30 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _c(
-                              "div",
-                              { staticClass: "buttons is-right" },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "button is-small is-primary",
+                            _c("div", { staticClass: "buttons is-right" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "button is-small is-danger",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.trashModal(props.row)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("b-icon", {
                                     attrs: {
-                                      to: {
-                                        name: "calls.edit",
-                                        params: { id: props.row.id }
-                                      }
+                                      icon: "trash-can",
+                                      size: "is-small"
                                     }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "account-edit",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "button is-small is-danger",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.trashModal(props.row)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "trash-can",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
+                                  })
+                                ],
+                                1
+                              )
+                            ])
                           ]
                         }
                       }
