@@ -962,7 +962,11 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Дата", field: "date", sortable: "" },
+                    attrs: {
+                      label: "Время и дата",
+                      field: "date",
+                      sortable: ""
+                    },
                     scopedSlots: _vm._u([
                       {
                         key: "default",

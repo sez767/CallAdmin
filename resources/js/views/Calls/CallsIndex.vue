@@ -51,7 +51,7 @@
               <b-icon v-if="props.row.status == 1" icon="video-check" size="is-big" style="color:green;"/>
               <b-icon v-else icon="video-off" size="is-big" style="color:red;"/>
             </b-table-column>
-            <b-table-column label="Дата" field="date" sortable v-slot="props">
+            <b-table-column label="Время и дата" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Продолжительность" field="time" sortable v-slot="props">
