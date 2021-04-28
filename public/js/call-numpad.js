@@ -218,15 +218,15 @@ if(configuration.uri && configuration.password){
         });
         session.on('confirmed',function(){
             if(accountRole == 'staff'){
-            //     $.ajax({
-            //         url: "https://shop.lendos.biz/videocall", 
-            //         method: "POST", 
-            //         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
-            //         data: {
-            //             "staff_id": staffId,
-            //             "client": session.remote_identity.uri.user
-            //         }     
-            //    });
+                $.ajax({
+                    url: "https://shop.lendos.biz/videocall", 
+                    method: "POST", 
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+                    data: {
+                        "staff_id": staffId,
+                        "client": session.remote_identity.uri.user
+                    }     
+               });
             }
             var localStream = session.connection.getLocalStreams()[0];
             let video = document.getElementById("lvideo");
