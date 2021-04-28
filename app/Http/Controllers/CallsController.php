@@ -71,13 +71,12 @@ class CallsController extends Controller
         save new call start
     */
     public function startCall(Request $request){
-        // dd($request->all());
         $call = new Call();
         $call->client = $request->client;
         $call->staff_id = $request->staff_id;
         $call->site = $request->site;
         $call->status = 0;
-        // $user->timestamps = false;
+        $call->timestamps = false;
         $call->save();
 
         return response()->json([
