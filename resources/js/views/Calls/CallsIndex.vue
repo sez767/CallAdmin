@@ -160,7 +160,7 @@ export default {
       let end = moment(endDateString);
       let duration = moment.duration(end.diff(start));
       // let days = duration.asDays();
-      return duration;
+      return duration.humanize();
     },
     format_date(value){
          if (value) {

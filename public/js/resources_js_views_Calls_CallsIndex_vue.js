@@ -277,7 +277,7 @@ __webpack_require__.r(__webpack_exports__);
       var end = moment__WEBPACK_IMPORTED_MODULE_6___default()(endDateString);
       var duration = moment__WEBPACK_IMPORTED_MODULE_6___default().duration(end.diff(start)); // let days = duration.asDays();
 
-      return duration;
+      return duration.humanize();
     },
     format_date: function format_date(value) {
       if (value) {
