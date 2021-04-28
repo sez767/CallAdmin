@@ -29,7 +29,7 @@ class CallsController extends Controller
             foreach($sites as $site){
                 $sitesIds[]=$site->id;
             }
-            $calls = Call::with(['site'])->whereIn('site', $sitesIds)->get();
+            $calls = Call::with(['site', 'staff'])->whereIn('site', $sitesIds)->get();
             return response()->json([
                 'data' => $calls
             ]);
