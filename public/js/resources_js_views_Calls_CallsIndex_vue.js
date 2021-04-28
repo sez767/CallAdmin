@@ -940,7 +940,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.created_at) +
+                                _vm._s(_vm.format_date(props.row.created_at)) +
                                 "\n          "
                             )
                           ]

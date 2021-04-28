@@ -48,7 +48,7 @@
               {{ props.row.site.url }}
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
-              {{ props.row.created_at }}
+              {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
               {{ props.row.status }}
