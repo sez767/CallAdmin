@@ -77,7 +77,7 @@ class CallsController extends Controller
         $call->staff_id = $request->staff_id;
         $call->site = $request->site;
         $call->status = 0;
-        $user->timestamps = false;
+        // $user->timestamps = false;
         $call->save();
 
         return response()->json([
