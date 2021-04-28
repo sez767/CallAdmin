@@ -276,7 +276,7 @@ __webpack_require__.r(__webpack_exports__);
       // let start = moment(startDateString);
       // let end = moment(endDateString);
       // let duration = moment.duration(end.diff(start));
-      var duration = moment__WEBPACK_IMPORTED_MODULE_6___default().utc(moment__WEBPACK_IMPORTED_MODULE_6___default()(startDateString).diff(moment__WEBPACK_IMPORTED_MODULE_6___default()(endDateString))).format("mm:ss"); // let days = duration.asDays();
+      var duration = moment__WEBPACK_IMPORTED_MODULE_6___default()(startDateString).diff(moment__WEBPACK_IMPORTED_MODULE_6___default()(endDateString)).format("mm:ss"); // let days = duration.asDays();
 
       return duration;
     },
