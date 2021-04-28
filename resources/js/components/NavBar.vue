@@ -139,6 +139,7 @@ export default {
     opacity: 0;
     pointer-events: none; 
   }
+  
   .redbutton{
     animation: blinker 1s linear infinite;
   }
