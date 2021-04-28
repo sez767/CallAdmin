@@ -50,6 +50,9 @@
             <b-table-column label="Дата" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}
             </b-table-column>
+            <b-table-column label="Продолжительность" field="time" sortable v-slot="props">
+              {{props.row.updated_at - props.row.created_at}}
+            </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
               {{ props.row.status }}
             </b-table-column>

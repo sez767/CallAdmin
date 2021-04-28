@@ -201,6 +201,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -941,6 +944,30 @@ var render = function() {
                             _vm._v(
                               "\n            " +
                                 _vm._s(_vm.format_date(props.row.created_at)) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Продолжительность",
+                      field: "time",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(
+                                  props.row.updated_at - props.row.created_at
+                                ) +
                                 "\n          "
                             )
                           ]
