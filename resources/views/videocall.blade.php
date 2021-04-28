@@ -27,6 +27,9 @@
     @isset($staffId)
         var staffId = {!! json_encode($staffId) !!};
     @endisset
+    @isset($site)
+        var clientSite = {!! json_encode($site) !!};
+    @endisset
 </script>
 <script src="{{ 'js/call-numpad.js' }}"></script>
 @endsection

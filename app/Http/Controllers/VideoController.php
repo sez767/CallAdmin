@@ -52,50 +52,15 @@ class VideoController extends Controller
         }
         if($free){
             $oname = $free->name;
+            $staffId = $free->id;
         }
         return view('videocall')
             ->with('role', 'user')
             ->with('name', $client->name)
             ->with('pass', $client->name)
+            ->with('site', $clientSite)
+            ->with('staffId', $staffId)
             ->with('operator', $oname);    
     }
 
-    /*
-        call finished -- activate staff staus, save call end-time or save braking call
-    */
-    public function videoEnded(Request $request){
-        $staff = Staff::findOrFail($request->staff_id);
-        $staff->is_active = 1;
-        $staff->save();
-        
-        $call = Call::where('client', $request->client)->first();
-        if($call){
-            $call->touch();
-            $call->save();
-        }else{
-            $call = new Call();
-            $call->client = $request->client;
-            $call->staff_id = $request->staff_id;
-            $call->source = 0;
-            $call->save();
-        }
-        return response()->json([
-            'status' => true
-        ]);
-    }
-
-    /*
-        save new call start
-    */
-    public function videoCall(Request $request){
-        $call = new Call();
-        $call->client = $request->client;
-        $call->staff_id = $request->staff_id;
-        $call->source = 1;
-        $call->save();
-
-        return response()->json([
-            'status' => true
-        ]);
-    }
 }

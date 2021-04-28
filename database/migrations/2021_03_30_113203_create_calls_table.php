@@ -17,7 +17,9 @@ class CreateCallsTable extends Migration
             $table->id();
             $table->integer('client');
             $table->integer('staff_id');
-            $table->tinyInteger('source')->nullable();;
+            $table->integer('site');
+            $table->tinyInteger('status')->nullable();
+            $table->tinyInteger('source')->nullable();
             $table->string('record_url')->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();

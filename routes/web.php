@@ -62,6 +62,16 @@ Route::prefix('/visits')->group(function () {
     Route::delete('/{visits}/destroy', [\App\Http\Controllers\VisitsController::class, 'destroy']);
 });
 /*
+ * Calls
+ * */
+Route::prefix('/calls')->group(function () {
+    Route::get('/', [\App\Http\Controllers\CallsController::class, 'index']);
+    Route::post('/destroy', [\App\Http\Controllers\CallsController::class, 'destroyMass']);
+    Route::delete('/{calls}/destroy', [\App\Http\Controllers\CallsController::class, 'destroy']);
+    Route::post('/endcall', [App\Http\Controllers\CallsController::class, 'endCall']);
+    Route::post('/startcall', [App\Http\Controllers\CallsController::class, 'startCall']);
+});
+/*
  * Current user
  * */
 Route::prefix('/user')->group(function () {
@@ -85,5 +95,4 @@ Route::get('/registration/{token}', [\App\Http\Controllers\StaffController::clas
 **/
 Route::get('/videoclient', [App\Http\Controllers\VideoController::class, 'videoClient'])->name('videoClient');
 Route::get('/videostaff', [App\Http\Controllers\VideoController::class, 'videoStaff'])->name('videoStaff');
-Route::post('/videoended', [App\Http\Controllers\VideoController::class, 'videoEnded']);
-Route::post('/videocall', [App\Http\Controllers\VideoController::class, 'videoCall']);
+
