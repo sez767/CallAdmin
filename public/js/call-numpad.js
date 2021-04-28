@@ -276,7 +276,7 @@ if(configuration.uri && configuration.password){
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
                     data: {
                         "staff_id": staffId,
-                        "client": session.remote_identity.uri.user,
+                        "client": accountIdName,
                         "site": clientSite 
                     }     
                });
