@@ -57,6 +57,7 @@ class CallrequestsController extends Controller
         $callreq = Callrequest::find($id);
         $callreq->update([
             'status' => $request->callrequest['status'],
+            'staff' => \Auth::user()->id
             ]);
             $answer = ['status' => $callreq->status]; 
             return response()->json(['data' =>  $answer], Response::HTTP_OK);
