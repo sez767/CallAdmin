@@ -149,7 +149,7 @@ function reloadButtons(){
     muteSound.setAttribute("state", "Unmute");
     muteSound.classList.remove("line");
 }
-
+var refreshes = parseInt(sessionStorage.getItem('refreshes'), 5) || 0;
 var callOptions = {
     mediaConstraints: {audio: true, video: true},
     pcConfig:
@@ -201,10 +201,11 @@ if(configuration.uri && configuration.password){
         var endSession = function(){
             completeSession();
             if(accountRole == 'user'){
-                $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
+                $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
                     setTimeout(function() {
-                window.location.reload(false);
-                }, 15000);
+                        sessionStorage.setItem('refreshes', ++refreshes);
+                        window.location.reload(false);
+                    }, 15000);
             }
                
           };
