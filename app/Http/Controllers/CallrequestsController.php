@@ -43,9 +43,9 @@ class CallrequestsController extends Controller
      * @throws \Exception
      */
     public function requestFromClient( Request $request ) {
-        dd($request->all());
+        // dd($request->all());
         $callreq = Callrequest::create($request->all());
-        
+
         return response()->json([
             'status' => true
         ]);
