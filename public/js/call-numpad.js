@@ -308,8 +308,9 @@ function callC() {
     phone.call(dest, callOptions);
     updateUI();
     }else{
-        $('#callInfoText').val('Все операторы заняты, пожалуйста ожидайте...');
+        $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
         setTimeout(function() {
+            sessionStorage.setItem('refreshes', ++refreshes);
             window.location.reload(false);
         }, 15000);
     }
