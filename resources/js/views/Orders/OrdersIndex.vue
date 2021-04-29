@@ -144,6 +144,7 @@ export default {
               this.paginated = true
             }
             this.callreq = r.data.data
+            console.log('qqqqqqqqqqqqq',this.callreq);
           }
         })
         .catch( err => {
@@ -157,7 +158,7 @@ export default {
     },
     format_date(value){
          if (value) {
-           return moment(String(value)).format('HH:mm:ss - DD.MM.YY')
+           return moment(String(value)).format('HH:mm:ss - DD.MM')
           }
     },
     trashModal (trashObject = null) {

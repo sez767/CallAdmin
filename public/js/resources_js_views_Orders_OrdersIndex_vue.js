@@ -261,6 +261,7 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           _this.callreq = r.data.data;
+          console.log('qqqqqqqqqqqqq', _this.callreq);
         }
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -274,7 +275,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     format_date: function format_date(value) {
       if (value) {
-        return moment__WEBPACK_IMPORTED_MODULE_6___default()(String(value)).format('HH:mm:ss - DD.MM.YY');
+        return moment__WEBPACK_IMPORTED_MODULE_6___default()(String(value)).format('HH:mm:ss - DD.MM');
       }
     },
     trashModal: function trashModal() {
