@@ -53,12 +53,12 @@ class CallrequestsController extends Controller
      * Change status of request
      */
     public function changeStatus (Request $request, $id ){
-        dd(\Auth::user()->id);
         $callreq = Callrequest::find($id);
         $callreq->update([
             'status' => $request->callrequest['status'],
             'staff' => \Auth::user()->id,
             ]);
+            dd($callreq);
             $answer = ['status' => $callreq->status]; 
             return response()->json(['data' =>  $answer], Response::HTTP_OK);
     }
