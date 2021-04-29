@@ -43,7 +43,7 @@ class CallrequestsController extends Controller
      * @throws \Exception
      */
     public function requestFromClient( Request $request ) {
-        dd(request->all());
+        dd($request->all());
         // $visit = Visit::create([
         //     'header' => $hrequest->header,
         //     'site' => $request->client,
