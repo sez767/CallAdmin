@@ -53,7 +53,7 @@ class CallrequestsController extends Controller
      * Change status of request
      */
     public function changeStatus (Request $request, $id ){
-        dd($request->all());
+        // dd($request->all());
         $callreq = Callrequest::find($id);
         $callreq->update([
             'status' => $request->callreques['status'],
