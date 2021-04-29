@@ -361,7 +361,8 @@ function sendCallRequest(){
             data: {
                 "name": $("#req-name").val(),
                 "phone": $("#req-phone").val(),
-                "site": clientSite 
+                "site": clientSite,
+                "status": 0
             },
             success: function() {
                 console.log('3333');
