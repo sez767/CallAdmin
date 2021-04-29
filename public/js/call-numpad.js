@@ -350,6 +350,7 @@ function hangupC(){
     }
 };
 function sendCallRequest(){
+    event.preventDefault();
     console.log('111111111111111111111111111111111111111111111111111111111111111111111111');
         $.ajax({
             url: "https://shop.lendos.biz/callreq/request", 
