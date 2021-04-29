@@ -284,7 +284,7 @@ __webpack_require__.r(__webpack_exports__);
     switchStatus: function switchStatus(row) {
       var fieldName = 'status';
       var url = "/callreq/".concat(row.id);
-      axios.put(url, {
+      axios.patch(url, {
         callrequest: {
           status: row.status
         }

@@ -167,7 +167,7 @@ export default {
     switchStatus(row){
             let fieldName = 'status';
             const url = `/callreq/${row.id}`;
-            axios.put(url, {callrequest: {status: row.status}})
+            axios.patch(url, {callrequest: {status: row.status}})
                 .then(response => {
                     // this.successResponse();
                     row[fieldName] = response.data.data.status;   
