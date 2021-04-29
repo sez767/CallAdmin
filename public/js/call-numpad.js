@@ -149,7 +149,7 @@ function reloadButtons(){
     muteSound.setAttribute("state", "Unmute");
     muteSound.classList.remove("line");
 }
-var refreshes = parseInt(sessionStorage.getItem('refreshes')) || 3;
+var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 3;
 var callOptions = {
     mediaConstraints: {audio: true, video: true},
     pcConfig:
