@@ -354,6 +354,7 @@ function sendCallRequest(){
     console.log('111111111111111111111111111111111111111111111111111111111111111111111111');
     const formElement = document.getElementById('reqForm');
 	if (formElement.checkValidity()) {
+        console.log('2222222222222222222222222222222222222222222222222222222222222');  
         $.ajax({
             url: "https://shop.lendos.biz/callreq/request", 
             method: "POST", 
@@ -364,7 +365,7 @@ function sendCallRequest(){
                 "site": clientSite 
             },
             success: function() {
-                console.log('222222222222222222222222222222222222222222222222222222222222222222222');
+                console.log('33333333333333333333333333333333333333333333333333333');
             }    
        });
     }   
