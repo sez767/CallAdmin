@@ -204,6 +204,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -944,7 +946,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.site) +
+                                _vm._s(props.row.sites.url) +
                                 "\n          "
                             )
                           ]
@@ -985,8 +987,20 @@ var render = function() {
                             _vm._v(
                               "\n            " +
                                 _vm._s(props.row.status) +
-                                "\n          "
-                            )
+                                "\n            "
+                            ),
+                            props.row.status == 1
+                              ? _c("b-icon", {
+                                  staticStyle: { color: "green" },
+                                  attrs: {
+                                    icon: "alarm-light-outline",
+                                    size: "is-big"
+                                  }
+                                })
+                              : _c("b-icon", {
+                                  staticStyle: { color: "red" },
+                                  attrs: { icon: "alarm-light", size: "is-big" }
+                                })
                           ]
                         }
                       }
