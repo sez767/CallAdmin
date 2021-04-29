@@ -149,7 +149,7 @@ function reloadButtons(){
     muteSound.setAttribute("state", "Unmute");
     muteSound.classList.remove("line");
 }
-var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 5;
+var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 3;
 var callOptions = {
     mediaConstraints: {audio: true, video: true},
     pcConfig:
@@ -201,7 +201,7 @@ if(configuration.uri && configuration.password){
         var endSession = function(){
             completeSession();
             if(accountRole == 'user'){
-                $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
+                $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes+1})`);
                 if(refreshes>1){
                     setTimeout(function() {
                         sessionStorage.setItem('refreshes', --refreshes);
@@ -310,7 +310,7 @@ function callC() {
         phone.call(dest, callOptions);
         updateUI();
     }else{
-        $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
+        $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes+1})`);
         if(refreshes>1){
             setTimeout(function() {
                 sessionStorage.setItem('refreshes', --refreshes);
