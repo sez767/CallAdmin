@@ -43,8 +43,8 @@
               {{ props.row.id }}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props"> 
-              <b-icon v-if="props.row.status == 1" icon="alarm-light-outline" size="is-big" style="color:green;"/>
-              <b-icon v-else icon="alarm-light" size="is-big" style="color:red;"/>
+              <b-icon v-if="props.row.status == 1" icon="bell-check" size="is-big" style="color:green;"/>
+              <b-icon v-else icon="bell-alert" size="is-big" style="color:red;"/>
             </b-table-column>
             <b-table-column label="Имя" field="name" sortable v-slot="props">
               {{ props.row.name }}
@@ -69,9 +69,9 @@
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <router-link :to="{name:'clients.edit', params: {id: props.row.id}}" class="button is-small is-primary">
-                  <b-icon icon="account-edit" size="is-small"/>
-                </router-link>
+                <button class="button is-small is-primary" type="button" @click.prevent="">
+                  <b-icon icon="check-circle" size="is-small"/>
+                </button>
                 <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
                   <b-icon icon="trash-can" size="is-small"/>
                 </button>

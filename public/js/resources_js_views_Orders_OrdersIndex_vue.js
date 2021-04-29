@@ -918,14 +918,11 @@ var render = function() {
                             props.row.status == 1
                               ? _c("b-icon", {
                                   staticStyle: { color: "green" },
-                                  attrs: {
-                                    icon: "alarm-light-outline",
-                                    size: "is-big"
-                                  }
+                                  attrs: { icon: "bell-check", size: "is-big" }
                                 })
                               : _c("b-icon", {
                                   staticStyle: { color: "red" },
-                                  attrs: { icon: "alarm-light", size: "is-big" }
+                                  attrs: { icon: "bell-alert", size: "is-big" }
                                 })
                           ]
                         }
@@ -1084,57 +1081,52 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _c(
-                              "div",
-                              { staticClass: "buttons is-right" },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "button is-small is-primary",
+                            _c("div", { staticClass: "buttons is-right" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "button is-small is-primary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("b-icon", {
                                     attrs: {
-                                      to: {
-                                        name: "clients.edit",
-                                        params: { id: props.row.id }
-                                      }
+                                      icon: "check-circle",
+                                      size: "is-small"
                                     }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "account-edit",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "button is-small is-danger",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.trashModal(props.row)
-                                      }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "button is-small is-danger",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.trashModal(props.row)
                                     }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "trash-can",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
+                                  }
+                                },
+                                [
+                                  _c("b-icon", {
+                                    attrs: {
+                                      icon: "trash-can",
+                                      size: "is-small"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
                           ]
                         }
                       }
