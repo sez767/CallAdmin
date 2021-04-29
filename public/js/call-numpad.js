@@ -33,7 +33,7 @@ function show_videoframe() {
                     <input id="req-phone" type="number" placeholder="Ваш телефон" required></input>
                     <button onclick="sendCallRequest()">Перезвоните мне</button> 
                 </form>
-                <button id="requestOk" class="hiden">OK</button>
+                <button id="requestOk" class="hiden" onclick="self.close()">OK</button>
             </div>  
         </div>   
   `;

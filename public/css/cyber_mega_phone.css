@@ -177,6 +177,7 @@
 	padding: 2em;
 	background: white;
 	border-radius: 1rem;
+	text-align: center;
 }
 .modal-window div:not(:last-of-type) {
 	margin-bottom: 15px;
