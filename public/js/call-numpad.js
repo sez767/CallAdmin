@@ -33,7 +33,7 @@ function show_videoframe() {
                     <input id="req-phone" type="number" placeholder="Ваш телефон" required></input>
                     <button onclick="sendCallRequest()">Перезвоните мне</button> 
                 </form>
-                <button id="closeAll" class="hiden">OK</button>
+                <button id="requestOk" class="hiden">OK</button>
             </div>  
         </div>   
   `;
@@ -365,9 +365,8 @@ function sendCallRequest(){
                 "status": 0
             },
             success: function() {
-                console.log('3333');
                 $('#reqForm').addClass("hiden");
-                $('#closeAll').removeClass("hiden");
+                $('#requestOk').removeClass("hiden");
             }    
        });
     }   
