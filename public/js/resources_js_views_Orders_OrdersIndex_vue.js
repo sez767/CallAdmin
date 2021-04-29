@@ -1058,11 +1058,11 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.staffs.email) +
-                                "\n          "
-                            )
+                            props.row.staffs
+                              ? _c("span", [
+                                  _vm._v(_vm._s(props.row.staffs.email))
+                                ])
+                              : _vm._e()
                           ]
                         }
                       }

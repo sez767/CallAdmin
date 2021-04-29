@@ -59,7 +59,6 @@ class CallrequestsController extends Controller
             'status' => $request->callrequest['status'],
             'staff' => $staff,
             ]);
-            dd($callreq);
             $answer = ['status' => $callreq->status]; 
             return response()->json(['data' =>  $answer], Response::HTTP_OK);
     }
