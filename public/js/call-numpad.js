@@ -310,7 +310,13 @@ function callC() {
         phone.call(dest, callOptions);
         updateUI();
     }else{
-        endSession;
+        $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
+        if(refreshes>0){
+            setTimeout(function() {
+                sessionStorage.setItem('refreshes', --refreshes);
+                window.location.reload(false);
+            }, 15000);
+        }    
     }
       
 }
