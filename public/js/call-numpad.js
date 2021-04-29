@@ -202,7 +202,7 @@ if(configuration.uri && configuration.password){
             completeSession();
             if(accountRole == 'user'){
                 $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
-                if(refreshes>1){
+                if(refreshes>0){
                     setTimeout(function() {
                         sessionStorage.setItem('refreshes', --refreshes);
                         window.location.reload(false);
@@ -311,7 +311,7 @@ function callC() {
         updateUI();
     }else{
         $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
-        if(refreshes>1){
+        if(refreshes>0){
             setTimeout(function() {
                 sessionStorage.setItem('refreshes', --refreshes);
                 window.location.reload(false);
