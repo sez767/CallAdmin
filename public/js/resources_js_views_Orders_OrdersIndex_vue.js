@@ -838,312 +838,272 @@ var render = function() {
                 on: { confirm: _vm.trashConfirm, cancel: _vm.trashCancel }
               }),
               _vm._v(" "),
-              _c(
-                "b-table",
-                {
-                  attrs: {
-                    "checked-rows": _vm.checkedRows,
-                    checkable: true,
-                    loading: _vm.isLoading,
-                    paginated: _vm.paginated,
-                    "per-page": _vm.perPage,
-                    striped: true,
-                    hoverable: true,
-                    "default-sort": "id",
-                    data: _vm.callreq
-                  },
-                  on: {
-                    "update:checkedRows": function($event) {
-                      _vm.checkedRows = $event
-                    },
-                    "update:checked-rows": function($event) {
-                      _vm.checkedRows = $event
+              _vm._v(" 'desc',\n        :data=\"callreq\">\n\n          "),
+              _c("b-table-column", {
+                staticClass: "has-no-head-mobile is-image-cell",
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        props.row.avatar
+                          ? _c("div", { staticClass: "image" }, [
+                              _c("img", {
+                                staticClass: "is-rounded",
+                                attrs: { src: props.row.avatar }
+                              })
+                            ])
+                          : _vm._e()
+                      ]
                     }
                   }
-                },
-                [
-                  _c("b-table-column", {
-                    staticClass: "has-no-head-mobile is-image-cell",
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            props.row.avatar
-                              ? _c("div", { staticClass: "image" }, [
-                                  _c("img", {
-                                    staticClass: "is-rounded",
-                                    attrs: { src: props.row.avatar }
-                                  })
-                                ])
-                              : _vm._e()
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "ID", field: "id", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.id) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Имя", field: "name", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.name) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Телефон", field: "phone", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.phone) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Сайт", field: "site", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.sites.url) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: {
-                      label: "Дата подачи",
-                      field: "date",
-                      sortable: ""
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(_vm.format_date(props.row.created_at)) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Статус", field: "status", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.status) +
-                                "\n            "
-                            ),
-                            props.row.status == 1
-                              ? _c("b-icon", {
-                                  staticStyle: { color: "green" },
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "ID", field: "id", sortable: "" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(props.row.id) +
+                            "\n          "
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "Статус", field: "status", sortable: "" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        props.row.status == 1
+                          ? _c("b-icon", {
+                              staticStyle: { color: "green" },
+                              attrs: {
+                                icon: "alarm-light-outline",
+                                size: "is-big"
+                              }
+                            })
+                          : _c("b-icon", {
+                              staticStyle: { color: "red" },
+                              attrs: { icon: "alarm-light", size: "is-big" }
+                            })
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "Имя", field: "name", sortable: "" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(props.row.name) +
+                            "\n          "
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "Телефон", field: "phone", sortable: "" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(props.row.phone) +
+                            "\n          "
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "Сайт", field: "site", sortable: "" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(props.row.sites.url) +
+                            "\n          "
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "Дата подачи", field: "date", sortable: "" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(_vm.format_date(props.row.created_at)) +
+                            "\n          "
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                attrs: { label: "Оператор", field: "staff", sortable: "" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(props.row.staff) +
+                            "\n          "
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-table-column", {
+                staticClass: "is-actions-cell",
+                attrs: { "custom-key": "actions" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(props) {
+                      return [
+                        _c(
+                          "div",
+                          { staticClass: "buttons is-right" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "button is-small is-primary",
+                                attrs: {
+                                  to: {
+                                    name: "clients.edit",
+                                    params: { id: props.row.id }
+                                  }
+                                }
+                              },
+                              [
+                                _c("b-icon", {
                                   attrs: {
-                                    icon: "alarm-light-outline",
-                                    size: "is-big"
+                                    icon: "account-edit",
+                                    size: "is-small"
                                   }
                                 })
-                              : _c("b-icon", {
-                                  staticStyle: { color: "red" },
-                                  attrs: { icon: "alarm-light", size: "is-big" }
-                                })
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Оператор", field: "staff", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.staff) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    staticClass: "is-actions-cell",
-                    attrs: { "custom-key": "actions" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
                             _c(
-                              "div",
-                              { staticClass: "buttons is-right" },
+                              "button",
+                              {
+                                staticClass: "button is-small is-danger",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.trashModal(props.row)
+                                  }
+                                }
+                              },
                               [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "button is-small is-primary",
-                                    attrs: {
-                                      to: {
-                                        name: "clients.edit",
-                                        params: { id: props.row.id }
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "account-edit",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "button is-small is-danger",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.trashModal(props.row)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "trash-can",
-                                        size: "is-small"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                )
+                                _c("b-icon", {
+                                  attrs: { icon: "trash-can", size: "is-small" }
+                                })
                               ],
                               1
                             )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  staticClass: "section",
+                  attrs: { slot: "empty" },
+                  slot: "empty"
+                },
+                [
                   _c(
-                    "section",
-                    {
-                      staticClass: "section",
-                      attrs: { slot: "empty" },
-                      slot: "empty"
-                    },
+                    "div",
+                    { staticClass: "content has-text-grey has-text-centered" },
                     [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "content has-text-grey has-text-centered"
-                        },
-                        [
-                          _vm.isLoading
-                            ? [
-                                _c(
-                                  "p",
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "dots-horizontal",
-                                        size: "is-large"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Загружаем...")])
-                              ]
-                            : [
-                                _c(
-                                  "p",
-                                  [
-                                    _c("b-icon", {
-                                      attrs: {
-                                        icon: "emoticon-sad",
-                                        size: "is-large"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Ничего нет…")])
-                              ]
-                        ],
-                        2
-                      )
-                    ]
+                      _vm.isLoading
+                        ? [
+                            _c(
+                              "p",
+                              [
+                                _c("b-icon", {
+                                  attrs: {
+                                    icon: "dots-horizontal",
+                                    size: "is-large"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Загружаем...")])
+                          ]
+                        : [
+                            _c(
+                              "p",
+                              [
+                                _c("b-icon", {
+                                  attrs: {
+                                    icon: "emoticon-sad",
+                                    size: "is-large"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Ничего нет…")])
+                          ]
+                    ],
+                    2
                   )
-                ],
-                1
+                ]
               )
             ],
             1

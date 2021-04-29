@@ -31,6 +31,7 @@
           :striped="true"
           :hoverable="true"
           default-sort="id"
+          defaultSortDirection: 'desc',
           :data="callreq">
 
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
@@ -40,6 +41,10 @@
             </b-table-column>
             <b-table-column label="ID" field="id" sortable v-slot="props">
               {{ props.row.id }}
+            </b-table-column>
+            <b-table-column label="Статус" field="status" sortable v-slot="props"> 
+              <b-icon v-if="props.row.status == 1" icon="alarm-light-outline" size="is-big" style="color:green;"/>
+              <b-icon v-else icon="alarm-light" size="is-big" style="color:red;"/>
             </b-table-column>
             <b-table-column label="Имя" field="name" sortable v-slot="props">
               {{ props.row.name }}
@@ -52,11 +57,6 @@
             </b-table-column>
             <b-table-column label="Дата подачи" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}
-            </b-table-column>
-            <b-table-column label="Статус" field="status" sortable v-slot="props">
-              {{ props.row.status }}
-              <b-icon v-if="props.row.status == 1" icon="alarm-light-outline" size="is-big" style="color:green;"/>
-              <b-icon v-else icon="alarm-light" size="is-big" style="color:red;"/>
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
               {{ props.row.staff }}
