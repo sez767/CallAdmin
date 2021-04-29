@@ -206,6 +206,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1004,6 +1010,28 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
+                    attrs: {
+                      label: "Дата обработки",
+                      field: "wdate",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(_vm.format_date(props.row.updaated_at)) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
                     attrs: { label: "Оператор", field: "staff", sortable: "" },
                     scopedSlots: _vm._u([
                       {
@@ -1013,6 +1041,28 @@ var render = function() {
                             _vm._v(
                               "\n            " +
                                 _vm._s(props.row.staff) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: {
+                      label: "Коментарий",
+                      field: "comment",
+                      sortable: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.comment) +
                                 "\n          "
                             )
                           ]

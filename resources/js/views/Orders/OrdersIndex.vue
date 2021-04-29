@@ -58,8 +58,14 @@
             <b-table-column label="Дата подачи" field="date" sortable v-slot="props">
               {{format_date(props.row.created_at)}}
             </b-table-column>
+            <b-table-column label="Дата обработки" field="wdate" sortable v-slot="props">
+              {{format_date(props.row.updaated_at)}}
+            </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
               {{ props.row.staff }}
+            </b-table-column>
+            <b-table-column label="Коментарий" field="comment" sortable v-slot="props">
+              {{ props.row.comment }}
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
