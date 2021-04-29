@@ -204,7 +204,7 @@ if(configuration.uri && configuration.password){
                 $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
                 if(refreshes>1){
                     setTimeout(function() {
-                        sessionStorage.setItem('refreshes', --refreshes);
+                        sessionStorage.setItem('refreshes', refreshes--);
                         window.location.reload(false);
                     }, 5000);
                 }    
@@ -311,9 +311,9 @@ function callC() {
         updateUI();
     }else{
         $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
-        if(refreshes >= 1){
+        if(refreshes > 1){
             setTimeout(function() {
-                sessionStorage.setItem('refreshes', --refreshes);
+                sessionStorage.setItem('refreshes', refreshes--);
                 window.location.reload(false);
             }, 5000);
         }else{
