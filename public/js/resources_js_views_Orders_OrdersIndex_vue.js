@@ -199,6 +199,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -888,7 +891,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Name", field: "name", sortable: "" },
+                    attrs: { label: "Имя", field: "name", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -897,6 +900,42 @@ var render = function() {
                             _vm._v(
                               "\n            " +
                                 _vm._s(props.row.name) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Телефон", field: "phone", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.phone) +
+                                "\n          "
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Сайт", field: "site", sortable: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(props) {
+                          return [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(props.row.site) +
                                 "\n          "
                             )
                           ]
@@ -933,24 +972,6 @@ var render = function() {
                             _vm._v(
                               "\n            " +
                                 _vm._s(props.row.status) +
-                                "\n          "
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Сайт", field: "site", sortable: "" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function(props) {
-                          return [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(props.row.site) +
                                 "\n          "
                             )
                           ]

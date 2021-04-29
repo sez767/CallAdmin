@@ -41,17 +41,20 @@
             <b-table-column label="ID" field="id" sortable v-slot="props">
               {{ props.row.id }}
             </b-table-column>
-            <b-table-column label="Name" field="name" sortable v-slot="props">
+            <b-table-column label="Имя" field="name" sortable v-slot="props">
               {{ props.row.name }}
+            </b-table-column>
+            <b-table-column label="Телефон" field="phone" sortable v-slot="props">
+              {{ props.row.phone }}
+            </b-table-column>
+            <b-table-column label="Сайт" field="site" sortable v-slot="props">
+              {{ props.row.site }}
             </b-table-column>
             <b-table-column label="Дата" field="date" sortable v-slot="props">
               {{ props.row.date }}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
               {{ props.row.status }}
-            </b-table-column>
-            <b-table-column label="Сайт" field="site" sortable v-slot="props">
-              {{ props.row.site }}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
               {{ props.row.staff }}
