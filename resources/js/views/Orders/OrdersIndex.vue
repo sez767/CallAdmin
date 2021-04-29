@@ -50,8 +50,8 @@
             <b-table-column label="Сайт" field="site" sortable v-slot="props">
               {{ props.row.site }}
             </b-table-column>
-            <b-table-column label="Дата" field="date" sortable v-slot="props">
-              {{ props.row.date }}
+            <b-table-column label="Дата подачи" field="date" sortable v-slot="props">
+              {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props">
               {{ props.row.status }}
@@ -100,6 +100,7 @@ import ModalBox from '@/components/ModalBox'
 import TitleBar from '@/components/TitleBar'
 import HeroBar from '@/components/HeroBar'
 import CardToolbar from '@/components/CardToolbar'
+import moment from 'moment';
 
 export default {
   name: "ClientIndex",
@@ -153,6 +154,11 @@ export default {
             queue: false
           })
         })
+    },
+    format_date(value){
+         if (value) {
+           return moment(String(value)).format('HH:mm:ss - DD.MM.YY')
+          }
     },
     trashModal (trashObject = null) {
       if (trashObject || this.checkedRows.length) {
