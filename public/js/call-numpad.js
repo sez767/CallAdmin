@@ -352,6 +352,8 @@ function hangupC(){
 function sendCallRequest(){
     event.preventDefault();
     console.log('111111111111111111111111111111111111111111111111111111111111111111111111');
+    const formElement = $('#reqForm');
+	if (formElement.checkValidity()) {
         $.ajax({
             url: "https://shop.lendos.biz/callreq/request", 
             method: "POST", 
@@ -365,7 +367,7 @@ function sendCallRequest(){
                 console.log('222222222222222222222222222222222222222222222222222222222222222222222');
             }    
        });
-    return false;
+    }   
 }
 function toVue(msg){
         window.parent.postMessage({
