@@ -52,8 +52,8 @@ class CallrequestsController extends Controller
     /**
      * Change status of request
      */
-    public function changeStatus ( $id ){
-        dd($id);
+    public function changeStatus (Request $request, $id ){
+        dd($request->all());
         $providerRequest = ProviderRequest::find($id);
         $providerRequest->update([
             'status' => $request->partner['status'],
