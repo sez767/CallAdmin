@@ -26,4 +26,7 @@ class Callrequest extends Model
   public function sites() {
     return $this->belongsTo(Site::class, 'site');
   }
+  public function staffs() {
+    return $this->belongsTo(Staff::class, 'staff');
+  }
 }

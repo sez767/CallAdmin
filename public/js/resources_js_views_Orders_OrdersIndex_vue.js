@@ -1060,7 +1060,7 @@ var render = function() {
                           return [
                             _vm._v(
                               "\n            " +
-                                _vm._s(props.row.staff) +
+                                _vm._s(props.row.staffs.email) +
                                 "\n          "
                             )
                           ]
