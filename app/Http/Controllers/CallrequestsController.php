@@ -54,9 +54,10 @@ class CallrequestsController extends Controller
      */
     public function changeStatus (Request $request, $id ){
         $callreq = Callrequest::find($id);
+        $staff = \Auth::user()->id;
         $callreq->update([
             'status' => $request->callrequest['status'],
-            'staff' => \Auth::user()->id,
+            'staff' => $staff,
             ]);
             dd($callreq);
             $answer = ['status' => $callreq->status]; 

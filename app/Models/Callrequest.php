@@ -18,7 +18,9 @@ class Callrequest extends Model
 		'name',
     'phone',
     'site',
-    'status'
+    'status',
+    'staff',
+    'comment'
   ];
 
   public function sites() {
