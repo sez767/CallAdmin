@@ -352,7 +352,7 @@ function hangupC(){
 function sendCallRequest(){
     event.preventDefault();
     console.log('111111111111111111111111111111111111111111111111111111111111111111111111');
-    const formElement = $('#reqForm');
+    const formElement = document.getElementById('reqForm');
 	if (formElement.checkValidity()) {
         $.ajax({
             url: "https://shop.lendos.biz/callreq/request", 
