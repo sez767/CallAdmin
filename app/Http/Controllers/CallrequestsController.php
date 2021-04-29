@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visit;
+use App\Models\Callrequest;
 use Illuminate\Http\Request;
 
 
@@ -44,10 +44,11 @@ class CallrequestsController extends Controller
      */
     public function requestFromClient( Request $request ) {
         dd($request->all());
-        // $visit = Visit::create([
-        //     'header' => $hrequest->header,
-        //     'site' => $request->client,
-        // ]);
+        $callreq = Callrequest::create($request->all());
+        
+        return response()->json([
+            'status' => true
+        ]);
     }
     /**
      * Destroy single resource
