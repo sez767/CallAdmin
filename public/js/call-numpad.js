@@ -149,7 +149,7 @@ function reloadButtons(){
     muteSound.setAttribute("state", "Unmute");
     muteSound.classList.remove("line");
 }
-var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 2;
+var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 3;
 var callOptions = {
     mediaConstraints: {audio: true, video: true},
     pcConfig:
@@ -206,8 +206,10 @@ if(configuration.uri && configuration.password){
                     setTimeout(function() {
                         sessionStorage.setItem('refreshes', --refreshes);
                         window.location.reload(false);
-                    }, 15000);
-                }     
+                    }, 5000);
+                }else{
+                    alert('thata all!');
+                }    
             }
                
           };
@@ -315,7 +317,7 @@ function callC() {
             setTimeout(function() {
                 sessionStorage.setItem('refreshes', --refreshes);
                 window.location.reload(false);
-            }, 15000);
+            }, 5000);
         }    
     }
       
