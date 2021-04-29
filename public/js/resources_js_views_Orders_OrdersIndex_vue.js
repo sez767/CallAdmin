@@ -838,7 +838,7 @@ var render = function() {
                 on: { confirm: _vm.trashConfirm, cancel: _vm.trashCancel }
               }),
               _vm._v(" "),
-              _vm._v(" 'desc',\n        :data=\"callreq\">\n\n          "),
+              _vm._v(" 'desc'\n        :data=\"callreq\">\n\n          "),
               _c("b-table-column", {
                 staticClass: "has-no-head-mobile is-image-cell",
                 scopedSlots: _vm._u([

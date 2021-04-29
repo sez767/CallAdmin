@@ -31,7 +31,7 @@
           :striped="true"
           :hoverable="true"
           default-sort="id"
-          defaultSortDirection: 'desc',
+          defaultSortDirection: 'desc'
           :data="callreq">
 
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
