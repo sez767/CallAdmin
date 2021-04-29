@@ -207,8 +207,6 @@ if(configuration.uri && configuration.password){
                         sessionStorage.setItem('refreshes', --refreshes);
                         window.location.reload(false);
                     }, 5000);
-                }else{
-                    alert('thata all!');
                 }    
             }
                
@@ -318,7 +316,9 @@ function callC() {
                 sessionStorage.setItem('refreshes', --refreshes);
                 window.location.reload(false);
             }, 5000);
-        }    
+        }else{
+            alert('thats all!');
+        }  
     }
       
 }
