@@ -167,17 +167,16 @@ export default {
     switchStatus(row){
             let fieldName = 'status';
             const url = `/callreq/${row.id}`;
-            console.log('1111111',row.status);
-            console.log('2222222',+(!row.status));
-            // axios.patch(url, {callrequest: {status: row.status}})
-            //     .then(response => {
-            //         // this.successResponse();
-            //         row[fieldName] = response.data.data.status;  
-            //         console.log('gggggggggggggg',response.data.data.status); 
-            //     })
-                // .catch(error => {
-                //     this.errorParser(error);
-                // });
+            const stat = +(!row.status);
+            axios.patch(url, {callrequest: {status: stat}})
+                .then(response => {
+                    // this.successResponse();
+                    row[fieldName] = response.data.data.status;  
+                    console.log('gggggggggggggg',response.data.data.status); 
+                })
+                .catch(error => {
+                    this.errorParser(error);
+                });
     },
     format_date(value){
          if (value) {

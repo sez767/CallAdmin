@@ -282,18 +282,22 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     switchStatus: function switchStatus(row) {
+      var _this2 = this;
+
       var fieldName = 'status';
       var url = "/callreq/".concat(row.id);
-      console.log('1111111', row.status);
-      console.log('2222222', +!row.status); // axios.patch(url, {callrequest: {status: row.status}})
-      //     .then(response => {
-      //         // this.successResponse();
-      //         row[fieldName] = response.data.data.status;  
-      //         console.log('gggggggggggggg',response.data.data.status); 
-      //     })
-      // .catch(error => {
-      //     this.errorParser(error);
-      // });
+      var stat = +!row.status;
+      axios.patch(url, {
+        callrequest: {
+          status: stat
+        }
+      }).then(function (response) {
+        // this.successResponse();
+        row[fieldName] = response.data.data.status;
+        console.log('gggggggggggggg', response.data.data.status);
+      })["catch"](function (error) {
+        _this2.errorParser(error);
+      });
     },
     format_date: function format_date(value) {
       if (value) {
@@ -309,7 +313,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     trashConfirm: function trashConfirm() {
-      var _this2 = this;
+      var _this3 = this;
 
       var url;
       var method;
@@ -334,17 +338,17 @@ __webpack_require__.r(__webpack_exports__);
         url: url,
         data: data
       }).then(function (r) {
-        _this2.getData();
+        _this3.getData();
 
-        _this2.trashObject = null;
-        _this2.checkedRows = [];
+        _this3.trashObject = null;
+        _this3.checkedRows = [];
 
-        _this2.$buefy.snackbar.open({
+        _this3.$buefy.snackbar.open({
           message: "Deleted",
           queue: false
         });
       })["catch"](function (err) {
-        _this2.$buefy.toast.open({
+        _this3.$buefy.toast.open({
           message: "Error: ".concat(err.message),
           type: 'is-danger',
           queue: false
