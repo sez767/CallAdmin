@@ -56,7 +56,7 @@ class CallrequestsController extends Controller
         // dd($request->all());
         $callreq = Callrequest::find($id);
         $callreq->update([
-            'status' => $request->callreques['status'],
+            'status' => $request->callrequest['status'],
             ]);
             $answer = ['status' => $callreq->status]; 
             return response()->json(['data' =>  $answer], Response::HTTP_OK);
