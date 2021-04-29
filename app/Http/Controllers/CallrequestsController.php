@@ -54,11 +54,11 @@ class CallrequestsController extends Controller
      */
     public function changeStatus (Request $request, $id ){
         dd($request->all());
-        $providerRequest = ProviderRequest::find($id);
-        $providerRequest->update([
-            'status' => $request->partner['status'],
+        $callreq = Callrequest::find($id);
+        $callreq->update([
+            'status' => $request->callreques['status'],
             ]);
-            $answer = ['status' => $providerRequest->status]; 
+            $answer = ['status' => $callreq->status]; 
             return response()->json(['data' =>  $answer], Response::HTTP_OK);
     }
     /**

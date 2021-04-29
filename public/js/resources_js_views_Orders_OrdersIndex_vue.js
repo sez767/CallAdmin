@@ -291,6 +291,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         // this.successResponse();
         row[fieldName] = response.data.data.status;
+        console.log('gggggggggggggg', response.data.data.status);
       }); // .catch(error => {
       //     this.errorParser(error);
       // });
