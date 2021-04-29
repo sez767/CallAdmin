@@ -17,14 +17,25 @@ function show_videoframe() {
                 <input type="button" class="hide" id="answerButton" onclick="answerC()" value="&#128222;"></input>
             </div>
             <div id="buttons-div" class="buttons-div">
-            
+            <input type="button" id="test-btn" class="allButtons" onclick="openRequestModal()" value="TEST"></input>
             <input type="button" id="audio-out-btn" class="allButtons audio-out-btn" value="Звук"></input>
             <input type="button" id="audio-btn" class="allButtons audio-btn" value="Микрофон"></input>
             <input type="button" id="video-btn" class="allButtons video-btn" value="Камера"></input>
             <input type="button" id="exit-btn" class="allButtons exit-btn" value="Завершить"></input>
             </div>
-        </div>    
-    </div>    
+        </div> 
+        <div id="open-modal" class="request-modal-window hide">
+            <div>
+                <h1>Оствьте Ваш телефон и мы обязательно свяжемся с вами.</h1>
+                <a href="#" title="Close" id="closeAll" class="request-modal-close">&times;</a>
+                <form id="reqForm" class="request-form">
+                    <input id="req-name" type="text" placeholder="Ваше имя" required></input>
+                    <input id="req-phone" type="number" placeholder="Ваш телефон" required></input>
+                    <button onclick="sendCallRequest()">Перезвоните мне</button> 
+                </form>
+                <button class="hiden">OK</button>
+            </div>  
+        </div>   
   `;
 
     $('body').append(easy_vid);
@@ -137,6 +148,10 @@ function configButtons(){
                 hangupC();
             }	
         };
+    let exitall = document.getElementById("closeAll");
+    exitall.onclick = function() {
+        window.close();
+    }
 }
 function reloadButtons(){
     let muteAudio = document.getElementById("audio-btn");
@@ -149,9 +164,8 @@ function reloadButtons(){
     muteSound.setAttribute("state", "Unmute");
     muteSound.classList.remove("line");
 }
-var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 3;
+var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 2;
 var callOptions = {
-    mediaConstraints: {audio: true, video: true},
     pcConfig:
     {
         hackStripTcp: true, 
@@ -201,7 +215,7 @@ if(configuration.uri && configuration.password){
         var endSession = function(){
             completeSession();
             if(accountRole == 'user'){
-                $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes-1})`);
+                $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
                 if(refreshes>1){
                     setTimeout(function() {
                         sessionStorage.setItem('refreshes', --refreshes);
@@ -310,7 +324,7 @@ function callC() {
         phone.call(dest, callOptions);
         updateUI();
     }else{
-        $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes-1})`);
+        $('#callInfoText').val(`Все операторы заняты, пожалуйста ожидайте...(${refreshes})`);
         if(refreshes>1){
             setTimeout(function() {
                 sessionStorage.setItem('refreshes', --refreshes);
@@ -318,7 +332,7 @@ function callC() {
             }, 5000);
         }else{
             $('#callInfoText').val(`Напишите и мы Вам перезвоним`);
-            alert('OK');
+            openRequestModal();
         }  
     }
       
@@ -335,12 +349,34 @@ function hangupC(){
         session.terminate();
     }
 };
+function sendCallRequest(){
+    console.log('111111111111111111111111111111111111111111111111111111111111111111111111');
+        $.ajax({
+            url: "https://shop.lendos.biz/callreq/request", 
+            method: "POST", 
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+            data: {
+                "name": $("#req-name").val(),
+                "phone": $("#req-phone").val(),
+                "site": clientSite 
+            },
+            success: function() {
+                console.log('222222222222222222222222222222222222222222222222222222222222222222222');
+            }    
+       });
+    return false;
+}
 function toVue(msg){
         window.parent.postMessage({
            'message': msg
         },'*');
    };
-
+function openRequestModal(){
+    $('#open-modal').removeClass("hide");
+};
+function closeAll() {
+    window.close();
+}
 function updateUI(){
     if(configuration.uri && configuration.password){
         if(session){
@@ -382,11 +418,11 @@ function updateUI(){
 }
 
 window.onload = function() {
-    if(accountRole == 'user'){
-        setTimeout(function() {
-            callC();
-        }, 3000);
-    }
+    // if(accountRole == 'user'){
+    //     setTimeout(function() {
+    //         callC();
+    //     }, 3000);
+    // }
 };
 
 window.onunload = function() {

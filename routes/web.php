@@ -73,6 +73,15 @@ Route::prefix('/calls')->group(function () {
     Route::post('/addcall', [App\Http\Controllers\CallsController::class, 'confirmCall']);
 });
 /*
+ * CallRequests
+ * */
+Route::prefix('/callreq')->group(function () {
+    Route::get('/', [\App\Http\Controllers\CallrequestsController::class, 'index']);
+    Route::post('/destroy', [\App\Http\Controllers\CallrequestsController::class, 'destroyMass']);
+    Route::delete('/{callreq}/destroy', [\App\Http\Controllers\CallrequestsController::class, 'destroy']);
+    Route::post('/request', [App\Http\Controllers\CallrequestsController::class, 'requestFromClient']);
+});
+/*
  * Current user
  * */
 Route::prefix('/user')->group(function () {
