@@ -69,7 +69,7 @@
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
-                <button class="button is-small is-primary" type="button" @click.prevent="">
+                <button class="button is-small is-primary" type="button" @click.prevent="switchStatus(props.row)">
                   <b-icon icon="check-circle" size="is-small"/>
                 </button>
                 <button class="button is-small is-danger" type="button" @click.prevent="trashModal(props.row)">
@@ -163,6 +163,18 @@ export default {
             queue: false
           })
         })
+    },
+    switchStatus(row){
+            let fieldName = 'status';
+            const url = `/callreq/${row.id}`;
+            axios.put(url, {callrequest: {status: row.status}})
+                .then(response => {
+                    // this.successResponse();
+                    row[fieldName] = response.data.data.status;   
+                })
+                // .catch(error => {
+                //     this.errorParser(error);
+                // });
     },
     format_date(value){
          if (value) {

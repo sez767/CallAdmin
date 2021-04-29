@@ -34,6 +34,7 @@
           default-sort="name"
           detailed
           :show-detail-icon="true"
+          defaultSortDirection="desc"
           :data="visits">
 
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">

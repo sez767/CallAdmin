@@ -50,6 +50,18 @@ class CallrequestsController extends Controller
         ]);
     }
     /**
+     * Change status of request
+     */
+    public function changeStatus ( $id ){
+        dd($id);
+        $providerRequest = ProviderRequest::find($id);
+        $providerRequest->update([
+            'status' => $request->partner['status'],
+            ]);
+            $answer = ['status' => $providerRequest->status]; 
+            return response()->json(['data' =>  $answer], Response::HTTP_OK);
+    }
+    /**
      * Destroy single resource
      *
      * @return \Illuminate\Http\JsonResponse

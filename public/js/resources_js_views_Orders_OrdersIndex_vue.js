@@ -281,6 +281,20 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
+    switchStatus: function switchStatus(row) {
+      var fieldName = 'status';
+      var url = "/callreq/".concat(row.id);
+      axios.put(url, {
+        callrequest: {
+          status: row.status
+        }
+      }).then(function (response) {
+        // this.successResponse();
+        row[fieldName] = response.data.data.status;
+      }); // .catch(error => {
+      //     this.errorParser(error);
+      // });
+    },
     format_date: function format_date(value) {
       if (value) {
         return moment__WEBPACK_IMPORTED_MODULE_6___default()(String(value)).format('HH:mm:ss - DD.MM');
@@ -1090,6 +1104,7 @@ var render = function() {
                                   on: {
                                     click: function($event) {
                                       $event.preventDefault()
+                                      return _vm.switchStatus(props.row)
                                     }
                                   }
                                 },

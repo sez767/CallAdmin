@@ -202,6 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -856,6 +857,7 @@ var render = function() {
                     striped: true,
                     hoverable: true,
                     "default-sort": "id",
+                    defaultSortDirection: "desc",
                     data: _vm.calls
                   },
                   on: {
