@@ -310,7 +310,7 @@ function callC() {
         phone.call(dest, callOptions);
         updateUI();
     }else{
-        endSession();
+        endSession;
     }
       
 }
