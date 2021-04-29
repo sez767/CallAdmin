@@ -168,7 +168,7 @@ export default {
             let fieldName = 'status';
             const url = `/callreq/${row.id}`;
             console.log('1111111',row.status);
-            console.log('2222222',!row.status);
+            console.log('2222222',+(!row.status));
             // axios.patch(url, {callrequest: {status: row.status}})
             //     .then(response => {
             //         // this.successResponse();
