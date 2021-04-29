@@ -317,7 +317,8 @@ function callC() {
                 window.location.reload(false);
             }, 5000);
         }else{
-            alert('thats all!');
+            $('#callInfoText').val(`Напишите и мы Вам перезвоним`);
+            alert('OK');
         }  
     }
       
