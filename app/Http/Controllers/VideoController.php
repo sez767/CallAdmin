@@ -25,7 +25,7 @@ class VideoController extends Controller
             ->with('pass', $staff->password);
     } 
 
-        /**
+    /**
      * Video window for client
      *
      */

@@ -17,7 +17,6 @@ function show_videoframe() {
                 <input type="button" class="hide" id="answerButton" onclick="answerC()" value="&#128222;"></input>
             </div>
             <div id="buttons-div" class="buttons-div">
-            <input type="button" id="test-btn" class="allButtons" onclick="openRequestModal()" value="TEST"></input>
             <input type="button" id="audio-out-btn" class="allButtons audio-out-btn" value="Звук"></input>
             <input type="button" id="audio-btn" class="allButtons audio-btn" value="Микрофон"></input>
             <input type="button" id="video-btn" class="allButtons video-btn" value="Камера"></input>
@@ -164,7 +163,6 @@ function reloadButtons(){
     muteSound.setAttribute("state", "Unmute");
     muteSound.classList.remove("line");
 }
-var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 2;
 var callOptions = {
     pcConfig:
     {
@@ -175,6 +173,8 @@ var callOptions = {
     rtcOfferConstraints:
           { offerToReceiveAudio: 1, offerToReceiveVideo: 1 }
   };
+
+var refreshes = parseInt(sessionStorage.getItem('refreshes'),0) || 6;  
 var phone;
 if(configuration.uri && configuration.password){
     // JsSIP.debug.enable('JsSIP:*'); /// debug output
@@ -220,7 +220,7 @@ if(configuration.uri && configuration.password){
                     setTimeout(function() {
                         sessionStorage.setItem('refreshes', --refreshes);
                         window.location.reload(false);
-                    }, 5000);
+                    }, 15000);
                 }    
             }
                
@@ -329,7 +329,7 @@ function callC() {
             setTimeout(function() {
                 sessionStorage.setItem('refreshes', --refreshes);
                 window.location.reload(false);
-            }, 5000);
+            }, 15000);
         }else{
             $('#callInfoText').val(`Напишите и мы Вам перезвоним`);
             openRequestModal();
@@ -423,11 +423,11 @@ function updateUI(){
 }
 
 window.onload = function() {
-    // if(accountRole == 'user'){
-    //     setTimeout(function() {
-    //         callC();
-    //     }, 3000);
-    // }
+    if(accountRole == 'user'){
+        setTimeout(function() {
+            callC();
+        }, 3000);
+    }
 };
 
 window.onunload = function() {

@@ -218,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isModalActive: false,
       trashObject: null,
-      clients: [],
+      callreq: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
@@ -246,7 +246,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoading = true;
-      axios.get('/clients').then(function (r) {
+      axios.get('/callreq').then(function (r) {
         _this.isLoading = false;
 
         if (r.data && r.data.data) {
@@ -254,7 +254,7 @@ __webpack_require__.r(__webpack_exports__);
             _this.paginated = true;
           }
 
-          _this.clients = r.data.data;
+          _this.callreq = r.data.data;
         }
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -284,10 +284,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.trashObject) {
         method = 'delete';
-        url = "/clients/".concat(this.trashObject.id, "/destroy");
+        url = "/callreq/".concat(this.trashObject.id, "/destroy");
       } else if (this.checkedRows.length) {
         method = 'post';
-        url = '/clients/destroy';
+        url = '/callreq/destroy';
         data = {
           ids: lodash_map__WEBPACK_IMPORTED_MODULE_0___default()(this.checkedRows, function (row) {
             return row.id;
@@ -836,7 +836,7 @@ var render = function() {
                     striped: true,
                     hoverable: true,
                     "default-sort": "id",
-                    data: _vm.clients
+                    data: _vm.callreq
                   },
                   on: {
                     "update:checkedRows": function($event) {

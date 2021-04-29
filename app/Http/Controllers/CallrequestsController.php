@@ -24,16 +24,16 @@ class CallrequestsController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function index() {
-        // $sites = \Auth::user()->sites()->get();
-        // if(!$sites->isEmpty()){
-        //     foreach($sites as $site){
-        //         $sitesIds[]=$site->id;
-        //     }
-        //     $visits = Visit::with(['sites'])->whereIn('site', $sitesIds)->get();
-        //     return response()->json([
-        //         'data' => $visits
-        //     ]);
-        // }
+        $sites = \Auth::user()->sites()->get();
+        if(!$sites->isEmpty()){
+            foreach($sites as $site){
+                $sitesIds[]=$site->id;
+            }
+            $callreq = Callrequest::with(['sites'])->whereIn('site', $sitesIds)->get();
+            return response()->json([
+                'data' => $callreq
+            ]);
+        }
     }
     /**
      *  new visiter
@@ -43,7 +43,6 @@ class CallrequestsController extends Controller
      * @throws \Exception
      */
     public function requestFromClient( Request $request ) {
-        // dd($request->all());
         $callreq = Callrequest::create($request->all());
 
         return response()->json([

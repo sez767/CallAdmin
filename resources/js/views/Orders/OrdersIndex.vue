@@ -31,7 +31,7 @@
           :striped="true"
           :hoverable="true"
           default-sort="id"
-          :data="clients">
+          :data="callreq">
 
             <b-table-column class="has-no-head-mobile is-image-cell" v-slot="props">
               <div v-if="props.row.avatar" class="image">
@@ -105,7 +105,7 @@ export default {
     return {
       isModalActive: false,
       trashObject: null,
-      clients: [],
+      callreq: [],
       isLoading: false,
       paginated: false,
       perPage: 10,
@@ -132,14 +132,14 @@ export default {
     getData () {
       this.isLoading = true
       axios
-        .get('/clients')
+        .get('/callreq')
         .then(r => {
           this.isLoading = false
           if (r.data && r.data.data) {
             if (r.data.data.length > this.perPage) {
               this.paginated = true
             }
-            this.clients = r.data.data
+            this.callreq = r.data.data
           }
         })
         .catch( err => {
@@ -166,10 +166,10 @@ export default {
 
       if (this.trashObject) {
         method = 'delete'
-        url = `/clients/${this.trashObject.id}/destroy`
+        url = `/callreq/${this.trashObject.id}/destroy`
       } else if (this.checkedRows.length) {
         method = 'post'
-        url = '/clients/destroy'
+        url = '/callreq/destroy'
         data = {
           ids: map(this.checkedRows, row => row.id)
         }
