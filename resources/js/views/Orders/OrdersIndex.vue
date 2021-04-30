@@ -171,7 +171,7 @@ export default {
                     // this.successResponse();
                     // row = response.data.data;  
                     row['status'] = response.data.data.status;
-                    row['wdate'] = '000000';
+                    row['wdate'] = response.data.data.updated_at;
                     row['staff'] = response.data.data.staffs.email;
                     console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data.data);
                     console.log('aaccc',response.data.data.staffs.email); 
