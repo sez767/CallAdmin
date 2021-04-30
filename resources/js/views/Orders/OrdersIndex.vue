@@ -59,7 +59,6 @@
               {{format_date(props.row.created_at)}}
             </b-table-column>
             <b-table-column label="Дата обработки" field="wdate" sortable v-slot="props">
-            {{props.row.updated_at}}
               {{format_date(props.row.updated_at)!=format_date(props.row.created_at)? format_date(props.row.updated_at):''}}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
