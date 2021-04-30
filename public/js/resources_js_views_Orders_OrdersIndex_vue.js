@@ -291,7 +291,7 @@ __webpack_require__.r(__webpack_exports__);
         row['status'] = response.data.data.status;
         row['updated_at'] = response.data.data.updated_at; // row['staffs.email'] = response.data.data.staffs.email;
 
-        row['staffs'] = '000000000000000000';
+        row['staffs'] = response.data.data.staffs;
         console.log('alllllllllllllll', response.data.data);
         console.log('aaccccc', response.data.data.updated_at);
       })["catch"](function (error) {
