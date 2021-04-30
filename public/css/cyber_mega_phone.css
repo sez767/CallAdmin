@@ -95,12 +95,6 @@
 		background-position: 0% 50%;
 	}
 	}
-  @media (min-width: 768px) {
-	.modall-content {
-	  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-	  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-	}
-  }
   .info-input {
     width: 100%;
     border: none;
@@ -244,5 +238,9 @@
  .hiden{
 	display: none;
  } 
+ 
  @media only screen and (max-device-width: 700px) {	
+	.allButtons {
+		margin: 0px;
+	}
  }
