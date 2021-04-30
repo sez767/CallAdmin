@@ -415,8 +415,7 @@ __webpack_require__.r(__webpack_exports__);
       item: null,
       form: this.getClearFormObject(),
       createdReadable: null,
-      ggg: this.id,
-      widgetCode: "<!-- CallAdmin Widget --><script id=\"wi_calladmin\" async src=\"https://shop.lendos.biz/js/video_widget.js?client=\"".concat(this.ggg, "\"></script><!-- /CallAdmin Widget -->")
+      widgetCode: "<!-- CallAdmin Widget --><script id=\"wi_calladmin\" async src=\"https://shop.lendos.biz/js/video_widget.js?client=\"".concat(this.id, "\"></script><!-- /CallAdmin Widget -->")
     };
   },
   computed: {

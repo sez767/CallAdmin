@@ -145,8 +145,7 @@ export default {
       item: null,
       form: this.getClearFormObject(),
       createdReadable: null,
-      ggg: this.id,
-      widgetCode: `<!-- CallAdmin Widget --><script id="wi_calladmin" async src="https://shop.lendos.biz/js/video_widget.js?client="${this.ggg}"><\/script><!-- /CallAdmin Widget -->`,
+      widgetCode: `<!-- CallAdmin Widget --><script id="wi_calladmin" async src="https://shop.lendos.biz/js/video_widget.js?client="${this.id}"><\/script><!-- /CallAdmin Widget -->`,
     }
   },
   computed: {
