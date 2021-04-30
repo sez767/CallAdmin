@@ -1084,13 +1084,25 @@ var render = function() {
                         fn: function(props) {
                           return [
                             _c("b-input", {
-                              attrs: {
-                                value: props.row.comment,
-                                keyup: _vm.commentHandler(_vm.$event, props.row)
-                              },
+                              attrs: { value: props.row.comment },
                               on: {
                                 blur: function($event) {
                                   return _vm.commentHandler($event, props.row)
+                                },
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.commentHandler()
                                 }
                               }
                             })
