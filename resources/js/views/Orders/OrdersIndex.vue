@@ -177,7 +177,7 @@ export default {
                     console.log('aaccc',response.data.data.staffs.email); 
                 })
                 .catch(error => {
-                    this.errorParser(error);
+                    console.log('errror',error);
                 });
     },
     format_date(value){
