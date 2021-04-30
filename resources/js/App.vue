@@ -45,17 +45,17 @@ export default {
           {
             to: '/orders/index',
             label: 'Заявки',
-            icon: 'table',
+            icon: 'book-plus-multiple',
           },
           {
             to: '/calls/index',
             label: 'Звонки',
-            icon: 'table',
+            icon: 'phone-plus',
           },
           {
             to: '/visits/index',
             label: 'Посещения',
-            icon: 'table',
+            icon: 'account-multiple',
           },
           {
             to: '/profile',
