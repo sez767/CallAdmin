@@ -145,7 +145,7 @@ export default {
       item: null,
       form: this.getClearFormObject(),
       createdReadable: null,
-      widgetCode: `<!-- CallAdmin Widget --><script id="wi_calladmin" async src="https://shop.lendos.biz/js/video_widget.js?client=${id}"><\/script><!-- /CallAdmin Widget -->`,
+      widgetCode: `<!-- CallAdmin Widget --><script id="wi_calladmin" async src="https://shop.lendos.biz/js/video_widget.js?client=${this.id}"><\/script><!-- /CallAdmin Widget -->`,
     }
   },
   computed: {
