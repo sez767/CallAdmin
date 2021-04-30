@@ -68446,7 +68446,7 @@ var render = function() {
               _c("card-widget", {
                 staticClass: "tile is-child",
                 attrs: {
-                  type: "is-success",
+                  type: "is-danger",
                   icon: "account-multiple",
                   number: _vm.counts.visits,
                   label: "Посещений"

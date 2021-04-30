@@ -8,7 +8,7 @@
       <tiles>
         <card-widget class="tile is-child" type="is-primary" icon="phone-plus" :number="counts.calls" label="Звонков"/>
         <card-widget class="tile is-child" type="is-info" icon="book-plus-multiple" :number="counts.orders" label="Заявок"/>
-        <card-widget class="tile is-child" type="is-success" icon="account-multiple" :number="counts.visits" label="Посещений"/>
+        <card-widget class="tile is-child" type="is-danger" icon="account-multiple" :number="counts.visits" label="Посещений"/>
       </tiles>
 
       <card-component title="Performance" @header-icon-click="fillChartData" icon="finance" header-icon="reload">
