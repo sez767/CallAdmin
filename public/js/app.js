@@ -68427,7 +68427,7 @@ var render = function() {
                 staticClass: "tile is-child",
                 attrs: {
                   type: "is-primary",
-                  icon: "account-multiple",
+                  icon: "phone-plus",
                   number: _vm.counts.calls,
                   label: "Звонков"
                 }
@@ -68437,7 +68437,7 @@ var render = function() {
                 staticClass: "tile is-child",
                 attrs: {
                   type: "is-info",
-                  icon: "cart-outline",
+                  icon: "book-plus-multiple",
                   number: _vm.counts.orders,
                   label: "Заявок"
                 }
@@ -68447,7 +68447,7 @@ var render = function() {
                 staticClass: "tile is-child",
                 attrs: {
                   type: "is-success",
-                  icon: "chart-timeline-variant",
+                  icon: "account-multiple",
                   number: _vm.counts.visits,
                   label: "Посещений"
                 }
