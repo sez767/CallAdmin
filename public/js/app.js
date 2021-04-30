@@ -1900,30 +1900,6 @@ __webpack_require__.r(__webpack_exports__);
         to: '/profile',
         label: 'Мой профиль',
         icon: 'account-circle'
-      }], 'Examples', [{
-        to: '/clients/index',
-        label: 'Clients',
-        icon: 'account-multiple' // updateMark: true
-
-      }, {
-        to: '/tables',
-        label: 'Tables',
-        icon: 'table'
-      }, {
-        to: '/forms',
-        label: 'Forms',
-        icon: 'square-edit-outline'
-      }, {
-        label: 'Submenus',
-        subLabel: 'Submenus Example',
-        icon: 'view-list',
-        menu: [{
-          href: '#void',
-          label: 'Sub-item One'
-        }, {
-          href: '#void',
-          label: 'Sub-item Two'
-        }]
       }]];
     }
   },
