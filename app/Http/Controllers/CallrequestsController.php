@@ -63,6 +63,18 @@ class CallrequestsController extends Controller
             return response()->json(['data' =>  $callreq], Response::HTTP_OK);
     }
     /**
+     * Change comments
+     */
+    public function addComment (Request $request, $id ){
+        $callreq = Callrequest::find($id);
+        $callreq->update([
+            'comment' => $request->callrequest['comment'],
+            ]);
+        return response()->json([
+            'status' => true
+        ]);
+    }
+    /**
      * Destroy single resource
      *
      * @return \Illuminate\Http\JsonResponse

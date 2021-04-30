@@ -78,6 +78,7 @@ Route::prefix('/calls')->group(function () {
 Route::prefix('/callreq')->group(function () {
     Route::get('/', [\App\Http\Controllers\CallrequestsController::class, 'index']);
     Route::patch('/{callreq}', [\App\Http\Controllers\CallrequestsController::class, 'changeStatus']);
+    Route::patch('/comment/{callreq}', [\App\Http\Controllers\CallrequestsController::class, 'addComment']);
     Route::post('/destroy', [\App\Http\Controllers\CallrequestsController::class, 'destroyMass']);
     Route::delete('/{callreq}/destroy', [\App\Http\Controllers\CallrequestsController::class, 'destroy']);
     Route::post('/request', [App\Http\Controllers\CallrequestsController::class, 'requestFromClient']);

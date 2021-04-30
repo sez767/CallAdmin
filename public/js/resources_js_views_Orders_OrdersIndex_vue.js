@@ -300,9 +300,17 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     commentHandler: function commentHandler($event, row) {
-      // event.target.blur();
+      var url = "/callreq/comment/".concat(row.id);
       var comment = event.target.value;
-      console.log('111111111111111111111111111111111111111111', comment);
+      axios.patch(url, {
+        callrequest: {
+          comment: comment
+        }
+      }) // .then(response => {
+      // })
+      ["catch"](function (error) {
+        console.log('errror', error);
+      });
     },
     format_date: function format_date(value) {
       if (value) {

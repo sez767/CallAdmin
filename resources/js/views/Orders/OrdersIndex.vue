@@ -181,9 +181,15 @@ export default {
               });
     },
     commentHandler($event, row){
-      // event.target.blur();
-      let comment = event.target.value;
-      console.log('111111111111111111111111111111111111111111', comment);
+      const url = `/callreq/comment/${row.id}`;
+      const comment = event.target.value;
+      axios.patch(url, {callrequest: {comment: comment}})
+        // .then(response => {
+
+        // })
+        .catch(error => {
+            console.log('errror',error);
+        });
     },
     format_date(value){
          if (value) {
