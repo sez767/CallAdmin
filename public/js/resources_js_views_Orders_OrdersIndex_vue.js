@@ -288,8 +288,6 @@ __webpack_require__.r(__webpack_exports__);
           status: stat
         }
       }).then(function (response) {
-        // this.successResponse();
-        // row = response.data.data;  
         row['status'] = response.data.data.status;
         row['wdate'] = response.data.data.updated_at;
         row['staff'] = response.data.data.staffs.email;

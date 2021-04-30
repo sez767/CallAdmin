@@ -57,7 +57,7 @@ class CallrequestsController extends Controller
         $staff = \Auth::user()->id;
         $callreq->update([
             'status' => $request->callrequest['status'],
-            'staff' => $staff,
+            'staff' => null,
             ]);
             $callreq = Callrequest::with(['sites','staffs'])->find($id);    
             // $answer = ['status' => $callreq->status]; 

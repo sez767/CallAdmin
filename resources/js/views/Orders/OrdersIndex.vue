@@ -167,12 +167,11 @@ export default {
             const url = `/callreq/${row.id}`;
             const stat = +(!row.status);
             axios.patch(url, {callrequest: {status: stat}})
-                .then(response => {
-                    // this.successResponse();
-                    // row = response.data.data;  
+                .then(response => {  
                     row['status'] = response.data.data.status;
                     row['wdate'] = response.data.data.updated_at;
                     row['staff'] = response.data.data.staffs.email;
+
                     console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data.data);
                     console.log('aaccc',response.data.data.staffs.email); 
                 })
