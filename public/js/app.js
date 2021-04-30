@@ -68438,7 +68438,7 @@ var render = function() {
                 attrs: {
                   type: "is-info",
                   icon: "cart-outline",
-                  number: 270,
+                  number: _vm.counts.orders,
                   label: "Заявок"
                 }
               }),
@@ -68448,7 +68448,7 @@ var render = function() {
                 attrs: {
                   type: "is-success",
                   icon: "chart-timeline-variant",
-                  number: 856,
+                  number: _vm.counts.visits,
                   label: "Посещений"
                 }
               })
