@@ -31,9 +31,6 @@ class Site extends Model
     public function staff() {
         return $this->belongsToMany(Staff::class);
     }
-    public function calls() {
-        return $this->hasMany(Call::class);
-    }
 
     public function getAvatarFilenameAttribute() {
         if (!empty($this->file)) {
