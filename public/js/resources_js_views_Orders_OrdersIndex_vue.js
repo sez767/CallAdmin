@@ -289,10 +289,10 @@ __webpack_require__.r(__webpack_exports__);
           status: stat
         }
       }).then(function (response) {
-        row['statuss'] = response.data.data.status; // row['wdate'] = response.data.data.updated_at;
+        row['status'] = response.data.data.status; // row['wdate'] = response.data.data.updated_at;
 
         row['staff'] = response.data.data.staffs.email;
-        row['wdate'] = response.data.data.updated_at;
+        row['updated_at'] = response.data.data.updated_at;
         console.log('alllllllllllllll', response.data.data);
         console.log('aaccccc', response.data.data.updated_at);
       })["catch"](function (error) {
@@ -927,7 +927,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("b-table-column", {
-                    attrs: { label: "Статус", field: "statuss", sortable: "" },
+                    attrs: { label: "Статус", field: "status", sortable: "" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
