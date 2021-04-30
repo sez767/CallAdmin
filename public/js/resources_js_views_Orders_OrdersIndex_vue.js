@@ -212,6 +212,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -1038,7 +1039,9 @@ var render = function() {
                         fn: function(props) {
                           return [
                             _vm._v(
-                              "\n            " +
+                              "\n          " +
+                                _vm._s(props.row.updated_at) +
+                                "\n            " +
                                 _vm._s(
                                   _vm.format_date(props.row.updated_at) !=
                                     _vm.format_date(props.row.created_at)
