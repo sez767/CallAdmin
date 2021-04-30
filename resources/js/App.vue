@@ -43,14 +43,14 @@ export default {
             icon: 'account-multiple',
           },
           {
-            to: '/orders/index',
-            label: 'Заявки',
-            icon: 'book-plus-multiple',
-          },
-          {
             to: '/calls/index',
             label: 'Звонки',
             icon: 'phone-plus',
+          },
+          {
+            to: '/orders/index',
+            label: 'Заявки',
+            icon: 'book-plus-multiple',
           },
           {
             to: '/visits/index',

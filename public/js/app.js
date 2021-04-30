@@ -1885,13 +1885,13 @@ __webpack_require__.r(__webpack_exports__);
         label: 'Персонал',
         icon: 'account-multiple'
       }, {
-        to: '/orders/index',
-        label: 'Заявки',
-        icon: 'book-plus-multiple'
-      }, {
         to: '/calls/index',
         label: 'Звонки',
         icon: 'phone-plus'
+      }, {
+        to: '/orders/index',
+        label: 'Заявки',
+        icon: 'book-plus-multiple'
       }, {
         to: '/visits/index',
         label: 'Посещения',
