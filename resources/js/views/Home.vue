@@ -84,7 +84,7 @@ export default {
         axios.get('/getcounts')
           .then(response => {
               this.counts = response.data;
-              console.log(response.data);
+              console.log('55555555',this.counts);
           })
           .catch(error => {
               console.log('errror',error);
