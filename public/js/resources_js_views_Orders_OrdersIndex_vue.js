@@ -293,7 +293,8 @@ __webpack_require__.r(__webpack_exports__);
         row['status'] = response.data.data.status; // row['wdate'] = response.data.data.updated_at;
 
         row['staff'] = response.data.data.staffs.email;
-        row['wdate'] = _this2.format_date(props.row.updated_at);
+        var datte = response.data.data.updated_at;
+        row['wdate'] = _this2.format_date(datte);
         console.log('alllllllllllllll', response.data.data);
         console.log('aaccccc', response.data.data.staffs.email);
       })["catch"](function (error) {
