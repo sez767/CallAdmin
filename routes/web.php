@@ -17,7 +17,7 @@ Route::redirect('/home', '/');
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/getcounts', [App\Http\Controllers\HomeController::class, 'getAllCounts']);
 /*
  * Clients management
  * */

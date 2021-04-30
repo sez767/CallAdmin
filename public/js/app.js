@@ -3106,6 +3106,11 @@ __webpack_require__.r(__webpack_exports__);
       defaultChart: {
         chartData: null,
         extraOptions: _components_Charts_chart_config__WEBPACK_IMPORTED_MODULE_0__.chartOptionsMain
+      },
+      counts: {
+        calls: null,
+        orders: null,
+        visits: null
       }
     };
   },
@@ -3116,6 +3121,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.fillChartData();
+    this.getAllCounts();
   },
   methods: {
     randomChartData: function randomChartData(n) {
@@ -3126,6 +3132,15 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return data;
+    },
+    getAllCounts: function getAllCounts() {
+      var _this = this;
+
+      axios.get('/getcounts').then(function (response) {
+        _this.counts = response.data.data;
+      })["catch"](function (error) {
+        console.log('errror', error);
+      });
     },
     fillChartData: function fillChartData() {
       this.defaultChart.chartData = {

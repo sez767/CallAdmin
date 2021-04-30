@@ -50,7 +50,12 @@ export default {
       defaultChart: {
         chartData: null,
         extraOptions: chartConfig.chartOptionsMain
-      }
+      },
+      counts: {
+        calls: null,
+        orders: null,
+        visits: null,
+      },
     }
   },
   computed: {
@@ -63,6 +68,7 @@ export default {
   },
   mounted () {
     this.fillChartData()
+    this.getAllCounts()
   },
   methods: {
     randomChartData (n) {
@@ -73,6 +79,15 @@ export default {
       }
 
       return data
+    },
+    getAllCounts(){
+        axios.get('/getcounts')
+          .then(response => {
+              this.counts = response.data.data;
+          })
+          .catch(error => {
+              console.log('errror',error);
+    });
     },
     fillChartData () {
       this.defaultChart.chartData = {
