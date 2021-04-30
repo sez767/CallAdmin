@@ -1106,7 +1106,7 @@ var render = function() {
                                   ) {
                                     return null
                                   }
-                                  return _vm.event.target.blur()
+                                  return $event.target.blur()
                                 }
                               }
                             })
