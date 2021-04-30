@@ -1088,7 +1088,9 @@ var render = function() {
                               on: {
                                 blur: function($event) {
                                   return _vm.commentHandler($event, props.row)
-                                },
+                                }
+                              },
+                              nativeOn: {
                                 keyup: function($event) {
                                   if (
                                     !$event.type.indexOf("key") &&
