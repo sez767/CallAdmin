@@ -292,7 +292,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         // this.successResponse();
-        row = response.data;
+        // row = response.data;  
+        row['staus'] = response.data.status;
         console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data);
       })["catch"](function (error) {
         _this2.errorParser(error);
