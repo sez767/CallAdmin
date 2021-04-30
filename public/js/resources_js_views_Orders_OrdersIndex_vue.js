@@ -1102,7 +1102,7 @@ var render = function() {
                                   ) {
                                     return null
                                   }
-                                  return _vm.commentHandler()
+                                  return _vm.commentHandler($event)
                                 }
                               }
                             })
