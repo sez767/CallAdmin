@@ -43,7 +43,6 @@
               {{ props.row.id }}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props"> 
-            {{ props.row.status}}
               <b-icon v-if="props.row.status == 1" icon="bell-check" size="is-big" style="color:green;"/>
               <b-icon v-else icon="bell-alert" size="is-big" style="color:red;"/>
             </b-table-column>
@@ -63,7 +62,8 @@
               {{format_date(props.row.updated_at)!=format_date(props.row.created_at)? format_date(props.row.updated_at):''}}
             </b-table-column>
             <b-table-column label="Оператор" field="staff" sortable v-slot="props">
-            <span v-if="props.row.staffs">{{ props.row.staffs.email }}</span>  
+            <span v-if="props.row.staffs">{{ props.row.staffs.email }}</span> 
+             {{ props.row.staffs.email }}
             </b-table-column>
             <b-table-column label="Коментарий" field="comment" sortable v-slot="props">
               {{ props.row.comment }}
@@ -173,8 +173,8 @@ export default {
                     row['wdate'] = response.data.data.updated_at;
                     row['staff'] = response.data.data.staffs.email;
 
-                    console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data.data);
-                    console.log('aaccc',response.data.data.staffs.email); 
+                    console.log('alllllllllllllll',response.data.data);
+                    console.log('aaccccc',response.data.data.staffs.email); 
                 })
                 .catch(error => {
                     console.log('errror',error);

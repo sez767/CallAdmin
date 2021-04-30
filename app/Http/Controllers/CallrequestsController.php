@@ -59,10 +59,7 @@ class CallrequestsController extends Controller
             'status' => $request->callrequest['status'],
             'staff' => $staff,
             ]);
-            $callreq = Callrequest::with(['sites','staffs'])->find($id);    
-            // $answer = ['status' => $callreq->status]; 
-            // $answer = $callreq::with(['sites','staffs'])->get();
-            // dd($callreq);
+            $callreq = Callrequest::with(['sites','staffs'])->find($id);
             return response()->json(['data' =>  $callreq], Response::HTTP_OK);
     }
     /**

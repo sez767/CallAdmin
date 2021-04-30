@@ -292,8 +292,8 @@ __webpack_require__.r(__webpack_exports__);
         row['status'] = response.data.data.status;
         row['wdate'] = response.data.data.updated_at;
         row['staff'] = response.data.data.staffs.email;
-        console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data.data);
-        console.log('aaccc', response.data.data.staffs.email);
+        console.log('alllllllllllllll', response.data.data);
+        console.log('aaccccc', response.data.data.staffs.email);
       })["catch"](function (error) {
         console.log('errror', error);
       });
@@ -932,11 +932,6 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
-                            _vm._v(
-                              " \n          " +
-                                _vm._s(props.row.status) +
-                                "\n            "
-                            ),
                             props.row.status == 1
                               ? _c("b-icon", {
                                   staticStyle: { color: "green" },
@@ -1066,7 +1061,12 @@ var render = function() {
                               ? _c("span", [
                                   _vm._v(_vm._s(props.row.staffs.email))
                                 ])
-                              : _vm._e()
+                              : _vm._e(),
+                            _vm._v(
+                              " \n           " +
+                                _vm._s(props.row.staffs.email) +
+                                "\n          "
+                            )
                           ]
                         }
                       }
