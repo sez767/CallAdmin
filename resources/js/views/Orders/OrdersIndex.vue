@@ -152,7 +152,6 @@ export default {
               this.paginated = true
             }
             this.callreq = r.data.data
-            console.log('qqqqqqqqqqqqq',this.callreq);
           }
         })
         .catch( err => {
@@ -172,7 +171,6 @@ export default {
                 .then(response => {
                     // this.successResponse();
                     // row[fieldName] = response.data.data.status;  
-
                     console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data); 
                 })
                 .catch(error => {

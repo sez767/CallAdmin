@@ -269,7 +269,6 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           _this.callreq = r.data.data;
-          console.log('qqqqqqqqqqqqq', _this.callreq);
         }
       })["catch"](function (err) {
         _this.isLoading = false;
@@ -284,7 +283,7 @@ __webpack_require__.r(__webpack_exports__);
     switchStatus: function switchStatus(row) {
       var _this2 = this;
 
-      var fieldName = 'status';
+      // let fieldName = 'status';
       var url = "/callreq/".concat(row.id);
       var stat = +!row.status;
       axios.patch(url, {
@@ -293,8 +292,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         // this.successResponse();
-        row[fieldName] = response.data.data.status;
-        console.log('gggggggggggggg', response.data.data.status);
+        // row[fieldName] = response.data.data.status;  
+        console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data);
       })["catch"](function (error) {
         _this2.errorParser(error);
       });
