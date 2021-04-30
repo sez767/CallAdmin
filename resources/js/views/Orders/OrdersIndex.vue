@@ -181,8 +181,8 @@ export default {
               });
     },
     commentHandler($event, row){
-      let fieldName = event.target.name;
-      console.log('111111111111', event.target);
+      let comment = event.target.value;
+      console.log('111111111111111111111111111111111111111111', comment);
     },
     format_date(value){
          if (value) {

@@ -300,8 +300,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     commentHandler: function commentHandler($event, row) {
-      var fieldName = event.target.name;
-      console.log('111111111111', event.target);
+      var comment = event.target.value;
+      console.log('111111111111111111111111111111111111111111', comment);
     },
     format_date: function format_date(value) {
       if (value) {
