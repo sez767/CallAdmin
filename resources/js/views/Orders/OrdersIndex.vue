@@ -68,7 +68,7 @@
               <b-input 
                 :value="props.row.comment"
                 @blur="commentHandler($event, props.row)"
-                @keyup.native.enter="commentHandler()"
+                @keyup.native.enter="commentHandler($event, props.row)"
               /> 
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
@@ -181,7 +181,8 @@ export default {
               });
     },
     commentHandler($event, row){
-      console.log('11111111111111111111111111111111111');
+      let fieldName = event.target.name;
+      console.log('111111111111', fieldName);
     },
     format_date(value){
          if (value) {

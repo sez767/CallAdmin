@@ -300,7 +300,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     commentHandler: function commentHandler($event, row) {
-      console.log('11111111111111111111111111111111111');
+      var fieldName = event.target.name;
+      console.log('111111111111', fieldName);
     },
     format_date: function format_date(value) {
       if (value) {
@@ -1104,7 +1105,7 @@ var render = function() {
                                   ) {
                                     return null
                                   }
-                                  return _vm.commentHandler()
+                                  return _vm.commentHandler($event, props.row)
                                 }
                               }
                             })
