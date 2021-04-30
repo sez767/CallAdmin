@@ -31,19 +31,19 @@ class HomeController extends Controller
 
     public function getAllCounts()
     {
-        $site = \Auth::user()->sites()->first();
+        $sites = \Auth::user()->sites()->get();
         if(!$sites->isEmpty()){
             foreach($sites as $site){
                 $sitesIds[]=$site->id;
             }
         $callsCount = Call::whereIn('site', $sitesIds)->count();
 
-dd($callsCount);
-
+        dd($callsCount);
+        }
 
             return response()->json([
                 'data' => $calls
             ]);
-        }
+        
     }
 }
