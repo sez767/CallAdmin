@@ -148,5 +148,9 @@ export default {
     50% { background-color: rgb(220, 0, 0); box-shadow: 0 0 10px red; }
     100% { background-color: rgb(120, 0, 0); box-shadow: 0 0 3px red; }
   }
-
+@media only screen and (max-device-width: 700px) {	
+  	.iframeDiv{
+      width: 98%;
+    }
+ }
 	</style>
