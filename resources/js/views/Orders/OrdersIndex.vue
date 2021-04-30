@@ -173,7 +173,7 @@ export default {
                     // this.successResponse();
                     // row[fieldName] = response.data.data.status;  
 
-                    console.log('gggggggggggggg',response.data); 
+                    console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data); 
                 })
                 .catch(error => {
                     this.errorParser(error);
