@@ -171,7 +171,7 @@ export default {
                 .then(response => {
                     // this.successResponse();
                     // row = response.data.data;  
-                    row[fieldName] = response.data.data.status;
+                    row['status'] = response.data.data.status;
                     console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data.data.status); 
                 })
                 .catch(error => {

@@ -293,7 +293,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         // this.successResponse();
         // row = response.data.data;  
-        row[fieldName] = response.data.data.status;
+        row['status'] = response.data.data.status;
         console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data.data.status);
       })["catch"](function (error) {
         _this2.errorParser(error);
