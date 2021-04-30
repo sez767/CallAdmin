@@ -68,7 +68,7 @@
               <b-input 
                 :value="props.row.comment"
                 @blur="commentHandler($event, props.row)"
-                @keyup.enter="commentHandler"
+                @keyup.enter="commentHandler()"
               /> 
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
