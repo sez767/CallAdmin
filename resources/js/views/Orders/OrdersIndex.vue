@@ -65,7 +65,7 @@
             <span v-if="props.row.staffs">{{ props.row.staffs.email }}</span>  
             </b-table-column>
             <b-table-column label="Коментарий" field="comment" sortable v-slot="props">
-              {{ props.row.comment }}
+              <b-input :value="{{ props.row.comment }}" custom-class="is-static"/> 
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
@@ -168,14 +168,9 @@ export default {
             const stat = +(!row.status);
             axios.patch(url, {callrequest: {status: stat}})
                 .then(response => {
-
                     row['status'] = response.data.data.status;
                     row['updated_at'] = response.data.data.updated_at;
-                    // row['staffs.email'] = response.data.data.staffs.email;
                     row['staffs'] = response.data.data.staffs;
-
-                    console.log('alllllllllllllll',response.data.data);
-                    console.log('aaccccc',response.data.data.updated_at); 
                 })
                 .catch(error => {
                     console.log('errror',error);
