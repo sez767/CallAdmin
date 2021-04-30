@@ -152,11 +152,9 @@ export default {
   	.iframeDiv{
       width: 100%;
       position: static;
-      max-height: 90vh;
     }
     iframe{
       left: 0;
-      height: 90vh;
     }
  }
 	</style>

@@ -238,9 +238,15 @@
  .hiden{
 	display: none;
  } 
- 
+
  @media only screen and (max-device-width: 700px) {	
 	.allButtons {
 		margin: 0px;
+	}
+	.content{
+		padding: 0;
+	}
+	.media-view{
+		max-height: 90vh;
 	}
  }
