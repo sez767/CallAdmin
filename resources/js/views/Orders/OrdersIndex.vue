@@ -43,6 +43,7 @@
               {{ props.row.id }}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props"> 
+            {{props.row.status}}
               <b-icon v-if="props.row.status == 1" icon="bell-check" size="is-big" style="color:green;"/>
               <b-icon v-else icon="bell-alert" size="is-big" style="color:red;"/>
             </b-table-column>
@@ -169,10 +170,10 @@ export default {
             axios.patch(url, {callrequest: {status: stat}})
                 .then(response => {
 
-                    row['status'] = response.data.data.status;
+                    // row['status'] = response.data.data.status;
                     row['wdate'] = response.data.data.updated_at;
-                    // row['staff'] = response.data.data.staffs.email;
-                    row['staff'] = 'www@www.gmmm';
+                    row['staff'] = response.data.data.staffs.email;
+                    row['status'] = '100';
 
                     console.log('alllllllllllllll',response.data.data);
                     console.log('aaccccc',response.data.data.staffs.email); 
