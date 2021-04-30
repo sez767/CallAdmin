@@ -156,7 +156,7 @@ export default {
     }
     iframe{
       left: 0;
-      max-height: 90vh;
+      height: 90vh;
     }
  }
 	</style>
