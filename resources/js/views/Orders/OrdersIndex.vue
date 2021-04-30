@@ -182,7 +182,7 @@ export default {
     },
     commentHandler($event, row){
       let fieldName = event.target.name;
-      console.log('111111111111', fieldName);
+      console.log('111111111111', event.target);
     },
     format_date(value){
          if (value) {
