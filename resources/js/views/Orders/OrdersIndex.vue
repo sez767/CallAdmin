@@ -43,6 +43,7 @@
               {{ props.row.id }}
             </b-table-column>
             <b-table-column label="Статус" field="status" sortable v-slot="props"> 
+            {{ props.row.status}}
               <b-icon v-if="props.row.status == 1" icon="bell-check" size="is-big" style="color:green;"/>
               <b-icon v-else icon="bell-alert" size="is-big" style="color:red;"/>
             </b-table-column>

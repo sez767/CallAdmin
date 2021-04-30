@@ -212,6 +212,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -931,6 +932,11 @@ var render = function() {
                         key: "default",
                         fn: function(props) {
                           return [
+                            _vm._v(
+                              " \n          " +
+                                _vm._s(props.row.status) +
+                                "\n            "
+                            ),
                             props.row.status == 1
                               ? _c("b-icon", {
                                   staticStyle: { color: "green" },
