@@ -61,7 +61,7 @@ class CallrequestsController extends Controller
             ]);
             // $answer = ['status' => $callreq->status]; 
             // $answer = $callreq::with(['sites','staffs'])->get();
-            dd($callreq);
+            // dd($callreq);
             return response()->json(['data' =>  $callreq], Response::HTTP_OK);
     }
     /**
