@@ -173,8 +173,7 @@ export default {
                     row['status'] = response.data.data.status;
                     // row['wdate'] = response.data.data.updated_at;
                     row['staff'] = response.data.data.staffs.email;
-                    let datte = response.data.data.updated_at
-                    row['wdate'] = this.format_date(datte);
+                    row['wdate'] = response.data.data.updated_at
 
                     console.log('alllllllllllllll',response.data.data);
                     console.log('aaccccc',response.data.data.staffs.email); 
