@@ -212,7 +212,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -1061,12 +1060,7 @@ var render = function() {
                               ? _c("span", [
                                   _vm._v(_vm._s(props.row.staffs.email))
                                 ])
-                              : _vm._e(),
-                            _vm._v(
-                              " \n           " +
-                                _vm._s(props.row.staffs.email) +
-                                "\n          "
-                            )
+                              : _vm._e()
                           ]
                         }
                       }
