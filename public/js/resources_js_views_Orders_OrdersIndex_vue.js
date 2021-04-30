@@ -1077,10 +1077,7 @@ var render = function() {
                         fn: function(props) {
                           return [
                             _c("b-input", {
-                              attrs: {
-                                value: props.row.comment,
-                                "custom-class": "is-static"
-                              }
+                              attrs: { value: props.row.comment }
                             })
                           ]
                         }
