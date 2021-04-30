@@ -68,7 +68,7 @@
               <b-input 
                 :value="props.row.comment"
                 @blur="commentHandler($event, props.row)"
-                @keyup.native.enter="commentHandler($event, props.row)"
+                @keyup.native.enter="event.target.blur()"
               /> 
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
@@ -181,7 +181,7 @@ export default {
               });
     },
     commentHandler($event, row){
-      event.target.blur();
+      // event.target.blur();
       let comment = event.target.value;
       console.log('111111111111111111111111111111111111111111', comment);
     },
