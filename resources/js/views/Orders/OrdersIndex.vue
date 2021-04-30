@@ -171,7 +171,7 @@ export default {
                     // this.successResponse();
                     // row = response.data.data;  
                     row['status'] = response.data.data.status;
-                    row['wdate'] = response.data.data.updated_at;
+                    row['wdate'] = format_date(response.data.data.updated_at);
                     console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data.data);
                     console.log('aaccc',response.data.data.status); 
                 })
