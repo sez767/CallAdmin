@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Call;
-use App\Models\Callreqest;
+use App\Models\Callrequest;
 use App\Models\Visit;
 
 class HomeController extends Controller
