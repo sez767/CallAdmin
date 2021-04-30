@@ -169,10 +169,10 @@ export default {
             axios.patch(url, {callrequest: {status: stat}})
                 .then(response => {
 
-                    // row['status'] = response.data.data.status;
-                    row['wdate'] = response.data.data.updated_at;
+                    row['status'] = response.data.data.status;
+                    // row['wdate'] = response.data.data.updated_at;
                     row['staff'] = response.data.data.staffs.email;
-                    row['status'] = '1';
+                    row['wdate'] = this.format_date(props.row.updated_at);
 
                     console.log('alllllllllllllll',response.data.data);
                     console.log('aaccccc',response.data.data.staffs.email); 

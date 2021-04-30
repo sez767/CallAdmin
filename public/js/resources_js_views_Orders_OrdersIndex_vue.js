@@ -281,6 +281,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     switchStatus: function switchStatus(row) {
+      var _this2 = this;
+
       var url = "/callreq/".concat(row.id);
       var stat = +!row.status;
       axios.patch(url, {
@@ -288,10 +290,10 @@ __webpack_require__.r(__webpack_exports__);
           status: stat
         }
       }).then(function (response) {
-        // row['status'] = response.data.data.status;
-        row['wdate'] = response.data.data.updated_at;
+        row['status'] = response.data.data.status; // row['wdate'] = response.data.data.updated_at;
+
         row['staff'] = response.data.data.staffs.email;
-        row['status'] = '1';
+        row['wdate'] = _this2.format_date(props.row.updated_at);
         console.log('alllllllllllllll', response.data.data);
         console.log('aaccccc', response.data.data.staffs.email);
       })["catch"](function (error) {
@@ -312,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     trashConfirm: function trashConfirm() {
-      var _this2 = this;
+      var _this3 = this;
 
       var url;
       var method;
@@ -337,17 +339,17 @@ __webpack_require__.r(__webpack_exports__);
         url: url,
         data: data
       }).then(function (r) {
-        _this2.getData();
+        _this3.getData();
 
-        _this2.trashObject = null;
-        _this2.checkedRows = [];
+        _this3.trashObject = null;
+        _this3.checkedRows = [];
 
-        _this2.$buefy.snackbar.open({
+        _this3.$buefy.snackbar.open({
           message: "Deleted",
           queue: false
         });
       })["catch"](function (err) {
-        _this2.$buefy.toast.open({
+        _this3.$buefy.toast.open({
           message: "Error: ".concat(err.message),
           type: 'is-danger',
           queue: false
