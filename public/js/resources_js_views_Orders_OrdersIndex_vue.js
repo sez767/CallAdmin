@@ -300,6 +300,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     commentHandler: function commentHandler($event, row) {
+      event.target.blur();
       var comment = event.target.value;
       console.log('111111111111111111111111111111111111111111', comment);
     },

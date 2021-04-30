@@ -181,6 +181,7 @@ export default {
               });
     },
     commentHandler($event, row){
+      event.target.blur();
       let comment = event.target.value;
       console.log('111111111111111111111111111111111111111111', comment);
     },
