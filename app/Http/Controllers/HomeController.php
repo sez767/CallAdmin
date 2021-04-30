@@ -36,14 +36,16 @@ class HomeController extends Controller
             foreach($sites as $site){
                 $sitesIds[]=$site->id;
             }
-        $callsCount = Call::whereIn('site', $sitesIds)->count();
-
-        dd($callsCount);
-        }
-
+            $callsCount = Call::whereIn('site', $sitesIds)->count();
+            $visitsCount = Visit::whereIn('site', $sitesIds)->count(); 
+            $callreqCount = Callrequest::whereIn('site', $sitesIds)->count();  
+            
             return response()->json([
-                'data' => $calls
+                'calls' => $callsCount,
+                'orders' => $callreqCount,
+                'visits' => $visitsCount,
             ]);
-        
+        }
+   
     }
 }

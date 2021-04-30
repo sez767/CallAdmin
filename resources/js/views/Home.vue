@@ -83,7 +83,8 @@ export default {
     getAllCounts(){
         axios.get('/getcounts')
           .then(response => {
-              this.counts = response.data.data;
+              this.counts = response.data;
+              console.log(response.data);
           })
           .catch(error => {
               console.log('errror',error);

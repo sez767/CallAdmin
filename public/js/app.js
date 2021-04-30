@@ -3137,7 +3137,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/getcounts').then(function (response) {
-        _this.counts = response.data.data;
+        _this.counts = response.data;
+        console.log(response.data);
       })["catch"](function (error) {
         console.log('errror', error);
       });
