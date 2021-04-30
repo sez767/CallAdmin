@@ -6,7 +6,7 @@
     </hero-bar>
     <section class="section is-main-section">
       <tiles>
-        <card-widget class="tile is-child" type="is-primary" icon="account-multiple" :number="112" label="Звонков"/>
+        <card-widget class="tile is-child" type="is-primary" icon="account-multiple" :number="counts.calls" label="Звонков"/>
         <card-widget class="tile is-child" type="is-info" icon="cart-outline" :number="270" label="Заявок"/>
         <card-widget class="tile is-child" type="is-success" icon="chart-timeline-variant" :number="856" label="Посещений"/>
       </tiles>
@@ -84,7 +84,6 @@ export default {
         axios.get('/getcounts')
           .then(response => {
               this.counts = response.data;
-              console.log('55555555',this.counts);
           })
           .catch(error => {
               console.log('errror',error);

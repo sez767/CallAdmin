@@ -3138,7 +3138,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/getcounts').then(function (response) {
         _this.counts = response.data;
-        console.log('55555555', _this.counts);
       })["catch"](function (error) {
         console.log('errror', error);
       });
@@ -68429,7 +68428,7 @@ var render = function() {
                 attrs: {
                   type: "is-primary",
                   icon: "account-multiple",
-                  number: 112,
+                  number: _vm.counts.calls,
                   label: "Звонков"
                 }
               }),
