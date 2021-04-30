@@ -1872,7 +1872,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     menu: function menu() {
-      return ['General', [{
+      return ['', [{
         to: '/',
         icon: 'desktop-mac',
         label: 'Главная'
