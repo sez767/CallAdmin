@@ -65,7 +65,7 @@
             <span v-if="props.row.staffs">{{ props.row.staffs.email }}</span>  
             </b-table-column>
             <b-table-column label="Коментарий" field="comment" sortable v-slot="props">
-              <b-input :value="{{ props.row.comment }}" custom-class="is-static"/> 
+              <b-input :value="props.row.comment" custom-class="is-static"/> 
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
