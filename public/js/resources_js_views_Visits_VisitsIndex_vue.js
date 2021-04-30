@@ -856,7 +856,7 @@ var render = function() {
                     "per-page": _vm.perPage,
                     striped: true,
                     hoverable: true,
-                    "default-sort": "name",
+                    "default-sort": "id",
                     detailed: "",
                     "show-detail-icon": true,
                     defaultSortDirection: "desc",

@@ -31,7 +31,7 @@
           :per-page="perPage"
           :striped="true"
           :hoverable="true"
-          default-sort="name"
+          default-sort="id"
           detailed
           :show-detail-icon="true"
           defaultSortDirection="desc"
