@@ -164,7 +164,6 @@ export default {
         })
     },
     switchStatus(row){
-            let fieldName = 'status';
             const url = `/callreq/${row.id}`;
             const stat = +(!row.status);
             axios.patch(url, {callrequest: {status: stat}})
@@ -172,7 +171,9 @@ export default {
                     // this.successResponse();
                     // row = response.data.data;  
                     row['status'] = response.data.data.status;
-                    console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data.data.status); 
+                    row['wdate'] = response.data.data.updated_at;
+                    console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data.data);
+                    console.log('aaccc',response.data.data.status); 
                 })
                 .catch(error => {
                     this.errorParser(error);

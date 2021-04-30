@@ -283,7 +283,6 @@ __webpack_require__.r(__webpack_exports__);
     switchStatus: function switchStatus(row) {
       var _this2 = this;
 
-      var fieldName = 'status';
       var url = "/callreq/".concat(row.id);
       var stat = +!row.status;
       axios.patch(url, {
@@ -294,7 +293,9 @@ __webpack_require__.r(__webpack_exports__);
         // this.successResponse();
         // row = response.data.data;  
         row['status'] = response.data.data.status;
-        console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data.data.status);
+        row['wdate'] = response.data.data.updated_at;
+        console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data.data);
+        console.log('aaccc', response.data.data.status);
       })["catch"](function (error) {
         _this2.errorParser(error);
       });
