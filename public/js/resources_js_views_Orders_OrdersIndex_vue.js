@@ -296,7 +296,7 @@ __webpack_require__.r(__webpack_exports__);
         row['wdate'] = '000000';
         row['staff'] = '111111';
         console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data.data);
-        console.log('aaccc', response.data.data.status);
+        console.log('aaccc', response.data.data.staffs);
       })["catch"](function (error) {
         _this2.errorParser(error);
       });
