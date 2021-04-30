@@ -294,6 +294,7 @@ __webpack_require__.r(__webpack_exports__);
         // row = response.data.data;  
         row['status'] = response.data.data.status;
         row['wdate'] = '000000';
+        row['staff'] = '111111';
         console.log('aaaaaaaaaaaaaaaaaaaaaaaa', response.data.data);
         console.log('aaccc', response.data.data.status);
       })["catch"](function (error) {
