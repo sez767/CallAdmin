@@ -65,7 +65,11 @@
             <span v-if="props.row.staffs">{{ props.row.staffs.email }}</span>  
             </b-table-column>
             <b-table-column label="Коментарий" field="comment" sortable v-slot="props">
-              <b-input :value="props.row.comment"/> 
+              <b-input 
+                :value="props.row.comment"
+                @blur="commentHandler($event, props.row)"
+                @keyup.enter="commentHandler($event, props.row)"
+              /> 
             </b-table-column>
             <b-table-column custom-key="actions" class="is-actions-cell" v-slot="props">
               <div class="buttons is-right">
@@ -167,14 +171,17 @@ export default {
             const url = `/callreq/${row.id}`;
             const stat = +(!row.status);
             axios.patch(url, {callrequest: {status: stat}})
-                .then(response => {
-                    row['status'] = response.data.data.status;
-                    row['updated_at'] = response.data.data.updated_at;
-                    row['staffs'] = response.data.data.staffs;
-                })
-                .catch(error => {
-                    console.log('errror',error);
-                });
+              .then(response => {
+                  row['status'] = response.data.data.status;
+                  row['updated_at'] = response.data.data.updated_at;
+                  row['staffs'] = response.data.data.staffs;
+              })
+              .catch(error => {
+                  console.log('errror',error);
+              });
+    },
+    commentHandler($event, row){
+      console.log('11111111111111111111111111111111111');
     },
     format_date(value){
          if (value) {

@@ -212,6 +212,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -294,6 +298,9 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log('errror', error);
       });
+    },
+    commentHandler: function commentHandler($event, row) {
+      console.log('11111111111111111111111111111111111');
     },
     format_date: function format_date(value) {
       if (value) {
@@ -1077,7 +1084,27 @@ var render = function() {
                         fn: function(props) {
                           return [
                             _c("b-input", {
-                              attrs: { value: props.row.comment }
+                              attrs: { value: props.row.comment },
+                              on: {
+                                blur: function($event) {
+                                  return _vm.commentHandler($event, props.row)
+                                },
+                                keyup: function($event) {
+                                  if (
+                                    !$event.type.indexOf("key") &&
+                                    _vm._k(
+                                      $event.keyCode,
+                                      "enter",
+                                      13,
+                                      $event.key,
+                                      "Enter"
+                                    )
+                                  ) {
+                                    return null
+                                  }
+                                  return _vm.commentHandler($event, props.row)
+                                }
+                              }
                             })
                           ]
                         }
