@@ -170,7 +170,7 @@ export default {
             axios.patch(url, {callrequest: {status: stat}})
                 .then(response => {
                     // this.successResponse();
-                    // row[fieldName] = response.data.data.status;  
+                    row = response.data;  
                     console.log('aaaaaaaaaaaaaaaaaaaaaaaa',response.data); 
                 })
                 .catch(error => {
