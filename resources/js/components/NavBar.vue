@@ -150,8 +150,9 @@ export default {
   }
 @media only screen and (max-device-width: 700px) {	
   	.iframeDiv{
-      width: 98%;
+      width: 100%;
       position: static;
+      max-height: 90vh;
     }
     iframe{
       left: 0;
